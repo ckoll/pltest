@@ -1,0 +1,121 @@
+.create{
+    width: 220px;
+    padding: 10px;
+    border-left: 1px solid #CCC;
+    background-color: #F9F9F9;
+}
+.create form{
+    margin: 0;
+}
+.create form label{
+    float: left;
+    margin-top: 6px;
+    clear: both;
+    margin-right: 10px;
+    font-style: italic;
+}
+.create h3{
+    font-size: 16px;
+}
+.gifts_table td{
+    line-height: 50px;
+}
+
+.table, .table td{
+    border: 1px solid #DDD;
+    border-collapse: collapse;
+}
+.table .title{
+    background-color: #666;
+    color: #FFF;
+}
+.table td{
+    padding: 3px 6px;
+}
+textarea.tinymce{
+    width: 640px;
+    height: 200px;
+    margin: 2px;
+}
+.add_item{
+    margin: 10px 0px 30px 0px; 
+    background: #F9F9F9; 
+    padding: 10px;
+    border-bottom: 1px solid #CCC;
+}
+.add_item_table td{
+    text-align: center;
+    padding: 3px 4px;
+    border: 1px solid #DDD;
+    border-collapse: collapse;
+}
+.add_item_table img{
+    background-color: #FFF;
+    width: 60px;
+}
+.add_item_table .title{
+    width: 86px;
+    background: rgba(0,0,0,.2);
+}
+.add_item_table .title:last-child{
+    width: auto;
+}
+.add_item input[type=button]{
+    padding: 6px 16px;
+    font-weight: bold;
+    color: #000;
+}
+.item_name{
+    font-size: 18px; 
+    line-height: 34px;
+}
+ul.list{
+    margin-top: 20px;
+    list-style: none;
+    padding-left: 0px;
+}
+ul.list li{
+    list-style: none;
+    line-height: 16px;
+}
+ul.list li a{
+    color: #666;
+}
+#content{
+    float: none;
+    width: auto;
+}
+
+
+#menubar {
+    height: 50px;
+    background: transparent;
+}
+ul#menu {
+    float: left;
+    padding-left: 0;
+}
+ul#menu li {
+    float: left;
+    margin: 5px 0 0 0;
+    padding: 0 0 0 0px;
+    list-style: none;
+}
+ul#menu li a {
+    letter-spacing: 0.1em;
+    font: normal 100% serif;
+    display: block;
+    float: left;
+    height: 26px;
+    padding: 11px 22px 0px 22px;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    background: #555;
+    text-decoration: none;
+    margin-right: 3px;
+}
+ul#menu li.selected a {
+    color: black;
+    background: #F4F4EC;
+}

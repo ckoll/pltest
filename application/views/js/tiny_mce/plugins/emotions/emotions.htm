@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{#emotions_dlg.title}</title>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="js/emotions.js"></script>
+</head>
+<body style="display: none" role="application" aria-labelledby="app_title">
+<span style="display:none;" id="app_title">{#emotions_dlg.title}</span>
+<div align="center">
+	<div class="title">{#emotions_dlg.title}:<br /><br /></div>
+
+	<table id="emoticon_table" role="presentation" border="0" cellspacing="0" cellpadding="4">
+		<tr>
+			<td><a class="emoticon_link" role="button" title="{#emotions_dlg.smile}. {#emotions_dlg.usage}" href="javascript:EmotionsDialog.insert('smile.gif','emotions_dlg.smile');"><img src="img/smile.gif" width="18" height="18" border="0" alt="{#emotions_dlg.smile}. {#emotions_dlg.usage}" /></a></td>
+			<td><a class="emoticon_link" role="button" title="{#emotions_dlg.love}. {#emotions_dlg.usage}" href="javascript:EmotionsDialog.insert('love.gif','emotions_dlg.love');"><img src="img/love.gif" width="18" height="18" border="0" alt="{#emotions_dlg.love}. {#emotions_dlg.usage}" /></a></td>
+			<td><a class="emoticon_link" role="button" title="{#emotions_dlg.happy}. {#emotions_dlg.usage}" href="javascript:EmotionsDialog.insert('happy.gif','emotions_dlg.happy');"><img src="img/happy.gif" width="18" height="18" border="0" alt="{#emotions_dlg.happy}. {#emotions_dlg.usage}"  /></a></td>
+			<td><a class="emoticon_link" role="button" title="{#emotions_dlg.wink}. {#emotions_dlg.usage}" href="javascript:EmotionsDialog.insert('wink.gif','emotions_dlg.wink');"><img src="img/wink.gif" width="18" height="18" border="0" alt="{#emotions_dlg.wink}. {#emotions_dlg.usage}" /></a></td>
+		</tr>
+		<tr>
+			<td><a class="emoticon_link" role="button" title="{#emotions_dlg.omg}. {#emotions_dlg.usage}" href="javascript:EmotionsDialog.insert('omg.gif','emotions_dlg.omg');"><img src="img/omg.gif" width="18" height="18" border="0" alt="{#emotions_dlg.omg}. {#emotions_dlg.usage}"/></a></td>
+			<td><a class="emoticon_link" role="button" title="{#emotions_dlg.mellow}. {#emotions_dlg.usage}" href="javascript:EmotionsDialog.insert('mellow.gif','emotions_dlg.mellow');"><img src="img/mellow.gif" width="18" height="18" border="0" alt="{#emotions_dlg.mellow}. {#emotions_dlg.usage}" /></a></td>
+			<td><a class="emoticon_link" role="button" title="{#emotions_dlg.sad}. {#emotions_dlg.usage}" href="javascript:EmotionsDialog.insert('sad.gif','emotions_dlg.sad');"><img src="img/sad.gif" width="18" height="18" border="0" alt="{#emotions_dlg.sad}. {#emotions_dlg.usage}" /></a></td>
+			<td><a class="emoticon_link" role="button" title="{#emotions_dlg.tongue}. {#emotions_dlg.usage}" href="javascript:EmotionsDialog.insert('tongue.gif','emotions_dlg.tongue');"><img src="img/tongue.gif" width="18" height="18" border="0" alt="{#emotions_dlg.tongue}. {#emotions_dlg.usage}" /></a></td>
+		</tr>
+	</table>
+	<div>{#emotions_dlg.usage}</div>
+</div>
+</body>
+</html>

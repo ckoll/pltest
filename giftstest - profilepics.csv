@@ -1,0 +1,396 @@
+,Deleted,Dressup Category,Type,equip image directory [files/items],shortname unique,left/right?,filename (default: shortname + .png),Clippings,profileimage directory (default: /profilepics of equip directory),profileimage (default: profilepics-shortname.png),Item name,Profile Description,Shop,Default price,Notes,Tall/Short boots?
+1,,Background,,backgrounds,bg1,n/a,bg1.jpg,n/a,[default],profilepic-bg1.png,Home Sweet Home Background,Home sweet home,,,,n/a
+2,,Background,,backgrounds,bg2,n/a,bg2.jpg,n/a,[default],profilepic-bg2.png,Beach,"Relax in the soft sands and sunshine with this beach background, don't forget to use sunblock",default,100 buttons,,n/a
+3,,Background,,backgrounds,bg3,n/a,bg3.jpg,n/a,[default],profilepic-bg3.png,Paris,"Take your doll to Paris and enjoy the beautiful streetlamps and cafes, and get a glimpse of the Eifel tower and shopping centers in the background.",default,100 buttons,,n/a
+4,,Innerwear/Lingerie,,innerwear,pinkbikini-top,n/a,[shortname+.png],n/a,[default],Profilepics-Innerwear1-top.png,Pink Bikini Top,Cute and sexy pink bikini top,"Default, Lingerie Shop",25 buttons,,n/a
+5,,Innerwear/Lingerie,,innerwear,pinkbikini-bottom,n/a,[shortname+.png],n/a,[default],Profilepics-Innerwear1-bottom.png,Pink Bikini Bottom,Cute and sexy pink bikini bottom,"Default, Lingerie Shop",25 buttons,,n/a
+6,,Innerwear/Lingerie,,innerwear,"pinkbikini-top
+pinkbikini-bottom",n/a,[shortname+.png],n/a,[default],Profilepics-Innerwear1.png,Lingerie Set #1,Lingerie set #1.  Collect the cute and sexy pink bikini top and bottom.,"Default, Lingerie Shop",40 buttons,,n/a
+7,,Innerwear/Lingerie,,innerwear,pinknightgown-top,n/a,[shortname+.png],pinknightgown-top-clipped.png,[default],pinknightgowntop-profilepic.png,Pink Nightgown Top,Cute pink nightgown top.  Pair it with pink nightgown bottom to complete the set.,(not for separate sale),n/a,,n/a
+8,,Innerwear/Lingerie,,innerwear,pinknightgown-bottom,n/a,[shortname+.png],n/a,[default],pinknightgownbottom-profilepic.png,Pink Nightgown Bottom,Cute pink nightgown bottom.  Pair it with pink nightgown top to complete the set.,(not for separate sale),n/a,,n/a
+9,,Innerwear/Lingerie,,innerwear,"pinknightgown-top
+pinknightgown-bottom",n/a,[shortname+.png],n/a,[default],pinknightgown-set.png,Lingerie Set #2,Lingerie set #2.  Pink nightgown.,"Default, Lingerie Shop",40 buttons,,n/a
+10,,Innerwear/Stockings,,innerwear,stockings,n/a,[shortname+.png],n/a,[default],Profilepics-Innerwear-stockings1.png,Stockings,"Standard stockings, usually won with a skirt.","Default, Lingerie Shop",15 buttons,,n/a
+11,,Innerwear/Socks,,innerwear,pinkwithpurplestripessocks,n/a,[shortname+.png],n/a,[default],Profilepics-Innerwear-socks1.png,Pink with Purple Striped Socks,Soft and fluffy pink socks to keep your feet warm,"Default, Lingerie Shop",20 buttons,,n/a
+12,,n/a,,charms,heartcharm,n/a,[shortname+.png],n/a,[default],CharmBracelet-Heart.png,Heart Charm,Shiny heart charm for your bracelet links,n/a,n/a,,n/a
+13,,Jewelry/Bracelets,,charms,bracewith4charms,left,"[stand,hold]
+Bracelet Standpose.png
+Bracelet Holdpose.png",n/a,[default],CharmBracelet-with-4charms.png,Charm Bracelet with 4 Charms,"Charm bracelet with 4 charms (purse, orange, pink flower, horseshoe)",n/a,n/a,,n/a
+14,,n/a,,charms,,n/a,[shortname+.png],n/a,[default],CharmBracelet-Orange.png,Orange Slice Charm,Yummy looking charm for your bracelet,n/a,n/a,,n/a
+15,,n/a,,charms,horseshoecharm,n/a,[shortname+.png],n/a,[default],CharmBracelet-Horseshoe.png,Horseshoe Charm,Horseshoe charm,,,,n/a
+16,,n/a,,charms,pursecharm,n/a,[shortname+.png],n/a,[default],CharmBracelet-Purse.png,Purse Charm,Red wallet charm for your bracelet,n/a,n/a,,n/a
+17,,n/a,,charms,flowercharm,n/a,[shortname+.png],n/a,[default],CharmBracelet-Flower.png,Flower Charm,Pink flower charm for your bracelet,n/a,n/a,,n/a
+18,,n/a,,charms,charmbraceletchain,n/a,[shortname+.png],n/a,[default],CharmBracelet.png,Charm Bracelet Chain,Collect charms to add to this bracelet chain,n/a,n/a,,n/a
+19,,Accessories/Animal Hats,,accessories,pinkpandahat.png,n/a,[shortname+.png],n/a,[default],Profilepics-Accessories15.png,Pink Panda Hat,Pink panda animal hat,default,100 buttons,,n/a
+20,,Accessories/Animal Hats,,accessories,penguinhat,n/a,[shortname+.png],n/a,[default],Profilepics-Accessories14.png,Penguin Hat,Penguin hat,default,100 buttons,,n/a
+21,,Accessories/Belts,,accessories,grayheartbelt,n/a,[shortname+.png],n/a,[default],Profilepics-Accessories13.png,Gray Heart Belt,A stylish gray belt with hearts,default,30 buttons,,n/a
+22,,Accessories/Belts,,accessories,redbelt,n/a,[shortname+.png],n/a,[default],Profilepics-Accessories12.png,Red Belt,A red fashion belt,default,30 buttons,,n/a
+23,,Accessories/Hats,,accessories,sunhat1,n/a,[shortname+.png],n/a,[default],Profilepics-Accessories1.png,Sunhat ,A brown sunhat with a bandana,default,50 buttons,,n/a
+24,,Accessories/Hats,,accessories,sunhat2,n/a,[shortname+.png],n/a,[default],Profilepics-Accessories2.png,Sunhat,A pretty sunhat you can wear outside or to the beach,default,50 buttons,,n/a
+25,,Accessories/Pets,,accessories,penguinpet,n/a,[shortname+.png],n/a,[default],Profilepics-Accessories17.png,Penguin Pet,A blue penguin pet to keep you company,default,100 buttons,,n/a
+26,,Accessories/Pets,,accessories,giraffepet,n/a,[shortname+.png],n/a,[default],profilepics-giraffetpet.png,Giraffe Pet,Who knew a giraffe could make for a great pet?,default,100 buttons,,n/a
+27,X,Accessories/Mittens,,accessories,pandamittens,n/a,[shortname+.png],n/a,[default],n/a,Pink Panda Mittens,Mittems to match Pink Panda Hat,default,,,n/a
+28,,Accessories/Scarfs,,accessories,scarf1,n/a,[shortname+.png],n/a,[default],Profilepics-Accessories11.png,Brown striped scarf,A stylish and comfortable brown striped scarf to keep you warm,default,50 buttons,,n/a
+29,,Accessories/Scarfs,,accessories,scarf2,n/a,[shortname+.png],n/a,[default],Profilepics-Accessories10.png,Purple Silk Scarf,A small but cute purple scarf to keep you warm,default,20 buttons,,n/a
+30,,Accessories/Scarfs,,accessories,scarf3,n/a,[shortname+.png],n/a,[default],Profilepics-Accessories9.png,Purple Pokadot Scarf,A purple scarf with pokadots,default,20 buttons,,n/a
+31,,Accessories/Scarfs,,accessories,scarf4,n/a,[shortname+.png],n/a,[default],Profilepics-Accessories8.png,Orange Winter Scarf,A warm orange scarf for the winter,default,20 buttons,,n/a
+32,,Accessories/Mittens,,accessories,penguinmittens,n/a,"[hold,stand]
+Penguinmittens-hold.png penguinmittens-stand.png",n/a,[default],Profilepics-Accessories3.png,Penguin Mittens,Cute mittens to keep your hands warm in the winter.  Match with Penguin Hat,default,50 buttons,,n/a
+33,,Accessories/Mittens,,accessories,redmittens,n/a,"[hold,stand]
+Redmittens-hold.png redmittens-stand.png",n/a,[default],Profilepics-Accessories4.png,Red Mittens,Red warm mittens for the winter,default,30 buttons,,n/a
+34,,Accessories/Hats,,accessories,sunhat3,n/a,[shortname+.png],n/a,[default],Profilepics-Accessories6.png,Sunhat,A brown sunhat for the summer,default,30 buttons,,n/a
+35,,Accessories/Animal Hats,,accessories,penguinhat2,n/a,[shortname+.png],n/a,[default],Profilepics-Accessories5.png,Penguin Hat,Adorable and warm hat to keep you warm.  Wear these with matching penguin mittens.,default,50 buttons,,n/a
+36,,Accessories/Eyewear,,accessories,sunglasses,n/a,[shortname+.png],n/a,[default],profilepic-purplesunglasses.png,Purple Sunglasses,testing item,10 buttons,10 buttons,,n/a
+37,,Shorts,,bottoms,leoopardshorts,n/a,[shortname+.png],n/a,[default],Profilepics-Bottoms1.png,Leopard Shorts,Stylish leopard shorts,Sports shop,20 buttons,,n/a
+38,,Shorts,,bottoms,purple shorts,n/a,[shortname+.png],n/a,[default],Profilepics-Bottoms2.png,Purple Shorts,Purple shorts,default,20 buttons,,n/a
+39,,Sportswear,,sportswear,greensportsshorts,n/a,[shortname+.png],n/a,[default],Profilepics-Bottoms3.png,Neon Green Sports Shorts,Neon green shorts for a workout,default,20 buttons,,n/a
+40,,Bottoms/Jeans,,bottoms,skinnyjeans,n/a,[shortname+.png],skinnyjeans-skintight.png,[default],Profilepics-Bottoms7.png,Skinny Jeans,Skinny jeans are in style!  Wear them with almost any top,default,50 buttons,,n/a
+41,,Bottoms/Jeans,,bottoms,bootcutjeans,n/a,[shortname+.png],bootcutjeans-skintight.png bootcutjeans-squeezeshortboots.png,[default],Profilepics-Bottoms6.png,Boot cut jeans,"Your favorite boot cut jeans.  Looks cute with a pair of boots and a top, or anything really.",default,50 buttons,,n/a
+42,,Bottoms/Leggings,,bottoms,leggings,n/a,[shortname+.png],n/a,[default],leggings-profileimage.png,Leggings,Leggings for a dress,default,10 buttons,,n/a
+43,,Bottoms/Pants,,bottoms,whitepants,n/a,[shortname+.png],"whitepants-squeezesmallboots.png
+whitepants-skintight.png",[default],Profilepics-Bottoms7.png,White Pants,"White pants, try a variety of tops to go with these pants",default,20 buttons,,n/a
+44,,Bottoms/Pants,,bottoms,whitewithpattenrpants,n/a,[shortname+.png],n/a,[default],Profilepics-Bottoms4.png,White Pants with Pattern,A zebra like pattern on these soft white pants,default,20 buttons,,n/a
+45,,Spa,,spa,spaslippers,n/a,"[front,back]
+Spaslippers-front.png
+spaslippers-back.png",n/a,[default],Profilepics-spa7.png,Spa Slippers,Soft and fluffy spa slippers,Spa shop,40 buttons,,n/a
+46,,Spa,,spa,facemask,n/a,[shortname+.png],n/a,[default],Profilepics-spa5.png,Face Mask,"A rejuvenating face mask, will make you feel fresh and energetic",Spa shop,60 buttons,,n/a
+47,,Spa,outer,spa,sparobe,n/a,"[hold-left, hold-right, stand-left, stand-right, body]
+Sparobe-hold-left.png
+sparobe-hold-right.png
+sparobe-stand-left.png
+sparobe-stand-right.png
+sparobe-body.png",n/a,[default],Profilepics-spa8.png,Spa Robe,A soft bath robe for your spa experience,Spa shop,100 buttons,,n/a
+48,,Spa,,spa,starfish,right,[shortname+.png],n/a,[default],Profilepics-spa3.png,Starfish,A starfish,Spa shop,80 buttons,,n/a
+49,,Spa,,spa,hotstones,right,[shortname+.png],n/a,[default],Profilepics-spa2.png,Hot Stones,Hot stones for a relaxing spa experience,Spa shop,80 buttons,,n/a
+50,,Spa,,spa,eyecucumber,n/a,[shortname+.png],n/a,[default],Profilepics-spa6.png,Eye Cucumber,Cooling cucumbers for your eyes,Spa shop,50 buttons,,n/a
+51,,Spa,,spa,hairtowel,n/a,[shortname+.png],n/a,[default],Profilepics-spa4.png,Hair Towel,Hair towel to wear to dry your hair,Spa shop,10 buttons,,n/a
+52,,Spa,,spa,spabasket,left,[shortname+.png],n/a,[default],Profilepics-spa1.png,Spa basket,Spa gifts for yourself or a friend,Spa shop,100 buttons,,n/a
+53,,Default,,sleepwear,defaulttop,n/a,[shortname+.png],defaulttop-skintight.png,[default],Profilepics-Sleepwear-Default3.png,Perfect Look Top,Perfect Look white tank top,"Default, Lingerie Shop",n/a,,n/a
+54,,Sleepwear,,sleepwear,sleepingmask,n/a,[shortname+.png],n/a,[default],Profilepics-Sleepwear5.png,Sleeping Mask,A sleeping mask for a peaceful sleep,"Default, Lingerie Shop",50 buttons,,n/a
+55,,Sleepwear,,sleepwear,sleepingmask2,n/a,[shortname+.png],n/a,[default],Profilepics-Sleepwear9.png,Sleeping Mask,A sleeping mask for a peaceful sleep,"Default, Lingerie Shop",50 buttons,,n/a
+56,,Sleepwear,,sleepwear,defaultslippers,n/a,"[front,back]
+Slippers-front
+Slippers-back",n/a,[default],Profilepics-Sleepwear7.png,Slippers,Pink slippers to wear around the house,"Default, Lingerie Shop",30 buttons,,n/a
+57,,Sleepwear,,sleepwear,cottoncandypajamaset-top,n/a,"[body, hold-left, hold-right, stand-left, stand-right]
+Sleepwear1-body.png
+sleepwear1-hold-left.png
+sleepwear1-hold-right.png
+sleepwear1-stand-left.png
+sleepwear1-stand-right.png","[skintight-stand-leftsleeve, skintight-hold-rightsleeve, skintight-hold-leftsleeve, skintight-stand-rightsleeve,skintight-torso]
+sleepwear1-stand-leftsleeve-skintight.png
+sleepwear1-hold-rightsleeve-skintight.png
+sleepwear1-hold-leftsleeve-skintight.png
+sleepwear1-stand-rightsleeve-skintight.png
+sleepwear1-torso-skintight.png
+
+[torso-squeezeS, torso-squeezeM, stand-rightsleeve-squeezeL, stand-leftsleeve-squeezeL, torso-squeezeT]
+sleepwear1-torso-squeezeS.png
+sleepwear1-torso-squeezeM.png
+sleepwear1-stand-rightsleeve-squeezeL.png
+sleepwear1-stand-leftsleeve-squeezeL.png
+sleepwear1-body-squeezeT.png",[default],cottoncandypajamas-top.png,Cotton Candy Pajamas - Top,Cotton candy colored pajamas top for a sweet and peaceful night,"Default, Lingerie Shop",75 buttons,,n/a
+58,,Sleepwear,,sleepwear,cottoncandypajamaset-shorts,n/a,sleepwear1-shorts.png,sleepwear1-shorts-skintight.png,[default],cottoncandypajamas-shorts.png,Cotton Candy Pajamas - bottom,Cotton candy colored pajamas shorts for a sweet and peaceful night,"Default, Lingerie Shop",75 buttons,,n/a
+59,,Sleepwear,,sleepwear,cottoncandypajamaset,n/a,[default],[default],[default],Profilepics-Sleepwear1.png,Cotton Candy Pajamas -– top and bottom,Cotton candy colored pajamas top and bottom set for a sweet and peaceful night,"Default, Lingerie Shop",100 buttons,"for now – hold pose sleeve squeeze missing, so default to regular image",n/a
+60,,Sleepwear,,sleepwear,purplepajamas-tops,n/a,purplepjtop.png,purplepjtop-skintight.png,[default],Profilepics-Sleepwear2-1.png,Purple pajamas set – top,Purple pajamas set – top,"Default, Lingerie Shop",60 buttons,,n/a
+61,,Sleepwear,,sleepwear,purplepajamas-pants,n/a,purplepjpants.png,n/a,[default],Profilepics-Sleepwear2-2.png,Purple pajamas set – bottom,Purple pajamas set – bottom,"Default, Lingerie Shop",60 buttons,,n/a
+62,,Sleepwear,,sleepwear,purplepajamas-set,n/a,[default],[default],[default],purplepajamasset.png,Purple pajamas set – top and bottom,Purple pajamas set – top and bottom,"Default, Lingerie Shop",100 buttons,,n/a
+63,,Sleepwear,,sleepwear,milkandcookiespajamas-top,n/a,pajamaset2-top.png,pajamaset2-top-skintight.png,[default],Profilepics-Sleepwear3-1.png,Milk and cookies pajamas set - top,"Yummy pajamas with milk and cookies, collect the pants to get the set","Default, Lingerie Shop",100 buttons,,n/a
+64,,Sleepwear,,sleepwear,milkandcookiespajamas-bottom,n/a,pajamaset2-pants.png,pajamaset2-pants-sqL.png,[default],Profilepics-Sleepwear3-2.png,Milk and cookies pajamas set – pants,"Yummy pajamas with milk and cookies, collect the pants for the set","Default, Lingerie Shop",100 buttons,,n/a
+65,,Sleepwear,,sleepwear,milkandcookiespajamas-set,n/a,[default],[default],[default],milkandcookiespjset.png,Milk and cookies pajamas set – top and bottom,Yummy pajamas with milk and cookies,"Default, Lingerie Shop",150 buttons,,n/a
+66,,Sleepwear,,sleepwear,pinktop,n/a,[shortname+.png],"[skintight, torso-squeezeM, torso-squeezeS]
+Pajamaset3-pinktop-skintight.png
+
+pajamaset3-pinktop-sqM.png
+pajamaset3-pinktop-sqS.png
+",[default],Profilepics-Sleepwear8.png,,A light and comfortable pink top for sleeping,"Default, Lingerie Shop",50 buttons,,n/a
+67,,Default,,sleepwear,plaidshorts,n/a,[shortname+.png],plaidshorts-clipped.png,[default],Profilepics-Sleepwear6.png,Plaid Shorts,Perfect Look Plaid Shorts,"Default, Lingerie Shop",n/a,,n/a
+68,,Jewelry/Bracelets,,jewelry,bracelet1,left,"bracelet1-stand.png
+bracelet1-hold.png",n/a,[default],Profilepics-Jewels-Bracelet1.png,Pink Flowers Bracelet,A light bracelet made from pink flowres,Jewelry Shop,50 buttons,,n/a
+69,,Jewelry/Bracelets,,jewelry,bracelet2,left,"bracelet2-stand.png
+bracelet2-hold.png",n/a,[default],Profilepics-Jewels-Bracelet2.png,Jewels Bracelet,A bracelet with jewels,Jewelry Shop,50 buttons,,n/a
+70,,Jewelry/Bracelets,,jewelry,bracelet3,left,"bracelet3-stand.png
+bracelet3-hold.png",n/a,[default],Profilepics-Jewels-Bracelet3.png,Jewels Bracelet,A large jewels bracelet,Jewelry Shop,50 buttons,,n/a
+71,,Jewelry/Bracelets,,jewelry,bracelet4,left,"bracelet4-stand.png
+bracelet4-hold.png",n/a,[default],Profilepics-Jewels-Bracelet4.png,Jewels Bracelet,A bracelet with large white jewels,Jewelry Shop,50 buttons,,n/a
+72,,Jewelry/Bracelets,,jewelry,bracelet5,left,"bracelet5-stand.png
+bracelet5-hold.png",n/a,[default],Profilepics-Jewels-Bracelet5.png,Golden Rings Bracelet,Three golden rings,Jewelry Shop,50 buttons,,n/a
+73,,Jewelry/Bracelets,,jewelry,bracelet6,left,"bracelet6-stand.png
+bracelet6-hold.png",n/a,[default],Profilepics-Jewelry-Bracelet6.png,Beads Bracelet,Beads bracelet,Jewelry Shop,50 buttons,,n/a
+74,,Jewelry/Earrings,,jewelry,earrings1,n/a,[shortname+.png],n/a,[default],Profilepics-Jewels-Earrings1.png,Fashion Earrings,Fashion earrings with half circle patterns,Jewelry Shop,40 buttons,,n/a
+75,,Jewelry/Earrings,,jewelry,earrings2,n/a,[shortname+.png],n/a,[default],Profilepics-Jewels-Earrings2.png,Yellow and Red Earrings,Earrings with yellow and red decorations,Jewelry Shop,40 buttons,,n/a
+76,,Jewelry/Earrings,,jewelry,earrings3,n/a,[shortname+.png],n/a,[default],Profilepics-Jewels-Earrings3.png,Earrings with Green Jewels,Earrings with many green jewels,Jewelry Shop,40 buttons,,n/a
+77,,Jewelry/Earrings,,jewelry,earrings4,n/a,[shortname+.png],n/a,[default],Profilepics-Jewels-Earrings4.png,Blue Feather Earrings,Wear these gorgeous earrings with any dress for the perfect night out,Jewelry Shop,100 buttons,,n/a
+78,,Jewelry/Earrings,,jewelry,earrings5,n/a,[shortname+.png],n/a,[default],Profilepics-Jewels-Earrings5.png,Green jewel earrings,Earrings with green jewels,Jewelry Shop,40 buttons,,n/a
+79,,Jewelry/Earrings,,jewelry,earrings6,n/a,[shortname+.png],n/a,[default],Profilepics-Jewels-Earrings6.png,Simple earrings,Simple earrings to go with a casual outfit,Jewelry Shop,40 buttons,,n/a
+80,,Jewelry/Necklaces,,jewelry,necklace1,n/a,[shortname+.png],n/a,[default],Profilepics-Jewels-Necklace1.png,Fashion Necklace,A colorful fashion necklace for your neck.  Matches a variety of outfits,Jewelry Shop,41 buttons,,n/a
+81,,Jewelry/Necklaces,,jewelry,necklace2,n/a,[shortname+.png],n/a,[default],Profilepics-Jewels-Necklace2.png,Mixed Jewels Necklace,Mixed Jewels Necklace,Jewelry Shop,42 buttons,,n/a
+82,,Jewelry/Necklaces,,jewelry,necklace3,n/a,[shortname+.png],n/a,[default],Profilepics-Jewels-Necklace3.png,Pearl and Jewel Necklace with Flower,Pearl and jewel necklace with a flower to top off the look,Jewelry Shop,43 buttons,,n/a
+83,,Jewelry/Necklaces,,jewelry,necklace4,n/a,[shortname+.png],n/a,[default],Profilepics-Jewels-Necklace4.png,Perfect Pearl Necklace,Necklace with two stands of perfect pearls,Jewelry Shop,44 buttons,,n/a
+84,,Jewelry/Necklaces,,jewelry,necklace5,n/a,[shortname+.png],n/a,[default],Profilepics-Jewels-Necklace5.png,Necklace with butterflies,Necklace with colorful butterflies to complement any outfit,Jewelry Shop,45 buttons,,n/a
+85,,Jewelry/Necklaces,,jewelry,necklace6,n/a,[shortname+.png],n/a,[default],Profilepics-Jewels-Necklace6.png,Necklace,A simple necklace with stones and beads,Jewelry Shop,46 buttons,,n/a
+86,,Jewelry/Other,,jewelry,brooch,n/a,[shortname+.png],n/a,[default],Profilepics-Jewels-Brooch.png,Brooch,A brooch to complete a look,Jewelry Shop,50 buttons,,n/a
+87,,Jewelry/Watches,,jewelry,watch,left,"[stand,hold]
+Pinkwatch.png
+pinkwatch-hold.png",n/a,[default],Profilepics-Jewels-Watch.png,Pink Watch,A simple and classy heart watch for any outfit,Jewelry Shop,100 buttons,,n/a
+88,,Jewelry/Rings,,jewelry,ring,right,"ring.png
+ring-hold.png",n/a,[default],Profilepics-Jewels-Ring.png,Ring,A simple ring,Jewelry Shop,50 buttons,,n/a
+89,,Objects,,objects,balloons,right,[shortname+.png],n/a,[default],Profilepics-Handhelds-2.png,"Pink, Blue, and Yellow Balloons","A set of ballons in 3 colors – pink, yellow, and blue",Accessories Shop,30 buttons,,n/a
+90,,Objects,,objects,iphone,right,[shortname+.png],n/a,[default],Profilepics-Handhelds-8.png,Iphone,An essential item to keep in touch with your friends,Accessories Shop,50 buttons,,n/a
+91,,Objects,,objects,ipad,right,[shortname+.png],n/a,[default],Profilepics-Handhelds-3.png,Ipad,An ipad,Accessories Shop,200 buttons,,n/a
+92,,Objects,,objects,strawberryicecream,right,[shortname+.png],n/a,[default],Profilepics-Handhelds-5.png,Strawberry Icecream,Strawberry icecream,Accessories Shop,30 buttons,,n/a
+93,,Objects,,objects,liquidhandsoap,right,[shortname+.png],n/a,[default],Profilepics-Handhelds-4.png,Liquid Handsoap,Keep your hands free of germs and avoid catching a cold,Accessories Shop,30 buttons,,n/a
+94,,Objects,,objects,whitebear,n/a,[shortname+.png],n/a,[default],Profilepics-Handhelds-7.png,White Bear,A white bear for your room,Accessories Shop,30 buttons,,n/a
+95,,Objects,,objects,brownbear,n/a,[shortname+.png],n/a,[default],Profilepics-Handhelds-6.png,Brown Bear,A brown bear for your room,Accessories Shop,30 buttons,,n/a
+96,,Objects,,objects,sunblock,right,[shortname+.png],n/a,[default],sunblock.png,Sunblock,Use sunblock to keep your skin healthy and block out the sun's harmful uv rays that can cause aging,Accessories Shop,15 buttons,,n/a
+97,,Objects,,objects,waterbottle,right,[shortname+.png],n/a,[default],Profilepics-Handhelds-10.png,Bottled Water,Keep well hydrated to keep your skin glowing,Accessories Shop,15 buttons,,n/a
+98,,Objects,,objects,soda,right,[shortname+.png],n/a,[default],Profilepics-Handhelds-11.png,Can of Soda,Soda – have a drink to cool down,Accessories Shop,15 buttons,,n/a
+99,,Objects,,objects,perfume,right,[shortname+.png],n/a,[default],Profilepics-Handhelds-12.png,Perfume,Smell delicious with this perfume,Accessories Shop,50 buttons,,n/a
+100,,Objects,,objects,lemonade,right,[shortname+.png],n/a,[default],Profilepics-Handhelds-13.png,Lemonade,Sweet and cool drink for a hot day,Accessories Shop,50 buttons,,n/a
+101,,Objects,,objects,umbrella,right,[shortname+.png],n/a,[default],umbrella.png,Red Umbrella,A basic umbrella for a rainy day – testing image,Accessories Shop,10 buttons,,n/a
+102,,Objects,,objects,heartballoon,right,[shortname+.png],n/a,[default],Profilepics-Handhelds-15.png,Heart balloon,Heart balloons – makes fun party decorations or a gift for a friend,Accessories Shop,50 buttons,,n/a
+103,,Objects,,objects,popsicle,right,[shortname+.png],n/a,[default],Profilepics-Handhelds-1.png,Popsicle,A yummy and healthy snack for a hot day – banana and orange flavored,Accessories Shop,50 buttons,,n/a
+104,,Dresses,,dresses,dress1,n/a,Dress 1.png,"[L, M, S]
+Dress 1 L.png
+Dress 1 M.png
+Dress 1 S.png",[default],Profilepics-Dresses1.png,Short Sparkly Purple Dress,A short sparkly and elegant purple dress for a party or evening dress,Skirt and Dresses shop,100 buttons,,n/a
+105,,Dresses,,dresses,dress2,n/a,Dress 2.png,"[M, S]
+Dress 2 M.png
+Dress 2 S.png",[default],Profilepics-Dresses2.png,Long White Dress,Beautiful logn white gown,Skirt and Dresses shop,100 buttons,,n/a
+106,,Dresses,,dresses,dress3,n/a,Dress 3.png,"[skintight, M, S]
+Dress 3 skintight.png
+Dress 3 M.png
+Dress 3 S.png",[default],Profilepics-Dresses3.png,Pink Dress with Large Belt,"A pink dress with a large black belt, perfect for a party",Skirt and Dresses shop,100 buttons,,n/a
+107,,Dresses,,dresses,dress4,n/a,dress 4 - front.png,"[L, M, S]
+Dress 4 L.png
+Dress 4 M.png
+Dress 4 S.png
+[backL, backM, back]
+Dress 4 - back L
+Dress 4 - back M.png
+Dress 4 - back Normal",[default],Profilepics-Dresses4.png,Purple Gown,A flowy purple dress for a formal occasion or prom,Skirt and Dresses shop,100 buttons,,n/a
+108,,Dresses,,dresses,dress5,n/a,Dress 5.png,"[L, M]
+Dress 5 L.png
+Dress 5 M.png",[default],greendress.png,Green Dress with Belt,"A long, soft green dress for a casual look or a party.  Wear with matching scarf",Skirt and Dresses shop,100 buttons,,n/a
+109,,Accessories/Scarfs,,dresses,greenscarf,n/a,dress5-scarf.png,n/a,[default],greenscarf.png,Green Scarf,A scarf to wear with the green dress,Skirt and Dresses shop,50 buttons,,n/a
+110,,Dresses,,dresses,"set: dress5, greenscarf",n/a,n/a,n/a,[default],greendresswithscarf,Green Dress with Scarf Set,"A long, soft green dress for a casual look or a party.  Comes with matching scarf.",Skirt and Dresses shop,120 buttons,,n/a
+111,,Dresses,,dresses,dress6,n/a,Dress 6.png,"[L, M]
+Dress 6 L.png
+Dress 6 M.png",[default],Profilepics-Dresses6.png,Orange Dress,An orange dress for a party or event,Skirt and Dresses shop,100 buttons,,n/a
+112,,Dresses,,dresses,dress7,n/a,Dress 7.png,"[L, M]
+Dress 6 L.png",[default],Profilepics-Dresses7.png,Orange Party Dress,An orange dress for a dance or party,Skirt and Dresses shop,100 buttons,,n/a
+113,,Dresses,,dresses,dress8,n/a,Dress 8.png,"[L, M, S]
+default, default, default",[default],Profilepics-Dresses8.png,Pink Party Dress,The perfect pink dress for a party or a girls night out,Skirt and Dresses shop,100 buttons,,n/a
+114,,Dresses,,dresses,dress9,n/a,Dress 9.png,"[L, M, S]
+dress 9 L.png
+dress 9 M.png
+dress 9 S.png
+[backL, backM, backS, back]
+Dress 9 back L.png
+Dress 9 back M.png
+Dress 9 back S.png
+Dress 9 back Normal.png",[default],Profilepics-Dresses9.png,Red Party Dress,"A red party dress for daily wear, a party or a night out",Skirt and Dresses shop,100 buttons,,n/a
+115,,Dresses,,dresses,dress10,n/a,Dress 10.png,"[L, M, S]
+Dress 10 SML.png
+Dress 10 SML.png
+Dress 10 SML.png",[default],Profilepics-Dresses10.png,Brown Glitter Dress,A short brown dress with glitter for a hot date or party,Skirt and Dresses shop,100 buttons,,n/a
+116,,Dresses,,dresses,dress11,n/a,Dress 11.png,"[L]
+Dress 11 L.png",[default],Profilepics-Dresses11.png,White Dress with Embroidery,A white dress with brown and blue leaves patterns,Skirt and Dresses shop,100 buttons,,n/a
+117,,Dresses,,dresses,dress12,n/a,Dress 12 Normal.png,"[L, M, S]
+Dress 12 Squeeze L.png
+Dress 12 Squeeze M.png
+Dress 12 Squeeze S.png",[default],Profilepics-Dresses12.png,Teal Prom Dress,A fancy teal-colored dress for a formal occasion or prom,Skirt and Dresses shop,100 buttons,,n/a
+118,,Dresses,,dresses,dress13,n/a,Dress 13 Normal.png,"[skintight]
+Dress 13 Skintight.png",[default],leopard_gown-preview.png,Brown Animal Print Dress,A dress with brown animal print,Skirt and Dresses shop,100 buttons,,n/a
+119,,Dresses,,dresses,dress14,n/a,Dress 14.png,"[skintight]
+Dress 14 Skintight.png",[default],brown_dress-preview.png,Light Brown Dress,A light brown dress,Skirt and Dresses shop,100 buttons,,n/a
+120,,Dresses,,dresses,dress15,n/a,Dress 15.png,"[skintight]
+Dress 15 Skintight.png",[default],pink_dress_stripes-preview.png,Pink and Black Pattern Dress,A pink and black fashion dress – perfect for a party or girl's night out,Skirt and Dresses shop,100 buttons,,n/a
+121,,Dresses,,dresses,dress16,n/a,Dress 16 Normal.png,"[skintight]
+Dress 16 Skintight.png",[default],dress_white_buttons-preview.png,White Dress with Black Buttons,A white dress with buttons down the middle – for a work event or party,Skirt and Dresses shop,100 buttons,,n/a
+122,,Dresses,,dresses,dress17,n/a,Dress 17.png,"[skintight]
+Dress 17 Skintight.png",[default],dress_dotted-preview.png,White Dress with Dots,An everyday dress or for a party,Skirt and Dresses shop,100 buttons,,n/a
+123,,Dresses,,dresses,dress18,n/a,Dress 18.png,defaults,[default],dress_stripe_sleeves-preview.png,Black Top Dress,A sexy and tight black dress for a party or date,Skirt and Dresses shop,100 buttons,,n/a
+124,,Dresses,,dresses,dress19,n/a,Dress 19.png,"[skintight, M, L]
+Dress 19 Skintight.png
+Dress 19 Squeeze M, L.png
+Dress 19 Squeeze M, L.png
+",[default],black dress.png,Gray Dress with Flowers,A casual gray cotton dres with flower designs,Skirt and Dresses shop,100 buttons,,n/a
+125,,Dresses,,dresses,dress20,n/a,Dress 20 Normal.png,"[M, L, S]
+Dress 20 Squeeze M, L.png
+Dress 20 Squeeze M, L.png
+Dress 20 Squeeze S.png",[default],pink_dress-preview.png,Pink Dress with Zipper,A pink dress with a zipper – for a party,Skirt and Dresses shop,100 buttons,,n/a
+126,,Dresses,,dresses,dress21,n/a,Dress 21 Normal.png,"[skintight, S, M, L]
+Dress 21 Skintight.png
+Dress 21 Squeeze S, M, L.png
+Dress 21 Squeeze S, M, L.png
+Dress 21 Squeeze S, M, L.png",[default],silver_dress-preview.png,Green Glitter Dress,A short green dress with glitter for a party or date,Skirt and Dresses shop,100 buttons,,n/a
+127,,Dresses,,dresses,dress22,n/a,Dress 22 Normal.png,"[skintight, M, L]
+Dress 22 Skintight.png
+Dress 22 Squeeze M, L.png
+Dress 22 Squeeze M, L.png",[default],white_flower_dress-preview.png,Flower Dress,A dress with pink flowers,Skirt and Dresses shop,100 buttons,,n/a
+128,,Dresses,,dresses,dress23,n/a,Dress 23 Normal.png,"[skintight]
+Dress 23 Skintight.png",[default],black lace preview.png,Black Dress with Embroidery,A black dress with flower embroidery,Skirt and Dresses shop,100 buttons,,n/a
+129,,Dresses,,dresses,dress24,n/a,Dress 24 Normal.png,"[skintight, M, L]
+Dress 24 Skintight.png
+Dress 24 Squeeze ML smaller bust.png
+Dress 24 Squeeze ML smaller bust.png",[default],red-dress-preview.png,Red Dress,A casual red dress,Skirt and Dresses shop,100 buttons,,n/a
+130,,Skirts,,skirts,skirt1,n/a,skirt1-pluff.png,skirt2-clipped.png,[default],Profilepics-Skirts1.png,Pink Skirt,A pink skirt,Skirt and Dresses shop,80 buttons,,n/a
+131,,Skirts,,skirts,skirt2,n/a,skirt2-black.png,"[back]
+skirt2-black.png",[default],Profilepics-Skirts2.png,Short Black Skirt,A slanted black skrit,Skirt and Dresses shop,80 buttons,,n/a
+132,x,Skirts,,skirts,skirt3,n/a,skirt3.png,n/a,[default],Profilepics-Skirts3.png,Curvy Jeans Skirt,A jeans skirt with a curvy fit,Skirt and Dresses shop,80 buttons,,n/a
+133,,Skirts,,skirts,skirt4,n/a,skirt4.png,skirt4-clipped.png,[default],Profilepics-Skirts4.png,Orange Sheer Skirt,A sheer orange skirt,Skirt and Dresses shop,80 buttons,,n/a
+134,,Skirts,,skirts,skirt5,n/a,skirt5-Beachblue.png,n/a,[default],Profilepics-Skirts5.png,Teal Blue Skirt,A teal blue skirt for a casual or beach look,Skirt and Dresses shop,80 buttons,,n/a
+135,,Skirts,,skirts,skirt6,n/a,skirt6-purple business.png,n/a,[default],Profilepics-Skirts6.png,Purple Skirt,A soft purple skirt,Skirt and Dresses shop,80 buttons,,n/a
+136,,Skirts,,skirts,skirt7,n/a,skirt7-lightblue.png,skirt7-clipped.png,[default],Profilepics-Skirts7.png,Baby Blue Skirt,"A baby blue skirt, for a school outfit or casual look",Skirt and Dresses shop,80 buttons,,n/a
+137,,Skirts,,skirts,skirt8,n/a,skirt8-jeansskirt.png,skirt8-clipped.png,[default],Profilepics-Skirts8.png,Jeans Skirt,A stylish jeans skirt,Skirt and Dresses shop,80 buttons,,n/a
+138,,Skirts,,skirts,skirt9,n/a,skirt9.png,n/a,[default],jeans skirt preview.png,Jeans Skirt,A stylish jeans skirt,Skirt and Dresses shop,80 buttons,,n/a
+139,,Shoes/Boots,,shoes,shoes1,n/a,Shoes 1.png,n/a,[default],Profilepics-Shoes1-2.png,Furry Boots,Boots with faux fur,"Default, Shoe Shop",150 buttons,,[tall boots]
+140,,Shoes/Sandals,,shoes,shoes2,n/a,"[front,back]
+Shoes 2 front.png
+Shoes 2 back.png",n/a,[default],Profilepics-Shoes2-2.png,Brown Sandals,Brown sandals for a casual look,"Default, Shoe Shop",80 buttons,,n/a
+141,,Shoes/Heels,,shoes,shoes3,n/a,"[front,back]
+Shoes 3 front.png
+Shoes 3 back.png",n/a,[default],Profilepics-Shoes3-2.png,Gray Heels,"Gray, a color that matches almost anything.  Matches with almost any outfit","Default, Shoe Shop",80 buttons,,n/a
+142,,Shoes/Heels,,shoes,shoes4,n/a,"[front,back]
+Shoes 4 front.png
+Shoes 4 back.png",n/a,[default],Profilepics-Shoes4-2.png,Leopard Print Heels,"Leopard pattern heels with open toes to match a leopard print dress, jeans, or any other casual outfit","Default, Shoe Shop",80 buttons,,n/a
+143,,Shoes,,shoes,shoes5,n/a,"[front,back]
+Shoes 5 front.png
+Shoes 5 back.png",n/a,[default],Profilepics-Shoes5-2.png,Glass Slippers,Light Blue Glass Slippers,"Default, Shoe Shop",80 buttons,,n/a
+144,,Shoes/Wedges,,shoes,shoes6,n/a,"[front,back]
+Shoes 6 front.png
+Shoes 6 back.png",n/a,[default],Profilepics-Shoes6-2.png,Pink Platform Wedges,"Pink platform wedges are in style – wear these for a casual look.  Whether you're just going to the beach, to the movies, or just out with friends, these are the perfect pair of wedges for your feet this summer",Shoe Shop,100 buttons,,n/a
+145,,Shoes/Boots,,shoes,shoes7,n/a,"[front,back]
+Shoes 7 front.png
+Shoes 7 back.png",n/a,[default],Profilepics-Shoes7-2.png,Short Boots with Flower Embroidery,Short boots to go with a pair of jeans,Shoe Shop,80 buttons,,[short boots]
+146,,Shoes/Sandals,,shoes,shoes8,n/a,"[front,back]
+Shoes 8 front.png
+Shoes 8 back.png",n/a,[default],Profilepics-Shoes8-2.png,Sandals with a Flower,Beach sandals with a flower decoration,Shoe Shop,80 buttons,,n/a
+147,,Shoes/Heels,,shoes,shoes9,n/a,Shoes 9.png,n/a,[default],Profilepics-Shoes9-2.png,Orange Pattern Heels,Heels with an orange/red/brown pattern,Shoe Shop,80 buttons,,n/a
+148,,Shoes/Sandals,,shoes,shoes10,n/a,"[front,back]
+Shoes 10 front.png
+Shoes 10 back.png",n/a,[default],Profilepics-Shoes10-2.png,Green and Blue Heel Sandals,"Green and blue sandals with yellow, blue, and white flowers",Shoe Shop,80 buttons,,n/a
+149,,Shoes/Boots,,shoes,shoes11,n/a,Shoes 11.png,n/a,[default],Profilepics-Shoes11-2.png,Brown Boots,Brown boots,Shoe Shop,120 buttons,,[tall boots]
+150,,Shoes/Sandals,,shoes,shoes12,n/a,"[front,back]
+Shoes 12 front.png
+Shoes 12 back.png",n/a,[default],Profilepics-Shoes12-2.png,Brown and Blue Sandals,Comfortable brown and blue sandals,Shoe Shop,80 buttons,,n/a
+151,,Shoes/Sneakers,,shoes,shoes13,n/a,Shoes 13.png,n/a,[default],Profilepics-Shoes13-2.png,Pink Sneakers,Pink sneakers for running or everyday wear,Shoe Shop,80 buttons,,n/a
+152,,Shoes/Rainboots,,shoes,shoes14,n/a,"[front,back]
+Shoes 14 front.png
+Shoes 14 back.png",n/a,[default],Profilepics-Shoes14-2.png,Purple Rainboots,Purple rainboots with a cool design to keep you cheerful in a raindy day,Shoe Shop,80 buttons,,[tall boots]
+153,,Shoes/Sandals,,shoes,shoes15,n/a,"[front,back]
+Shoes 15 front.png
+Shoes 15 back.png",n/a,[default],Profilepics-Shoes15-2.png,String sandals with flower decorations,String sandals with flower decorations,Shoe Shop,80 buttons,,n/a
+154,,Shoes/Sandals,,shoes,shoes16,n/a,"[front,back]
+Shoes 16 front.png
+Shoes 16 back.png",n/a,[default],Profilepics-Shoes16-2.png,Pink Sandals with Silver Heels,Pink sandals with silver heels for a party or event,Shoe Shop,80 buttons,,n/a
+155,,Shoes/Flats,,shoes,shoes17,n/a,Shoes 17.png,n/a,[default],Profilepics-Shoes17-2.png,Red Flats,Red flats for a business causal look,Shoe Shop,80 buttons,,n/a
+156,,Shoes/Flats,,shoes,shoes18,n/a,"[front,back]
+Shoes 18 front.png
+Shoes 18 back.png",n/a,[default],Profilepics-Shoes18-2.png,Gray Flats,Gray Flats with a bowtie,Shoe Shop,80 buttons,,n/a
+157,,Shoes/Sandals,,shoes,shoes19,n/a,"[front,back]
+Shoes 19 front.png
+Shoes 19 back.png",n/a,[default],Profilepics-Shoes19-2.png,Sandals,Dark Purple Open Toe Sandals,Shoe Shop,80 buttons,,n/a
+158,,Shoes/Sandals,,shoes,shoes20,n/a,"[front,back]
+Shoes 20 front.png
+Shoes 20 back.png",n/a,[default],Profilepics-Shoes20-2.png,Pink sandals,Pink sandals with decorations,Shoe Shop,80 buttons,,n/a
+159,,Shoes/Sandals,,shoes,shoes21,n/a,"[front,back]
+Shoes 21 front.png
+Shoes 21 back.png",n/a,[default],Profilepics-Shoes21-2.png,Blue Sandals with Gold Beads,Blue sandals with gold beads for a casual and classy look,Shoe Shop,80 buttons,,n/a
+160,,Shoes/Boots,,shoes,grayboots,n/a,shoes22.png,n/a,[default],grayboots.png,Gray boots,A pair of gray boots,Shoe Shop,150 buttons,,[tall boots]
+161,,Shoes/Sandals,,shoes,redheels,n/a,shoes23.png,n/a,[default],red_sandals-preview.png,Red Sandals,Red sandals with three straps,Shoe Shop,80 buttons,,n/a
+162,,Swimwear,,swimwear,swimwear1-top,n/a,swimwear1-top.png,n/a,[default],swimwear1-top.png,White Swimsuit Top,White swimsuit top – features a teal clasp,Beach Shop,70 buttons,,n/a
+163,,Swimwear,,swimwear,swimwear1-bottom,n/a,swimwear1-bottom.png,n/a,[default],swimwear1-bottom.png,White Swimsuit Bikini Bottom,White swimsuit bottom with a teal clasp,Beach Shop,70 buttons,,n/a
+164,,Swimwear,,swimwear,swimwear1-set,n/a,"[set]
+swimwear1-top, swimwear1-bottom",n/a,[default],Profilepics-Swimwear1.png,White Swimsuit Set,White swimsuit set – comes with top and bottom,Beach Shop,120 buttons,,n/a
+165,,Swimwear,,swimwear,swimwear2-set,n/a,"[set]
+swimwear2-top, swimwear2-bottom",n/a,[default],Profilepics-Swimwear2.png,Teal Swimsuit Set,Teal swimsuit set – comes with top and bottom,Beach Shop,120 buttons,,n/a
+166,,Swimwear,,swimwear,swimwear2-top,n/a,swimwear2-top.png,n/a,[default],swimwear2-top.png,Teal Swimsuit Top,Teal swimsuit top – with a golden ring in the center of the top,Beach Shop,70 buttons,,n/a
+167,,Swimwear,,swimwear,swimwear2-bottom,n/a,swimwear2-bottom.png,n/a,[default],swimwear2-bottom.png,Team Swimsuit Bottom,Teal swimsuit bottom with patterns,Beach Shop,70 buttons,,n/a
+168,,Handbags,,handbags,handbag1,n/a,"[back,front]
+Owlbag EQUIPPED back.png
+Owlbag EQUIPPED front.png",n/a,[default],Profile-purses-owl.png,Owl Handbag,A pink owl handbag to keep you company and to keep your stuff everywhere you go,Handbags Shop,150 buttons,,n/a
+169,,Handbags,,handbags,handbag2,n/a,"[front,back]
+B-W elegant EQUIPPED Front.png
+B-W elegant EQUIPPED Back.png",n/a,[default],Profile-purses-BW-Eleg.png,Black and White Elegant Purse,A simple black and white elegant purse,"Default, Handbags Shop",120 buttons,,n/a
+170,,Handbags,,handbags,handbag3,n/a,"[front,back]
+Candy EQUIPPED front.png
+Candy EQUIPPED back.png",n/a,[default],Profile-purses-Candy.png,A cute and sweet orange and pink candy-colored purse,Orange and pink candy-colored purse,"Default, Handbags Shop",100 buttons,,n/a
+171,,Handbags,,handbags,handbag4,n/a,"[back,front]
+Netbrown EQUIPPED back.png
+Netbrown EQUIPPED front.png",n/a,[default],Profile-purses-netbrown.png,Small Brown Handbag,A brown handbag with a tiestring to fit your essential items,Handbags Shop,50 buttons,,n/a
+172,,Handbags,,handbags,handbag5,left,Pink net EQUIPPED.png,n/a,[default],Profile-purses-pinknet.png,Pink and White Handbag,Pink and white handbag with a netted pattern,Handbags Shop,50 buttons,,n/a
+173,,Handbags,,handbags,handbag6,left,JEANS Bag.png,n/a,[default],Profile-purses-jeans.png,Jeans Handbag,A handbag made of jeans material with dollar signs patterns,Handbags Shop,50 buttons,,n/a
+174,,Handbags,,handbags,handbag7,left,Trendy white and choco EQUIPPED.png,n/a,[default],Profile-purses-Trendy-whitechoco.png,Trendy White and Brown Handbag,A large trendy leather white and brown handbag with leather decorations.  It is large enough to fit a lot of items,Handbags Shop,100 buttons,,n/a
+175,,Handbags,,handbags,handbag8,left,Beach yellow striped EQUIPPED.png,n/a,[default],Profile-purses-Beachstripes.png,Yellow Beach Handbag,A large handbag that is perfect to take to you to the beach.  It is spacious and will fit anything you'll ever need on a beach trip or for your daily life,Handbags Shop,120 buttons,,n/a
+176,,Handbags,,handbags,handbag9,left,Yellow ribbon EQUIPPED.png,n/a,[default],Profile-purses-yellowribbon2.png,Purse with Yellow Ribbon,A small handpurse with a yellow ribbon bowtie,Handbags Shop,60 buttons,,n/a
+177,,Handbags,,handbags,handbag10,left or right,"[left,right]
+Clutch Pearls EQUIPPED L.png
+Clutch Pearls EQUIPPED R.png",n/a,[default],Profile-purses-clutchpearls.png,Pearl Clutch,A clutch covered in pearls.  Equip on the left or right hand,"Default, Handbags Shop",80 buttons,,n/a
+178,,Handbags,,handbags,handbag11,left or right,"[L,R]
+Pink clutch - flowery EQUIP L.png
+Pink clutch - flowery EQUIP R.png",n/a,[default],Profile-purses-pinkflowery.png,Pink Flower Clutch,"A pink clutch made in the shape of a flower, adds a romantic element to any outfit",Handbags Shop,60 buttons,,n/a
+179,,Handbags,,handbags,handbag12,left,Pink wavy EQUIP.png,n/a,[default],Profile-purses-Pinkwavy.png,Pink Handbag,A pink handbag with wavy pattern that can be conveniently carried.  Made from a stury material and very durable to keep your valuables and makeup safe,Handbags Shop,80 buttons,,n/a
+180,,Handbags,,handbags,handbag13,left,backpack - L.png,n/a,[default],backpack-preview.png,Black Backpack,A simple black backpack for your school supplies or to carry your things in,"Default, Handbags Shop",5 buttons,,n/a
+181,,Handbags,,handbags,handbag14,n/a,"[front,back]
+black bag - front.png
+black bag – back.png",n/a,[default],black_bag_with_bow-preview.png,Black Purse,A black purse you can wear on your shoulder. With a bowtie on the strap for decoration,Handbags Shop,5 buttons,,n/a
+182,,Handbags,,handbags,handbag15,n/a,"[front,back]
+dark blue bag - front.png
+dark blue bag – back.png",n/a,[default],bag_darkbluepurse-preview.png,Dark Blue Purse,A dark blue purse you can wear on your shoulder.  Has two smaller pockets with zippers to keep all your items safe and sound.,Handbags Shop,5 buttons,,n/a
+183,,Handbags,,handbags,handbag16,n/a,"[back,front]
+red small bag - back.png
+red small bag – front.png",n/a,[default],bag_red-preview.png,Small Red Purse,"A small red purse to fit your most essential items, credit cards, coins, and small makeup items","Default, Handbags Shop",5 buttons,,n/a
+184,,Handbags,,handbags,handbag17,left,blue clutch L.png,n/a,[default],clutch_blue-preview.png,Teal Clutch,A bright teal-colored clutch to carry your money and small items in,Handbags Shop,5 buttons,,n/a
+185,,Handbags,,handbags,handbag18,left,purple clutch L.png,n/a,[default],clutch_purple-preview.png,Purple Clutch,A purple clutch with a leather finish to carry around your essential items in,Handbags Shop,80 buttons,,n/a
+186,,Hairstyles,,hair,hairstyle1,n/a,1.png,n/a,[default],Profilepics-Hair1.png,Hairstyle #1,Hairstyle #1,Salon,n/a,,n/a
+187,,Hairstyles,,hair,hairstyle2,n/a,2.png,n/a,[default],Profilepics-Hair2.png,Hairstyle #2,Hairstyle #2,Salon,100 buttons,,n/a
+188,,Hairstyles,,hair,hairstyle3,n/a,"[front,back]
+3.png
+3-back.png",n/a,[default],Profilepics-Hair3.png,Hairstyle #3,Hairstyle #3,Salon,100 buttons,,n/a
+189,,Hairstyles,,hair,hairstyle4,n/a,4.png,n/a,[default],Profilepics-Hair4.png,Hairstyle #4,Hairstyle #4 – pink tips [needs some tweaks],Salon,100 buttons,,n/a
+190,,Hairstyles,,hair,hairstyle5,n/a,"[front,back]
+5.png
+5-back.png",n/a,[default],Profilepics-Hair5.png,Hairstyle #5,Hairstyle #5,Salon,100 buttons,,n/a
+191,,Hairstyles,,hair,hairstyle6,n/a,"[front,back]
+6.png
+6-back.png",n/a,[default],Profilepics-Hair6.png,Hairstyle #6,Hairstyle #6,Salon,100 buttons,,n/a
+192,,Hairstyles,,hair,hairstyle7,n/a,"[front,back]
+7.png
+7-back.png",n/a,[default],Profilepics-Hair7.png,Hairstyle #7,Hairstyle #7,Salon,100 buttons,,n/a
+193,,Hairstyles,,hair,hairstyle8,n/a,8.png,n/a,[default],Profilepics-Hair8.png,Hairstyle #8,Lady Gaga,Salon,200 buttons,,n/a
+194,,Hairstyles,,hair,hairstyle9,n/a,"[front,back]
+9-front.png
+9-back.png",n/a,[default],Profilepics-Hair9.png,Hairstyle #9,Hairstyle #9,Salon,100 buttons,,n/a
+195,,Hairstyles,,hair,hairstyle10,n/a,"[front,back]
+10-front.png
+10-back.png",n/a,[default],Profilepics-Hair10.png,Hairstyle #10,Hairstyle #10,Salon,200 buttons,,n/a
+196,,Hairstyles,,hair,hairstyle11,n/a,"[front,back]
+11-front.png
+11-back.png",n/a,[default],Profilepics-Hair11.png,Hairstyle #11,Hairstyle #11,Salon,100 buttons,,n/a
+197,,Hairstyles,,hair,hairstyle12,n/a,"[front,back]
+12-front.png
+12-back.png",n/a,[default],Profilepics-Hair12.png,Hairstyle #12,Jennifer Aniston inspired hairstyle,Salon,200 buttons,,n/a
+198,,Hairstyles,,hair,hairstyle13,n/a,"[front,back]
+13-front.png
+13-back.png",n/a,[default],Profilepics-Hair13.png,Hairstyle #13,Hairstyle #13,Salon,100 buttons,,n/a
+199,,Hairstyles,,hair,hairstyle14,n/a,14.png,n/a,[default],Profilepics-Hair14.png,Hairstyle #14,Hairstyle #14 – pigtails,Salon,100 buttons,,n/a
+200,,Hairstyles,,hair,hairstyle15,n/a,"[front,back]
+15.png
+15-back.png",n/a,[default],Profilepics-Hair15.png,Hairstyle #15,Hairstyle #15,Salon,100 buttons,,n/a
+201,,Hairstyles,,hair,hairstyle16,n/a,16.png,n/a,[default],Profilepics-Hair16.png,Hairstyle #16,Hairstyle #16,Salon,100 buttons,,n/a
+202,,Hairstyles,,hair,hairstyle17,n/a,17.png,n/a,[default],Profilepics-Hair17.png,Hairstyle #17,Hairstyle #17,Salon,100 buttons,,n/a
+203,,Hairstyles,,hair,hairstyle18,n/a,18.png,n/a,[default],Profilepics-Hair18.png,Hairstyle #18,Hairstyle #18,Salon,100 buttons,,n/a
+204,,Hairstyles,,hair,hairstyle19,n/a,"[front,back]
+19.png
+19-back.png",n/a,[default],Profilepics-Hair19.png,Hairstyle #19,Hairstyle #19,Salon,100 buttons,,n/a
+205,,Hairstyles,,hair,hairstyle20,n/a,20.png,n/a,[default],Profilepics-Hair20.png,Hairstyle #20,Hairstyle #20,Salon,100 buttons,,n/a
+206,,Hairstyles,,haircolors,hairstyle1-lightbrown,n/a,Style 1 - lightbrown.png,n/a,[default],Profilepics-Hair1-brownlight.png,Hairstyle #1 – Light Brown,Hairstyle #1 – Light Brown,Salon,20 buttons,"Once user has this hairstyle, only 20 buttons to change the color",n/a
+207,,Hairstyles,,haircolors,hairstyle1-blonde,n/a,Style 1 blonde.png,n/a,[default],Profilepics-Hair1-blonde.png,Hairstyle #1 – Blonde,Hairstyle #1 – Blonde,Salon,20 buttons,,n/a
+208,,Hairstyles,,haircolors,hairstyle1-red,n/a,Style 1 red.png,n/a,[default],Profilepics-Hair1-red.png,Hairstyle #1 – Red,Hairstyle #1 – Red,Salon,20 buttons,,n/a
+210,,Hairstyles,,haircolors,hairstyle1-red2,n/a,Style 1 red2.png,n/a,[default],Profilepics-Hair1-red2.png,Hairstyle #1 – Red Shade #2,Hairstyle #1 – Red Shade #2,Salon,20 buttons,,n/a
+211,,Hairstyles,,haircolors,hair2-lightblonde,n/a,hair2-lightblonde.png,n/a,files/items/haircolors,hair2-lightblonde.png,Hairstyle #2 – Light Blonde,Hairstyle #2 – Light Blonde,Salon,20 buttons,,n/a
+212,,Hairstyles,,haircolors,hair2-brown,n/a,hair2-brown.png,n/a,files/items/haircolors,hair2-brown.png,Hairstyle #2 – Brown,Hairstyle #2 – Brown,Salon,20 buttons,,n/a
+213,,Hairstyles,,haircolors,hair2-black,n/a,hair2-black.png,n/a,files/items/haircolors,hair2-black.png,Hairstyle #2 – Black,Hairstyle #2 – Black,Salon,20 buttons,,n/a
+214,,Hairstyles,,haircolors,hair2-red,n/a,hair2-red.png,n/a,files/items/haircolors,hair2-red-profilepic.png,Hairstyle #2 – Red,Hairstyle #2 – Red,Salon,20 buttons,,n/a
+215,,Hairstyles,,haircolors,hair2-lightred,n/a,hair2-lightred.png,n/a,files/items/haircolors,hair2-lightred-profilepic.png,Hairstyle #2 – Light Red,Hairstyle #2 – Light Red,Salon,20 buttons,,n/a

@@ -1,0 +1,1 @@
+User "<?=$data['username']?>" has sent you a gift at Perfect-Look.org.  Click the link below to accept or reject the gift and view all your gifts.

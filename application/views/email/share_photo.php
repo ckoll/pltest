@@ -1,0 +1,2 @@
+<?=$username?> has shared a photo with you! Click the photo ... <br>
+<a href="http://<?=$_SERVER['SERVER_NAME']?>/<?=$username?>/photo/<?=$id?>">http://<?=$_SERVER['SERVER_NAME']?>/<?=$username?>/photo/<?=$id?></a>

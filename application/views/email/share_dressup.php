@@ -1,0 +1,2 @@
+<?=$username?> share new look for you.<br>
+Caption: <a href="http://<?=$_SERVER['SERVER_NAME']?>/<?=$username?>/dressup/<?=$id?>">http://<?=$_SERVER['SERVER_NAME']?>/<?=$username?>/dressup/<?=$id?></a>

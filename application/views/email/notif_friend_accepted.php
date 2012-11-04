@@ -1,0 +1,1 @@
+User "<?=$data['username']?>" accept your friends request.

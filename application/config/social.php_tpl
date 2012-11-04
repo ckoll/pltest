@@ -1,0 +1,17 @@
+<?php
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
+//Twitter
+$config['twConsumerKey'] = '6H5xrXFYS6bz3QCUW54Unw';
+$config['twConsumerSecret'] = 'miuOSgLbNt0jVFzbPLCqzFNW3We04lVXt0hTZCG0';
+
+//Facebook
+$config['fbAppId'] = '392636414121505';
+$config['fbSecret'] = '3dd0a13863da152de86971b4201c26e2';
+
+$config['gmail_client_id']='474431908168.apps.googleusercontent.com';
+$config['gmail_client_secret']='cZS87ZPFRYWykhwrryrbh9tX';
+$config['gmail_redirect_uri']='http://'.$_SERVER['SERVER_NAME'].'/find_friends/?gmail=1';
+$config['gmail_max_results']='500';

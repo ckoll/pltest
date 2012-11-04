@@ -1,0 +1,381 @@
+.auction_options div{
+    float:left;
+    width:33%;
+}
+.sell_item{
+    margin-left: 10px;
+}
+.sell_info{
+    float: left;
+    margin-left: 120px;
+}
+.sell_info_count{
+    float: left;
+    margin-left: 30px;
+    text-align: right;
+    line-height: 30px;
+}
+.sell_options{
+    padding: 14px 20px;
+    border: 2px solid #DDD;
+    width: 260px;
+    float: left;
+    margin-left: 24px;
+    line-height: 24px;
+    height: 130px;
+    position: relative;
+    text-align: left;
+}
+.edit_info_count{
+    float: left;
+    margin-left: 30px;
+    line-height: 26px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.sell_options input[type=button]{
+    position: absolute;
+    bottom: 14px;
+    left: 125px;
+}
+#dressup_items{
+    float: left;
+    width: 400px;
+    margin-left: 20px;
+    height: 350px;
+}
+.loading_big{
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+}
+.item_one{
+    width: 70px;
+    float: left;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 6px 4px;
+    border-radius: 3px;
+    text-align: center;
+}
+.item_one:hover{
+    background-color: #F6F6F6;
+}
+.item_one img{
+    max-width: 100%;
+    height: 70px;
+}
+.item_one small{
+    font-size: 10px;
+    display: block;
+    line-height: 12px;
+}
+.used_items{
+    border-top: 5px solid #AAA; 
+    padding-top: 10px;
+}
+.used{
+    width: 50px;
+    height: 60px;
+    float: left;
+    border: 1px solid #f1b2b3;
+    padding: 4px;
+    border-radius: 3px;
+    text-align: center;
+    margin-right: 3px;
+    position: relative;
+    cursor: move;
+    list-style: none;
+}
+.used:hover{
+    background-color: #F6F6F6;
+}
+.used img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.remove_item{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: url(/images/del.png) no-repeat;
+    display: none;
+    cursor: pointer;
+}
+
+/*-----------*/
+
+#dressup{
+    width: 350px;
+    height: 350px;
+    background: left top no-repeat;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    /*margin-bottom: 20px;*/
+    z-index: 0;
+}
+#dressup div#doll_position{
+    position: relative;
+    /*margin-left: -8px;*/
+    /*    margin-top: -15px;*/
+
+}
+#doll_body{
+    background-image: url(/files/items/body/body1.png); 
+    z-index: 20;
+}
+/* Body 1 hands */
+#doll_right_hand1{
+    background-image: url(/files/items/body/body1-right1.png); 
+    z-index: 62;
+}
+#doll_left_hand1{
+    background-image: url(/files/items/body/body1-left1.png); 
+    z-index: 60;
+}
+/* Body 1 hands end */
+
+/* Body 2 hands */
+#doll_right_hand2{
+    background-image: url(/files/items/body/body1-right2.png); 
+    z-index: 62;
+}
+#doll_left_hand2{
+    background-image: url(/files/items/body/body1-left2.png); 
+    z-index: 60;
+}
+#left_fingers{
+    background-image: url(/files/items/body/fign-left.png);
+    z-index: 70;
+}
+#right_fingers{
+    background-image: url(/files/items/body/fign-right.png);
+
+    z-index: 70;
+}
+/* Body 2 hands end */
+
+#doll_hair{
+    background-image: url(/files/items/hair/hair1.png); 
+    width: 60px; 
+    height: 74px; 
+    left: 33px; 
+    top: 0px; 
+    z-index: 100;
+}
+#dressup div{
+    width: 210px; 
+    height: 350px;
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    -moz-background-size: 100%;  
+    -webkit-background-size: 100%;  
+    -o-background-size: 100%;  
+    background-size: 100%;
+}
+.result_dressup{
+    float: left;
+    width: 150px;
+    height: 330px;
+    /*background-color: #EEE;*/
+    background-position: -10px -20px;
+    background-repeat: no-repeat;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 4px;
+    display: block;
+}
+.result_dressup.small{
+    width: 200px;
+    height: 350px;
+    margin-left: 30px;
+}
+
+/* Tiny Scrollbar */
+#scrollbar { 
+    margin: 0 20px 0 0;
+    padding: 5px;
+}
+#scrollbar .viewport { 
+    width: 760px; 
+    height: 70px; 
+    overflow: hidden; 
+    position: relative; 
+}
+#scrollbar .overview { 
+    list-style: none; 
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    padding: 0; 
+    margin: 0; 
+    min-width: 620px;
+}
+#scrollbar .scrollbar, #scrollbar_outfit .scrollbar{ 
+    background: #EEE; 
+    border-radius: 4px; 
+    position: relative; 
+    background-position: 0 0; 
+    float: right; 
+    width: 640px; 
+    height: 10px; 
+    margin-top: 8px;
+    /*display: none;*/
+}
+#scrollbar .track, #scrollbar_outfit .track { 
+    background: #EEE; 
+    border-radius: 4px; 
+    height: 100%; 
+    width:13px; 
+    position: relative; 
+    padding: 0 1px; 
+}
+#scrollbar .thumb, #scrollbar_outfit .thumb { 
+    background: #999; 
+    border-radius: 4px; 
+    height: 10px; 
+    width: 25px; 
+    cursor: pointer; 
+    overflow: hidden; 
+    position: absolute; 
+    top: 0; 
+    left: -5px;
+}
+#scrollbar .disable, #scrollbar_outfit .disable { 
+    display: none; 
+}
+
+#scrollbar_outfit {
+    margin-top: 20px;
+    width: 460px; 
+}
+#scrollbar_outfit .viewport{
+    width: 460px; 
+    height: 250px;
+    overflow: hidden; 
+    position: relative; 
+}
+#scrollbar_outfit .overview{
+    list-style: none; 
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    padding: 0; 
+    margin: 0; 
+    min-width: 460px;
+}
+#scrollbar_outfit .scrollbar{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.outfit_preview{
+    width: 500px;
+    height: 350px;
+    float: left;
+    margin-right: 10px;
+}
+.outfit_list{
+    float: left;
+    width: 345px;
+}
+.outfit{
+    float: left;
+    width: 100px;
+    margin-right: 4px;
+    padding: 3px;
+    background-color: #FFF;
+    border: 1px solid #DDD;
+    margin-bottom: 10px;
+    overflow: hidden;
+    font-size: 11px;
+    position: relative;
+}
+.outfit:hover, .outfit.active{
+    background-color: #EEE;
+}
+.outfit img{
+    width: 100%;
+    cursor: pointer;
+}
+.outfit img.remove_outfit,.outfit img.remove_dressup{
+    width: 12px; 
+    position: absolute; 
+    right: 0; 
+    bottom: 0;
+}
+
+.page_small{
+    border: 1px solid #CCC;
+    padding: 1px 5px;
+    border-radius: 3px;
+    background-color: #EEE;
+    margin-right: 2px;
+}
+.page_small:hover, .page_small.active{
+    cursor: pointer;
+    background-color: #FFF;
+    box-shadow: 0 0 1px #555;
+}
+
+.slide{
+    position: relative;
+}
+.slide small{
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 16px;
+    height: 16px;
+    background: url(/images/jquery-ui/ui-icons_222222_256x240.png) no-repeat -64px -16px;
+    opacity: .6;
+}
+.slide small.opened{
+    background-position: 0px -16px;
+}
+#dressup div.load_dressup{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 350px;
+    background-color: rgba(255,255,255,.8);
+    text-align: center;
+    padding-top: 100px;
+    display: none;
+}
+
+input[type=button].button_gray {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ef7db2), color-stop(1, #e9679c) );
+    background:-moz-linear-gradient( center top, #ef7db2 5%, #e9679c 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ef7db2', endColorstr='#e9679c');
+    background-color:#ef7db2;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:4px;
+    border:1px solid #e9679c;
+    display:inline-block;
+    color:#ffffff;
+    font-family:arial;
+    font-size:14px;
+    padding:4px 14px;
+    text-decoration:none;
+    text-shadow: none;
+}
+input[type=button].button_gray:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9679c), color-stop(1, #ef7db2) );
+    background:-moz-linear-gradient( center top, #e9679c 5%, #ef7db2 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9679c', endColorstr='#ef7db2');
+    background-color:#e9679c;
+}
+input[type=button].button_gray:active {
+    position:relative;
+    top:1px;
+}

@@ -1,0 +1,83 @@
+/* 
+Theme Name: Perfect Look 
+Theme URI: http://perfect-look.org
+Author: Nickole
+Author URI: http://perfect-look.org
+
+*/ 
+
+	
+	body {
+	background-image: url('images/bg1.png');
+	background-position: 0px 0px;
+	background-repeat: repeat-x;
+	background-color:#FF92A0 ;
+	text-shadow: #fffff 1px 1px 1px;
+}
+
+#eye {
+
+	position:absolute;
+
+	width:228px;
+
+	height:115px;
+
+	z-index:1;
+
+	left:743px;
+
+	top: 69px;
+
+}
+
+#twitter {
+
+	position:absolute;
+
+	width:228px;
+
+	height:115px;
+
+	z-index:1;
+
+	left:789px;
+
+	top: 516px;
+
+}
+
+
+#facebook {
+
+	position:absolute;
+
+	width:228px;
+
+	height:115px;
+
+	z-index:1;
+
+	left:-197px;
+
+	top: 82px;
+
+}
+
+#signup {
+
+	position:absolute;
+
+	width:228px;
+
+	height:115px;
+
+	z-index:1;
+
+	left:-620px;
+
+	top: 156px;
+
+}
+
+

@@ -1,0 +1,114 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+
+<head>
+
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=iso-8859-2" />
+
+  <meta name="Description" content=" Perfect Look Fashion Dolls .; ' " />
+
+  <meta name="Keywords" content="perfect look , fashion,dolls" />
+
+  <meta name="Author" content=" Nickole " />
+
+  
+
+
+
+  <title> Perfect Look Promo Page </title>
+
+
+
+  <link rel="stylesheet" href="styl.css" type="text/css" />
+
+	
+
+	</style>
+
+
+	
+
+<script type="text/javascript">
+
+/*****************************************
+* Dissolving Image Rollover- By Roy Whittle (http://www.javascript-fx.com/)
+* Featured on/available at http://www.dynamicdrive.com/
+* This notice must stay intact for use
+*****************************************/
+
+//Generate transition CSS (transition=0 to 23)
+document.write('<STYLE TYPE="text/css">.imgTrans{ filter:revealTrans(duration=0.4,transition=12) }</STYLE>');
+
+//Uncomment the next line for fading rollovers instead of dissolving:
+//document.write('<STYLE TYPE="text/css">.imgTrans{ filter:blendTrans(duration=0.4) }</STYLE>');
+
+var onImages=new Array();
+function Rollover(imgName, imgSrc)
+{
+	onImages[imgName] = new Image();
+	onImages[imgName].src = imgSrc;
+}
+
+function turnOn(imgName){ 
+	if(document.images[imgName].filters != null)
+		document.images[imgName].filters[0].apply();
+	document.images[imgName].offSrc = document.images[imgName].src;
+	document.images[imgName].src    = onImages[imgName].src;
+	if(document.images[imgName].filters != null)
+		document.images[imgName].filters[0].play();
+}
+
+function turnOff(imgName){ 
+	if(document.images[imgName].filters != null)
+		document.images[imgName].filters[0].stop();
+	document.images[imgName].src = document.images[imgName].offSrc;
+}
+
+//Specify name of participating images, plus paths to their onMouseover replacements:
+Rollover("home",  "./images/twitter2.png");
+Rollover("about", "./images/fb2.png");
+Rollover("scripts", "./images/animation3.gif");
+
+</script>
+
+
+ 
+
+<IMG style="top: 0; POSITION: absolute; right: 0 ; left: 0" src="./images/layer.png" usemap="#mapa1" border=0>
+
+
+
+<map name ="mapa1">
+
+
+
+
+</map>
+
+<div id="eye">
+
+<img src="./images/animation2.gif">
+</div>
+
+<div id="twitter">
+<a href = "http://twitter.com/perfectlookorg"
+onMouseOver="turnOn('home');"
+onMouseOut="turnOff('home');"><img name="home" class="imgTrans"
+src="./images/twitter1.png" border="0"></a><br>
+
+<div id="facebook">
+<a href = "https://www.facebook.com/perfectlookorg?fref=ts"
+onMouseOver="turnOn('about');"
+onMouseOut="turnOff('about');"><img name="about" class="imgTrans"
+src="./images/fb1.png" border="0"></a><br>
+</div>
+
+<div id="signup">
+<a href = "http://v1.perfect-look.org/register"
+onMouseOver="turnOn('scripts');"
+onMouseOut="turnOff('scripts');"><img name="scripts" class="imgTrans"
+src="./images/singup1.png" border="0"></a><br>
+</div>
+
+</body>
+</html>
+
