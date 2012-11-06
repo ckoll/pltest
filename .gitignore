@@ -1,6 +1,7 @@
 .gitignore
 .idea
 application/config/development
+application/config/database.php
 application/logs/log-*.php
 application/logs/!index.html
 application/cache/*

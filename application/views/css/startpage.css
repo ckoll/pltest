@@ -1,0 +1,222 @@
+body {
+    background-color: #f4c5da;
+    background-image: url(/images/layout_01.jpg);
+    background-repeat: repeat-x;
+    background-position: top;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+#apDiv1 {
+    position:absolute;
+    left:100px;
+    top:131px;
+    z-index:1;
+    opacity:0.7;
+    filter:alpha(opacity=70); /* For IE8 and earlier */
+}
+
+#main-cont {
+  width: 862px;
+  margin: 0 auto;
+}
+
+#top-cont {
+    width: 100%;
+    background: transparent url('/images/home-bg-top.png') no-repeat;
+    height: 100px;
+    z-index: 100;
+    display: inline-block;
+}
+
+#top-buttons {
+    padding-top: 49px;
+    width: 200px;
+    font-size: 0;
+    float: left;
+    padding-left: 20px;
+}
+
+.top-button {
+    background: url("/images/login-button.png") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    display: inline-block;
+    height: 50px;
+    line-height: 40px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 92px;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    text-shadow: 1px 1px #F734BB;
+}
+
+#logo {
+    background: url("/images/logo.png") no-repeat scroll 0 0 transparent;
+    float: right;
+    height: 102px;
+    width: 237px;
+    margin-right: 20px;
+}
+
+#soc-buttons {
+    float: right;
+    margin-top: 10px;
+}
+
+#bottom-cont {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px 10px 10px 10px;
+    height: 100%;
+    margin-top: -40px;
+    min-height: 100%;
+    overflow: hidden;
+    padding-top: 50px;
+    width: 100%;
+}
+
+#center-cont {
+    float: left;
+    width: 600px;
+    height: 100%;
+    min-height: 500px;
+    padding: 5px;
+}
+
+#left-cont {
+    float: left;
+    width: 250px;
+}
+
+.socbutton {
+    width: 28px;
+    height: 27px;
+    float: left;
+    margin: 5px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#fb-button {
+    background: transparent url("/images/fb-button.png") no-repeat;
+
+}
+
+#tw-button {
+    background: transparent url("/images/tw-button.png") no-repeat;
+}
+
+#email-button {
+    background: transparent url("/images/email-button.png") no-repeat;
+}
+
+.sidetitle h1 {
+    background: linear-gradient(to bottom, #F6BDDD 0%, #FBA6E1 50%, #FD89D7 51%, #F372BB 100%) repeat scroll 0 0 transparent;
+    border: 1px solid #FBA6E1;
+    color: #FFFFFF;
+    font-family: tahoma;
+    font-size: 9px;
+    padding: 5px;
+    text-shadow: 1px 1px #F734BB;
+    text-transform: uppercase;
+}
+
+.image-cont {
+    background-color: #F2F2F2;
+    color: #666666;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    height: 450px;
+    margin: 5px;
+    overflow: hidden;
+    padding: 5px;
+    width: 45%;
+}
+
+.author {
+    float: left;
+    margin-bottom: 7px;
+    margin-right: 15px;
+    margin-top: 7px;
+}
+
+.hearts {
+    float: left;
+    background: transparent url("/images/like.png") no-repeat left;
+    width: 30px;
+    padding-left: 20px;
+    height: 14px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.comments {
+    background: transparent url("/images/comment.png") no-repeat left;
+    float: left;
+    width: 30px;
+    padding-left: 20px;
+    height: 14px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.clear {
+    clear: both;
+}
+
+.image-cont .image {
+    border: 1px solid;
+    padding: 3px;
+    width: 250px;
+    margin: 5px;
+}
+
+.image-cont .image img {
+    width: 250px;
+}
+
+.image-cont .user-image {
+    border: 1px solid #696969;
+    padding: 2px;
+    width: 30px;
+    margin: 2px;
+    display: inline-block;
+    float: left;
+}
+
+.image-cont .user-image img {
+    width: 30px;
+    height: 30px;
+}
+
+.image-cont .descr{
+    margin: 5px 10px;
+}
+
+.image-cont .comment{
+    display: block;
+    margin: 0 auto;
+    width: 250px;
+}
+
+.image-cont .comment-cont{
+    border: 1px dashed #696969;
+    padding: 3px;
+    float: left;
+    width: 195px;
+    margin: 2px;
+}
+
+h1 {
+    color: #FF3399;
+    font-size: 14px;
+    text-transform: uppercase;
+}

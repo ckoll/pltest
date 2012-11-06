@@ -14,6 +14,26 @@ class Home extends CI_Controller {
     }
 
     public function index() {
+
+
+        $this->load->model('upload_model');
+
+        $topPhotos = $this->upload_model->top_10_photos();
+        foreach($topPhotos as $i=>$photo) {
+            $last3Comments = $this->upload_model->get_photo_comments(3, 0, $photo['id']);
+            $topPhotos[$i]['last3Comments'] = $last3Comments;
+        }
+
+        $this->data['topPhotos'] = $topPhotos;
+
+
+        $this->tpl->gtpl = 'startpage';
+        $this->tpl->ltpl = array('startpage' => 'index');
+        $this->tpl->show($this->data);
+    }
+
+
+    public function login() {
         $this->home_model->check_loginned_user();
         if ($this->input->get('confirmed')) {
             $this->data['err'] = 'Your email has been confirmed';
@@ -22,7 +42,7 @@ class Home extends CI_Controller {
         } elseif($this->input->get('social')){
             $this->data['err'] = 'User '.$this->input->get('social').' not found';
         }
-        $this->tpl->ltpl = array('homepage' => 'index');
+        $this->tpl->ltpl = array('homepage' => 'login');
         $this->tpl->show($this->data);
     }
 
