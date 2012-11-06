@@ -20,7 +20,7 @@ class User_controller extends CI_Controller {
             //Not found
             $this->session->unset_userdata('user');
             $this->session->unset_userdata('tw_session');
-            redirect('/');
+            redirect('/signin');
             exit;
         } else {
             //Update session

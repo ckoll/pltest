@@ -74,7 +74,7 @@ body {
     border: 1px solid #FFFFFF;
     border-radius: 10px 10px 10px 10px;
     height: 100%;
-    margin-top: -43px;
+    margin-top: -40px;
     min-height: 100%;
     overflow: hidden;
     padding-top: 50px;
@@ -117,15 +117,21 @@ body {
     background: transparent url("/images/email-button.png") no-repeat;
 }
 
-.sidetitle h1 {
-    background: linear-gradient(to bottom, #F6BDDD 0%, #FBA6E1 50%, #FD89D7 51%, #F372BB 100%) repeat scroll 0 0 transparent;
-    border: 1px solid #FBA6E1;
-    color: #FFFFFF;
-    font-family: tahoma;
-    font-size: 9px;
-    padding: 5px;
-    text-shadow: 1px 1px #F734BB;
-    text-transform: uppercase;
+.sidetitle h1 { text-transform:uppercase;
+    font-family:tahoma;
+    text-shadow:1px 1px #f734bb;
+    color:#FFF;
+    font-size:9px;
+    padding:5px;
+    border:1px solid #fba6e1;
+    background: #f6bddd; /* Old browsers */
+    background: -moz-linear-gradient(top, #f6bddd 0%, #fba6e1 50%, #fd89d7 51%, #f372bb 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f6bddd), color-stop(50%,#fba6e1), color-stop(51%,#fd89d7), color-stop(100%,#f372bb)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f6bddd 0%,#fba6e1 50%,#fd89d7 51%,#f372bb 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #f6bddd 0%,#fba6e1 50%,#fd89d7 51%,#f372bb 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #f6bddd 0%,#fba6e1 50%,#fd89d7 51%,#f372bb 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #f6bddd 0%,#fba6e1 50%,#fd89d7 51%,#f372bb 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6bddd', endColorstr='#f372bb',GradientType=0 ); /* IE6-9 */
 }
 
 .image-cont {
@@ -134,11 +140,9 @@ body {
     float: left;
     font-family: Arial,Helvetica,sans-serif;
     font-size: 11px;
-    height: 450px;
     margin: 5px;
     overflow: hidden;
     padding: 5px;
-    width: 45%;
 }
 
 .author {
@@ -166,6 +170,8 @@ body {
     height: 14px;
     margin-top: 7px;
     margin-bottom: 7px;
+    text-decoration: none;
+    color: #666666;
 }
 
 .clear {
@@ -173,7 +179,7 @@ body {
 }
 
 .image-cont .image {
-    border: 1px solid;
+    border: 1px solid #DDDDDD;
     padding: 3px;
     width: 250px;
     margin: 5px;
@@ -184,7 +190,7 @@ body {
 }
 
 .image-cont .user-image {
-    border: 1px solid #696969;
+    border: 1px solid #DDDDDD;
     padding: 2px;
     width: 30px;
     margin: 2px;
@@ -208,7 +214,7 @@ body {
 }
 
 .image-cont .comment-cont{
-    border: 1px dashed #696969;
+    border: 1px dashed #DDDDDD;
     padding: 3px;
     float: left;
     width: 195px;
@@ -219,4 +225,9 @@ h1 {
     color: #FF3399;
     font-size: 14px;
     text-transform: uppercase;
+}
+
+#center-cont .column50 {
+    width: 50%;
+    float: left;
 }

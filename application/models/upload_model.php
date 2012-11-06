@@ -181,7 +181,7 @@ class Upload_model extends CI_Model
             }
             return array('err' => '');
         } else {
-            //return array('err' => 'You have already voted');
+            return array('err' => 'You have already voted');
         }
     }
 

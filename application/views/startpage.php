@@ -5,6 +5,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Perfect-look.org</title>
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>css/startpage.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="<?= base_url() ?>js/plugins.js"></script>
+    <script src="<?= base_url() ?>js/jquery-ui-1.8.20.custom.min.js"></script>
+    <script src="<?= base_url() ?>js/user-init.js"></script>
+    <link rel="stylesheet" href="<?= base_url() ?>css/jquery-ui-1.8.20.custom.css">
+
 </head>
 
 <body>
