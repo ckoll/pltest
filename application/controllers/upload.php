@@ -63,8 +63,6 @@ class Upload extends User_controller {
         }
         if (!empty($rez)) {
             echo json_encode($rez);
-        } else {
-
         }
     }
 

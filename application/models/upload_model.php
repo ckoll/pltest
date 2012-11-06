@@ -179,7 +179,7 @@ class Upload_model extends CI_Model
                 $this->buttons->add_money($photo['uid'], 1);
                 $this->buttons->write_history($photo['uid'], array('action' => 'photo_like', 'jewels' => $user_photo['jewels'], 'now_jewels' => $user_photo['jewels'], 'buttons' => $user_photo['buttons'], 'now_buttons' => ($user_photo['buttons'] + 1), 'description' => 'Liked your photo (' . $this->user['username'] . '): <a href="/' . $photo['username'] . '/photo/' . $photo['id'] . $photo['rand_num'] . '" target="_blank">photo</a>'));
             }
-            return array('err' => '');
+            return;
         } else {
             return array('err' => 'You have already voted');
         }

@@ -74,17 +74,27 @@ $(function(){
         var id = $this.data('id')
         var mode = $this.data('mode')
         if(id){
+
             $.post('/'+mode+'/ajax',{
                 'func': 'like_add',
                 'id': id
             },function(data){
-                if(data.err){
+
+                var obj = $(data);
+
+                if (obj.find('.signin_page').length) {
+                    location.href = '/signin';
+                }
+
+                data = $.parseJSON(data);
+
+                if(data != null && data.err != undefined){
                     alert(data.err)
                 }else{
                     old = parseInt($this.text())
                     $this.html(old+1)
                 }
-            },'json')
+            });
         }
     })
 

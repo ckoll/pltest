@@ -204,20 +204,21 @@ body {
 }
 
 .image-cont .descr{
-    margin: 5px 10px;
+    margin: 5px auto;
+    width: 240px;
 }
 
 .image-cont .comment{
     display: block;
     margin: 0 auto;
-    width: 250px;
+    width: 240px;
 }
 
 .image-cont .comment-cont{
     border: 1px dashed #DDDDDD;
     padding: 3px;
     float: left;
-    width: 195px;
+    width: 185px;
     margin: 2px;
 }
 

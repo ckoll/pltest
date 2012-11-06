@@ -213,7 +213,7 @@ class Dressup_model extends CI_Model {
                 $errors = error_get_last();
                 return array('err' => 'Facebook publish error: ' . $errors['type']);
             } else {
-                return array('err' => '');
+                return;
             }
         } else {
             $this->session->set_userdata(array('last_page' => $_SERVER['REQUEST_URI'])); // Last page for back redirect
@@ -240,7 +240,7 @@ class Dressup_model extends CI_Model {
                 }
                 $url = $this->explore_model->short_url($url);
                 $connection->post('statuses/update', array('status' => $description . ' Caption:' . $url));
-                return array('err' => '');
+                return;
             } else {
                 return array('err' => 'not logined');
             }
@@ -255,9 +255,9 @@ class Dressup_model extends CI_Model {
         if (!in_array($this->user['id'] . '_' . $this->user['username'], $liked_users)) {
             $liked_users[] = $this->user['id'] . '_' . $this->user['username'];
             $this->db->query('UPDATE user_dressups SET `like`=`like`+1, like_users="' . mysql_real_escape_string(implode(',', $liked_users)) . '", last_like="' . date('Y-m-d H:i:s') . '" WHERE id="' . $id . '"');
-            return array('err' => '');
+            return ;
         } else {
-            //return array('err' => 'You have already voted');
+            return array('err' => 'You have already voted');
         }
     }
 

@@ -650,7 +650,7 @@ class Market_model extends CI_Model {
             $this->db->query('UPDATE user_items SET price_b=0, status="" WHERE item_id="' . $id . '" AND status="sell" AND uid="' . $this->user['id'] . '" LIMIT ' . $more);
             $this->db->query('UPDATE user_items SET price_b="' . $price . '" WHERE item_id="' . $id . '" AND status="sell" AND uid="' . $this->user['id'] . '"');
         }
-        return array('err' => '');
+        return ;
     }
 
     public function add_auction($id, $start_price, $reserve, $price_type, $duration) {
