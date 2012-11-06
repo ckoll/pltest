@@ -17,6 +17,8 @@ class Home extends CI_Controller {
 
 
         $this->load->model('upload_model');
+        $this->load->model('dressup_model');
+
 
         $topPhotos = $this->upload_model->top_10_photos();
         foreach($topPhotos as $i=>$photo) {
@@ -25,6 +27,20 @@ class Home extends CI_Controller {
         }
 
         $this->data['topPhotos'] = $topPhotos;
+
+
+        $topDressup = $this->dressup_model->top_10_dressups();
+
+        //print_R($topDressup);exit;
+
+        foreach($topDressup as $i=>$dressup) {
+            $last3Comments = $this->dressup_model->get_dressup_comments(3, 0, $dressup['id']);
+            $topDressup[$i]['last3Comments'] = $last3Comments;
+        }
+
+
+
+        $this->data['topDressup'] = $topDressup;
 
 
         $this->tpl->gtpl = 'startpage';
