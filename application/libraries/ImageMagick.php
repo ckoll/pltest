@@ -10,7 +10,7 @@ class ImageMagick
      */
     public function resizeAndCrop($src, $dst, $options, $quality=100)
     {
-        $str = 'convert ' . $this->_imLimits() . ' -quality ' . $quality . '% -resize "' . $options['width'] . 'x"  -crop "' . $options['width'] . 'x' . $options['height'] . '+0+0" +repage "' . $src . '" "' . $dst . '"';
+        $str = $this->_convertPath().' ' . $this->_imLimits() . ' -quality ' . $quality . '% -resize "' . $options['width'] . 'x"  -crop "' . $options['width'] . 'x' . $options['height'] . '+0+0" +repage "' . $src . '" "' . $dst . '"';
         //print_r($str);exit;
         exec($str, $output, $ret);
         if (!$ret) {
@@ -21,7 +21,7 @@ class ImageMagick
 
     public function processGif($src)
     {
-        $str = "convert " . $this->_imLimits() . " '$src'  -delete 1--1 '$src'";
+        $str = $this->_convertPath()." " . $this->_imLimits() . " '$src'  -delete 1--1 '$src'";
         //print_r($str);
         exec($str, $out, $ret);
         if (!$ret) {
@@ -32,7 +32,7 @@ class ImageMagick
 
     public function resize($src, $dst, $options)
     {
-        exec('convert ' . $this->_imLimits() . ' -quality 100% -resize "' . $options['width'] . 'x' . $options['height'] . '" "' . $src . '" "' . $dst . '"', $output, $ret);
+        exec($this->_convertPath().' ' . $this->_imLimits() . ' -quality 100% -resize "' . $options['width'] . 'x' . $options['height'] . '" "' . $src . '" "' . $dst . '"', $output, $ret);
         if (!$ret) {
             return true;
         }
@@ -43,7 +43,7 @@ class ImageMagick
     {
         //$res = $options['width']>$options['width']?$options['width'].'x':'x'.$options['height'];
         $res = $options['width'].'x'.$options['height'];
-        $str = 'convert ' . $this->_imLimits() . ' -quality 100% -resize "' . $res . '"^   -crop "' . $options['width'] . 'x' . $options['height'] . '+0+0" +repage "' . $src . '" "' . $dst . '"';
+        $str = $this->_convertPath().' ' . $this->_imLimits() . ' -quality 100% -resize "' . $res . '"^   -crop "' . $options['width'] . 'x' . $options['height'] . '+0+0" +repage "' . $src . '" "' . $dst . '"';
         //print_r($str);exit;
         exec($str, $output, $ret);
         //print_r($output);exit;
@@ -56,7 +56,7 @@ class ImageMagick
     public function cropAndResizeDoll($src, $dst, $options)
     {
         $res = $options['width'].'x'.$options['height'];
-        $str = 'convert ' . $this->_imLimits() . ' -quality 100% -resize "' . $res . '"^   -crop "' . $options['cwidth'] . 'x' . $options['cheight'] . '+'.$options['offset_left'].'+'.$options['offset_top'].'" +repage "' . $src . '" "' . $dst . '"';
+        $str = $this->_convertPath().' ' . $this->_imLimits() . ' -quality 100% -resize "' . $res . '"^   -crop "' . $options['cwidth'] . 'x' . $options['cheight'] . '+'.$options['offset_left'].'+'.$options['offset_top'].'" +repage "' . $src . '" "' . $dst . '"';
         exec($str, $output, $ret);
         //print_r($output);exit;
         if (!$ret) {
@@ -67,7 +67,7 @@ class ImageMagick
 
     public function resizeNoPropotions($src, $dst, $options, $quality=100)
     {
-        exec('convert ' . $this->_imLimits() . ' -quality ' . $quality . '% -resize ' . $options['width'] . 'x' . $options['height'] . '\! "' . $src . '" "' . $dst . '"', $output, $ret);
+        exec($this->_convertPath().' ' . $this->_imLimits() . ' -quality ' . $quality . '% -resize ' . $options['width'] . 'x' . $options['height'] . '\! "' . $src . '" "' . $dst . '"', $output, $ret);
         if (!$ret) {
             return true;
         }
@@ -76,7 +76,7 @@ class ImageMagick
 
     public function split($src, $dst, $partsNumber)
     {
-        exec('convert ' . $this->_imLimits() . ' -quality 100% -crop "' . 100 / $partsNumber . '%x100%" "' . $src . '" +repage "' . $dst . '"', $output, $ret);
+        exec($this->_convertPath().' ' . $this->_imLimits() . ' -quality 100% -crop "' . 100 / $partsNumber . '%x100%" "' . $src . '" +repage "' . $dst . '"', $output, $ret);
         if (!$ret) {
             return true;
         }
@@ -89,7 +89,7 @@ class ImageMagick
             //$watermark_path = FCPATH . 'img/water.png';
         }
 
-        exec("convert " . $this->_imLimits() . " -quality 100%  $file_path $watermark_path -gravity $place -composite $file_path 2>&1", $out, $ret);
+        exec($this->_convertPath()." " . $this->_imLimits() . " -quality 100%  $file_path $watermark_path -gravity $place -composite $file_path 2>&1", $out, $ret);
         if (!$ret) {
             return true;
         }
@@ -99,7 +99,7 @@ class ImageMagick
 
     public function getGradient($color1, $filepath, $color2 = "#FFFFFF", $size = "10x100")
     {
-        $str = "convert " . $this->_imLimits() . " -quality 100% -size $size  gradient:'" . $color1 . "'-'" . $color2 . "' $filepath";
+        $str = $this->_convertPath()." " . $this->_imLimits() . " -quality 100% -size $size  gradient:'" . $color1 . "'-'" . $color2 . "' $filepath";
         //print_r($str);
         exec($str, $out, $ret);
         if (!$ret) {
@@ -110,7 +110,7 @@ class ImageMagick
 
     public function getColoredArrow($colorPath, $arrowPath, $filePath)
     {
-        $str = "convert " . $this->_imLimits() . " -quality 100% $arrowPath $colorPath -clut $filePath";
+        $str = $this->_convertPath()." " . $this->_imLimits() . " -quality 100% $arrowPath $colorPath -clut $filePath";
         //print_r($str);
         exec($str, $out, $ret);
         if (!$ret) {
@@ -139,7 +139,7 @@ class ImageMagick
     public function mergeImages($mainPath, $imagePath, $targetPath, $position)
     {
         $geometry = "+" . round($position['left']) . "+" . round($position['top']);
-        $exec_str = "convert " . $this->_imLimits() . " -quality 100% '$mainPath' '$imagePath'  -geometry $geometry -composite '$targetPath' 2>&1";
+        $exec_str = $this->_convertPath()." " . $this->_imLimits() . " -quality 100% '$mainPath' '$imagePath'  -geometry $geometry -composite '$targetPath' 2>&1";
         exec($exec_str, $output, $ret);
         if (!$ret) {
             return true;
@@ -149,7 +149,7 @@ class ImageMagick
 
     public function thumbCreate($imagePath,$thumbPath)
     {
-        $str = "convert -quality 90% -resize 625x232 '$imagePath' '$thumbPath'";
+        $str = $this->_convertPath()." -quality 90% -resize 625x232 '$imagePath' '$thumbPath'";
         exec($str);
     }
 
@@ -200,7 +200,7 @@ class ImageMagick
             $trg = $image;
         }
 
-        $execStr = "convert  -background none -rotate $angle $image $trg";
+        $execStr = $this->_convertPath()."  -background none -rotate $angle $image $trg";
 
         exec($execStr);
     }
@@ -221,7 +221,7 @@ class ImageMagick
 
     public function montageCompl($options, $type)
     {
-        exec("convert -size {$options['size']} xc:none ".$options['trg']);
+        exec($this->_convertPath()." -size {$options['size']} xc:none ".$options['trg']);
 
         foreach ($options[$type] as $image) {
             exec("composite  -geometry +{$image['startpoint']['x']}+{$image['startpoint']['y']} {$image['file']} {$options['trg']} {$options['trg']}");
@@ -241,7 +241,7 @@ class ImageMagick
         $newName = $realNameEx[0] . '.jpg';
         $newPath = str_replace($realName, $newName, $path);
 
-        exec("convert $path $newPath");
+        exec($this->_convertPath()." $path $newPath");
         return $newName;
     }
 
@@ -272,6 +272,11 @@ class ImageMagick
     {
         //return " -limit area 1000MiB -limit disk 1000MiB -limit file 1000MiB -limit map 1000MiB -limit memory 1000MiB ";
         return "";
+    }
+
+    private function _convertPath()
+    {
+        return "/usr/local/bin/convert";
     }
 
 
