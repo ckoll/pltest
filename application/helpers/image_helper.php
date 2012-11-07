@@ -16,11 +16,11 @@ function getSquareUpload($upload, $side=250) {
 }
 
 function _getUploadPath($photo) {
-    return realpath(APPPATH . _getRelativeUploadsPath($photo));
+    return realpath(APPPATH) . _getRelativeUploadsPath($photo);
 }
 
 function _getSquareUploadPath($photo) {
-    return realpath(APPPATH . _getRelativeSquareUploadsPath($photo));
+    return realpath(APPPATH) . _getRelativeSquareUploadsPath($photo);
 }
 
 function _getUploadUrl($photo) {
@@ -53,11 +53,11 @@ function getSquareDressup($dressup, $side=250) {
 }
 
 function _getDressupPath($photo) {
-    return realpath(APPPATH . _getRelativeDressupsPath($photo));
+    return realpath(APPPATH) . _getRelativeDressupsPath($photo);
 }
 
 function _getSquareDressupPath($photo) {
-    return realpath(APPPATH . _getRelativeSquareDressupsPath($photo));
+    return realpath(APPPATH) . _getRelativeSquareDressupsPath($photo);
 }
 
 function _getDressupUrl($photo) {
