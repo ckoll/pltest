@@ -40,9 +40,6 @@
             <? $this->tpl->show_block('startpage'); ?>
         </div>
         <div id='left-cont'>
-            <div class="sidetitle">
-                <h1>Search</h1>
-            </div>
             <div class="part">
                 <input name="Search the site" type="text" maxlength="22" />
                 <input type="submit" name="submit" value="Search" />
@@ -64,10 +61,6 @@
                     <li><a href="http://news.perfect-look.org/index.php?subaction=showcomments&amp;id=1351025166&amp;archive=&amp;start_from=&amp;ucat=&amp;">New Halloween Items</a></li>
                     <li><a href="http://news.perfect-look.org/index.php?subaction=showcomments&amp;id=1349977231&amp;archive=&amp;start_from=&amp;ucat=&amp;">Perfect-Look.Org Promo Contest</a></li>
                 </ul>
-            </div>
-
-            <div class="sidetitle">
-                <h1>fACEBOOK BOX</h1>
             </div>
 
             <div class="sidetitle">

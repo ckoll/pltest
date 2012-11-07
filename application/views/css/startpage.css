@@ -9,6 +9,7 @@ body {
     margin-bottom: 0px;
     font-family: Arial,Helvetica,sans-serif;
     font-size: 11px;
+    color: #666666;
 }
 
 #apDiv1 {
@@ -34,27 +35,33 @@ body {
 }
 
 #top-buttons {
-    padding-top: 49px;
-    width: 200px;
-    font-size: 0;
+    background: url("/images/top-but-bg.png") no-repeat scroll center top transparent;
     float: left;
-    padding-left: 20px;
+    font-size: 0;
+    margin-top: 49px;
+    padding-left: 0;
+    width: 230px;
 }
 
 .top-button {
-    background: url("/images/login-button.png") no-repeat scroll 0 0 transparent;
+    background: url("/images/top-but.png") no-repeat scroll 0 0 transparent;
     color: #FFFFFF;
+    cursor: pointer;
     display: inline-block;
+    font-size: 12px;
     height: 50px;
     line-height: 40px;
-    margin: 0;
+    margin: 1px 0 0;
     padding: 0;
     text-align: center;
-    width: 92px;
-    font-size: 12px;
-    cursor: pointer;
     text-decoration: none;
     text-shadow: 1px 1px #F734BB;
+    width: 92px;
+}
+
+
+.top-button:first-child {
+    margin-left: 23px;
 }
 
 #logo {
@@ -141,16 +148,14 @@ body {
     float: left;
     font-family: Arial,Helvetica,sans-serif;
     font-size: 11px;
-    margin: 5px;
+    margin-bottom: 5px;
     overflow: hidden;
-    padding: 5px;
+    width: 100%;
 }
 
 .author {
     float: left;
-    margin-bottom: 7px;
-    margin-right: 15px;
-    margin-top: 7px;
+    margin: 10px 10px 5px;
 }
 
 .hearts {
@@ -159,7 +164,7 @@ body {
     width: 30px;
     padding-left: 20px;
     height: 14px;
-    margin-top: 7px;
+    margin-top: 10px;
     margin-bottom: 7px;
 }
 
@@ -169,7 +174,7 @@ body {
     width: 30px;
     padding-left: 20px;
     height: 14px;
-    margin-top: 7px;
+    margin-top: 10px;
     margin-bottom: 7px;
     text-decoration: none;
     color: #666666;
@@ -180,10 +185,8 @@ body {
 }
 
 .image-cont .image {
-    border: 1px solid #DDDDDD;
-    padding: 3px;
-    width: 250px;
-    margin: 5px;
+    margin: 0 auto;
+    width: 256px;
 }
 
 .image-cont .image img {
@@ -191,10 +194,9 @@ body {
 }
 
 .image-cont .user-image {
-    border: 1px solid #DDDDDD;
     padding: 2px;
     width: 30px;
-    margin: 2px;
+    margin-right: 7px;
     display: inline-block;
     float: left;
 }
@@ -206,7 +208,7 @@ body {
 
 .image-cont .descr{
     margin: 5px auto;
-    width: 240px;
+    width: 234px;
 }
 
 .image-cont .comment{
@@ -230,18 +232,33 @@ h1 {
 }
 
 #center-cont .column50 {
-    width: 50%;
     float: left;
+    padding: 2px;
+    width: 280px;
 }
 
 .style1 {font-size: 16px}
 .style2 {font-size: 24px}
 .style3 {font-size: 10px}
 
-a {
-    color: #00CCFF;
-}
+
 
 #left-cont .part {
     margin: 5px 10px;
+}
+
+#left-cont ul, li {
+    padding-bottom: 3px;
+    padding-left: 10px;
+}
+
+
+a { color:#00CCFF
+}
+a:hover{ color:#CC0066
+}
+a img { padding:3px;
+    border:1px solid #DDD;
+}
+a:hover img{ border:1px solid #EEE
 }
