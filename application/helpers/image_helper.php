@@ -24,19 +24,19 @@ function _getSquareUploadPath($photo) {
 }
 
 function _getUploadUrl($photo) {
-    return '/'._getRelativeUploadsPath($photo);
+    return _getRelativeUploadsPath($photo);
 }
 
 function _getSquareUploadUrl($photo) {
-    return '/'._getRelativeSquareUploadsPath($photo);
+    return _getRelativeSquareUploadsPath($photo);
 }
 
 function _getRelativeUploadsPath($photo) {
-    return "files/users/uploads/{$photo['uid']}/{$photo['id']}{$photo['rand_num']}.jpg";
+    return "/files/users/uploads/{$photo['uid']}/{$photo['id']}{$photo['rand_num']}.jpg";
 }
 
 function _getRelativeSquareUploadsPath($photo) {
-    return "files/users/uploads/{$photo['uid']}/{$photo['id']}{$photo['rand_num']}_square.jpg";
+    return "/files/users/uploads/{$photo['uid']}/{$photo['id']}{$photo['rand_num']}_square.jpg";
 }
 
 
@@ -61,17 +61,17 @@ function _getSquareDressupPath($photo) {
 }
 
 function _getDressupUrl($photo) {
-    return '/'._getRelativeDressupsPath($photo);
+    return _getRelativeDressupsPath($photo);
 }
 
 function _getSquareDressupUrl($photo) {
-    return '/'._getRelativeSquareDressupsPath($photo);
+    return _getRelativeSquareDressupsPath($photo);
 }
 
 function _getRelativeDressupsPath($photo) {
-    return "files/users/dressup/{$photo['id']}.jpg";
+    return "/files/users/dressup/{$photo['id']}.jpg";
 }
 
 function _getRelativeSquareDressupsPath($photo) {
-    return "files/users/dressup/{$photo['id']}_square.jpg";
+    return "/files/users/dressup/{$photo['id']}_square.jpg";
 }
