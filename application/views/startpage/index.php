@@ -1,5 +1,3 @@
-<h1>Latest Images</h1>
-
 <div id="columns-cont">
 
 <?php
