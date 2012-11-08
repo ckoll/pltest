@@ -95,7 +95,8 @@ $perColumn = count($topPhotos)/2;
             $('#columns-cont').infinitescroll({
                 navSelector  : "#home-pagination",
                 nextSelector : "#home-pagination a:last",
-                itemSelector : "#columns-cont div.column50"
+                itemSelector : "#columns-cont div.column50",
+                bufferPx     : 100
             });
         });
 
