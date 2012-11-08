@@ -65,18 +65,25 @@ body {
 }
 
 #infscr-loading {
-    height: 20px;
-    line-height: 20px;
+    background: none repeat scroll 0 0 #FFFFFF;
+    font-size: 20px;
+    height: 25px;
+    left: 0;
+    line-height: 25px;
+    padding-bottom: 5px;
     padding-left: 200px;
+    padding-top: 5px;
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 100%;
+    vertical-align: middle;
+    width: 400px;
     z-index: 10000;
 }
 
 #infscr-loading img {
     float: left;
+    padding-right: 10px;
+    padding-top: 3px;
 }
 
 #logo {
