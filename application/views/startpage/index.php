@@ -1,4 +1,4 @@
-<h1>Popular, Recent Photo and Dressup</h1>
+<h1>Latest Images</h1>
 
 <div id="columns-cont">
 
