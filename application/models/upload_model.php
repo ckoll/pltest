@@ -288,8 +288,27 @@ class Upload_model extends CI_Model
 
     public function top_10_photos()
     {
-        return $this->db->query('SELECT upload_photo.*,users.username, (SELECT COUNT(1) FROM photo_comments WHERE photo_comments.photo_id=upload_photo.id) comments FROM upload_photo LEFT JOIN users ON users.id=upload_photo.uid ORDER BY `like` DESC LIMIT 0,10')->result_array();
+        return $this->top_photos(10);
+        //return array();
     }
+
+    public function top_photos($limit, $page = 1)
+    {
+        $offset = $limit*($page-1);
+
+        $sql = "SELECT
+            upload_photo.*,
+            users.username,
+            (SELECT COUNT(1) FROM photo_comments WHERE photo_comments.photo_id=upload_photo.id) comments
+            FROM upload_photo
+            LEFT JOIN users ON users.id=upload_photo.uid
+            ORDER BY `like` DESC LIMIT $offset,$limit";
+
+        return $this->db->query($sql)->result_array();
+
+
+    }
+
 
     public function featured_photos($for_page, $page)
     {

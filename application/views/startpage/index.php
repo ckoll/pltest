@@ -3,9 +3,9 @@
 <?php
 
 $perColumn = count($topPhotos)/2;
-
-
 ?>
+
+<div id="columns-cont">
 
 <?php for ($j = 1; $j < 3; $j++): ?>
 <?php
@@ -75,7 +75,32 @@ $perColumn = count($topPhotos)/2;
 
 
     <?php endfor; ?>
+
+
+
 </div>
 
 <?php endfor; ?>
+
+
+
+</div>
+<div id='home-pagination' style="display: none">
+    <a href="/index.php?page=2">Last ›</a>
+</div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#columns-cont').infinitescroll({
+                navSelector  : "#home-pagination",
+                nextSelector : "#home-pagination a:last",
+                itemSelector : "#columns-cont div.column50",
+                debug        : true ,
+            });
+        });
+
+
+    </script>
+
 

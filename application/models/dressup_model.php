@@ -326,8 +326,27 @@ class Dressup_model extends CI_Model {
     }
 
     public function top_10_dressups() {
-        return $this->db->query('SELECT user_dressups.*,  users.username, (SELECT COUNT(1) FROM dressup_comments WHERE dressup_comments.dressup_id=user_dressups.id) comments FROM user_dressups LEFT JOIN users ON users.id=user_dressups.uid  ORDER BY `like` DESC LIMIT 0,10')->result_array();
+        return $this->top_dressups(10);
     }
+
+    public function top_dressups($limit, $page = 1)
+    {
+        $offset = $limit * ($page-1);
+
+        $sql = "SELECT
+                user_dressups.*,
+                users.username,
+                (SELECT COUNT(1) FROM dressup_comments WHERE dressup_comments.dressup_id=user_dressups.id) comments
+                FROM user_dressups
+                LEFT JOIN users ON users.id=user_dressups.uid
+                ORDER BY `like` DESC LIMIT $offset,$limit";
+
+        return $this->db->query($sql)->result_array();
+
+    }
+
+
+
 
     /* ----- NEW version ------- */
 
