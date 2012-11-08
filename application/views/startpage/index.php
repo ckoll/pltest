@@ -81,7 +81,7 @@ $perColumn = count($topPhotos)/2;
 </div>
 
 <?php endfor; ?>
-
+<div class="clear column50"></div>
 
 
 </div>
@@ -95,8 +95,7 @@ $perColumn = count($topPhotos)/2;
             $('#columns-cont').infinitescroll({
                 navSelector  : "#home-pagination",
                 nextSelector : "#home-pagination a:last",
-                itemSelector : "#columns-cont div.column50",
-                debug        : true ,
+                itemSelector : "#columns-cont div.column50"
             });
         });
 
