@@ -81,7 +81,7 @@ $perColumn = count($topPhotos)/2;
 </div>
 
 <?php endfor; ?>
-<div class="clear column50"></div>
+<div title='just for infinite scroll' class="clear column50" style="width: 100% !important;"></div>
 
 
 </div>
