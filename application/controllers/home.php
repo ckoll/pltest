@@ -7,6 +7,8 @@ class Home extends CI_Controller {
 
     public $data = array();
 
+    public $admins = array(2);
+
     public function __construct() {
         parent::__construct();
         $this->tpl->gtpl = 'homepage';
@@ -29,6 +31,16 @@ class Home extends CI_Controller {
 
         foreach($topPhotos as $i=>$photo) {
             $last3Comments = $this->upload_model->get_photo_comments(3, 0, $photo['id']);
+            foreach($last3Comments as $j=>$comment) {
+
+                if (in_array($comment['uid'], $this->admins)) {
+                    $rand = rand(0,1);
+                    $count = count($last3Comments);
+                    if($rand && $count>1) {
+                        unset($last3Comments[$j]);
+                    }
+                }
+            }
             $topPhotos[$i]['last3Comments'] = $last3Comments;
         }
 
@@ -42,6 +54,15 @@ class Home extends CI_Controller {
 
         foreach($topDressup as $i=>$dressup) {
             $last3Comments = $this->dressup_model->get_dressup_comments(3, 0, $dressup['id']);
+            foreach($last3Comments as $j=>$comment) {
+                if (in_array($comment['uid'], $this->admins)) {
+                    $rand = rand(0,1);
+                    $count = count($last3Comments);
+                    if($rand && $count>1) {
+                        unset($last3Comments[$j]);
+                    }
+                }
+            }
             $topDressup[$i]['last3Comments'] = $last3Comments;
         }
 
