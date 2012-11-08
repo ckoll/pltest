@@ -170,10 +170,8 @@ body {
     float: left;
     font-family: Arial,Helvetica,sans-serif;
     font-size: 11px;
-    __margin-bottom: 5px;
     margin: 2px;
     overflow: hidden;
-    __width: 100%;
     width: 47%;
 }
 
