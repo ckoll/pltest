@@ -99,10 +99,7 @@
                     msgText: "Loading more images",
                     speed: 'slow',
                     finished : function(){
-                        $('#columns-cont').masonry( 'destroy' );
-                        $('#columns-cont').masonry({
-                            itemSelector: '.image-cont'
-                        });
+                        $('#columns-cont').masonry( 'reload' );
                     }
                 }
             });
