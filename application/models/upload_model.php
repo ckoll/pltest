@@ -194,7 +194,7 @@ class Upload_model extends CI_Model
     public function latest_photos($for_page, $page = 0)
     {
         $begin = intval($page * $for_page);
-        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS upload_photo.* FROM upload_photo ORDER BY id DESC LIMIT ' . $begin . ',' . $for_page)->result_array();
+        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS upload_photo.*,users.username FROM upload_photo LEFT JOIN users ON users.id=upload_photo.uid ORDER BY id DESC LIMIT ' . $begin . ',' . $for_page)->result_array();
     }
 
     public function last_commented_details($photo)

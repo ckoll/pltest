@@ -1,12 +1,18 @@
 <h1>Popular, Recent Photo and Dressup</h1>
 
+<?php
+
+$perColumn = count($topPhotos)/2;
+
+
+?>
 
 <?php for ($j = 1; $j < 3; $j++): ?>
 <?php
-    $max = $j * 5;
+    $max = $j * $perColumn;
 ?>
 <div class="column50">
-    <?php for ($i = $max-5; $i < $max; $i++): ?>
+    <?php for ($i = $max-$perColumn; $i < $max; $i++): ?>
     <?php
     $photo = $topPhotos[$i];
     $dressup = $topDressup[$i];

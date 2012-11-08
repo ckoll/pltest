@@ -21,6 +21,12 @@ class Home extends CI_Controller {
 
 
         $topPhotos = $this->upload_model->top_10_photos();
+        $latestPhotos = $this->upload_model->latest_photos(4);
+
+        $topPhotos = array_merge($topPhotos, $latestPhotos);
+
+        shuffle($topPhotos) ;
+
         foreach($topPhotos as $i=>$photo) {
             $last3Comments = $this->upload_model->get_photo_comments(3, 0, $photo['id']);
             $topPhotos[$i]['last3Comments'] = $last3Comments;
@@ -30,8 +36,10 @@ class Home extends CI_Controller {
 
 
         $topDressup = $this->dressup_model->top_10_dressups();
+        $latestDressup = $this->dressup_model->all_latest_dressups(4);
+        $topDressup = array_merge($topDressup, $latestDressup);
+        shuffle($topDressup);
 
-        //print_R($topDressup);exit;
 
         foreach($topDressup as $i=>$dressup) {
             $last3Comments = $this->dressup_model->get_dressup_comments(3, 0, $dressup['id']);

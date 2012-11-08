@@ -136,7 +136,7 @@ class Dressup_model extends CI_Model {
             WHERE uid = "' . $uid . '" AND outfit=0 ORDER BY id DESC LIMIT ' . $begin . ',' . $for_page)->result_array();
     }
 
-    public function all_latest_dressups($for_page, $page) {
+    public function all_latest_dressups($for_page, $page=0) {
         $begin = $for_page * $page;
         return $this->db->query('SELECT SQL_CALC_FOUND_ROWS user_dressups.id, users.username, `like`, 
             (SELECT COUNT(id) FROM dressup_comments WHERE dressup_id = user_dressups.id) comment 
