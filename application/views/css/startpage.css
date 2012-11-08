@@ -154,9 +154,11 @@ body {
     float: left;
     font-family: Arial,Helvetica,sans-serif;
     font-size: 11px;
-    margin-bottom: 5px;
+    __margin-bottom: 5px;
+    margin: 2px;
     overflow: hidden;
-    width: 100%;
+    __width: 100%;
+    width: 47%;
 }
 
 .author {

@@ -10,6 +10,7 @@
     <script src="<?= base_url() ?>js/jquery-ui-1.8.20.custom.min.js"></script>
     <script src="<?= base_url() ?>js/user-init.js"></script>
     <script src="<?= base_url() ?>js/jquery.infinitescroll.js"></script>
+    <script src="<?= base_url() ?>js/jquery.masonry.js"></script>
     <link rel="stylesheet" href="<?= base_url() ?>css/jquery-ui-1.8.20.custom.css">
 
 </head>

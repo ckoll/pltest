@@ -70,7 +70,7 @@ class Home extends CI_Controller {
 
 
         $this->tpl->gtpl = 'startpage';
-        $this->tpl->ltpl = array('startpage' => 'index');
+        $this->tpl->ltpl = array('startpage' => 'index_bak');
         $this->tpl->show($this->data);
     }
 
