@@ -96,7 +96,12 @@ $perColumn = count($topPhotos)/2;
                 navSelector  : "#home-pagination",
                 nextSelector : "#home-pagination a:last",
                 itemSelector : "#columns-cont div.column50",
-                bufferPx     : 100
+                bufferPx     : 100,
+                loading: {
+                    img: "/images/loading_big.gif",
+                    msgText: "Loading more images"
+
+                }
             });
         });
 
