@@ -64,6 +64,11 @@ body {
     margin-left: 23px;
 }
 
+#infscr-loading {
+    width: 100%;
+    clear: both;
+}
+
 #logo {
     background: url("/images/logo.png") no-repeat scroll 0 0 transparent;
     float: right;
