@@ -99,8 +99,8 @@ $perColumn = count($topPhotos)/2;
                 bufferPx     : 100,
                 loading: {
                     img: "/images/loading_big.gif",
-                    msgText: "Loading more images"
-
+                    msgText: "Loading more images",
+                    speed: 'slow'
                 }
             });
         });
