@@ -65,9 +65,18 @@ body {
 }
 
 #infscr-loading {
-    width: 250px;
-    clear: both;
-    margin: 0 auto;
+    height: 20px;
+    line-height: 20px;
+    padding-left: 200px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+#infscr-loading img {
+    float: left;
 }
 
 #logo {

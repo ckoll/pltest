@@ -1,18 +1,11 @@
 <h1>Popular, Recent Photo and Dressup</h1>
 
-<?php
-
-$perColumn = count($topPhotos)/2;
-?>
-
 <div id="columns-cont">
 
-<?php for ($j = 1; $j < 3; $j++): ?>
 <?php
-    $max = $j * $perColumn;
+    $max = count($topPhotos);
 ?>
-<div class="column50">
-    <?php for ($i = $max-$perColumn; $i < $max; $i++): ?>
+    <?php for ($i = 0; $i <= $max; $i++): ?>
     <?php
     $photo = $topPhotos[$i];
     $dressup = $topDressup[$i];
@@ -31,6 +24,7 @@ $perColumn = count($topPhotos)/2;
             </a>
         </div>
         <div class="descr"><?=$photo['caption']?></div>
+    <?php if (isset($photo['last3Comments'])) : ?>
         <?php foreach ($photo['last3Comments'] as $comment): ?>
         <div class="comment">
             <a class="user-image"><img src="<? get_user_avatarlink($comment['uid']) ?>"></a>
@@ -43,6 +37,7 @@ $perColumn = count($topPhotos)/2;
         </div>
         <div class="clear"></div>
         <?php endforeach; ?>
+    <?php endif; ?>
     </div>
 
     <div class="image-cont">
@@ -58,6 +53,7 @@ $perColumn = count($topPhotos)/2;
             </a>
         </div>
         <div class="descr"><?=$dressup['dress_comment']?></div>
+        <?php if (isset($dressup['last3Comments'])) : ?>
         <?php foreach ($dressup['last3Comments'] as $comment): ?>
         <div class="comment">
             <a class="user-image"><img src="<? get_user_avatarlink($comment['uid']) ?>"></a>
@@ -70,18 +66,12 @@ $perColumn = count($topPhotos)/2;
         </div>
         <div class="clear"></div>
         <?php endforeach; ?>
+        <?php endif; ?>
     </div>
 
 
 
     <?php endfor; ?>
-
-
-
-</div>
-
-<?php endfor; ?>
-<div title='just for infinite scroll' class="clear column50" style="width: 100% !important;"></div>
 
 
 </div>
@@ -92,15 +82,25 @@ $perColumn = count($topPhotos)/2;
 
     <script type="text/javascript">
         $(document).ready(function(){
+
+
+            $('#columns-cont').masonry({
+                itemSelector: '.image-cont'
+            });
+
+
             $('#columns-cont').infinitescroll({
                 navSelector  : "#home-pagination",
                 nextSelector : "#home-pagination a:last",
-                itemSelector : "#columns-cont div.column50",
+                itemSelector : "#columns-cont div.image-cont",
                 bufferPx     : 100,
                 loading: {
-                    img: "/images/loading_big.gif",
+                    img: "/images/loading.gif",
                     msgText: "Loading more images",
-                    speed: 'slow'
+                    speed: 'slow',
+                    finished : function(){
+                        $('#columns-cont').masonry( 'reload' );
+                    }
                 }
             });
         });
