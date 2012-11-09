@@ -251,8 +251,10 @@ class Upload_model extends CI_Model
 
         $sql = 'SELECT *,
         "photo" `type`,
-        UNIX_TIMESTAMP(last_like) date_unix
+        UNIX_TIMESTAMP(last_like) date_unix,
+        users.username
         FROM upload_photo
+        LEFT JOIN users ON users.id=upload_photo.uid
         WHERE `like`!=0 ORDER BY last_like DESC LIMIT '.$offset.','.$limit;
 
         return $this->db->query($sql)->result_array();
@@ -264,8 +266,10 @@ class Upload_model extends CI_Model
 
         $sql = 'SELECT *,
         "photo" `type`,
-        UNIX_TIMESTAMP(last_like) date_unix
+        UNIX_TIMESTAMP(last_comment) date_unix,
+        users.username
         FROM upload_photo
+        LEFT JOIN users ON users.id=upload_photo.uid
         WHERE `last_comment`!="0000-00-00 00:00:00" ORDER BY last_comment DESC LIMIT '.$offset.','.$limit;
 
         return $this->db->query($sql)->result_array();

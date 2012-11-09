@@ -269,7 +269,7 @@ class Dressup_model extends CI_Model {
     public function get_all_last_hearted($limit, $page=1)
     {
         $offset = $limit * ($page - 1);
-        $sql = 'SELECT *, "dressup" `type`, UNIX_TIMESTAMP(last_like) date_unix FROM user_dressups WHERE `like`!=0 ORDER BY `last_like` DESC LIMIT '.$offset.','.$limit;
+        $sql = 'SELECT *, "dressup" `type`, UNIX_TIMESTAMP(last_like) date_unix,users.username FROM user_dressups LEFT JOIN users ON users.id=user_dressups.uid WHERE `like`!=0 ORDER BY `last_like` DESC LIMIT '.$offset.','.$limit;
         return $this->db->query($sql)->result_array();
     }
 
@@ -293,7 +293,7 @@ class Dressup_model extends CI_Model {
     public function get_all_last_commented($limit, $page=1)
     {
         $offset = $limit * ($page - 1);
-        $sql = 'SELECT *, "dressup" `type`, UNIX_TIMESTAMP(last_comment) date_unix FROM user_dressups WHERE `last_comment`!="0000-00-00 00:00:00" ORDER BY `last_comment` DESC LIMIT '.$offset.','.$limit;
+        $sql = 'SELECT *, "dressup" `type`, UNIX_TIMESTAMP(last_comment) date_unix,users.username FROM user_dressups LEFT JOIN users ON users.id=user_dressups.uid WHERE `last_comment`!="0000-00-00 00:00:00" ORDER BY `last_comment` DESC LIMIT '.$offset.','.$limit;
         return $this->db->query($sql)->result_array();
     }
 
