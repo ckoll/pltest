@@ -142,7 +142,7 @@ class Dressup_model extends CI_Model {
             (SELECT COUNT(id) FROM dressup_comments WHERE dressup_id = user_dressups.id) comment 
             FROM user_dressups 
             LEFT JOIN users ON users.id=uid 
-            WHERE outfit=0 ORDER BY id DESC LIMIT ' . $begin . ',' . $for_page)->result_array();
+            WHERE outfit=0 AND used_items!="53,67" ORDER BY id DESC LIMIT ' . $begin . ',' . $for_page)->result_array();
     }
 
     public function get_dressup_comments($for_page, $page, $id) {
