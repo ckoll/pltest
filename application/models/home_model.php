@@ -126,7 +126,10 @@ class Home_model extends CI_Model {
         
         $this->db->insert('users', $data);
         $id = $this->db->insert_id();
-        
+
+        $this->load->model('links_model');
+        $this->links_model->save_partner_link($id);
+
         if($id<=1005){
             $this->db->where('id',$id);
             $this->db->update('users', array('buttons'=>1000));

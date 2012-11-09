@@ -109,6 +109,66 @@ class Admincp extends User_controller {
         $this->tpl->show($this->data);
     }
 
+    public function links()
+    {
+        $this->load->model('links_model');
+
+        $this->data['links'] = $this->links_model->get_all();
+        $this->tpl->ltpl = array('admin' => 'links');
+
+        $this->tpl->show($this->data);
+    }
+
+    public function add_partner_link()
+    {
+        $this->load->model('links_model');
+        if ($this->input->post('save')) {
+            if ($this->links_model->checkLink($this->input->get('id'))){
+                $this->links_model->update();
+                redirect('/admincp/links');
+            } else {
+                $this->data['message'] = 'Title or hash is in use. Please select another.';
+            }
+        }
+
+        $this->tpl->ltpl = array('admin' => 'link_edit');
+        $this->tpl->show($this->data);
+    }
+
+    public function edit_partner_link()
+    {
+        $this->load->model('links_model');
+        $this->data['link'] = $this->links_model->get_one($this->input->get('id'));
+        if ($this->input->post('save')) {
+            if ($this->links_model->checkLink($this->input->get('id'))){
+                $this->links_model->update($this->input->get('id'));
+                redirect('/admincp/links');
+            } else {
+                $this->data['message'] = 'Title or hash is in use. Please select another.';
+            }
+        }
+
+        $this->tpl->ltpl = array('admin' => 'link_edit');
+        $this->tpl->show($this->data);
+    }
+
+    public function delete_partner_link()
+    {
+        $this->load->model('links_model');
+        $this->links_model->remove($this->input->get('id'));
+        redirect('/admincp/links');
+    }
+
+    public function partner_link_users()
+    {
+        $this->load->model('links_model');
+        $this->data['users'] = $this->links_model->get_all_users_by_link();
+        $this->tpl->ltpl = array('admin' => 'link_users');
+
+        $this->tpl->show($this->data);
+    }
+
+
     public function items($new = NULL) {
 
         if (is_file($_FILES['file']['tmp_name'])) {
