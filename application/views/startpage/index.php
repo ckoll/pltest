@@ -9,6 +9,9 @@
     $dressup = $topDressup[$i];
     ?>
     <div class="image-cont">
+        <textarea style="display: none">
+        <?php print_r($photo); ?>
+        </textarea>
         <div class="author">
             Posted by: <a href="/<?=$photo['username']?>"><?=$photo['username']?></a>
         </div>
