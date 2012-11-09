@@ -43,6 +43,7 @@ class Home extends CI_Controller {
         }
 
         shuffle($topPhotos) ;
+        $topPhotos = array_values($topPhotos);
 
         foreach($topPhotos as $i=>$photo) {
             $last3Comments = $this->upload_model->get_photo_comments(3, 0, $photo['id']);
@@ -79,8 +80,8 @@ class Home extends CI_Controller {
                 $topDressup[$photo['id']] = $photo;
             }
         }
-
         shuffle($topDressup);
+        $topDressup = array_values($topDressup);
 
         foreach($topDressup as $i=>$dressup) {
             $last3Comments = $this->dressup_model->get_dressup_comments(3, 0, $dressup['id']);
