@@ -2,13 +2,11 @@
 
     <?php for ($i = 0; $i <= $max; $i++): ?>
     <?php
-    $photo = $topPhotos[$i];
-    $dressup = $topDressup[$i];
+    $photo = isset($topPhotos[$i])?$topPhotos[$i]:null;
+    $dressup = isset($topDressup[$i])?$topDressup[$i]:null;
     ?>
+    <?php if ($photo): ?>
     <div class="image-cont">
-        <textarea style="display: none">
-        <?php print_r($photo); ?>
-        </textarea>
         <div class="author">
             Posted by: <a href="/<?=$photo['username']?>"><?=$photo['username']?></a>
         </div>
@@ -37,7 +35,9 @@
         <?php endforeach; ?>
     <?php endif; ?>
     </div>
+    <?php endif; ?>
 
+    <?php if ($dressup): ?>
     <div class="image-cont">
         <div class="author">
             Posted by: <a href="/<?=$dressup['username']?>"><?=$dressup['username']?></a>
@@ -66,7 +66,7 @@
         <?php endforeach; ?>
         <?php endif; ?>
     </div>
-
+    <?php endif; ?>
 
 
     <?php endfor; ?>
