@@ -188,6 +188,7 @@ body {
     height: 14px;
     margin-top: 10px;
     margin-bottom: 7px;
+    cursor: pointer;
 }
 
 .comments {

@@ -266,6 +266,13 @@ class Dressup_model extends CI_Model {
         return $hearts;
     }
 
+    public function get_all_last_hearted($limit, $page=1)
+    {
+        $offset = $limit * ($page - 1);
+        $sql = 'SELECT *, "dressup" `type`, UNIX_TIMESTAMP(last_like) date_unix FROM user_dressups WHERE `like`!=0 ORDER BY `last_like` DESC LIMIT '.$offset.','.$limit;
+        return $this->db->query($sql)->result_array();
+    }
+
     public function last_like_count() {
         $dress = $this->db->query('SELECT id FROM user_dressups WHERE last_like > "' . date('Y-m-d H:i:s') . '" - INTERVAL 1 DAY AND uid="' . $this->user['id'] . '"')->num_rows();
         $photo = $this->db->query('SELECT id FROM upload_photo WHERE last_like > "' . date('Y-m-d H:i:s') . '" - INTERVAL 1 DAY AND uid="' . $this->user['id'] . '"')->num_rows();
@@ -281,6 +288,13 @@ class Dressup_model extends CI_Model {
     public function last_commented() {
         $comments = $this->db->query('SELECT *, "dressup" `type`, UNIX_TIMESTAMP(last_comment) date_unix FROM user_dressups WHERE `last_comment`!="0000-00-00 00:00:00" AND uid="' . $this->user['id'] . '" AND `last_comment` > "' . date('Y-m-d H:i:s') . '" - INTERVAL 1 day')->result_array();
         return $comments;
+    }
+
+    public function get_all_last_commented($limit, $page=1)
+    {
+        $offset = $limit * ($page - 1);
+        $sql = 'SELECT *, "dressup" `type`, UNIX_TIMESTAMP(last_comment) date_unix FROM user_dressups WHERE `last_comment`!="0000-00-00 00:00:00" ORDER BY `last_comment` DESC LIMIT '.$offset.','.$limit;
+        return $this->db->query($sql)->result_array();
     }
 
     public function last_commented_details($dressups) {

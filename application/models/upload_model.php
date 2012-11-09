@@ -204,7 +204,18 @@ class Upload_model extends CI_Model
             foreach ($photo as $val) {
                 $all_id[] = $val['id'];
             }
-            $rez = $this->db->query('SELECT * FROM (SELECT photo_comments.*, users.username FROM photo_comments LEFT JOIN users on users.id=photo_comments.uid WHERE photo_id IN (' . implode(',', $all_id) . ') ORDER BY id DESC) d1 GROUP BY photo_id')->result_array();
+            $rez = $this->db->query('
+            SELECT * FROM
+            (SELECT
+                photo_comments.*,
+                users.username
+                FROM photo_comments
+                LEFT JOIN users on users.id=photo_comments.uid
+                WHERE photo_id IN (' . implode(',', $all_id) . ')
+                ORDER BY id DESC)
+            d1
+            GROUP BY photo_id
+            ')->result_array();
             if (!empty($rez)) {
                 foreach ($rez as $val) {
                     $all[$val['photo_id']] = $val;
@@ -224,13 +235,47 @@ class Upload_model extends CI_Model
 
     public function last_hearted()
     {
-        $hearts = $this->db->query('SELECT *, "photo" `type`, UNIX_TIMESTAMP(last_like) date_unix FROM upload_photo WHERE `like`!=0 AND uid="' . $this->user['id'] . '" AND last_like > "' . date('Y-m-d H:i:s') . '" - INTERVAL 1 DAY')->result_array();
+        $hearts = $this->db->query('
+        SELECT *,
+        "photo" `type`,
+        UNIX_TIMESTAMP(last_like) date_unix
+        FROM upload_photo
+        WHERE `like`!=0 AND uid="' . $this->user['id'] . '" AND last_like > "' . date('Y-m-d H:i:s') . '" - INTERVAL 1 DAY')->result_array();
         return $hearts;
+    }
+
+
+    public function get_all_last_hearted($limit, $page=1)
+    {
+        $offset = $limit * ($page - 1);
+
+        $sql = 'SELECT *,
+        "photo" `type`,
+        UNIX_TIMESTAMP(last_like) date_unix
+        FROM upload_photo
+        WHERE `like`!=0 ORDER BY last_like DESC LIMIT '.$offset.','.$limit;
+
+        return $this->db->query($sql)->result_array();
+    }
+
+    public function get_all_last_commented($limit, $page=1)
+    {
+        $offset = $limit * ($page - 1);
+
+        $sql = 'SELECT *,
+        "photo" `type`,
+        UNIX_TIMESTAMP(last_like) date_unix
+        FROM upload_photo
+        WHERE `last_comment`!="0000-00-00 00:00:00" ORDER BY last_comment DESC LIMIT '.$offset.','.$limit;
+
+        return $this->db->query($sql)->result_array();
     }
 
     public function last_commented()
     {
-        $comments = $this->db->query('SELECT *, "photo" `type`, UNIX_TIMESTAMP(last_comment) date_unix FROM upload_photo WHERE `last_comment`!="0000-00-00 00:00:00" AND uid="' . $this->user['id'] . '" AND last_comment > "' . date('Y-m-d H:i:s') . '" - INTERVAL 1 DAY')->result_array();
+        $comments = $this->db->query('
+        SELECT *, "photo" `type`, UNIX_TIMESTAMP(last_comment) date_unix
+        FROM upload_photo WHERE `last_comment`!="0000-00-00 00:00:00" AND uid="' . $this->user['id'] . '" AND last_comment > "' . date('Y-m-d H:i:s') . '" - INTERVAL 1 DAY')->result_array();
         return $comments;
     }
 
@@ -294,7 +339,7 @@ class Upload_model extends CI_Model
 
     public function top_photos($limit, $page = 1)
     {
-        $offset = $limit*($page-1);
+        $offset = $limit * ($page - 1);
 
         $sql = "SELECT
             upload_photo.*,

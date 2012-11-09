@@ -21,12 +21,27 @@ class Home extends CI_Controller {
         $this->load->model('upload_model');
         $this->load->model('dressup_model');
 
-
         $page = isset($_GET['page'])?(int)$_GET['page']:1;
 
-        $topPhotos = $this->upload_model->top_photos(10, $page);
+        $lastHeartedPhotos = $this->upload_model->get_all_last_hearted(5, $page);
+        $lastCommentedPhotos = $this->upload_model->get_all_last_commented(5, $page);
         $latestPhotos = $this->upload_model->latest_photos(4, $page-1);
-        $topPhotos = array_merge($topPhotos, $latestPhotos);
+
+        $topPhotos = array();
+        foreach($lastHeartedPhotos as $photo) {
+            $topPhotos[$photo['id']] = $photo;
+        }
+        foreach($lastCommentedPhotos as $photo) {
+            if (!isset($topPhotos[$photo['id']])) {
+                $topPhotos[$photo['id']] = $photo;
+            }
+        }
+        foreach($latestPhotos as $photo) {
+            if (!isset($topPhotos[$photo['id']])) {
+                $topPhotos[$photo['id']] = $photo;
+            }
+        }
+
         shuffle($topPhotos) ;
 
         foreach($topPhotos as $i=>$photo) {
@@ -47,9 +62,24 @@ class Home extends CI_Controller {
         $this->data['topPhotos'] = $topPhotos;
 
 
-        $topDressup = $this->dressup_model->top_dressups(10, $page);
+        $lastHeartedDressup = $this->dressup_model->get_all_last_hearted(5, $page);
+        $lastCommentedDressup = $this->dressup_model->get_all_last_commented(5, $page);
         $latestDressup = $this->dressup_model->all_latest_dressups(4, $page-1);
-        $topDressup = array_merge($topDressup, $latestDressup);
+        $topDressup = array();
+        foreach($lastHeartedDressup as $photo) {
+            $topDressup[$photo['id']] = $photo;
+        }
+        foreach($lastCommentedDressup as $photo) {
+            if (!isset($topDressup[$photo['id']])) {
+                $topDressup[$photo['id']] = $photo;
+            }
+        }
+        foreach($latestDressup as $photo) {
+            if (!isset($topDressup[$photo['id']])) {
+                $topDressup[$photo['id']] = $photo;
+            }
+        }
+
         shuffle($topDressup);
 
         foreach($topDressup as $i=>$dressup) {
