@@ -1,8 +1,5 @@
 <div id="columns-cont">
 
-<?php
-    $max = count($topPhotos);
-?>
     <?php for ($i = 0; $i <= $max; $i++): ?>
     <?php
     $photo = $topPhotos[$i];

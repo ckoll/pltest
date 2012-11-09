@@ -99,6 +99,11 @@ class Home extends CI_Controller {
 
         $this->data['topDressup'] = $topDressup;
 
+        $maxPhotos = count($topPhotos);
+        $maxDressups = count($topDressup);
+        $max = $maxPhotos>$maxDressups?$maxPhotos:$maxDressups;
+        $this->data['max'] = $max;
+
 
         $this->tpl->gtpl = 'startpage';
         $this->tpl->ltpl = array('startpage' => 'index');
