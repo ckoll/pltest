@@ -24,6 +24,7 @@ class Home extends CI_Controller {
         $page = isset($_GET['page'])?(int)$_GET['page']:1;
 
         $lastHeartedPhotos = $this->upload_model->get_all_last_hearted(5, $page);
+        print_r($lastHeartedPhotos);exit;
         $lastCommentedPhotos = $this->upload_model->get_all_last_commented(5, $page);
         $latestPhotos = $this->upload_model->latest_photos(4, $page-1);
 

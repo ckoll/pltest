@@ -249,7 +249,7 @@ class Upload_model extends CI_Model
     {
         $offset = $limit * ($page - 1);
 
-        $sql = 'SELECT *,
+        $sql = 'SELECT upload_photo.*,
         "photo" `type`,
         UNIX_TIMESTAMP(last_like) date_unix,
         users.username
@@ -264,7 +264,7 @@ class Upload_model extends CI_Model
     {
         $offset = $limit * ($page - 1);
 
-        $sql = 'SELECT *,
+        $sql = 'SELECT upload_photo.*,
         "photo" `type`,
         UNIX_TIMESTAMP(last_comment) date_unix,
         users.username
