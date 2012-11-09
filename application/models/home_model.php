@@ -121,7 +121,7 @@ class Home_model extends CI_Model {
             'email' => $this->input->post('email'),
             'reg_date' => date('Y-m-d'),
             'invite' => $invite,
-            'buttons' => 0
+            'buttons' => 200
         );
         
         $this->db->insert('users', $data);
