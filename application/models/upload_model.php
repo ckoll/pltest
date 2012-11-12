@@ -134,13 +134,19 @@ class Upload_model extends CI_Model
         }
     }
 
-    public function del_uploaded_img($id)
+    public function del_uploaded_img($id, $isAdmin = false)
     {
-        $this->db->query('DELETE FROM brand_tags WHERE uid="' . $this->user['id'] . '" AND photo_id="' . $id . '"');
-        $this->db->query('DELETE FROM upload_photo WHERE uid="' . $this->user['id'] . '" AND CONCAT(id,rand_num)="' . $id . '"');
-        @unlink(APPPATH . 'files/users/uploads/' . $this->user['id'] . '/' . $id . '.jpg');
-        @unlink(APPPATH . 'files/users/uploads/' . $this->user['id'] . '/' . $id . '_tmp.jpg');
-        @unlink(APPPATH . 'files/users/uploads/' . $this->user['id'] . '/' . $id . '_original.jpg');
+        $uid = $this->user['id'];
+        $photo = $this->photo_details($id);
+        if ($isAdmin) {
+            $uid = $photo['uid'];
+        }
+        $this->db->query('DELETE FROM brand_tags WHERE uid="' . $uid . '" AND photo_id="' . $id . '"');
+        $this->db->query('DELETE FROM upload_photo WHERE uid="' . $uid . '" AND CONCAT(id,rand_num)="' . $id . '"');
+        $this->db->query('DELETE FROM photo_comments WHERE photo_id="' . $photo['id'] . '"');
+        @unlink(APPPATH . 'files/users/uploads/' . $uid . '/' . $id . '.jpg');
+        @unlink(APPPATH . 'files/users/uploads/' . $uid . '/' . $id . '_tmp.jpg');
+        @unlink(APPPATH . 'files/users/uploads/' . $uid . '/' . $id . '_original.jpg');
     }
 
     public function get_tags($id)

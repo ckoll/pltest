@@ -5,23 +5,26 @@ if (!defined('BASEPATH'))
 
 require_once APPPATH . '/libraries/controllers/User_controller.php';
 
-class User extends User_controller {
+class User extends User_controller
+{
 
     public $data;
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->data['styles'] = array();
         $this->data['scripts'] = array('user-init.js');
     }
 
-    public function index() {
+    public function index()
+    {
         $this->load->model('dressup_model');
         $this->load->model('friends_model');
         $this->load->model('upload_model');
         $this->load->model('mystuff_model');
         $this->load->model('brands_model');
-        
+
         $user = $this->uri->segment(1, 0);
         $this->data['scripts'] = array_merge($this->data['scripts'], array('jquery.horizontal.scroll.js'));
         if (is_my_page($user)) {
@@ -38,10 +41,10 @@ class User extends User_controller {
         } else {
 
             $this->data['user_info'] = $this->user_model->check_user_avaliable($user);
-            if(empty($this->data['user_info'])){
+            if (empty($this->data['user_info'])) {
                 show_404();
             }
-            
+
             $rez = $this->upload_model->user_photos($this->data['user_info']['id'], 4);
             $rez_count = $this->upload_model->count_pages(1);
             $this->data['content'] = array(
@@ -49,7 +52,7 @@ class User extends User_controller {
                 'day_look' => $this->dressup_model->get_daylook($this->data['user_info']['id']),
                 'latest_photos' => $rez,
                 'latest_photos_count' => $rez_count,
-                'recently_activity' => $this->user_model->get_history_activity($this->data['user_info']['id'],10)
+                'recently_activity' => $this->user_model->get_history_activity($this->data['user_info']['id'], 10)
             );
             if ($this->input->post('wall_send')) {
                 $this->user_model->add_wall_message($this->data['user_info']['id']);
@@ -62,7 +65,8 @@ class User extends User_controller {
         $this->tpl->show($this->data);
     }
 
-    public function editprofile() {
+    public function editprofile()
+    {
         $this->session->set_userdata(array('last_page' => $_SERVER['REQUEST_URI'])); // Last page for back redirect
         $this->data['styles'] = array_merge($this->data['styles'], array('imgareaselect.css'));
         $this->data['scripts'] = array_merge($this->data['scripts'], array('jquery.imgareaselect.pack.js'));
@@ -83,7 +87,8 @@ class User extends User_controller {
         $this->tpl->show($this->data);
     }
 
-    public function logout() {
+    public function logout()
+    {
         $this->session->unset_userdata('user');
         $this->session->unset_userdata('tw_session');
         redirect('/');
@@ -91,7 +96,8 @@ class User extends User_controller {
 
     //MESSAGES
 
-    public function pms($folder = null, $mess_id = NULL) {
+    public function pms($folder = null, $mess_id = NULL)
+    {
         $this->load->model('messages_model');
         $this->load->model('friends_model');
         $this->data['message_icons'] = $this->messages_model->get_message_icons();
@@ -167,7 +173,8 @@ class User extends User_controller {
 
     //END MESSAGES
 
-    public function friends($of_friend) {
+    public function friends($of_friend)
+    {
         $this->load->model('friends_model');
         if (preg_match('/^id[0-9]+$/i', $of_friend)) {
             $this->data['user_info'] = $this->user_model->get_user_info('id', substr($of_friend, 2));
@@ -186,20 +193,21 @@ class User extends User_controller {
         $this->tpl->show($this->data);
     }
 
-    public function wall($username = NULL) {
-        if(empty($username)){
+    public function wall($username = NULL)
+    {
+        if (empty($username)) {
             $username = $this->user['username'];
         }
         $this->data['user'] = $this->user_model->get_user_info('username', $username);
-        if (empty($this->data['user'])){
+        if (empty($this->data['user'])) {
             show_404();
         }
         if ($this->input->post('wall_send')) {
-                $this->user_model->add_wall_message($this->data['user']['id']);
-                $last_url = explode('?', $_SERVER['HTTP_REFERER']);
-                $last_url = $last_url[0]; //remove all get parameters
-                redirect($last_url);
-            }
+            $this->user_model->add_wall_message($this->data['user']['id']);
+            $last_url = explode('?', $_SERVER['HTTP_REFERER']);
+            $last_url = $last_url[0]; //remove all get parameters
+            redirect($last_url);
+        }
         $page = $this->input->get('page');
         $this->data['wall'] = $this->user_model->wall_messages($this->data['user']['id'], $page);
         $this->data['pages'] = $this->user_model->count_pages();
@@ -212,7 +220,8 @@ class User extends User_controller {
         $this->tpl->show($this->data);
     }
 
-    public function announcements($id = NULL) {
+    public function announcements($id = NULL)
+    {
         $this->load->model('announcements_model');
         if (!empty($id)) {
             $this->data['announcement'] = $this->announcements_model->get_one($id);
@@ -220,18 +229,19 @@ class User extends User_controller {
             $this->data['announcements'] = $this->announcements_model->get_all(10);
             $this->data['pages'] = $this->announcements_model->count_pages(10);
         }
-        
+
         $this->tpl->ltpl = array('main' => 'announcements', 'lmenu' => array('my_info', 'my_recent_photos', 'favorite_brands', 'photos_i_hearted', 'my_photos', 'my_favorite_photos', 'items_i_seling', 'look_of_the_day'));
         $this->tpl->show($this->data);
     }
 
-    public function dressup($id) {
+    public function dressup($id)
+    {
         $this->load->model('dressup_model');
 
         if ($this->input->post('add_dressup_comment')) {
             $this->dressup_model->add_dressup_comment($id);
             redirect($_SERVER['HTTP_REFERER']);
-        }elseif($this->input->get('rem')){
+        } elseif ($this->input->get('rem')) {
             $this->dressup_model->remove_comment($this->input->get('rem'));
             redirect($_SERVER['HTTP_REFERER']);
         }
@@ -247,7 +257,8 @@ class User extends User_controller {
         $this->tpl->show($this->data);
     }
 
-    public function dressup_calendar($username) {
+    public function dressup_calendar($username)
+    {
         $this->data['user'] = $this->user_model->get_user_info('username', $username);
         if (is_my_page($username)) {
             $this->tpl->ltpl = array('main' => 'dressup_calendar', 'lmenu' => array('my_info'));
@@ -257,7 +268,8 @@ class User extends User_controller {
         $this->tpl->show($this->data);
     }
 
-    public function new_info($type) {
+    public function new_info($type)
+    {
         $this->load->model('dressup_model');
         $this->load->model('upload_model');
         switch ($type) {
@@ -265,11 +277,11 @@ class User extends User_controller {
                 $dressup_hearts = $this->dressup_model->last_hearted();
                 $photo_hearts = $this->upload_model->last_hearted();
                 $all_likes = array_merge($dressup_hearts, $photo_hearts);
-                if(!empty($all_likes)){
-                    foreach($all_likes as $val){
+                if (!empty($all_likes)) {
+                    foreach ($all_likes as $val) {
                         $this->data['hearts'][$val['date_unix']] = $val;
                     }
-                    ksort($this->data['hearts'],SORT_NUMERIC);
+                    ksort($this->data['hearts'], SORT_NUMERIC);
                     $this->data['hearts'] = array_reverse($this->data['hearts']);
                 }
                 $this->tpl->ltpl = array('main' => 'last_hearts', 'lmenu' => array('my_info'));
@@ -278,11 +290,11 @@ class User extends User_controller {
                 $dressup = $this->dressup_model->last_commented();
                 $photo = $this->upload_model->last_commented();
                 $all_likes = array_merge($dressup, $photo);
-                if(!empty($all_likes)){
-                    foreach($all_likes as $val){
+                if (!empty($all_likes)) {
+                    foreach ($all_likes as $val) {
                         $this->data['comments'][$val['date_unix']] = $val;
                     }
-                    ksort($this->data['comments'],SORT_NUMERIC);
+                    ksort($this->data['comments'], SORT_NUMERIC);
                     $this->data['comments'] = array_reverse($this->data['comments']);
                 }
                 $this->data['comments_details']['dressup'] = $this->dressup_model->last_commented_details($dressup);
@@ -293,25 +305,40 @@ class User extends User_controller {
         $this->tpl->show($this->data);
     }
 
-    public function photo($id) {
+    public function photo($id)
+    {
         $this->load->model('upload_model');
         if ($this->input->post('add_photo_comment')) {
-            if(!empty($_POST['comment'])){
-                $this->upload_model->add_photo_comment(substr($id,0,-5));
+            if (!empty($_POST['comment'])) {
+                $this->upload_model->add_photo_comment(substr($id, 0, -5));
             }
             redirect($_SERVER['HTTP_REFERER']);
-        }elseif($this->input->get('rem')){
+        } elseif ($this->input->get('rem')) {
             $this->upload_model->remove_comment($this->input->get('rem'));
             redirect($_SERVER['HTTP_REFERER']);
         }
         $this->data['photo'] = $this->upload_model->photo_details($id);
-        $this->data['comments'] = $this->upload_model->get_photo_comments(5, $this->input->get('page'), substr($id,0,-5));
+        $this->data['comments'] = $this->upload_model->get_photo_comments(5, $this->input->get('page'), substr($id, 0, -5));
         $this->data['pages'] = $this->upload_model->count_pages(5);
         $this->tpl->ltpl = array('main' => 'photo_details', 'lmenu' => array('photo_details'));
         $this->tpl->show($this->data);
     }
-    
-    public function ajax() {
+
+    public function delete_photo()
+    {
+        $this->load->model('upload_model');
+        $id = $this->input->get('id');
+        $photo = $this->upload_model->photo_details($id);
+        $admin = $this->data['admin'];
+        if ($photo && ($photo['uid'] == $this->user['id'] || !empty($admin))) {
+            $this->upload_model->del_uploaded_img($id, true);
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+        redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    public function ajax()
+    {
         $this->load->model('friends_model');
         $this->load->model('doll_model');
 

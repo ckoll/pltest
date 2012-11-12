@@ -5,8 +5,14 @@
 
 <div id="content">
     <div class="page_title">
-        <span>Photo details</span>
+        <span>
+            Photo details
+            <?php  if (!empty($admin)): ?>
+            <a href="/user/delete_photo/?id=<?= $photo['id'] . $photo['rand_num'] ?>">Delete</a>
+            <?php endif; ?>
+        </span>
     </div>
+
     <div class="bg">
         <a href="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>_original.jpg"
            target="_blank"><img

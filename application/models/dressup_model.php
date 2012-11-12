@@ -122,6 +122,13 @@ class Dressup_model extends CI_Model {
         }
     }
 
+    public function getDressupItems($id)
+    {
+        $dressup = $this->dressup_details($id);
+        $dressupItemsSql = "SELECT * FROM dressup_items WHERE id IN (".$dressup['used_items'].")";
+        return $this->db->query($dressupItemsSql)->result_array();
+    }
+
     public function count_pages($for_page) {
         $count = $this->db->query('SELECT FOUND_ROWS() as result')->row()->result;
         return ceil($count / $for_page);

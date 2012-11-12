@@ -84,17 +84,21 @@ class Home extends CI_Controller {
         $topDressup = array_values($topDressup);
 
         foreach($topDressup as $i=>$dressup) {
-            $last3Comments = $this->dressup_model->get_dressup_comments(3, 0, $dressup['id']);
-            foreach($last3Comments as $j=>$comment) {
-                if (in_array($comment['uid'], $this->admins)) {
-                    $rand = rand(0,1);
-                    $count = count($last3Comments);
-                    if($rand && $count>1) {
-                        unset($last3Comments[$j]);
+            if (!$this->_isNakedDressup($dressup['id'])) {
+                $last3Comments = $this->dressup_model->get_dressup_comments(3, 0, $dressup['id']);
+                foreach($last3Comments as $j=>$comment) {
+                    if (in_array($comment['uid'], $this->admins)) {
+                        $rand = rand(0,1);
+                        $count = count($last3Comments);
+                        if($rand && $count>1) {
+                            unset($last3Comments[$j]);
+                        }
                     }
                 }
+                $topDressup[$i]['last3Comments'] = $last3Comments;
+            } else {
+                unset($topDressup[$i]);
             }
-            $topDressup[$i]['last3Comments'] = $last3Comments;
         }
 
         $this->data['topDressup'] = $topDressup;
@@ -108,6 +112,35 @@ class Home extends CI_Controller {
         $this->tpl->gtpl = 'startpage';
         $this->tpl->ltpl = array('startpage' => 'index');
         $this->tpl->show($this->data);
+    }
+
+    private function _isNakedDressup($id)
+    {
+
+        return false;
+        $mustTypes = array(
+            array(
+                'tops',
+                'skirt'
+            ),
+            array(
+                'shorts',
+                'top'
+            ),
+            array(
+                'dress'
+            ),
+        );
+        $items = $this->dressup_model->getDressupItems($id);
+        $itemsTypes = array();
+        foreach($items as $item) {
+            $itemsTypes[] = $item['type'];
+        }
+
+        foreach($itemsTypes as $type) {
+
+        }
+
     }
 
 

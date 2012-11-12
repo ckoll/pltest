@@ -39,6 +39,8 @@ class User_controller extends CI_Controller {
 
         //User messages
         $this->user['messages'] = intval($this->db->query('SELECT COUNT(1) coun FROM messages WHERE `to`="' . $this->user['id'] . '" AND view=0')->row()->coun);
+
+        $this->data['admin'] = $this->db->get_where('users_admin', array('uid' => $this->user['id']))->row();
     }
 
     //7 days notification (now 1 day for test)
