@@ -29,6 +29,6 @@ if (!empty($links)) {
         }
         ?></table><?
 }else{
-    ?><em>*No Links</em><?
+    ?><em>*No  Referrals</em><?
 }
     ?>

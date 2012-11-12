@@ -69,7 +69,14 @@ $('.dropdown a').hover(function(){
 //Add dressup Like
 $(function(){
 
-    $('.likes, .like_button').on('click',function(){
+    likeInit();
+
+});
+
+
+function likeInit()
+{
+    $('.likes, .like_button').unbind('click').click(function(){
         var $this = $(this)
         var id = $this.data('id')
         var mode = $this.data('mode')
@@ -96,6 +103,6 @@ $(function(){
                 }
             });
         }
-    })
+    });
+}
 
-})

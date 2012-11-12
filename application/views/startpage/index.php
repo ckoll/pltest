@@ -5,7 +5,7 @@
     $photo = isset($topPhotos[$i])?$topPhotos[$i]:null;
     $dressup = isset($topDressup[$i])?$topDressup[$i]:null;
     ?>
-    <?php if ($photo): ?>
+    <?php if ($photo && file_exists(_getUploadPath($photo))): ?>
     <div class="image-cont">
         <div class="author">
             Posted by: <a href="/<?=$photo['username']?>"><?=$photo['username']?></a>
@@ -37,7 +37,7 @@
     </div>
     <?php endif; ?>
 
-    <?php if ($dressup): ?>
+    <?php if ($dressup && file_exists(_getDressupPath($dressup))): ?>
     <div class="image-cont">
         <div class="author">
             Posted by: <a href="/<?=$dressup['username']?>"><?=$dressup['username']?></a>
@@ -98,6 +98,7 @@
                     speed: 'slow',
                     finished : function(){
                         $('#columns-cont').masonry( 'reload' );
+                        likeInit();
                     }
                 }
             });
