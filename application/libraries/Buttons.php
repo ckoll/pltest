@@ -11,11 +11,14 @@ class Buttons {
         $this->CI = &get_instance();
     }
 
-    public function add_money($uid, $count, $type = 'buttons') {
+    public function add_money($uid, $count, $type = 'buttons', $history = null) {
         $user = $this->CI->db->get_where('users', array('id' => $uid))->row_array();
         $money = $user[$type] + $count;
         $this->CI->db->where('id', $uid);
         $this->CI->db->update('users', array($type => $money));
+        if ($history) {
+            $this->write_history($uid, $history);
+        }
     }
 
     public function remove_money($uid, $count, $type = 'buttons') {

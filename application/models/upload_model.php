@@ -171,6 +171,16 @@ class Upload_model extends CI_Model
         return $this->db->query('SELECT upload_photo.*, users.username FROM upload_photo LEFT JOIN users ON users.id = upload_photo.uid WHERE CONCAT(upload_photo.id,rand_num) = "' . $id . '"')->row_array();
     }
 
+    public function photo_details_by_id($id)
+    {
+        return $this->db->query(
+            'SELECT upload_photo.*, users.username
+            FROM upload_photo
+            LEFT JOIN users ON users.id = upload_photo.uid
+            WHERE upload_photo.id = "' . $id . '"'
+        )->row_array();
+    }
+
     public function like_add($id)
     {
         $photo = $this->photo_details($id);
@@ -329,7 +339,9 @@ class Upload_model extends CI_Model
     public function add_photo_comment($id)
     {
         $comment = trim(strip_tags($this->input->post('comment')));
-        if (!empty($comment)) {
+        $photo = $this->photo_details_by_id($id);
+        if (!empty($comment) && !empty($photo)) {
+
             $comment_data = array(
                 'photo_id' => $id,
                 'uid' => $this->user['id'],
@@ -338,6 +350,32 @@ class Upload_model extends CI_Model
             );
             $this->db->insert('photo_comments', $comment_data);
             $this->db->query('UPDATE upload_photo SET comments = (comments+1), last_comment = "' . date("Y-m-d H:i:s") . '" WHERE id = "' . $id . '"');
+
+            $addButtons = 1;
+
+            $user = $this->user_model->get_user_info('id', $photo['uid']);
+            $this->load->library('buttons');
+            $history = array(
+                'action' => 'photo_comment',
+                'jewels' => $user['jewels'],
+                'now_jewels' => $user['jewels'],
+                'buttons' => $user['buttons'],
+                'now_buttons' => ($user['buttons'] + $addButtons),
+                //'description' => 'Liked your photo (' . $this->user['username'] . '): <a href="/' . $photo['username'] . '/photo/' . $photo['id'] . $photo['rand_num'] . '" target="_blank">photo</a>'));
+                'description' => 'Commented photo : <a href="/' . $photo['username'] . '/photo/' . $photo['id'] . $photo['rand_num'] . '" target="_blank">photo</a>');
+            $this->buttons->add_money($this->user['id'], $addButtons, 'buttons', $history);
+
+
+            $user = $this->user_model->get_user_info('id', $this->user['id']);
+            $this->load->library('buttons');
+            $history = array(
+                'action' => 'photo_comment',
+                'jewels' => $user['jewels'],
+                'now_jewels' => $user['jewels'],
+                'buttons' => $user['buttons'],
+                'now_buttons' => ($user['buttons'] + $addButtons),
+                'description' => 'Commented your photo (' . $this->user['username'] . '): <a href="/' . $photo['username'] . '/photo/' . $photo['id'] . $photo['rand_num'] . '" target="_blank">photo</a>');
+            $this->buttons->add_money($photo['uid'], $addButtons, 'buttons', $history);
         }
     }
 
