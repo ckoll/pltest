@@ -247,9 +247,12 @@ class User_model extends CI_Model {
         $sql = 'SELECT
             users.*,
             ref.username rusername,
-            ref.id rid
+            ref.id rid,
+            p_l.hash
             FROM users
             LEFT JOIN users as ref ON ref.id=users.invite
+            LEFT JOIN partner_link_users as p_l_u ON p_l_u.user_id=users.id
+            LEFT JOIN partner_links as p_l ON p_l.id=p_l_u.partner_link_id
             ORDER BY id';
         return $this->db->query($sql)->result_array();
     }
