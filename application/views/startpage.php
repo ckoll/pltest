@@ -24,7 +24,7 @@
 
     <div id='top-cont'>
         <div id='top-buttons'>
-            <a class="top-button" href="/register">sign up</a>
+            <a class="top-button" href="/register<?=isset($_GET['hash'])?"?hash=".$_GET['hash']:''?>">sign up</a>
             <a class="top-button" href="/signin">log in</a>
         </div>
 
