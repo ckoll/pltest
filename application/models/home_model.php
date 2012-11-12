@@ -119,7 +119,7 @@ class Home_model extends CI_Model {
             'username' => $username,
             'password' => md5($this->input->post('password')),
             'email' => $this->input->post('email'),
-            'reg_date' => date('Y-m-d'),
+            'reg_date' => date('Y-m-d H:i:s'),
             'invite' => $invite,
             'buttons' => 200
         );

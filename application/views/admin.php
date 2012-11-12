@@ -29,7 +29,7 @@
 
 
         <div id="content">
-            <div class="bg" style="width: 1000px; margin: auto">
+            <div class="bg" style="width: 1200px; margin: auto">
                 <div id="menubar">
                     <ul id="menu">
                         <? $active = $this->uri->segment(2); ?>

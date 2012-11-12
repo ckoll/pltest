@@ -244,7 +244,14 @@ class User_model extends CI_Model {
 
     //ADMIN
     public function get_all_users() {
-        return $this->db->query('SELECT *, DATE_FORMAT(reg_date, "%d.%m.%Y") reg_date FROM users ORDER BY id')->result_array();
+        $sql = 'SELECT
+            users.*,
+            ref.username rusername,
+            ref.id rid
+            FROM users
+            LEFT JOIN users as ref ON ref.id=users.invite
+            ORDER BY id';
+        return $this->db->query($sql)->result_array();
     }
 
     public function remove_user($id) {

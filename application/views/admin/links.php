@@ -8,6 +8,7 @@ if (!empty($links)) {
             <td>ID</td>
             <td>Title</td>
             <td>Link</td>
+            <td>User Number</td>
             <td width="100px">Actions</td>
         </tr>
         <?
@@ -17,6 +18,7 @@ if (!empty($links)) {
                 <td><?=$val['id']?></td>
                 <td><?=$val['title']?></td>
                 <td><?= base_url() ?>register?hash=<?=$val['hash']?></td>
+                <td><?=$val['number']?></td>
                 <td width="16">
                     <a href="/admincp/partner_link_users/?id=<?=$val['id']?>"><img src="/images/info.png"></a>
                     <a href="/admincp/edit_partner_link/?id=<?=$val['id']?>"><img src="/images/edit.png"></a>

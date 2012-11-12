@@ -5,9 +5,11 @@ if (!defined('BASEPATH'))
 
 require_once APPPATH . '/libraries/controllers/User_controller.php';
 
-class Admincp extends User_controller {
+class Admincp extends User_controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->tpl->gtpl = 'admin';
         //Admin Check
@@ -17,12 +19,14 @@ class Admincp extends User_controller {
         }
     }
 
-    public function index() {
+    public function index()
+    {
         $this->tpl->ltpl = array('admin' => 'index');
         $this->tpl->show($this->data);
     }
 
-    public function gifts() {
+    public function gifts()
+    {
         $this->load->model('gifts_model');
         if ($this->input->post('name')) {
             $this->gifts_model->add_gift();
@@ -34,16 +38,21 @@ class Admincp extends User_controller {
         $this->tpl->show($this->data);
     }
 
-    public function users() {
+    public function users()
+    {
         $this->load->model('user_model');
         if ($this->input->get('del')) {
             $this->user_model->remove_user($this->input->get('del'));
         }
         $this->data['users'] = $this->user_model->get_all_users();
+
         $this->tpl->ltpl = array('admin' => 'users');
         $this->tpl->show($this->data);
     }
-    public function help(){
+
+
+    public function help()
+    {
         $this->load->model('help_model');
         if ($this->input->get('add') || $this->input->get('edit')) {
             if ($this->input->post('save')) {
@@ -58,14 +67,16 @@ class Admincp extends User_controller {
             $this->help_model->remove($this->input->get('del'));
             redirect('/admincp/help');
         } else {
-            $this->data['helps'] = $this->help_model->get_all(20,$this->input->get('page'));
+            $this->data['helps'] = $this->help_model->get_all(20, $this->input->get('page'));
             $this->data['pages'] = $this->help_model->count_pages(20);
             $this->tpl->ltpl = array('admin' => 'help');
         }
 
         $this->tpl->show($this->data);
     }
-    public function brands() {
+
+    public function brands()
+    {
         $this->load->model('brands_model');
         if ($this->input->get('add') || $this->input->get('edit')) {
             if ($this->input->post('save')) {
@@ -80,7 +91,7 @@ class Admincp extends User_controller {
             $this->brands_model->remove($this->input->get('del'));
             redirect('/admincp/brands');
         } else {
-            $this->data['brands'] = $this->brands_model->get_all(20,$this->input->get('page'));
+            $this->data['brands'] = $this->brands_model->get_all(20, $this->input->get('page'));
             $this->data['pages'] = $this->brands_model->count_pages(20);
             $this->tpl->ltpl = array('admin' => 'brands');
         }
@@ -88,7 +99,8 @@ class Admincp extends User_controller {
         $this->tpl->show($this->data);
     }
 
-    public function announcements() {
+    public function announcements()
+    {
         $this->load->model('announcements_model');
         if ($this->input->get('add') || $this->input->get('edit')) {
             if ($this->input->post('save')) {
@@ -113,7 +125,13 @@ class Admincp extends User_controller {
     {
         $this->load->model('links_model');
 
-        $this->data['links'] = $this->links_model->get_all();
+        $links = $this->links_model->get_all();
+        foreach($links as $i=>$link) {
+            $links[$i]['number'] = $this->links_model->getCountUsers($link['id']);
+        }
+
+        $this->data['links'] = $links;
+
         $this->tpl->ltpl = array('admin' => 'links');
 
         $this->tpl->show($this->data);
@@ -123,7 +141,7 @@ class Admincp extends User_controller {
     {
         $this->load->model('links_model');
         if ($this->input->post('save')) {
-            if ($this->links_model->checkLink($this->input->get('id'))){
+            if ($this->links_model->checkLink($this->input->get('id'))) {
                 $this->links_model->update();
                 redirect('/admincp/links');
             } else {
@@ -140,7 +158,7 @@ class Admincp extends User_controller {
         $this->load->model('links_model');
         $this->data['link'] = $this->links_model->get_one($this->input->get('id'));
         if ($this->input->post('save')) {
-            if ($this->links_model->checkLink($this->input->get('id'))){
+            if ($this->links_model->checkLink($this->input->get('id'))) {
                 $this->links_model->update($this->input->get('id'));
                 redirect('/admincp/links');
             } else {
@@ -169,7 +187,8 @@ class Admincp extends User_controller {
     }
 
 
-    public function items($new = NULL) {
+    public function items($new = NULL)
+    {
 
         if (is_file($_FILES['file']['tmp_name'])) {
 
@@ -271,7 +290,7 @@ class Admincp extends User_controller {
 
                 if (is_int($data->val($r, 1)) && empty($val[2])) {
                     if (stripos($val[26], '.png') === FALSE && stripos($val[26], '.jpg') === FALSE) {
-                        $val[26].='.png';
+                        $val[26] .= '.png';
                     }
 
                     $ins = array(
@@ -338,13 +357,12 @@ class Admincp extends User_controller {
         }
 
 
-
-
         $this->tpl->ltpl = array('admin' => 'items');
         $this->tpl->show($this->data);
     }
 
-    public function ajax() {
+    public function ajax()
+    {
         $this->load->model('dressup_model');
         switch ($_POST['func']) {
             case 'add_item':

@@ -5,12 +5,19 @@ if (!defined('BASEPATH'))
 
 class Links_model extends CI_Model {
 
-    public function get_all($limit = 0, $page=0) {
-        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS * FROM partner_links ORDER BY id DESC')->result_array();
+    public function get_all($limit = 0, $page=0)
+    {
+        $sql = 'SELECT * FROM partner_links ORDER BY id DESC';
+        return $this->db->query($sql)->result_array();
     }
 
     public function get_one($id) {
         return $this->db->get_where('partner_links',array('id'=>$id))->row_array();
+    }
+
+    public function getCountUsers($id)
+    {
+        return $this->db->get_where('partner_link_users',array('partner_link_id'=>$id))->num_rows();
     }
 
     
