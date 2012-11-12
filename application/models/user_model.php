@@ -316,7 +316,11 @@ class User_model extends CI_Model {
         return $this->db->query('SELECT * FROM user_activity WHERE uid="'.$uid.'" ORDER BY id DESC LIMIT '.$limit)->result_array();
     }
     
-    
+    public function updateLastAction($id)
+    {
+        $this->db->query('UPDATE users SET last_action="'.  date('Y-m-d H:i:s').'", last_action_ip="'.$this->input->ip_address().'" WHERE id="' . $id . '"');
+    }
+
 
 }
 

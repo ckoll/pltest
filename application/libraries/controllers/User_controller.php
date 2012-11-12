@@ -26,7 +26,7 @@ class User_controller extends CI_Controller {
             //Update session
             $this->user = $user_check;
             $this->session->set_userdata('user', $user_check);
-            $this->db->query('UPDATE users SET last_action="'.  date('Y-m-d H:i:s').'" WHERE id="' . $this->user['id'] . '"');
+            $this->user_model->updateLastAction($this->user['id']);
         }
 
         $day = $this->db->query('SELECT 1 FROM check_daily WHERE `date`="'.  date('Y-m-d').'"')->result_array();

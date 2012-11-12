@@ -9,7 +9,9 @@ if (!empty($users)) {
         <td>Username</td>
         <td>Email</td>
         <td>Registered</td>
+        <td>Reg. IP</td>
         <td>Last Action</td>
+        <td>L.A. IP</td>
         <td>Confirmed</td>
         <td>Referring</td>
         <td>Buttons/Jewels</td>
@@ -24,7 +26,9 @@ if (!empty($users)) {
         <td><?=$val['username']?></td>
         <td><?=(empty($val['email'])) ? '-' : $val['email']?></td>
         <td><?=$val['reg_date']?></td>
+        <td><?=$val['reg_ip']?></td>
         <td><?=$val['last_action']?></td>
+        <td><?=$val['last_action_ip']?></td>
         <td><?=$val['active'] ? 'Yes' : 'No'?></td>
         <td><?=$ref?></td>
         <td><?=$val['buttons']?>/<?=$val['jewels']?></td>
