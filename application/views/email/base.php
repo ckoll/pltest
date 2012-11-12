@@ -9,13 +9,31 @@
                 </tr>
                 <tr>
                     <td bgcolor="#FFFFFF" style="padding:5px">
-                        <h2 style="color:#FF66CC;">Confirm your registration for Perfect-Look.org</h2>
-                        <p>
-                            Thank you for registering at Perfect-Look.org, a fun fashion site where you can share and tag fashion photos and create perfect look dressup dolls.<br>
-                            Collect buttons by sharing photos and dressing up, start now by clicking the activation link below.<br>
-                            <a href="http://<?= $_SERVER['SERVER_NAME'] ?>/register/?key=<?= $key ?>">http://<?= $_SERVER['SERVER_NAME'] ?>/register/?key=<?= $key ?></a><br><br>
-                            Once you have confirmed your email, you can start using the site to dress up your perfect look doll, collect buttons, share your fashion photos, and more.
-                        </p>
+                        <h2 style="color:#FF66CC;">New friends request  at Perfect-Look.org</h2>
+                        <table width="80%" cellspacing="5" cellpadding="0" border="0" align="center" style="font-size:12px; font-family:Arial">
+                            <tbody>
+                            <tr>
+                                <td width="60">
+                                    <a href="http://v1.perfect-look.org/diirectioner">
+                                        <img width="60" height="60" style="border:1px solid #ddd; padding:2px; margin:5px" src="images/user01.jpg">
+                                    </a>
+                                </td>
+                                <td>
+                                    <p>
+                                        <span style="font-weight: bold">
+                                            <a style="color:#d08ab1" href="http://v1.perfect-look.org/diirectioner">Sonia</a> has added you a a friend on Perfect-look.org!
+                                        </span>
+                                    </p>
+                                    <p>
+                                        Please
+                                        <a style="color:#d08ab1" href="#">login</a>
+                                        to your account to Manage your
+                                        <a style="color:#d08ab1" href="http://v1.perfect-look.org/myfriends">Friend List</a>
+                                    </p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                         <p align="center">&nbsp;</p>
                         <p align="center">
                             <a href="http://perfect-look.org/">
