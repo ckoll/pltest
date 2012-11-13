@@ -20,6 +20,9 @@
         <span class="likes dressup_details" style="margin-left: 150px"
               data-id="<?= $photo['id'] . $photo['rand_num'] ?>" data-mode="upload"><?= $photo['like'] ?></span>
         <span class="comments dressup_details"><?= count($comments) ?></span>
+        <?php if (!empty($admin) || $photo['uid'] == $this->user['id']): ?>
+        <a href="/upload/photo_upload/<?= $photo['id'] . $photo['rand_num'] ?>/edit" style="margin-left: 150px;"><img src="/images/edit.png"></a>
+        <?php endif; ?>
         <br class="clear">
         <?
         if (!empty($photo['caption'])) {
