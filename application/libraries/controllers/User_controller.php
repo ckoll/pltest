@@ -13,6 +13,7 @@ class User_controller extends CI_Controller {
 
         $this->user = $this->session->userdata('user');
         $this->load->model('user_model');
+        $this->load->model('dressup_model');
 
         //Check User, Update last login
         $user_check = $this->db->get_where('users', array('id' => $this->user['id']))->row_array();
@@ -41,6 +42,8 @@ class User_controller extends CI_Controller {
         $this->user['messages'] = intval($this->db->query('SELECT COUNT(1) coun FROM messages WHERE `to`="' . $this->user['id'] . '" AND view=0')->row()->coun);
 
         $this->data['admin'] = $this->db->get_where('users_admin', array('uid' => $this->user['id']))->row();
+        $last_dressup = $this->dressup_model->get_daylook($this->user['id']);
+        $this->data['last_dressup'] = $last_dressup['id'];
     }
 
     //7 days notification (now 1 day for test)

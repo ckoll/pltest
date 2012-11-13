@@ -27,7 +27,8 @@
         <header id="top">
             <ul>
                 <li><a href="/" name="scroll"><img src="/images/home1.png" class="imgTrans" data-hover="home1.png" data-nhover="home2.png"></a></li>
-                <li><a href="/dressup"><img src="/images/dressup1.png" class="imgTrans"  data-hover="dressup1.png" data-nhover="dressup2.png"></a></li>
+                <?php /*<li><a href="/dressup"><img src="/images/dressup1.png" class="imgTrans"  data-hover="dressup1.png" data-nhover="dressup2.png"></a></li>*/?>
+                <li><a href="/dressup/dress/<?=$last_dressup?>"><img src="/images/dressup1.png" class="imgTrans"  data-hover="dressup1.png" data-nhover="dressup2.png"></a></li>
                 <li><a href="/upload"><img src="/images/upload1.png" class="imgTrans"  data-hover="upload1.png" data-nhover="upload2.png"></a></li>
                 <li><a href="/explore"><img src="/images/explore1.png" class="imgTrans"  data-hover="explore1.png" data-nhover="explore2.png"></a></li>
             </ul>

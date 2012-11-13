@@ -38,7 +38,7 @@
     ?>
     <input type="hidden" name="menu_active" value="<?= $parent_active ?>">
 </div>
-
+<a href="/dressup"  class="button" target="_blank">Item Inventory</a>
 <a href="/dressup/edit_dressup" class="button">Saved dressups</a>
 <a href="/dressup/outfits" class="button">Saved outfits</a>
 <script>
