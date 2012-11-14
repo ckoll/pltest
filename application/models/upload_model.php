@@ -243,7 +243,7 @@ class Upload_model extends CI_Model
 
     public function most_hearted_photos($user, $limit = FALSE)
     {
-        $q = 'SELECT SQL_CALC_FOUND_ROWS CONCAT(upload_photo.id,upload_photo.rand_num) photo_id, upload_photo.uid, upload_photo.type, users.username FROM upload_photo LEFT JOIN users ON users.id=upload_photo.uid WHERE uid=' . $user['id'] . ' AND `like`>0 ORDER BY `like` DESC';
+        $q = 'SELECT SQL_CALC_FOUND_ROWS CONCAT(upload_photo.id,upload_photo.rand_num) photo_id, upload_photo.uid, upload_photo.image_type, users.username FROM upload_photo LEFT JOIN users ON users.id=upload_photo.uid WHERE uid=' . $user['id'] . ' AND `like`>0 ORDER BY `like` DESC';
         if ($limit)
             $q .= ' LIMIT ' . $limit;
         return $this->db->query($q)->result_array();
@@ -301,7 +301,7 @@ class Upload_model extends CI_Model
 
     public function hearted_photos($user, $limit = FALSE)
     {
-        $q = 'SELECT SQL_CALC_FOUND_ROWS CONCAT(upload_photo.id,upload_photo.rand_num) photo_id, users.username, upload_photo.uid, upload_photo.type FROM upload_photo LEFT JOIN users ON users.id = upload_photo.uid WHERE (like_users LIKE "' . $user['id'] . '_' . $user['username'] . '" OR like_users LIKE "%,' . $user['id'] . '_' . $user['username'] . '" OR like_users LIKE "' . $user['id'] . '_' . $user['username'] . ',%" OR like_users LIKE "%,' . $user['id'] . '_' . $user['username'] . ',%")  ORDER BY last_like DESC';
+        $q = 'SELECT SQL_CALC_FOUND_ROWS CONCAT(upload_photo.id,upload_photo.rand_num) photo_id, users.username, upload_photo.uid, upload_photo.image_type FROM upload_photo LEFT JOIN users ON users.id = upload_photo.uid WHERE (like_users LIKE "' . $user['id'] . '_' . $user['username'] . '" OR like_users LIKE "%,' . $user['id'] . '_' . $user['username'] . '" OR like_users LIKE "' . $user['id'] . '_' . $user['username'] . ',%" OR like_users LIKE "%,' . $user['id'] . '_' . $user['username'] . ',%")  ORDER BY last_like DESC';
         if ($limit)
             $q .= ' LIMIT ' . $limit;
         return $this->db->query($q)->result_array();
@@ -309,7 +309,7 @@ class Upload_model extends CI_Model
 
     public function most_commented_photos($user, $limit)
     {
-        $q = 'SELECT SQL_CALC_FOUND_ROWS CONCAT(upload_photo.id,upload_photo.rand_num) photo_id, users.username, upload_photo.uid, upload_photo.type FROM upload_photo LEFT JOIN users ON users.id = upload_photo.uid WHERE upload_photo.uid=' . $user['id'] . ' AND upload_photo.comments>0 ORDER BY upload_photo.comments DESC';
+        $q = 'SELECT SQL_CALC_FOUND_ROWS CONCAT(upload_photo.id,upload_photo.rand_num) photo_id, users.username, upload_photo.uid, upload_photo.image_type FROM upload_photo LEFT JOIN users ON users.id = upload_photo.uid WHERE upload_photo.uid=' . $user['id'] . ' AND upload_photo.comments>0 ORDER BY upload_photo.comments DESC';
         if ($limit)
             $q .= ' LIMIT ' . $limit;
         return $this->db->query($q)->result_array();
@@ -317,7 +317,7 @@ class Upload_model extends CI_Model
 
     public function favorite_photos($user, $limit = FALSE)
     {
-        $q = 'SELECT SQL_CALC_FOUND_ROWS upload_photo.uid, users.username, CONCAT(upload_photo.id,upload_photo.rand_num) photo_id, upload_photo.type FROM upload_photo LEFT JOIN users ON upload_photo.uid=users.id WHERE like_users LIKE "%' . ($user['id'] . '_' . $user['username']) . '" OR like_users LIKE "%' . ($user['id'] . '_' . $user['username']) . '%" OR like_users LIKE "' . ($user['id'] . '_' . $user['username']) . '%"';
+        $q = 'SELECT SQL_CALC_FOUND_ROWS upload_photo.uid, users.username, CONCAT(upload_photo.id,upload_photo.rand_num) photo_id, upload_photo.image_type FROM upload_photo LEFT JOIN users ON upload_photo.uid=users.id WHERE like_users LIKE "%' . ($user['id'] . '_' . $user['username']) . '" OR like_users LIKE "%' . ($user['id'] . '_' . $user['username']) . '%" OR like_users LIKE "' . ($user['id'] . '_' . $user['username']) . '%"';
         if ($limit)
             $q .= ' LIMIT ' . $limit;
         return $this->db->query($q)->result_array();
