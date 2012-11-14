@@ -18,7 +18,7 @@ class Mystuff_model extends CI_Model {
         }else{
             $where = 'uid="'.$this->data['user']['id'].'" AND upload_photo.like > 0';
         }
-        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS users.id, users.username, CONCAT(upload_photo.id,upload_photo.rand_num) photo_id FROM upload_photo LEFT JOIN users ON upload_photo.uid=users.id WHERE '.$where.' LIMIT '.$begin.', '.$for_page)->result_array();
+        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS users.id, users.username, CONCAT(upload_photo.id,upload_photo.rand_num) photo_id, upload_photo.image_type FROM upload_photo LEFT JOIN users ON upload_photo.uid=users.id WHERE '.$where.' LIMIT '.$begin.', '.$for_page)->result_array();
     }
     public function get_favorite_dressups($my=NULL, $for_page, $page=0){
         $begin = $for_page * $page;
@@ -35,11 +35,11 @@ class Mystuff_model extends CI_Model {
     }
     public function get_most_hearted_photos($for_page, $page=0){
         $begin = $for_page * $page;
-        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS CONCAT(id,rand_num) photo_id FROM upload_photo WHERE uid='.$this->data['user']['id'].' AND `like`>0 ORDER BY `like` DESC LIMIT '.$begin.', '.$for_page)->result_array();
+        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS CONCAT(id,rand_num) photo_id, upload_photo.image_type FROM upload_photo WHERE uid='.$this->data['user']['id'].' AND `like`>0 ORDER BY `like` DESC LIMIT '.$begin.', '.$for_page)->result_array();
     }
     public function get_most_commented_photos($for_page, $page=0){
         $begin = $for_page * $page;
-        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS CONCAT(upload_photo.id,upload_photo.rand_num) photo_id FROM upload_photo WHERE uid='.$this->data['user']['id'].' AND comments>0 ORDER BY comments DESC LIMIT '.$begin.', '.$for_page)->result_array();
+        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS CONCAT(upload_photo.id,upload_photo.rand_num) photo_id, upload_photo.image_type FROM upload_photo WHERE uid='.$this->data['user']['id'].' AND comments>0 ORDER BY comments DESC LIMIT '.$begin.', '.$for_page)->result_array();
     }
     public function get_most_commented_dressups($for_page, $page=0){
         $begin = $for_page * $page;
@@ -57,7 +57,7 @@ class Mystuff_model extends CI_Model {
     }
     public function get_recent_photo_likes($for_page, $page=0){
         $begin = $for_page * $page;
-        $likes_all = $this->db->query('SELECT CONCAT(id,rand_num) photo_id, like_users FROM upload_photo WHERE uid="'.$this->data['user']['id'].'" AND like_users!="" ORDER BY last_like DESC LIMIT '.$begin.', '.$for_page)->result_array();
+        $likes_all = $this->db->query('SELECT CONCAT(id,rand_num) photo_id, like_users, upload_photo.image_type FROM upload_photo WHERE uid="'.$this->data['user']['id'].'" AND like_users!="" ORDER BY last_like DESC LIMIT '.$begin.', '.$for_page)->result_array();
         $last_likes = array();
         for($i=0; $i<count($likes_all); $i++){
             $users_like=explode(',',$likes_all[$i]['like_users']);
@@ -114,7 +114,7 @@ class Mystuff_model extends CI_Model {
     }
     public function get_last_friends_photos($for_page, $page=0){
         $begin = $for_page * $page;
-        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS CONCAT(upload_photo.id,upload_photo.rand_num) photo_id, users.id, users.username FROM upload_photo LEFT JOIN users ON upload_photo.uid=users.id WHERE upload_photo.uid IN (SELECT IF(user_friends.uid='.$this->data['user']['id'].',user_friends.friend_id, user_friends.uid) FROM user_friends WHERE status=1 AND removed=0) ORDER BY upload_photo.date DESC LIMIT '.$begin.', '.$for_page)->result_array();
+        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS CONCAT(upload_photo.id,upload_photo.rand_num) photo_id, users.id, users.username, upload_photo.image_type FROM upload_photo LEFT JOIN users ON upload_photo.uid=users.id WHERE upload_photo.uid IN (SELECT IF(user_friends.uid='.$this->data['user']['id'].',user_friends.friend_id, user_friends.uid) FROM user_friends WHERE status=1 AND removed=0) ORDER BY upload_photo.date DESC LIMIT '.$begin.', '.$for_page)->result_array();
     }
     public function get_last_friends_dressups($for_page, $page=0){
         $begin = $for_page * $page;
@@ -122,7 +122,7 @@ class Mystuff_model extends CI_Model {
     }
     public function recent_photos_i_likes($for_page, $page=0){
         $begin = $for_page * $page;
-        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS CONCAT(upload_photo.id,upload_photo.rand_num) photo_id, users.username, upload_photo.uid FROM upload_photo LEFT JOIN users ON users.id = upload_photo.uid WHERE (like_users LIKE "'.$this->data['user']['id'].'_'.$this->data['user']['username'].'" OR like_users LIKE "%,'.$this->data['user']['id'].'_'.$this->data['user']['username'].'" OR like_users LIKE "'.$this->data['user']['id'].'_'.$this->data['user']['username'].',%" OR like_users LIKE "%,'.$this->data['user']['id'].'_'.$this->data['user']['username'].',%")  ORDER BY last_like DESC LIMIT '.$begin.', '.$for_page)->result_array();
+        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS CONCAT(upload_photo.id,upload_photo.rand_num) photo_id, users.username, upload_photo.uid, upload_photo.image_type FROM upload_photo LEFT JOIN users ON users.id = upload_photo.uid WHERE (like_users LIKE "'.$this->data['user']['id'].'_'.$this->data['user']['username'].'" OR like_users LIKE "%,'.$this->data['user']['id'].'_'.$this->data['user']['username'].'" OR like_users LIKE "'.$this->data['user']['id'].'_'.$this->data['user']['username'].',%" OR like_users LIKE "%,'.$this->data['user']['id'].'_'.$this->data['user']['username'].',%")  ORDER BY last_like DESC LIMIT '.$begin.', '.$for_page)->result_array();
     }
     public function recent_photos_i_commented($for_page, $page=0){
         $begin = $for_page * $page;
