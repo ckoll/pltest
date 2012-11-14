@@ -5,7 +5,7 @@ if (!defined('BASEPATH'))
 class Mystuff_model extends CI_Model {
     public function get_photos($for_page, $page=0){
         $begin = $for_page * $page;
-        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS CONCAT(id,rand_num) photo_id, type FROM upload_photo WHERE uid='.$this->data['user']['id'].' ORDER BY date DESC LIMIT '.$begin.','.$for_page)->result_array();
+        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS CONCAT(id,rand_num) photo_id, image_type FROM upload_photo WHERE uid='.$this->data['user']['id'].' ORDER BY date DESC LIMIT '.$begin.','.$for_page)->result_array();
     }
     public function get_button_jewels_history($for_page, $page=0){
         $begin = $for_page * $page;
