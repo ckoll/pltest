@@ -14,7 +14,7 @@
                 ?>
                 <div style="margin-bottom: 20px; ">
                     <div class="img_bg left top_photo">
-                        <a href="/<?= $val['username'] ?>/photo/<?= $val['id'] . $val['rand_num'] ?>" style="background-image: url('/files/users/uploads/<?= $val['uid'] ?>/<?= $val['id'] . $val['rand_num'] ?>.<?=$val['type']?>');">
+                        <a href="/<?= $val['username'] ?>/photo/<?= $val['id'] . $val['rand_num'] ?>" style="background-image: url('/files/users/uploads/<?= $val['uid'] ?>/<?= $val['id'] . $val['rand_num'] ?>.<?=$val['image_type']?>');">
                         </a>
                     </div>
                     <div class="left">

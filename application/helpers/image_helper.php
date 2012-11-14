@@ -5,7 +5,7 @@
 require_once(APPPATH . 'libraries/ImageMagick.php');
 
 function getSquareUpload($upload, $side=250) {
-    if ($upload['type'] != 'gif') {
+    if ($upload['image_type'] != 'gif') {
         $uploadPath = _getUploadPath($upload);
         $squareUploadPath = _getSquareUploadPath($upload);
         if (!file_exists($squareUploadPath)) {
@@ -34,11 +34,11 @@ function _getSquareUploadUrl($photo) {
 }
 
 function _getRelativeUploadsPath($photo) {
-    return "/files/users/uploads/{$photo['uid']}/{$photo['id']}{$photo['rand_num']}.".$photo['type'];
+    return "/files/users/uploads/{$photo['uid']}/{$photo['id']}{$photo['rand_num']}.".$photo['image_type'];
 }
 
 function _getRelativeSquareUploadsPath($photo) {
-    return "/files/users/uploads/{$photo['uid']}/{$photo['id']}{$photo['rand_num']}_square.".$photo['type'];
+    return "/files/users/uploads/{$photo['uid']}/{$photo['id']}{$photo['rand_num']}_square.".$photo['image_type'];
 }
 
 

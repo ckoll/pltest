@@ -77,7 +77,7 @@ class Upload_model extends CI_Model
             $imageMagic = new ImageMagick();
             $imageMagic->resizeAndCrop($upload_path . $id . '.'.$type, $upload_path . $id . '_square.'.$type, array('width'=>250, 'height'=>250));
         }
-        $sql = "UPDATE upload_photo SET type='$type' WHERE id=$dbId";
+        $sql = "UPDATE upload_photo SET image_type='$type' WHERE id=$dbId";
         $this->db->query($sql);
 
         return $id;

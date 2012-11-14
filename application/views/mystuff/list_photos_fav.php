@@ -13,7 +13,7 @@
                 foreach ($photos as $photo) {
                     ?><a href="/<?=$photo['username']?>/photo/<?=$photo['photo_id']?>"><img
                             style="max-width: 130px; margin:8px; max-height: 130px;"
-                            src='/files/users/uploads/<?=$photo['id'] . '/' . $photo['photo_id'] . '.' . $photo['type']?>'></a><?
+                            src='/files/users/uploads/<?=$photo['id'] . '/' . $photo['photo_id'] . '.' . $photo['image_type']?>'></a><?
                 }
             ?>
             <br class="clear">

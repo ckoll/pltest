@@ -66,7 +66,7 @@
                     <li>
                         <div class="img_bg" style="height: 150px; margin-right: 6px;">
                             <a href="/<?= $user_info['username'] ?>/photo/<?= $val['id'] . $val['rand_num'] ?>">
-                                <img src="/files/users/uploads/<?= $val['uid'] ?>/<?= $val['id'] . $val['rand_num'] ?>.<?=$val['type']?>">
+                                <img src="/files/users/uploads/<?= $val['uid'] ?>/<?= $val['id'] . $val['rand_num'] ?>.<?=$val['image_type']?>">
                             </a>
                         </div>
                         <p>

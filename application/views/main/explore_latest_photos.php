@@ -18,7 +18,7 @@
                     <?php  if (!empty($admin)): ?>
                     <a style="height: auto; width: auto" href="/user/delete_photo/?id=<?= $val['id'] . $val['rand_num'] ?>"><img src="/images/del.png"></a>
                     <?php endif; ?>
-                    <a href="/<?= $this->user['username'] ?>/photo/<?= $val['id'] . $val['rand_num'] ?>" style="background-image: url('/files/users/uploads/<?= $val['uid'] ?>/<?= $val['id'] . $val['rand_num'] ?>.<?=$val['type']?>')"></a><br>
+                    <a href="/<?= $this->user['username'] ?>/photo/<?= $val['id'] . $val['rand_num'] ?>" style="background-image: url('/files/users/uploads/<?= $val['uid'] ?>/<?= $val['id'] . $val['rand_num'] ?>.<?=$val['image_type']?>')"></a><br>
                     <span class="likes" data-id="<?=$val['id'] . $val['rand_num']?>" data-mode="upload"><?= $val['like'] ?></span>
                     <span class="comments"><?= $val['comments'] ?></span>
                     <!--<img src="/images/del.png" data-id="<?= $val['id'] . $val['rand_num'] ?>" class="right del_photo">-->

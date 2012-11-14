@@ -100,7 +100,7 @@
     ?>
                     <li>
                         <a href="/<?= $photos['username'] ?>/photo/<?= $photos['id'] . $photos['rand_num'] ?>">
-                            <img src="/files/users/uploads/<?= $photos['uid'] ?>/<?= $photos['id'] . $photos['rand_num'] ?>.<?=$photo['type']?>">
+                            <img src="/files/users/uploads/<?= $photos['uid'] ?>/<?= $photos['id'] . $photos['rand_num'] ?>.<?=$photo['image_type']?>">
                         </a>
                         <p>
                             <a href="/<?= $photos['username'] ?>"><?= $photos['username'] ?></a>

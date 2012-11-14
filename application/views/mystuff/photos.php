@@ -22,7 +22,7 @@
                         
                         
                     <? } ?>
-                    <img style="max-width: 130px; max-height: 130px;" src='/files/users/uploads/<?= $user['id'] . '/' . $photo['photo_id'] . '.'.$photo['type'] ?>'>
+                    <img style="max-width: 130px; max-height: 130px;" src='/files/users/uploads/<?= $user['id'] . '/' . $photo['photo_id'] . '.'.$photo['image_type'] ?>'>
                 </div><?
         }
             ?>

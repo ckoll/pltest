@@ -1,5 +1,5 @@
 <?php
-list($crop_img_width, $crop_img_height) = getimagesize(base_url() . '/files/users/uploads/' . $this->user['id'] . '/' . $this->uri->segment(3) . '_tmp.' . $photo['type']);
+list($crop_img_width, $crop_img_height) = getimagesize(base_url() . '/files/users/uploads/' . $this->user['id'] . '/' . $this->uri->segment(3) . '_tmp.' . $photo['image_type']);
 $thumb_xy = unserialize($photo['thumb_xy']);
 ?>
 <div class="sidebar">
@@ -13,14 +13,14 @@ $thumb_xy = unserialize($photo['thumb_xy']);
     </div>
     <div class="bg">
         <form action="" method="post">
-            <?php if ($photo['type'] != 'gif'): ?>
+            <?php if ($photo['image_type'] != 'gif'): ?>
             <div class="upload100">
-                <img src="/files/users/uploads/<?= $this->user['id'] ?>/<?= $this->uri->segment(3) ?>_tmp.<?=$photo['type']?>">
+                <img src="/files/users/uploads/<?= $this->user['id'] ?>/<?= $this->uri->segment(3) ?>_tmp.<?=$photo['image_type']?>">
             </div>
             <p class="center">
                 <strong>Here is the photo you uploaded. What do you want to do?</strong><br><br>
                 <img class="upload"
-                     src="/files/users/uploads/<?= $this->user['id'] ?>/<?= $this->uri->segment(3) ?>_tmp.<?=$photo['type']?>"><br>
+                     src="/files/users/uploads/<?= $this->user['id'] ?>/<?= $this->uri->segment(3) ?>_tmp.<?=$photo['image_type']?>"><br>
                 <a class="delete_photo" data-id="<?= $this->uri->segment(3) ?>">X Delete photo</a>
             </p>
             Items in the photo (up to 5, optional):<br>
@@ -77,7 +77,7 @@ $thumb_xy = unserialize($photo['thumb_xy']);
             </table>
             <?php else: ?>
             <p class="center">
-                <img src="/files/users/uploads/<?= $this->user['id'] ?>/<?= $this->uri->segment(3) ?>_tmp.<?=$photo['type']?>"
+                <img src="/files/users/uploads/<?= $this->user['id'] ?>/<?= $this->uri->segment(3) ?>_tmp.<?=$photo['image_type']?>"
                      width="300px"><br>
             </p>
             <?php endif; ?>

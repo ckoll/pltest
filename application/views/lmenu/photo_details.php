@@ -14,7 +14,7 @@
         foreach ($photos as $val) {
             if ($val['id'] . $val['rand_num'] != $current) {
                 ?>
-                <a class="other_user_photo" href="/<?= $user_info['username'] ?>/photo/<?= $val['id'] . $val['rand_num'] ?>" style="background-image: url('/files/users/uploads/<?= $user_info['id'] ?>/<?= $val['id'] . $val['rand_num'] ?>.<?=$val['type']?>')"></a>
+                <a class="other_user_photo" href="/<?= $user_info['username'] ?>/photo/<?= $val['id'] . $val['rand_num'] ?>" style="background-image: url('/files/users/uploads/<?= $user_info['id'] ?>/<?= $val['id'] . $val['rand_num'] ?>.<?=$val['image_type']?>')"></a>
                 <?
             }
         }
