@@ -79,7 +79,7 @@ class Mystuff_model extends CI_Model
     public function get_recent_photo_likes($for_page, $page = 0)
     {
         $begin = $for_page * $page;
-        $likes_all = $this->db->query('SELECT CONCAT(id,rand_num) photo_id, like_users, upload_photo.image_type FROM upload_photo WHERE uid="' . $this->data['user']['id'] . '" AND like_users!="" ORDER BY last_like DESC LIMIT ' . $begin . ', ' . $for_page)->result_array();
+        $likes_all = $this->db->query('SELECT CONCAT(id,rand_num) photo_id, upload_photo.image_type, like_users, upload_photo.image_type FROM upload_photo WHERE uid="' . $this->data['user']['id'] . '" AND like_users!="" ORDER BY last_like DESC LIMIT ' . $begin . ', ' . $for_page)->result_array();
         $last_likes = array();
         for ($i = 0; $i < count($likes_all); $i++) {
             $users_like = explode(',', $likes_all[$i]['like_users']);
