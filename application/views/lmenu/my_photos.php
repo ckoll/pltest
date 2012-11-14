@@ -1,5 +1,5 @@
 <section class="lmenu_block user_photos">
-    
+
     <ul class="columns2">
         <? for($i=0; $i<count($my_photos); $i++){
            ?>

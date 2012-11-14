@@ -14,9 +14,9 @@
     </div>
 
     <div class="bg">
-        <a href="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>_original.jpg"
+        <a href="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>_original.<?=$photo['type']?>"
            target="_blank"><img
-                src="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>.jpg"></a><br>
+                src="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>.<?=$photo['type']?>"></a><br>
         <span class="likes dressup_details" style="margin-left: 150px"
               data-id="<?= $photo['id'] . $photo['rand_num'] ?>" data-mode="upload"><?= $photo['like'] ?></span>
         <span class="comments dressup_details"><?= count($comments) ?></span>

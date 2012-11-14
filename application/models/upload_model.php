@@ -30,7 +30,8 @@ class Upload_model extends CI_Model
         $this->load->library('Image_moo');
         $rand = rand(10000, 99999);
         $this->db->query('INSERT INTO upload_photo (rand_num, uid, date) VALUES ("' . $rand . '","' . $this->user['id'] . '", "' . date('Y-m-d H:i:s') . '")');
-        $id = $this->db->insert_id() . $rand;
+        $dbId = $this->db->insert_id();
+        $id = $dbId . $rand;
 
         $this->load->library('buttons');
         $this->buttons->add_money($this->user['id'], 10);
@@ -43,95 +44,94 @@ class Upload_model extends CI_Model
         }
 
         $img_size = getimagesize($_FILES['photo']['tmp_name']); //[0]-width,[1]-height
-        if ($img_size[0] > $img_size[1]) {
-            $width = 500;
-            $height = $img_size[1] / $img_size[0] * 500;
 
-            $sq_height = 500;
-            $sq_width = $img_size[0] / $img_size[1] * 500;
+        if ($img_size['mime'] == 'image/gif') {
+            $type = 'gif';
+            move_uploaded_file($_FILES['photo']['tmp_name'], $upload_path . $id . '_original.'.$type);
+            copy($upload_path . $id . '_original.'.$type, $upload_path . $id . '_tmp.'.$type);
+            copy($upload_path . $id . '_original.'.$type, $upload_path . $id . '.'.$type);
+            copy($upload_path . $id . '_original.'.$type, $upload_path . $id . '_square.'.$type);
         } else {
-            $height = 500;
-            $width = $img_size[0] / $img_size[1] * 500;
+            if ($img_size[0] > $img_size[1]) {
+                $width = 500;
+                $height = $img_size[1] / $img_size[0] * 500;
 
-            $sq_width = 500;
-            $sq_height = $img_size[1] / $img_size[0] * 500;
+                $sq_height = 500;
+                $sq_width = $img_size[0] / $img_size[1] * 500;
+            } else {
+                $height = 500;
+                $width = $img_size[0] / $img_size[1] * 500;
+
+                $sq_width = 500;
+                $sq_height = $img_size[1] / $img_size[0] * 500;
+            }
+
+            $type = 'jpg';
+
+            require_once APPPATH . 'libraries/ImageHandler.php';
+            $ImageHandler = new ImageHandler();
+            $ImageHandler->load($_FILES['photo']['tmp_name'])->resize($img_size[0], $img_size[1])->save($upload_path . $id . '_original.'.$type, 2, 100);
+            $ImageHandler->load($_FILES['photo']['tmp_name'])->resize($width, $height)->save($upload_path . $id . '_tmp.'.$type, 2, 100);
+            $ImageHandler->load($_FILES['photo']['tmp_name'])->resize($sq_width, $sq_height)->crop(500, 500, 0, 0)->save($upload_path . $id . '.'.$type, 2, 100);
+            require_once(APPPATH . 'libraries/ImageMagick.php');
+            $imageMagic = new ImageMagick();
+            $imageMagic->resizeAndCrop($upload_path . $id . '.'.$type, $upload_path . $id . '_square.'.$type, array('width'=>250, 'height'=>250));
         }
+        $sql = "UPDATE upload_photo SET type='$type' WHERE id=$dbId";
+        $this->db->query($sql);
 
-        require_once APPPATH . 'libraries/ImageHandler.php';
-        $ImageHandler = new ImageHandler();
-        $ImageHandler->load($_FILES['photo']['tmp_name'])->resize($img_size[0], $img_size[1])->save($upload_path . $id . '_original.jpg', 2, 100);
-        $ImageHandler->load($_FILES['photo']['tmp_name'])->resize($width, $height)->save($upload_path . $id . '_tmp.jpg', 2, 100);
-        $ImageHandler->load($_FILES['photo']['tmp_name'])->resize($sq_width, $sq_height)->crop(500, 500, 0, 0)->save($upload_path . $id . '.jpg', 2, 100);
-
-
-//        $original_img = imagecreatetruecolor($img_size[0], $img_size[1]);
-//        $white = imagecolorallocate($original_img, 255, 255, 255);
-//        imagefilledrectangle($original_img, 0, 0, $img_size[0], $img_size[1], $white);
-//
-//        $small_img = imagecreatetruecolor($width, $height);
-//        $white = imagecolorallocate($small_img, 255, 255, 255);
-//        imagefilledrectangle($small_img, 0, 0, $width, $height, $white);
-//
-//        $square_size = ($width > $height) ? $height : $width;
-//        $square_img = imagecreatetruecolor($square_size, $square_size);
-//        $white = imagecolorallocate($square_img, 255, 255, 255);
-//        imagefilledrectangle($square_img, 0, 0, $width, $height, $white);
-//
-//        $from = $icfunc($_FILES['photo']['tmp_name']);
-//
-//        imagecopyresized($original_img, $from, 0, 0, 0, 0, $img_size[0], $img_size[1], $img_size[0], $img_size[1]);
-//        imagecopyresized($small_img, $from, 0, 0, 0, 0, $width, $height, $img_size[0], $img_size[1]);
-//        imagecopyresized($square_img, $small_img, 0, 0, 0, 0, $square_size, $square_size, $square_size, $square_size);
-//
-//        imagejpeg($original_img, $upload_path . $id . '_original.jpg', 100);
-//        imagejpeg($small_img, $upload_path . $id . '_tmp.jpg', 100);
-//        imagejpeg($square_img, $upload_path . $id . '.jpg', 100);
-//
-//        imagedestroy($original_img);
-//        imagedestroy($small_img);
-//        imagedestroy($square_img);
-//        imagedestroy($from);
         return $id;
     }
 
     public function save_photo_tags($id)
     {
+        $photo = $this->photo_details($id);
 
-        $img_path = APPPATH . 'files/users/uploads/' . $this->user['id'] . '/' . $id . '.jpg';
-        $img_path_tmp = APPPATH . 'files/users/uploads/' . $this->user['id'] . '/' . $id . '_tmp.jpg';
-        $img_path_original = APPPATH . 'files/users/uploads/' . $this->user['id'] . '/' . $id . '_original.jpg';
+        $thumb_xy = array();
 
-        $orig_size = getimagesize($img_path_original);
-        $size = getimagesize($img_path_tmp);
-        $floor = $orig_size[0] / $size[0];
+        if ($photo['type'] != 'gif') {
 
-        $width = ($this->input->post('upload_x2') - $this->input->post('upload_x1')) * $floor;
-        $height = ($this->input->post('upload_y2') - $this->input->post('upload_y1')) * $floor;
+            $img_path = APPPATH . 'files/users/uploads/' . $this->user['id'] . '/' . $id . '.'.$photo['type'];
+            $img_path_tmp = APPPATH . 'files/users/uploads/' . $this->user['id'] . '/' . $id . '_tmp.'.$photo['type'];
+            $img_path_original = APPPATH . 'files/users/uploads/' . $this->user['id'] . '/' . $id . '_original.'.$photo['type'];
 
-        $thumb_xy = array('x1' => $this->input->post('upload_x1'), 'y1' => $this->input->post('upload_y1'), 'x2' => $this->input->post('upload_x2'), 'y2' => $this->input->post('upload_y2'));
 
-        require_once APPPATH . 'libraries/ImageHandler.php';
-        $ImageHandler = new ImageHandler();
-        $x = intval($this->input->post('upload_x1') * $floor);
-        $y = $this->input->post('upload_y1') * $floor;
 
-        $ImageHandler->load($img_path_original)->crop($width, $height, $x, $y)->resize(500, 500)->save($img_path, 2, 100);
+            $orig_size = getimagesize($img_path_original);
+            $size = getimagesize($img_path_tmp);
+            $floor = $orig_size[0] / $size[0];
+
+            $width = ($this->input->post('upload_x2') - $this->input->post('upload_x1')) * $floor;
+            $height = ($this->input->post('upload_y2') - $this->input->post('upload_y1')) * $floor;
+
+            $thumb_xy = array('x1' => $this->input->post('upload_x1'), 'y1' => $this->input->post('upload_y1'), 'x2' => $this->input->post('upload_x2'), 'y2' => $this->input->post('upload_y2'));
+
+            require_once APPPATH . 'libraries/ImageHandler.php';
+            $ImageHandler = new ImageHandler();
+            $x = intval($this->input->post('upload_x1') * $floor);
+            $y = $this->input->post('upload_y1') * $floor;
+
+            $ImageHandler->load($img_path_original)->crop($width, $height, $x, $y)->resize(500, 500)->save($img_path, 2, 100);
+
+
+            for ($x = 0; $x < 5; $x++) {
+                $items = array('position' => strip_tags($_POST['pos'][$x]), 'title' => strip_tags($_POST['tagname'][$x]), 'brand_id' => intval($_POST['brand'][$x]), 'photo_id' => $id, 'uid' => $this->user['id']);
+
+                if (!empty($_POST['edit'][$x])) {
+                    $this->db->where('id', $_POST['edit'][$x]);
+                    $this->db->update('brand_tags', $items);
+                } else {
+                    $this->db->insert('brand_tags', $items);
+                }
+            }
+        }
 
         $caption = '';
         if ($this->input->post('caption')) {
             $caption = ', caption="' . mysql_real_escape_string(strip_tags($this->input->post('caption'))) . '"';
         }
         $this->db->query('UPDATE upload_photo SET thumb_xy = "' . mysql_real_escape_string(serialize($thumb_xy)) . '"' . $caption . ' WHERE CONCAT(id,rand_num)="' . intval($id) . '"');
-        for ($x = 0; $x < 5; $x++) {
-            $items = array('position' => strip_tags($_POST['pos'][$x]), 'title' => strip_tags($_POST['tagname'][$x]), 'brand_id' => intval($_POST['brand'][$x]), 'photo_id' => $id, 'uid' => $this->user['id']);
 
-            if (!empty($_POST['edit'][$x])) {
-                $this->db->where('id', $_POST['edit'][$x]);
-                $this->db->update('brand_tags', $items);
-            } else {
-                $this->db->insert('brand_tags', $items);
-            }
-        }
     }
 
     public function del_uploaded_img($id, $isAdmin = false)
@@ -144,9 +144,9 @@ class Upload_model extends CI_Model
         $this->db->query('DELETE FROM brand_tags WHERE uid="' . $uid . '" AND photo_id="' . $id . '"');
         $this->db->query('DELETE FROM upload_photo WHERE uid="' . $uid . '" AND CONCAT(id,rand_num)="' . $id . '"');
         $this->db->query('DELETE FROM photo_comments WHERE photo_id="' . $photo['id'] . '"');
-        @unlink(APPPATH . 'files/users/uploads/' . $uid . '/' . $id . '.jpg');
-        @unlink(APPPATH . 'files/users/uploads/' . $uid . '/' . $id . '_tmp.jpg');
-        @unlink(APPPATH . 'files/users/uploads/' . $uid . '/' . $id . '_original.jpg');
+        @unlink(APPPATH . 'files/users/uploads/' . $uid . '/' . $id . '.'.$photo['type']);
+        @unlink(APPPATH . 'files/users/uploads/' . $uid . '/' . $id . '_tmp.'.$photo['type']);
+        @unlink(APPPATH . 'files/users/uploads/' . $uid . '/' . $id . '_original.'.$photo['type']);
     }
 
     public function get_tags($id)
@@ -243,7 +243,7 @@ class Upload_model extends CI_Model
 
     public function most_hearted_photos($user, $limit = FALSE)
     {
-        $q = 'SELECT SQL_CALC_FOUND_ROWS CONCAT(upload_photo.id,upload_photo.rand_num) photo_id, upload_photo.uid, users.username FROM upload_photo LEFT JOIN users ON users.id=upload_photo.uid WHERE uid=' . $user['id'] . ' AND `like`>0 ORDER BY `like` DESC';
+        $q = 'SELECT SQL_CALC_FOUND_ROWS CONCAT(upload_photo.id,upload_photo.rand_num) photo_id, upload_photo.uid, upload_photo.type, users.username FROM upload_photo LEFT JOIN users ON users.id=upload_photo.uid WHERE uid=' . $user['id'] . ' AND `like`>0 ORDER BY `like` DESC';
         if ($limit)
             $q .= ' LIMIT ' . $limit;
         return $this->db->query($q)->result_array();

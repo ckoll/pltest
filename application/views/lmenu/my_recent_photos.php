@@ -8,7 +8,7 @@ $user_n = $this->uri->segment(1);
             foreach ($recent_photos as $val) {
                 ?>
                 <li>
-                    <a class="image" href="/<?=$user_n?>/photo/<?=$val['id'].$val['rand_num']?>" style="background-image:url('/files/users/uploads/<?=$val['uid']?>/<?=$val['id'].$val['rand_num']?>.jpg');"></a>
+                    <a class="image" href="/<?=$user_n?>/photo/<?=$val['id'].$val['rand_num']?>" style="background-image:url('/files/users/uploads/<?=$val['uid']?>/<?=$val['id'].$val['rand_num']?>.<?=$val['type']?>');"></a>
                     <p>
                         <?=intval($val['like'])?> hearts<br>
                         <?=intval($val['comments'])?> comments

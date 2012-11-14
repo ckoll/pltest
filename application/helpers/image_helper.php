@@ -5,11 +5,13 @@
 require_once(APPPATH . 'libraries/ImageMagick.php');
 
 function getSquareUpload($upload, $side=250) {
-    $uploadPath = _getUploadPath($upload);
-    $squareUploadPath = _getSquareUploadPath($upload);
-    if (!file_exists($squareUploadPath)) {
-        $imageMagic = new ImageMagick();
-        $imageMagic->resizeAndCrop($uploadPath, $squareUploadPath, array('width'=>$side, 'height'=>$side));
+    if ($upload['type'] != 'gif') {
+        $uploadPath = _getUploadPath($upload);
+        $squareUploadPath = _getSquareUploadPath($upload);
+        if (!file_exists($squareUploadPath)) {
+            $imageMagic = new ImageMagick();
+            $imageMagic->resizeAndCrop($uploadPath, $squareUploadPath, array('width'=>$side, 'height'=>$side));
+        }
     }
 
     return _getSquareUploadUrl($upload);
@@ -32,11 +34,11 @@ function _getSquareUploadUrl($photo) {
 }
 
 function _getRelativeUploadsPath($photo) {
-    return "/files/users/uploads/{$photo['uid']}/{$photo['id']}{$photo['rand_num']}.jpg";
+    return "/files/users/uploads/{$photo['uid']}/{$photo['id']}{$photo['rand_num']}.".$photo['type'];
 }
 
 function _getRelativeSquareUploadsPath($photo) {
-    return "/files/users/uploads/{$photo['uid']}/{$photo['id']}{$photo['rand_num']}_square.jpg";
+    return "/files/users/uploads/{$photo['uid']}/{$photo['id']}{$photo['rand_num']}_square.".$photo['type'];
 }
 
 

@@ -12,7 +12,7 @@
             if(!empty($photos)){
                 foreach($photos as $photo){ ?>
                     <div style="float:left; text-align: center; margin:0 5px;">
-                        <div style="height: 110px; width: 110px;"><a style="display:block;" href="/<?=$photo['username']?>/photo/<?=$photo['photo_id']?>"><img style="max-width: 110px;  max-height: 110px;" src="/files/users/uploads/<?=$photo['id']?>/<?=$photo['photo_id']?>.jpg"></a></div>
+                        <div style="height: 110px; width: 110px;"><a style="display:block;" href="/<?=$photo['username']?>/photo/<?=$photo['photo_id']?>"><img style="max-width: 110px;  max-height: 110px;" src="/files/users/uploads/<?=$photo['id']?>/<?=$photo['photo_id']?>.<?=$photo['type']?>"></a></div>
                         <a href="/<?=$photo['username']?>"><?=$photo['username']?></a>
                     </div>
                 <? if((++$i%5)==0) {

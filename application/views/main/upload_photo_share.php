@@ -16,8 +16,8 @@
         ?>        
         
         <div class="left" style="width: 260px">
-            <a href="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>_original.jpg" target="_blank">
-            <img src="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>.jpg" style="max-width: 100%">
+            <a href="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>_original.<?=$photo['type']?>" target="_blank">
+            <img src="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>.<?=$photo['type']?>" style="max-width: 100%">
             </a>
             <br>
             <strong class="center">Share this look:</strong>
@@ -25,6 +25,9 @@
             <a class="button share_tw"  data-mode="upload">Share on Twitter</a>
             <a class="button share_email" data-mode="upload">Share via Email</a>
         </div>
+
+        <?php if ($photo['type'] != 'gif'): ?>
+
         <div class="right upload_tags" style="background-color: #F9F9F9">
             <strong class="center">The Look</strong><br>
             <table width="100%">
@@ -45,6 +48,7 @@
             </table>
             <a href="/upload/photo_upload/<?= $photo['id'] . $photo['rand_num'] ?>/edit" class="right">Edit tags</a>
         </div>
+        <?php endif; ?>
         <? if (!empty($photo['caption'])) { ?>
             <div class="right upload_tags">
                 <?= $photo['caption'] ?>
