@@ -3,7 +3,7 @@
        <? for($i=0; $i<count($photos_hearted); $i++){
            ?>
             <li>
-                <a href="/<?=$photos_hearted[$i]['username']?>/photo/<?=$photos_hearted[$i]['photo_id']?>" class="image" style="background-image: url('/files/users/uploads/<?=$photos_hearted[$i]['uid']?>/<?=$photos_hearted[$i]['photo_id']?>.jpg')"></a>
+                <a href="/<?=$photos_hearted[$i]['username']?>/photo/<?=$photos_hearted[$i]['photo_id']?>" class="image" style="background-image: url('/files/users/uploads/<?=$photos_hearted[$i]['uid']?>/<?=$photos_hearted[$i]['photo_id']?>.<?=$photos_hearted[$i]['type']?>')"></a>
             </li>
            <?
        }
