@@ -89,11 +89,11 @@ class Upload_model extends CI_Model
 
         $thumb_xy = array();
 
-        if ($photo['type'] != 'gif') {
+        if ($photo['image_type'] != 'gif') {
 
-            $img_path = APPPATH . 'files/users/uploads/' . $this->user['id'] . '/' . $id . '.'.$photo['type'];
-            $img_path_tmp = APPPATH . 'files/users/uploads/' . $this->user['id'] . '/' . $id . '_tmp.'.$photo['type'];
-            $img_path_original = APPPATH . 'files/users/uploads/' . $this->user['id'] . '/' . $id . '_original.'.$photo['type'];
+            $img_path = APPPATH . 'files/users/uploads/' . $this->user['id'] . '/' . $id . '.'.$photo['image_type'];
+            $img_path_tmp = APPPATH . 'files/users/uploads/' . $this->user['id'] . '/' . $id . '_tmp.'.$photo['image_type'];
+            $img_path_original = APPPATH . 'files/users/uploads/' . $this->user['id'] . '/' . $id . '_original.'.$photo['image_type'];
 
 
 
@@ -144,9 +144,9 @@ class Upload_model extends CI_Model
         $this->db->query('DELETE FROM brand_tags WHERE uid="' . $uid . '" AND photo_id="' . $id . '"');
         $this->db->query('DELETE FROM upload_photo WHERE uid="' . $uid . '" AND CONCAT(id,rand_num)="' . $id . '"');
         $this->db->query('DELETE FROM photo_comments WHERE photo_id="' . $photo['id'] . '"');
-        @unlink(APPPATH . 'files/users/uploads/' . $uid . '/' . $id . '.'.$photo['type']);
-        @unlink(APPPATH . 'files/users/uploads/' . $uid . '/' . $id . '_tmp.'.$photo['type']);
-        @unlink(APPPATH . 'files/users/uploads/' . $uid . '/' . $id . '_original.'.$photo['type']);
+        @unlink(APPPATH . 'files/users/uploads/' . $uid . '/' . $id . '.'.$photo['image_type']);
+        @unlink(APPPATH . 'files/users/uploads/' . $uid . '/' . $id . '_tmp.'.$photo['image_type']);
+        @unlink(APPPATH . 'files/users/uploads/' . $uid . '/' . $id . '_original.'.$photo['image_type']);
     }
 
     public function get_tags($id)
