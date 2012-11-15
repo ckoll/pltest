@@ -191,6 +191,11 @@ body {
     cursor: pointer;
 }
 
+.hearts.grey {
+    background-image: url("/images/unlike.png");
+}
+
+
 .comments {
     background: transparent url("/images/comment.png") no-repeat left;
     float: left;

@@ -147,6 +147,9 @@ class Dressup extends User_controller {
             case 'like_add':
                 $rez = $this->dressup_model->like_add($this->input->post('id'));
                 break;
+            case 'like_remove':
+                $rez = $this->dressup_model->like_remove($this->input->post('id'));
+                break;
 
             //dressup process
             case 'add_item':

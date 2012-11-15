@@ -62,6 +62,9 @@ class Upload extends User_controller
             case 'like_add':
                 $rez = $this->upload_model->like_add($this->input->post('id'));
                 break;
+            case 'like_remove':
+                $rez = $this->upload_model->like_remove($this->input->post('id'));
+                break;
         }
         if (!empty($rez)) {
             echo json_encode($rez);

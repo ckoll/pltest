@@ -145,7 +145,7 @@ class Dressup_model extends CI_Model {
 
     public function all_latest_dressups($for_page, $page=0) {
         $begin = $for_page * $page;
-        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS user_dressups.id, users.username, `like`, 
+        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS user_dressups.*, users.username, `like`,
             (SELECT COUNT(id) FROM dressup_comments WHERE dressup_id = user_dressups.id) comment 
             FROM user_dressups 
             LEFT JOIN users ON users.id=uid 
@@ -266,6 +266,29 @@ class Dressup_model extends CI_Model {
         } else {
             return array('err' => 'You have already voted');
         }
+    }
+
+
+    public function like_remove($id) {
+        $dressup = $this->db->get_where('user_dressups', array('id' => $id))->row_array();
+        $liked_users = empty($dressup['like_users']) ? array() : explode(',', $dressup['like_users']);
+
+        $liked = 0;
+
+        foreach($liked_users as $i=>$user) {
+            if ($user == $this->user['id'] . '_' . $this->user['username']) {
+                $liked = 1;
+                unset($liked_users[$i]);
+                break;
+            }
+        }
+        if ($liked) {
+            $this->db->query('UPDATE user_dressups SET `like`=`like`-1, like_users="' . mysql_real_escape_string(implode(',', $liked_users)) . '" WHERE id="' . $id . '"');
+        } else {
+
+            return array('err' => "Don't cheat!");
+        }
+
     }
 
     public function last_hearted() {
@@ -604,6 +627,22 @@ class Dressup_model extends CI_Model {
             $this->db->query('DELETE FROM dressup_comments WHERE id = "' . mysql_real_escape_string($id) . '"');
             $this->db->query('UPDATE user_dressups SET comments = comments-1 WHERE id="' . $photo['dressup_id'] . '"');
         }
+    }
+
+    public function isLiked($dressup)
+    {
+        if (!isset($dressup['like_users'])) {
+            $dressup = $this->dressup_details($dressup['id']);
+        }
+
+        $likedUsers = explode(',', $dressup['like_users']);
+        $liked = 0;
+
+        if (isset($this->user['username']) && in_array($this->user['id'].'_'.$this->user['username'], $likedUsers)) {
+            $liked = 1;
+        }
+
+        return $liked;
     }
 
 }

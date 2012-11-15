@@ -13,11 +13,11 @@ class Home extends CI_Controller {
         parent::__construct();
         $this->tpl->gtpl = 'homepage';
         $this->load->model('home_model');
+        $this->user = $this->session->userdata('user');
     }
 
-    public function index() {
-
-
+    public function index()
+    {
         $this->load->model('upload_model');
         $this->load->model('dressup_model');
 
@@ -57,7 +57,9 @@ class Home extends CI_Controller {
                     }
                 }
             }
+
             $topPhotos[$i]['last3Comments'] = $last3Comments;
+            $topPhotos[$i]['liked'] = $this->upload_model->isLiked($photo);
         }
 
         $this->data['topPhotos'] = $topPhotos;
@@ -96,6 +98,9 @@ class Home extends CI_Controller {
                     }
                 }
                 $topDressup[$i]['last3Comments'] = $last3Comments;
+                $topDressup[$i]['liked'] = $this->dressup_model->isLiked($dressup);
+
+
             } else {
                 unset($topDressup[$i]);
             }

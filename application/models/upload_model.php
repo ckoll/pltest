@@ -201,6 +201,35 @@ class Upload_model extends CI_Model
         }
     }
 
+    public function like_remove($id)
+    {
+        $photo = $this->photo_details($id);
+        $user_photo = $this->user_model->get_user_info('id', $photo['uid']);
+
+        $liked_users = empty($photo['like_users']) ? array() : explode(',', $photo['like_users']);
+
+        $liked = 0;
+        foreach($liked_users as $i=>$user) {
+            if ($user == $this->user['id'] . '_' . $this->user['username']) {
+                $liked = 1;
+                unset($liked_users[$i]);
+                break;
+            }
+        }
+
+        if ($liked) {
+            if ($this->user['id'] != $photo['uid']) {
+                $this->load->library('buttons');
+                $this->buttons->add_money($photo['uid'], -1);
+                $this->buttons->write_history($photo['uid'], array('action' => 'photo_like', 'jewels' => $user_photo['jewels'], 'now_jewels' => $user_photo['jewels'], 'buttons' => $user_photo['buttons'], 'now_buttons' => ($user_photo['buttons'] - 1), 'description' => 'UnLiked your photo (' . $this->user['username'] . '): <a href="/' . $photo['username'] . '/photo/' . $photo['id'] . $photo['rand_num'] . '" target="_blank">photo</a>'));
+            }
+
+            $this->db->query('UPDATE upload_photo SET `like`=`like`-1, like_users="' . mysql_real_escape_string(implode(',', $liked_users)) . '" WHERE CONCAT(id,rand_num)="' . $id . '"');
+        } else {
+            return array('err' => "Don't cheat!");
+        }
+    }
+
     public function user_photos($uid, $for_page, $page = 0)
     {
         $begin = intval($page * $for_page);
@@ -416,6 +445,22 @@ class Upload_model extends CI_Model
             $this->db->query('DELETE FROM photo_comments WHERE id = "' . mysql_real_escape_string($id) . '"');
             $this->db->query('UPDATE upload_photo SET comments = comments-1 WHERE id="' . $photo['photo_id'] . '"');
         }
+    }
+
+    public function isLiked($photo)
+    {
+        if (!isset($photo['like_users'])) {
+            $photo = $this->photo_details_by_id($photo['id']);
+        }
+
+        $likedUsers = explode(',', $photo['like_users']);
+        $liked = 0;
+
+        if (isset($this->user['username']) && in_array($this->user['id'].'_'.$this->user['username'], $likedUsers)) {
+            $liked = 1;
+        }
+
+        return $liked;
     }
 
 }

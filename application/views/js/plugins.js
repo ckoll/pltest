@@ -80,12 +80,18 @@ function likeInit()
         var $this = $(this)
         var id = $this.data('id')
         var mode = $this.data('mode')
+        var type = $this.data('type');
+        if (type == undefined) {
+            type = 'add';
+        }
         if(id){
 
             $.post('/'+mode+'/ajax',{
-                'func': 'like_add',
+                'func': 'like_'+type,
                 'id': id
             },function(data){
+
+
 
                 var obj = $(data);
 
@@ -98,8 +104,16 @@ function likeInit()
                 if(data != null && data.err != undefined){
                     alert(data.err)
                 }else{
-                    old = parseInt($this.text())
-                    $this.html(old+1)
+                    var old = parseInt($this.text())
+                    if (type == 'add') {
+                        $this.data('type', 'remove');
+                        $this.removeClass('grey');
+                        $this.html(old+1)
+                    } else {
+                        $this.data('type', 'add');
+                        $this.addClass('grey');
+                        $this.html(old-1)
+                    }
                 }
             });
         }
