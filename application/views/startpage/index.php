@@ -11,7 +11,7 @@
             Posted by: <a href="/<?=$photo['username']?>"><?=$photo['username']?></a>
         </div>
         <div class="hearts likes" data-id="<?= $photo['id'] . $photo['rand_num'] ?>" data-mode="upload"><?=$photo['like']?></div>
-        <a href="/<?=$photo['username']?>/photo/<?=$photo['id'] . $photo['rand_num']?>" class="comments"><?=$photo['comments']?></a>
+        <a href="/<?=$photo['username']?>/photo/<?=$photo['id'] . $photo['rand_num']?>" class="comments"><?=(int)$photo['comments']?></a>
         <div class="clear"></div>
         <div class="image">
             <a href="/<?=$photo['username']?>/photo/<?=$photo['id'] . $photo['rand_num']?>">
@@ -43,7 +43,7 @@
             Posted by: <a href="/<?=$dressup['username']?>"><?=$dressup['username']?></a>
         </div>
         <div class="hearts likes" data-id="<?= $dressup['id'] ?>" data-mode="dressup"><?=$dressup['like']?></div>
-        <a href="/<?=$dressup['username']?>/dressup/<?=$dressup['id']?>" class="comments"><?=$dressup['comments']?></a>
+        <a href="/<?=$dressup['username']?>/dressup/<?=$dressup['id']?>" class="comments"><?=(int)$dressup['comments']?></a>
         <div class="clear"></div>
         <div class="image">
             <a href="/<?=$dressup['username']?>/dressup/<?=$dressup['id']?>">
