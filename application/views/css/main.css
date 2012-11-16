@@ -1287,6 +1287,7 @@ form input[type="submit"].jevels_payment{
     padding: 3px;
     text-align: center;
     position: relative;
+    overflow: hidden;
 }
 .photo_tumb a{
     width: 130px;
@@ -1458,14 +1459,16 @@ form input[type="submit"].jevels_payment{
     margin-bottom: 0px;
 }
 .my_photo{
-    cursor: pointer; 
-    position: relative; 
-    display: block; 
-    float: left; 
-    margin: 8px; 
-    background: #FFF; 
-    padding: 3px; 
-    border: 1px solid #BBB;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #BBBBBB;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 130px;
+    margin: 8px;
+    overflow: hidden;
+    padding: 3px;
+    position: relative;
 }
 table.history{
     width:660px;
