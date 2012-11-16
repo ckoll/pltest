@@ -1469,6 +1469,8 @@ form input[type="submit"].jevels_payment{
     overflow: hidden;
     padding: 3px;
     position: relative;
+    text-align: center;
+    width: 130px;
 }
 table.history{
     width:660px;
