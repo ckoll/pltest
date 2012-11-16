@@ -60,6 +60,7 @@ class Dressup extends User_controller {
         $this->data['scripts'] = array_merge($this->data['scripts'], array('jquery.horizontal.scroll.js'));
         $this->load->model('dressup_model');
         $this->data['doll'] = $this->dressup_model->show_items($id);
+        $this->data['recent_items'] = $this->dressup_model->recent_items();
         $this->data['today_dressup_finded'] = $this->dressup_model->find_today_dressup($this->user['id']);
         $this->tpl->ltpl = array('main' => 'dressup_home', 'rmenu' => array('dressup_ajax_menu'), 'lmenu' => array('dressup_doll'));
         $this->tpl->show($this->data);

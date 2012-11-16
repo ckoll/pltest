@@ -5,7 +5,7 @@ if (!defined('BASEPATH'))
 
 class Dressup_model extends CI_Model {
 
-    public function load_my_items($category) {
+    public function load_my_items($category = null) {
         $category = mysql_real_escape_string($category);
 
         $subcat = $this->db->query('SELECT * FROM dressup_category WHERE pid=(SELECT id FROM dressup_category WHERE shortname="'.$category.'")')->result_array();
@@ -15,8 +15,10 @@ class Dressup_model extends CI_Model {
                 $subcat_names[] = $val['shortname'];
             }
             $category_where = 'category IN ("' . implode('","', $subcat_names) . '")';
-        }else{
+        }else if (!is_null($category)){
             $category_where = 'category="' . $category . '"';
+        } else {
+            $category_where = '1=1';
         }
         
         $items = $this->db->query('SELECT *,dressup_items.* FROM user_items 
@@ -26,7 +28,8 @@ class Dressup_model extends CI_Model {
                 AND dressup_items.type!="haircolors" AND dressup_items.category!="default" 
                     GROUP BY item_id')->result_array();
         //ADD default items
-        if (empty($items)) {
+        if (empty($items) && !is_null($category)) {
+            //TODO check OR/AND
             $items = $this->db->query('SELECT * FROM dressup_items WHERE category="' . $category . '" AND category ="default"')->result_array();
 
             //add defaults body parts
@@ -55,6 +58,25 @@ class Dressup_model extends CI_Model {
             $this->load->view('ajax_block/dressup_item_list', array('items' => $items));
         }
     }
+
+
+
+    public function recent_items() {
+
+        $items = $this->db->query('SELECT *,dressup_items.* FROM user_items
+            LEFT JOIN dressup_items ON dressup_items.id=user_items.item_id
+            WHERE uid="' . $this->user['id'] . '"
+                AND item_id IN (SELECT id FROM dressup_items)
+                GROUP BY item_id ORDER BY user_items.id DESC LIMIT 0,10' )->result_array();
+        /*
+        if (!empty($items)) {
+            $a = $this->load->view('ajax_block/dressup_item_list', array('items' => $items));
+        }
+        */
+
+        return $items;
+    }
+
 
     public function lookday_clear() {
         $this->db->query('UPDATE user_dressups SET day_look=0 WHERE uid="' . $this->user['id'] . '"');

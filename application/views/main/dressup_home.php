@@ -35,7 +35,11 @@ $curr_dresup = $this->uri->segment(3);
         </section>
 
         <input type="hidden" name="dressup_id" value="">
-        <div id="dressup_items"></div>        
+        <div id="dressup_items">
+
+            <?php $this->load->view('ajax_block/dressup_item_list', array('items' => $recent_items));?>
+
+        </div>
         
         <div class="left" style="width: 350px; margin-top: 20px;">
             <input type="button" value="Save look" name="save_doll">

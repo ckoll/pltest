@@ -3,9 +3,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Market_model extends CI_Model {
+class Market_model extends CI_Model
+{
 
-    public function shop_subcategories($default = false) {
+    public function shop_subcategories($default = false)
+    {
         $all = array();
         $def_where = (!$default) ? ' AND pid!=1 ' : ''; // remove default categories
         $subcats_rez = $this->db->query('SELECT * FROM dressup_category WHERE pid!=0 ' . $def_where)->result_array();
@@ -27,7 +29,8 @@ class Market_model extends CI_Model {
         return $all;
     }
 
-    public function shop_up_categories($default = false) {
+    public function shop_up_categories($default = false)
+    {
         $all = array();
         $disabled = array('haircolors', 'n/a', 'face', 'mouth', 'eyes', 'skin');
         foreach ($disabled as $val) {
@@ -44,7 +47,8 @@ class Market_model extends CI_Model {
         return $all;
     }
 
-    public function shop_categories() {
+    public function shop_categories()
+    {
         $rez = array();
         $all = $this->db->query('SELECT * FROM dressup_category ORDER BY `order`,pid')->result_array();
         if (!empty($all)) {
@@ -55,7 +59,8 @@ class Market_model extends CI_Model {
         return $rez;
     }
 
-    public function body_part_categories() {
+    public function body_part_categories()
+    {
         $rez = array();
         $all = $this->db->query('SELECT * FROM body_parts_category ORDER BY pid')->result_array();
         if (!empty($all)) {
@@ -66,7 +71,8 @@ class Market_model extends CI_Model {
         return $rez;
     }
 
-    public function category_count_items($avaliable = NULL) {
+    public function category_count_items($avaliable = NULL)
+    {
         $where_avaliable = '';
         $rez = $this->db->query('SELECT COUNT(DISTINCT item_id) item_c, dressup_category.* FROM user_items 
             LEFT JOIN dressup_items ON user_items.item_id=dressup_items.id 
@@ -81,7 +87,8 @@ class Market_model extends CI_Model {
         }
     }
 
-    public function category_count_default($items){
+    public function category_count_default($items)
+    {
         $rez = $this->db->query('SELECT COUNT(dressup_items.id) counts, dressup_category.id FROM dressup_items LEFT JOIN dressup_category ON dressup_category.shortname=dressup_items.category WHERE category = "default" GROUP BY dressup_category.id')->result_array();
         if (!empty($rez)) {
             foreach ($rez as $val) {
@@ -90,8 +97,9 @@ class Market_model extends CI_Model {
         }
         return $items;
     }
-    
-    public function count_body_parts() {
+
+    public function count_body_parts()
+    {
         //add body parts
         $items = array();
         $dressup = $this->session->userdata('dressup');
@@ -120,7 +128,8 @@ class Market_model extends CI_Model {
         return $items;
     }
 
-    public function get_pidcats($category) {
+    public function get_pidcats($category)
+    {
         $cat_id = $this->db->query('SELECT id FROM dressup_category WHERE shortname="' . $category . '"')->row()->id;
         $pid_cats = $this->db->query('SELECT shortname FROM dressup_category WHERE pid=' . $cat_id)->result_array();
         $return = array();
@@ -134,7 +143,8 @@ class Market_model extends CI_Model {
         return $return;
     }
 
-    public function get_items($for_page, $page, $category, $shop = NULL, $username = NULL) {
+    public function get_items($for_page, $page, $category, $shop = NULL, $username = NULL)
+    {
         $order = $where = '';
         $disabled = array('haircolors', 'n/a');
         foreach ($disabled as $val) {
@@ -221,7 +231,8 @@ class Market_model extends CI_Model {
         return $items;
     }
 
-    public function get_usernames_array($user_ids) {
+    public function get_usernames_array($user_ids)
+    {
         $users = $this->db->query('SELECT id,username FROM users WHERE id IN (' . join(',', $user_ids) . ') ')->result_array();
         $return = array();
         foreach ($users as $user) {
@@ -230,7 +241,8 @@ class Market_model extends CI_Model {
         return $return;
     }
 
-    public function get_auction_item($id, $ret = false) {
+    public function get_auction_item($id, $ret = false)
+    {
         $item = $this->db->query('SELECT dressup_items.*, items_auction.* FROM items_auction LEFT JOIN dressup_items ON items_auction.item_id=dressup_items.id WHERE 1=1 AND items_auction.item_id = "' . $id . '"')->row_array();
         $return['preview'] = $item['directory'] . '/' . (($item['profileimage_dir'] == '[default]') ? 'profilepics' : $item['profileimage_dir']) . '/' . $item['profileimage'];
         $return['title'] = $item['item_name'];
@@ -262,7 +274,8 @@ class Market_model extends CI_Model {
             return $return;
     }
 
-    public function get_userauction_item($id, $ret = false) {
+    public function get_userauction_item($id, $ret = false)
+    {
         $item = $this->db->query('SELECT user_items.id, dressup_items.*, user_items.id, user_items.price_b, user_items.price_j, user_items.auction_date_price, user_items.auction_date_end, user_items.auction_reserve, users.username, dressup_items.id item_id FROM user_items LEFT JOIN dressup_items ON dressup_items.id=user_items.item_id LEFT JOIN users ON users.id=user_items.uid WHERE 1=1 AND user_items.id = "' . $id . '"')->row_array();
         $return['preview'] = $item['directory'] . '/' . (($item['profileimage_dir'] == '[default]') ? 'profilepics' : $item['profileimage_dir']) . '/' . $item['profileimage'];
         $return['title'] = $item['item_name'];
@@ -295,30 +308,36 @@ class Market_model extends CI_Model {
             return $return;
     }
 
-    public function item_info($item_id) {
+    public function item_info($item_id)
+    {
         return $this->db->query('SELECT dressup_items.*, items_shop.* FROM items_shop LEFT JOIN dressup_items ON dressup_items.id=items_shop.item_id WHERE item_id="' . $item_id . '"')->row_array();
     }
 
-    public function auction_item_info($item_id) {
+    public function auction_item_info($item_id)
+    {
         return $this->db->query('SELECT items_auction.*, dressup_items.item_name,dressup_items.category,dressup_items.directory,dressup_items.profileimage_dir,dressup_items.profileimage FROM items_auction LEFT JOIN dressup_items ON dressup_items.id=items_auction.item_id WHERE items_auction.item_id="' . $item_id . '"')->row_array();
     }
 
-    public function user_item_info($item_id) {
+    public function user_item_info($item_id)
+    {
         return $this->db->query('SELECT user_items.*,dressup_items.item_name,dressup_items.id item_id,dressup_items.category,dressup_items.directory,dressup_items.profileimage_dir,dressup_items.profileimage,dressup_items.shortname FROM user_items LEFT JOIN dressup_items ON dressup_items.id=user_items.item_id WHERE user_items.id="' . $item_id . '"')->row_array();
     }
 
-    public function market_filter($type) {
+    public function market_filter($type)
+    {
         $this->session->set_userdata(array('market_filter' => $type));
         //redirect page
         $page = $this->_redirect_page();
         echo json_encode($page);
     }
 
-    public function market_sort($sort) {
+    public function market_sort($sort)
+    {
         $this->session->set_userdata(array('market_sort' => $sort));
     }
 
-    public function check_buy_item($item_id, $return = false) {
+    public function check_buy_item($item_id, $return = false)
+    {
         $rez = array();
         $item = $this->item_info($item_id);
 
@@ -353,7 +372,8 @@ class Market_model extends CI_Model {
         }
     }
 
-    public function buy_item($item_id) {
+    public function buy_item($item_id)
+    {
         $this->load->library('buttons');
         $rez = $this->check_buy_item($item_id, true);
         if (empty($rez['err'])) {
@@ -379,7 +399,8 @@ class Market_model extends CI_Model {
         }
     }
 
-    public function check_buy_useritem($item_id, $return = false) {
+    public function check_buy_useritem($item_id, $return = false)
+    {
         $rez = array();
         $item = $this->user_item_info($item_id);
 
@@ -411,7 +432,8 @@ class Market_model extends CI_Model {
         }
     }
 
-    public function buy_user_item($item_id) {
+    public function buy_user_item($item_id)
+    {
         $this->load->library('buttons');
         $rez = $this->check_buy_useritem($item_id, true);
         if (empty($rez['err'])) {
@@ -444,7 +466,8 @@ class Market_model extends CI_Model {
         }
     }
 
-    public function check_bid_item($item_id, $auction_type) {
+    public function check_bid_item($item_id, $auction_type)
+    {
         if ($auction_type == 'userauction')
             $item = $this->get_userauction_item($item_id, true);
         else
@@ -467,13 +490,15 @@ class Market_model extends CI_Model {
         return $err;
     }
 
-    public function find_sell_item($id) {
+    public function find_sell_item($id)
+    {
         $shop = $this->db->query('SELECT user_items.*,users.username FROM user_items LEFT JOIN users ON users.id=user_items.uid WHERE item_id="' . $id . '" AND status="sell" ')->result_array(); //AND uid!="'.$this->user['id'].'"
         $auction = $this->db->query('SELECT user_items.*,users.username FROM user_items LEFT JOIN users ON users.id=user_items.uid WHERE item_id="' . $id . '" AND status="auction" ')->result_array();
         return array('shop' => $shop, 'auction' => $auction);
     }
 
-    public function bid_item($item_id, $auction_type) {
+    public function bid_item($item_id, $auction_type)
+    {
         $this->load->library('buttons');
 
         if ($auction_type == 'userauction') {
@@ -511,7 +536,8 @@ class Market_model extends CI_Model {
         }
     }
 
-    public function _redirect_page() {
+    public function _redirect_page()
+    {
         if (strpos($_SERVER['HTTP_REFERER'], 'page=') == false) {
             return $_SERVER['HTTP_REFERER'];
         }
@@ -530,7 +556,8 @@ class Market_model extends CI_Model {
         }
     }
 
-    public function calck_counts($items) {
+    public function calck_counts($items)
+    {
         $all = $sell = $dress = 0;
         if (!empty($items)) {
             foreach ($items as $val) {
@@ -545,17 +572,18 @@ class Market_model extends CI_Model {
         return array('all' => $all, 'sell' => $sell, 'dress' => $dress);
     }
 
-    public function get_my_items($category = NULL) {
+    public function get_my_items($category = NULL)
+    {
         if (!empty($category)) {
-            $subcat = $this->db->query('SELECT shortname FROM dressup_category WHERE pid=(SELECT id FROM dressup_category WHERE shortname="'.$category.'")')->result_array();
-            if(!empty($subcat)){
-                foreach($subcat as $val){
+            $subcat = $this->db->query('SELECT shortname FROM dressup_category WHERE pid=(SELECT id FROM dressup_category WHERE shortname="' . $category . '")')->result_array();
+            if (!empty($subcat)) {
+                foreach ($subcat as $val) {
                     $cats[] = $val['shortname'];
                 }
-                $where = ' AND category IN ("' . implode('","',$cats) . '")';
-            }else{
+                $where = ' AND category IN ("' . implode('","', $cats) . '")';
+            } else {
                 $where = ' AND category="' . $category . '"';
-            }           
+            }
         }
         $rez = $this->db->query('SELECT user_items.status,dressup_items.*, COUNT(DISTINCT dressup_items.id) counts,user_items.price_b,user_items.price_j, user_items.auction_date_end, dressup_items.profileimage_dir, dressup_items.profileimage, dressup_items.directory 
             FROM user_items LEFT JOIN dressup_items ON dressup_items.id=user_items.item_id 
@@ -563,7 +591,8 @@ class Market_model extends CI_Model {
         return $rez;
     }
 
-    public function add_default_items($items, $category = NULL) {
+    public function add_default_items($items, $category = NULL)
+    {
         if (!empty($category)) {
             $where = ' AND category="' . $category . '"';
         }
@@ -571,33 +600,40 @@ class Market_model extends CI_Model {
         return array_merge($items, $def);
     }
 
-    public function calck_all_items() {
+    public function calck_all_items()
+    {
         $count1 = $this->db->query('SELECT user_items.id FROM user_items WHERE uid="' . $this->user['id'] . '"')->num_rows();
         $count2 = $this->db->query('SELECT 1 FROM dressup_items WHERE category="default"')->num_rows();
         return $count1 + $count2;
     }
 
-    public function calck_enabled_items($item_id) {
+    public function calck_enabled_items($item_id)
+    {
         return $this->db->query('SELECT 1 FROM user_items WHERE uid="' . $this->user['id'] . '" AND item_id="' . $item_id . '" AND (status="" || status="sell")')->num_rows();
     }
 
-    public function calck_one_items($item_id) {
+    public function calck_one_items($item_id)
+    {
         return $this->db->query('SELECT 1 FROM user_items WHERE uid="' . $this->user['id'] . '" and item_id="' . $item_id . '"')->num_rows();
     }
 
-    public function delete_item($id) {
+    public function delete_item($id)
+    {
         $this->db->query('DELETE FROM user_items WHERE uid="' . $this->user['id'] . '" AND item_id="' . $id . '" AND status="" LIMIT 1');
     }
 
-    public function rem_selling($id) {
+    public function rem_selling($id)
+    {
         $this->db->query('UPDATE user_items SET status="", price_b=0, price_j=0 WHERE uid="' . $this->user['id'] . '" AND item_id="' . $id . '" AND status="sell" LIMIT 1');
     }
 
-    public function rem_auction($id) {
+    public function rem_auction($id)
+    {
         $this->db->query('UPDATE user_items SET status="", price_b=0, price_j=0,  auction_date_price="", auction_date_end=0, auction_reserve=0 WHERE uid="' . $this->user['id'] . '" AND item_id="' . $id . '" AND status="auction" LIMIT 1');
     }
 
-    public function item_average_price($item) {
+    public function item_average_price($item)
+    {
         $rez = $this->db->query('SELECT AVG(price_b) `aver` FROM user_items WHERE price_b!=0 AND item_id="' . $item . '" AND uid!="' . $this->user['id'] . '"')->row_array();
         if ($rez['aver'] == 0) {
             $rez['aver'] = $this->db->query('SELECT price_b FROM items_shop WHERE item_id="' . $item . '"')->row()->price_b;
@@ -609,7 +645,8 @@ class Market_model extends CI_Model {
         return array('price' => $price);
     }
 
-    public function sell_option1($count, $id) {
+    public function sell_option1($count, $id)
+    {
         $err = '';
         $price = $this->item_average_price($id);
         $item_info = $this->item_info($id);
@@ -626,7 +663,8 @@ class Market_model extends CI_Model {
         return array('err' => $err);
     }
 
-    public function sell_option2($count, $id, $price) {
+    public function sell_option2($count, $id, $price)
+    {
         $err = '';
         $all = $this->db->query('SELECT 1 FROM user_items WHERE item_id="' . $id . '" AND status="" AND uid="' . $this->user['id'] . '"')->num_rows();
         if ($all < $count) {
@@ -637,7 +675,8 @@ class Market_model extends CI_Model {
         return array('err' => $err);
     }
 
-    public function edit_sell_option2($count, $id, $price) {
+    public function edit_sell_option2($count, $id, $price)
+    {
         $all = $this->db->query('SELECT 1 FROM user_items WHERE item_id="' . $id . '" AND status="sell" AND uid="' . $this->user['id'] . '"')->num_rows();
         if ($count == $all) {
             $this->db->query('UPDATE user_items SET price_b="' . $price . '" WHERE item_id="' . $id . '" AND status="sell" AND uid="' . $this->user['id'] . '"');
@@ -650,10 +689,11 @@ class Market_model extends CI_Model {
             $this->db->query('UPDATE user_items SET price_b=0, status="" WHERE item_id="' . $id . '" AND status="sell" AND uid="' . $this->user['id'] . '" LIMIT ' . $more);
             $this->db->query('UPDATE user_items SET price_b="' . $price . '" WHERE item_id="' . $id . '" AND status="sell" AND uid="' . $this->user['id'] . '"');
         }
-        return ;
+        return;
     }
 
-    public function add_auction($id, $start_price, $reserve, $price_type, $duration) {
+    public function add_auction($id, $start_price, $reserve, $price_type, $duration)
+    {
         $err = '';
         $all = $this->db->query('SELECT 1 FROM user_items WHERE item_id="' . $id . '" AND status="" AND uid="' . $this->user['id'] . '"')->num_rows();
         if ($all < 1) {
@@ -662,18 +702,18 @@ class Market_model extends CI_Model {
             if ($start_price <= 0)
                 $err = 'Start price must be greater than 0';
             elseif ($reserve < 0)
-                $err = 'Reserve must be greater than 0 or 0 if you would no met reserve';
-            elseif ($price_type != 'price_b' && $price_type != 'price_j')
-                $err = 'Price type must be buttons or jewels';
-            elseif ($duration != 6 && $duration != 12 && $duration != 1 && $duration != 2 && $duration != 3)
-                $err = 'Duration is not availible';
-            else {
+                $err = 'Reserve must be greater than 0 or 0 if you would no met reserve'; elseif ($price_type != 'price_b' && $price_type != 'price_j')
+                $err = 'Price type must be buttons or jewels'; elseif ($duration != 6 && $duration != 12 && $duration != 1 && $duration != 2 && $duration != 3)
+                $err = 'Duration is not availible'; else {
                 $sql_interval = null;
                 switch ($duration) {
-                    case 1:case 2:case 3:
+                    case 1:
+                    case 2:
+                    case 3:
                         $sql_interval = ' DAY';
                         break;
-                    case 6:case 12:
+                    case 6:
+                    case 12:
                         $sql_interval = ' HOUR';
                         break;
                 }
@@ -686,7 +726,8 @@ class Market_model extends CI_Model {
 
     /* -------------- Buy Jewels width PayPal ---------------- */
 
-    function buy_jewels_paypal() {
+    function buy_jewels_paypal()
+    {
 
         $jewels_price = array('10' => 1, '25' => 2, '75' => 5, '150' => 10, '400' => 20);
         $count_jewels = $this->input->post('jewels_count');
@@ -719,7 +760,6 @@ class Market_model extends CI_Model {
             );
 
 
-
             $this->load->library('paypal');
             $response = $this->paypal->request('SetExpressCheckout', $requestParams + $orderParams);
 
@@ -737,7 +777,8 @@ class Market_model extends CI_Model {
         }
     }
 
-    function buy_jewels_order_check_paypal() {
+    function buy_jewels_order_check_paypal()
+    {
         if (isset($_GET['token']) && !empty($_GET['token'])) {
             $this->load->library('paypal');
             $checkoutDetails = $this->paypal->request('GetExpressCheckoutDetails', array('TOKEN' => $_GET['token']));
@@ -772,7 +813,8 @@ class Market_model extends CI_Model {
         }
     }
 
-    public function buy_jewels_order_check_2checkout() {
+    public function buy_jewels_order_check_2checkout()
+    {
         $db_2co_sett = array('secret_word' => 'tango');
         $prID_Jewels = array('2' => 10, '3' => 25, '4' => 75, '5' => 150, '6' => 400);
         $respons_array = array('sid' => $this->input->get('sid'), 'product_id' => $this->input->get('product_id'), 'order_number' => $this->input->get('order_number'), 'total' => $this->input->get('total'), 'key' => $this->input->get('key'));
