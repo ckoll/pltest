@@ -25,13 +25,22 @@ class Home_model extends CI_Model {
             $err = 'Field Password is empty';
             return false;
         }
-        $this->usr = $this->db->get_where('users', array('username' => strtolower($this->input->post('username')), 'password' => md5($this->input->post('password'))))->row_array();
+
+        $username = strtolower($this->input->post('username'));
+        $md5pass = md5($this->input->post('password'));
+
+        $this->usr = $this->db->get_where('users', array('username' => $username, 'password' => $md5pass))->row_array();
         if (empty($this->usr)) {
             $err = 'Login/Password is incorrect';
             return false;
         } elseif ($this->usr['active'] == 0) {
             $err = '<span>Account is unconfirmed [ <a href="/resendemail" id="resendemail">resend activation link</a> ]</span>';
             return false;
+        } elseif($this->input->post('remember_me')) {
+            $this->load->helper('cookie');
+            $week = 3600 * 24 * 7;
+            set_cookie('pl_username', $username, $week);
+            set_cookie('pl_pass', $md5pass, $week);
         }
         return true;
     }
@@ -311,6 +320,20 @@ class Home_model extends CI_Model {
             $usr_ident = (empty($user['username'])) ? 'id' . $user['id'] : $user['username'];
             header('Location: /' . $usr_ident);
             exit;
+        }
+    }
+
+    public function loginFromCookies()
+    {
+        $this->load->helper('cookie');
+        if (get_cookie('pl_username') && get_cookie('pl_pass')) {
+            $usr = $this->db->get_where('users', array('username' => get_cookie('pl_username'), 'password' => get_cookie('pl_pass')))->row_array();
+            if (!empty($usr)) {
+                $this->session->set_userdata(array('user' => $usr));
+            }  else {
+                delete_cookie('pl_username');
+                delete_cookie('pl_pass');
+            }
         }
     }
 

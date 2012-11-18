@@ -14,6 +14,12 @@ class User_controller extends CI_Controller {
         $this->user = $this->session->userdata('user');
         $this->load->model('user_model');
         $this->load->model('dressup_model');
+        $this->load->model('home_model');
+
+        if(empty($this->user)) {
+            $this->home_model->loginFromCookies();
+            $this->user = $this->session->userdata('user');
+        }
 
         //Check User, Update last login
         $user_check = $this->db->get_where('users', array('id' => $this->user['id']))->row_array();
