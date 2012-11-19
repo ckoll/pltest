@@ -14,6 +14,8 @@
             500 buttons for every user that signs up.</p>
         <p>You can send up to 50 invitations per day.</p>
 
+        Invite Url : <input type="text" value="<?='http://' . $_SERVER['SERVER_NAME'] . '/register/?invite=' . $this->user['id']?>" style="width: 300px;" onclick="this.select()" onblur="$(this).val('<?='http://' . $_SERVER['SERVER_NAME'] . '/register/?invite=' . $this->user['id']?>')">
+
         <?
         if ($this->input->post('invite')) {
             ?>
