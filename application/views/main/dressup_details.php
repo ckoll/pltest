@@ -14,8 +14,22 @@
             <img src="/files/users/dressup/<?= $item['id'] ?>.jpg">
         </a><br>
 
-        <span class="likes dressup_details" style="margin-left: 150px" data-id="<?= $item['id'] ?>" data-mode="dressup"><?= $item['like'] ?></span>
-        <span class="comments dressup_details"><?= count($comments) ?></span>
+        <span class="likes dressup_details photo_details_buttons" style="margin-left: 150px" data-id="<?= $item['id'] ?>" data-mode="dressup"><?= $item['like'] ?></span>
+        <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
+        <span class="photo_details_buttons">
+            <a href="https://twitter.com/share" class="twitter-share-button"
+               data-text="<?= $item['name'] . ' ' . $item['dress_comment'] ?>"
+               data-via="perfectlookorg">Tweet</a>
+        <script>!function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, "script", "twitter-wjs");</script>
+        </span>
         <br class="clear">
         <br>
         Username: <a href="/<?= $item['username'] ?>"><?= $item['username'] ?></a><br>
