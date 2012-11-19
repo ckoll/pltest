@@ -12,8 +12,8 @@
 
         <div id="tabs">
             <ul>
-                <li><a href="#tabs1">From your contacts</a></li>
                 <li><a href="#tabs2">By username</a></li>
+                <li><a href="#tabs1">From your contacts</a></li>
             </ul>
             <div id="tabs1">
                 <b class="left">Search your contacts:</b>
