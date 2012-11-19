@@ -1519,3 +1519,7 @@ ul.brands3{
     max-width: 100px;  
     max-height: 100px;
 }
+
+.photo_details_buttons {
+    margin-left: 50px;
+}

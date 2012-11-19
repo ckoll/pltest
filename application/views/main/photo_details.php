@@ -17,15 +17,38 @@
         <a href="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>_original.<?=$photo['image_type']?>"
            target="_blank">
             <center>
-            <img style="max-height: 500px; max-width: 500px;" src="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>.<?=$photo['image_type']?>">
+                <img style="max-height: 500px; max-width: 500px;"
+                     src="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>.<?=$photo['image_type']?>">
             </center>
         </a><br>
-        <span class="likes dressup_details" style="margin-left: 150px"
+        <span class="likes dressup_details photo_details_buttons"
               data-id="<?= $photo['id'] . $photo['rand_num'] ?>" data-mode="upload"><?= $photo['like'] ?></span>
-        <span class="comments dressup_details"><?= count($comments) ?></span>
+        <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
+
+        <span class="photo_details_buttons">
+        <a href="https://twitter.com/share" class="twitter-share-button"
+           data-text="<?=$photo['caption']?>"
+           data-via="perfectlookorg">Tweet</a>
+        <script>!function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, "script", "twitter-wjs");</script>
+        </span>
+
+        <span class="photo_details_buttons">
+           <img src="/images/facebook.png" alt="" onclick="ShareClicked()">
+        </span>
+
         <?php if (!empty($admin) || $photo['uid'] == $this->user['id']): ?>
-        <a href="/upload/photo_upload/<?= $photo['id'] . $photo['rand_num'] ?>/edit" style="margin-left: 150px;"><img src="/images/edit.png"></a>
+        <a href="/upload/photo_upload/<?= $photo['id'] . $photo['rand_num'] ?>/edit" class="photo_details_buttons"><img
+                src="/images/edit.png"></a>
         <?php endif; ?>
+
         <br class="clear">
         <?
         if (!empty($photo['caption'])) {
@@ -81,3 +104,24 @@
     </div>
     <div class="footer"></div>
 </div>
+
+
+    <script type="text/javascript">
+
+        function ShareClicked() {
+            var requestObj = {
+                method: 'feed',
+                link: '<?=current_url()?>',
+                name: "Perfect-Look",
+                caption: "Perfect-Look",
+                description: '<?=$photo['caption']?>',
+                ref: "Public"
+            };
+
+            FB.ui(requestObj, function(response) {});
+
+
+        }
+
+
+    </script>

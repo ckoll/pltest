@@ -91,5 +91,20 @@
     }
 }
         ?>
+
+        <script type="text/javascript">
+            /*<![CDATA[*/
+            window.fbAsyncInit = function(){FB.init({'appId':'<?=$this->config->item('fbAppId')?>','status':true,'cookie':true,'xfbml':true,'oauth':true});asyncCallback();};
+            (function(d){
+                var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+                js = d.createElement('script'); js.id = id; js.async = true;
+                js.src = '//connect.facebook.net/en_US/all.js';
+                d.getElementsByTagName('head')[0].appendChild(js);
+            }(document));
+            function asyncCallback() {
+
+            }
+            /*]]>*/
+        </script>
     </body>
 </html>
