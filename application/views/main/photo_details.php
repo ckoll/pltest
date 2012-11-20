@@ -30,11 +30,9 @@
             <a class="twitt_button" href="http://twitter.com/share?text=<?=urlencode($photo['caption'])?>&url=<?=urlencode(current_url())?>" target="_blank"></a>
         </span>
 
-        <?php /*
         <span class="photo_details_buttons">
            <img src="/images/facebook.png" alt="" onclick="ShareClicked()">
         </span>
-        */?>
 
         <?php if (!empty($admin) || $photo['uid'] == $this->user['id']): ?>
         <a href="/upload/photo_upload/<?= $photo['id'] . $photo['rand_num'] ?>/edit" class="photo_details_buttons"><img
