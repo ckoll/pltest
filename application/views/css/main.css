@@ -1522,4 +1522,20 @@ ul.brands3{
 
 .photo_details_buttons {
     margin-left: 50px;
+    float: left;
+    display: inline-block;
+    margin-top: 0;
+
+}
+
+.twitt_button {
+    background: transparent url("/images/tweet-button.png");
+    width: 121px;
+    height: 28px;
+    display: inline-block;
+}
+
+.photo_cont {
+    width: 600px;
+    margin: 0 auto;
 }

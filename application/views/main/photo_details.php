@@ -14,6 +14,7 @@
     </div>
 
     <div class="bg">
+        <div class="photo_cont">
         <a href="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>_original.<?=$photo['image_type']?>"
            target="_blank">
             <center>
@@ -26,19 +27,9 @@
         <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
 
         <span class="photo_details_buttons">
-        <a href="https://twitter.com/share" class="twitter-share-button"
-           data-text="<?=$photo['caption']?>"
-           data-via="perfectlookorg">Tweet</a>
-        <script>!function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (!d.getElementById(id)) {
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//platform.twitter.com/widgets.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }
-        }(document, "script", "twitter-wjs");</script>
+            <a class="twitt_button" href="http://twitter.com/share?text=<?=urlencode($photo['caption'])?>&url=<?=urlencode(current_url())?>" target="_blank"></a>
         </span>
+
         <?php /*
         <span class="photo_details_buttons">
            <img src="/images/facebook.png" alt="" onclick="ShareClicked()">
@@ -49,7 +40,7 @@
         <a href="/upload/photo_upload/<?= $photo['id'] . $photo['rand_num'] ?>/edit" class="photo_details_buttons"><img
                 src="/images/edit.png"></a>
         <?php endif; ?>
-
+        </div>
         <br class="clear">
         <?
         if (!empty($photo['caption'])) {

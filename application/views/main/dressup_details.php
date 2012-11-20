@@ -9,27 +9,19 @@
         <span>Dressup Details</span>
     </div>
     <div class="bg">
+        <div class="photo_cont">
         <strong>More details about this dressup</strong><br>
         <a href="/files/users/dressup-HD/<?= $item['id'] ?>.jpg" target="_blank">
             <img src="/files/users/dressup/<?= $item['id'] ?>.jpg">
-        </a><br>
-
-        <span class="likes dressup_details photo_details_buttons" style="margin-left: 150px" data-id="<?= $item['id'] ?>" data-mode="dressup"><?= $item['like'] ?></span>
+        </a>
+            <br>
+            <br>
+        <span class="likes dressup_details photo_details_buttons" data-id="<?= $item['id'] ?>" data-mode="dressup"><?= $item['like'] ?></span>
         <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
         <span class="photo_details_buttons">
-            <a href="https://twitter.com/share" class="twitter-share-button"
-               data-text="<?= $item['name'] . ' ' . $item['dress_comment'] ?>"
-               data-via="perfectlookorg">Tweet</a>
-        <script>!function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (!d.getElementById(id)) {
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//platform.twitter.com/widgets.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }
-        }(document, "script", "twitter-wjs");</script>
+            <a class="twitt_button" href="http://twitter.com/share?text=<?=urlencode($item['name'] . ' ' . $item['dress_comment'])?>&url=<?=urlencode(current_url())?>" target="_blank"></a>
         </span>
+        </div>
         <br class="clear">
         <br>
         Username: <a href="/<?= $item['username'] ?>"><?= $item['username'] ?></a><br>
