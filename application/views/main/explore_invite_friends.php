@@ -13,9 +13,13 @@
         <p>Get 50 buttons for every invitation you send, and<br>
             500 buttons for every user that signs up.</p>
         <p>You can send up to 50 invitations per day.</p>
-
-        Invite Url : <input type="text" value="<?='http://' . $_SERVER['SERVER_NAME'] . '/register/?invite=' . $this->user['id']?>" style="width: 300px;" onclick="this.select()" onblur="$(this).val('<?='http://' . $_SERVER['SERVER_NAME'] . '/register/?invite=' . $this->user['id']?>')">
-
+        <br>
+        <p>
+            Below is your referral URL. Give this link to users that you would like to invite. When they sign up through this link, your account will automatically be credited with 500 buttons for each user that signs up
+        </p>
+        <br>
+        <label>Invite Url :</label> <input type="text" value="<?='http://' . $_SERVER['SERVER_NAME'] . '/register/?invite=' . $this->user['id']?>" style="width: 300px;" onclick="this.select()" onblur="$(this).val('<?='http://' . $_SERVER['SERVER_NAME'] . '/register/?invite=' . $this->user['id']?>')">
+        <br>
         <?
         if ($this->input->post('invite')) {
             ?>
