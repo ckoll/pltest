@@ -10,9 +10,9 @@
     </div>
     <div class="bg">
 
-        <p>Get 50 buttons for every invitation you send, and<br>
-            500 buttons for every user that signs up.</p>
-        <p>You can send up to 50 invitations per day.</p>
+        <p>
+            Get 50 buttons for every invitation you send, and 500 buttons for every user that signs up.You can send up to 50 invitations per day.
+        </p>
         <br>
         <p>
             Below is your referral URL. Give this link to users that you would like to invite. When they sign up through this link, your account will automatically be credited with 500 buttons for each user that signs up
