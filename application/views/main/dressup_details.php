@@ -20,9 +20,15 @@
                   data-mode="dressup"><?= $item['like'] ?></span>
             <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
             <span class="photo_details_buttons">
-                <a class="twitt_button"
-                   href="http://twitter.com/share?text=<?=urlencode($item['name'] . ' ' . $item['dress_comment'])?>&url=<?=urlencode(current_url())?>"
-                   target="_blank"></a>
+                <a class="twitt_button" onclick="twitterPopup()"></a>
+                <script type="text/javascript">
+                    function twitterPopup()
+                    {
+                        var url = "http://twitter.com/share?text=<?=urlencode($item['name'] . ' ' . $item['dress_comment'])?>&url=<?=urlencode(current_url())?>";
+                        var mywindow = window.open (url,"share","menubar=0,resizable=1,width=550,height=450");
+                        mywindow.moveTo(0, 0);
+                    }
+                </script>
             </span>
             <span class="photo_details_buttons">
                <img src="/images/facebook.png" alt="" onclick="ShareClicked()">
@@ -93,6 +99,7 @@
         var requestObj = {
             method: 'feed',
             link: '<?=current_url()?>',
+            picture: "<?=base_url('/files/users/dressup/'.$item['id'].'.jpg')?>",
             name: "Perfect-Look",
             caption: "Perfect-Look",
             description: '<?=$item['name'] . ' ' . $item['dress_comment']?>',

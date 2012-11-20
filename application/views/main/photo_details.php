@@ -27,7 +27,15 @@
         <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
 
         <span class="photo_details_buttons">
-            <a class="twitt_button" href="http://twitter.com/share?text=<?=urlencode($photo['caption'])?>&url=<?=urlencode(current_url())?>" target="_blank"></a>
+            <a class="twitt_button" onclick="twitterPopup()"></a>
+            <script type="text/javascript">
+                function twitterPopup()
+                {
+                    var url = "http://twitter.com/share?text=<?=urlencode("@perfectlookorg ".$photo['caption'])?>&url=<?=urlencode(current_url())?>";
+                    var mywindow = window.open (url,"share","menubar=0,resizable=1,width=550,height=450");
+                    mywindow.moveTo(0, 0);
+                }
+            </script>
         </span>
 
         <span class="photo_details_buttons">
@@ -102,6 +110,7 @@
             var requestObj = {
                 method: 'feed',
                 link: '<?=current_url()?>',
+                picture: "<?=base_url('/files/users/uploads/'.$photo['uid'].'/'.$photo['id'] . $photo['rand_num'].'.'.$photo['image_type'])?>",
                 name: "Perfect-Look",
                 caption: "Perfect-Look",
                 description: '<?=$photo['caption']?>',
