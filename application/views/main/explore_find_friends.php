@@ -198,6 +198,6 @@
 
 <script>
     $(function () {
-        $("#tabs").tabs({ selected: <?= ($this->input->get('search_username')) ? 0 : 1; ?> });
+        $("#tabs").tabs({ selected: 0 });
     })
 </script>
