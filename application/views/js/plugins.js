@@ -74,49 +74,61 @@ $(function(){
 });
 
 
+
+
 function likeInit()
 {
     $('.likes, .like_button').unbind('click').click(function(){
-        var $this = $(this)
-        var id = $this.data('id')
-        var mode = $this.data('mode')
-        var type = $this.data('type');
-        if (type == undefined) {
-            type = 'add';
-        }
-        if(id){
-
-            $.post('/'+mode+'/ajax',{
-                'func': 'like_'+type,
-                'id': id
-            },function(data){
-
-
-
-                var obj = $(data);
-
-                if (obj.find('.signin_page').length) {
-                    location.href = '/signin';
-                }
-
-                data = $.parseJSON(data);
-
-                if(data != null && data.err != undefined){
-                    alert(data.err)
-                }else{
-                    var old = parseInt($this.text())
-                    if (type == 'add') {
-                        $this.data('type', 'remove');
-                        $this.removeClass('grey');
-                        $this.html(old+1)
-                    } else {
-                        $this.data('type', 'add');
-                        $this.addClass('grey');
-                        $this.html(old-1)
-                    }
-                }
-            });
-        }
+        likeClickProcess(this);
     });
+}
+
+function likeClickProcess(el)
+{
+    var $this = $(el)
+    $this.unbind('click');
+    var id = $this.data('id')
+    var mode = $this.data('mode')
+    var type = $this.data('type');
+    if (type == undefined) {
+        type = 'add';
+    }
+    if(id){
+
+        $.post('/'+mode+'/ajax',{
+            'func': 'like_'+type,
+            'id': id
+        },function(data){
+
+
+
+            var obj = $(data);
+
+            if (obj.find('.signin_page').length) {
+                location.href = '/signin';
+            }
+
+            data = $.parseJSON(data);
+
+            if(data != null && data.err != undefined){
+                alert(data.err)
+            }else{
+                var old = parseInt($this.text())
+                if (type == 'add') {
+                    $this.data('type', 'remove');
+                    $this.removeClass('grey');
+                    $this.html(old+1)
+                } else {
+                    $this.data('type', 'add');
+                    $this.addClass('grey');
+                    $this.html(old-1)
+                }
+            }
+
+            $this.click(function(){
+                likeClickProcess(this);
+            });
+        });
+    }
 }
 
