@@ -145,7 +145,7 @@ class Dressup_model extends CI_Model {
             $dressup = $this->dressup_details($id);
             $emailData = array(
                 'user' => $this->user,
-                'photo' => $dressup,
+                'dressup' => $dressup,
                 'comment' => $comment
             );
             $this->home_model->send_notification($dressup['uid'], 'notif_received_comment_dressup', ' You have received a comment from '.$this->user['username'].' at Perfect-Look.org', 'received_comment', $emailData);
@@ -298,7 +298,7 @@ class Dressup_model extends CI_Model {
             $dressup = $this->dressup_details($id);
             $emailData = array(
                 'user' => $this->user,
-                'photo' => $dressup,
+                'dressup' => $dressup,
             );
             $this->home_model->send_notification($dressup['uid'], 'notif_received_heart_dressup', ' You have received a comment from '.$this->user['username'].' at Perfect-Look.org', 'received_heart', $emailData);
 
