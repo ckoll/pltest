@@ -195,6 +195,13 @@ class Upload_model extends CI_Model
                 $this->buttons->add_money($photo['uid'], 1);
                 $this->buttons->write_history($photo['uid'], array('action' => 'photo_like', 'jewels' => $user_photo['jewels'], 'now_jewels' => $user_photo['jewels'], 'buttons' => $user_photo['buttons'], 'now_buttons' => ($user_photo['buttons'] + 1), 'description' => 'Liked your photo (' . $this->user['username'] . '): <a href="/' . $photo['username'] . '/photo/' . $photo['id'] . $photo['rand_num'] . '" target="_blank">photo</a>'));
             }
+
+            $emailData = array(
+                'user' => $this->user,
+                'photo' => $photo,
+            );
+            $this->home_model->send_notification($photo['uid'], 'notif_received_heart', ' You have received a heart from '.$this->user['username'].' at Perfect-Look.org', 'received_heart', $emailData);
+
             return;
         } else {
             return array('err' => 'You have already voted');
@@ -405,6 +412,15 @@ class Upload_model extends CI_Model
                 'now_buttons' => ($user['buttons'] + $addButtons),
                 'description' => 'Commented your photo (' . $this->user['username'] . '): <a href="/' . $photo['username'] . '/photo/' . $photo['id'] . $photo['rand_num'] . '" target="_blank">photo</a>');
             $this->buttons->add_money($photo['uid'], $addButtons, 'buttons', $history);
+
+
+            $emailData = array(
+                'user' => $this->user,
+                'photo' => $photo,
+                'comment' => $comment
+            );
+            $this->home_model->send_notification($photo['uid'], 'notif_received_comment', ' You have received a comment from '.$this->user['username'].' at Perfect-Look.org', 'received_comment', $emailData);
+
         }
     }
 

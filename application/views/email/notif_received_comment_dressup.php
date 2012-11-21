@@ -9,9 +9,22 @@
                 </tr>
                 <tr>
                     <td bgcolor="#FFFFFF" style="padding:5px">
-                        <h2 style="color:#FF66CC;">New friends request  at Perfect-Look.org</h2>
+
+                        <h2 style="color:#FF66CC;">You have received a comment on your dressup.</h2>
                         <table width="80%" cellspacing="5" cellpadding="0" border="0" align="center" style="font-size:12px; font-family:Arial">
                             <tbody>
+                            <tr>
+                                <td>
+                                    <a href="<?= base_url() ?><?=$dressup['username']?>/dressup/<?=$dressup['id']?>">
+                                        <img src="<?=getSquareDressup($dressup)?>" alt="" width="60">
+                                    </a>
+                                </td>
+                                <td>
+                                    <?=(int)$dressup['like']?> hearts
+                                    <br>
+                                    <?=(int)$dressup['comments']?> comments
+                                </td>
+                            </tr>
                             <tr>
                                 <td width="60">
                                     <a href="<?= base_url() ?><?=$user['username']?>">
@@ -21,14 +34,14 @@
                                 <td>
                                     <p>
                                         <span style="font-weight: bold">
-                                            <a style="color:#d08ab1" href="<?= base_url() ?><?=$user['username']?>"><?=$user['username']?></a> has added you a a friend on Perfect-look.org!
+                                            <a style="color:#d08ab1" href="<?= base_url() ?><?=$user['username']?>"><?=$user['username']?></a> said: "<?=$comment?>"
                                         </span>
                                     </p>
                                     <p>
                                         Please
                                         <a style="color:#d08ab1" href="<?= base_url() ?>signin">login</a>
-                                        to your account to Manage your
-                                        <a style="color:#d08ab1" href="<?= base_url() ?>myfriends">Friend List</a>
+                                        to your account to <a style="color:#d08ab1" href="<?= base_url() ?><?=$dressup['username']?>/dressup/<?=$dressup['id']?>">reply</a>.
+
                                     </p>
                                 </td>
                             </tr>
@@ -40,7 +53,6 @@
                                 <img width="200" border="0" height="60" src="<?= base_url() ?>images/Back-to-Page.jpg">
                             </a>
                         </p>
-
                     </td>
                 </tr>
                 <tr>

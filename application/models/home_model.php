@@ -193,7 +193,7 @@ class Home_model extends CI_Model {
     public function send_notification($uid, $template, $subject, $notif_type, $data = NULL) {
         $user = $this->db->query('SELECT * FROM users LEFT JOIN user_notifications ON users.id=user_notifications.uid WHERE id="' . $uid . '"')->row_array();
         if (!empty($user['email']) && $user['notif'] == 1 && $user[$notif_type] == 1) {
-            $message_text = $this->load->view('email/' . $template, array('data' => $data), true);
+            $message_text = $this->load->view('email/' . $template, $data, true);
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
             $headers .= 'From: Perfect-Look.Org <notifications@perfect-look.org>' . "\r\n";

@@ -15,9 +15,17 @@
                         <p align="center">&nbsp;</p>
                         <p align="center">
                             <a href="http://perfect-look.org/">
-                                <img width="200" border="0" height="60" src="images/Back-to-Page.jpg">
+                                <img width="200" border="0" height="60" src="<?= base_url() ?>images/Back-to-Page.jpg">
                             </a>
                         </p>
+
+                        <p align="center">&nbsp;</p>
+                        <p align="center">
+                            <a href="http://perfect-look.org/">
+                                <img width="200" border="0" height="60" src="<?= base_url() ?>images/Back-to-Page.jpg">
+                            </a>
+                        </p>
+
                     </td>
                 </tr>
                 <tr>

@@ -329,4 +329,13 @@ class Home extends CI_Controller {
         }
     }
 
+    public function email()
+    {
+        $emailData = array(
+            'user' => $this->user,
+            'message' => '111111',
+        );
+        $this->load->view('email/notif_received_wall_message', $emailData);
+    }
+
 }

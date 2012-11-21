@@ -149,6 +149,9 @@ $user['y1'] = (empty($user['y1'])) ? 0 : $user['y1'];
     <div class="modal">
         <input type="checkbox" name="friend_request" <?= (!empty($user['friend_request'])) ? "checked='checked'" : ""; ?>> When someone request to be your friend<br>
         <input type="checkbox" name="received_gift" <?= (!empty($user['received_gift'])) ? "checked='checked'" : ""; ?>> Received gifts<br>
+        <input type="checkbox" name="received_comment" <?= (!empty($user['received_comment'])) ? "checked='checked'" : ""; ?>> Received comments<br>
+        <input type="checkbox" name="received_heart" <?= (!empty($user['received_heart'])) ? "checked='checked'" : ""; ?>> Received hearts<br>
+        <input type="checkbox" name="received_wall_message" <?= (!empty($user['received_wall_message'])) ? "checked='checked'" : ""; ?>> Received wall messages<br>
         <input type="checkbox" name="item_sold" <?= (!empty($user['item_sold'])) ? "checked='checked'" : ""; ?>> Shop item/auction item has sold/or not been sold<br>
         <input type="checkbox" name="_7days" <?= (!empty($user['_7days'])) ? "checked='checked'" : ""; ?>> When you haven't logged in for 7 days.<br>
     </div>
@@ -182,8 +185,8 @@ $user['y1'] = (empty($user['y1'])) ? 0 : $user['y1'];
         }
         
         function updateLAvatar(){
-            var scaleX = 200 / ( <?= ($user['x2'] - $user['x1']) ?> || 1)
-            var scaleY = 200 / ( <?= ($user['y2'] - $user['y1']) ?> || 1)
+            var scaleX = 200 / ( <?= ($user['x2'] - $user['x1']) ?> || 1 )
+            var scaleY = 200 / ( <?= ($user['y2'] - $user['y1']) ?> || 1 )
             $('img.avatar').attr("src", $('img.avatar').attr("src")).load(function() {
                 avatarWidth = this.width
                 avatarHeight = this.height

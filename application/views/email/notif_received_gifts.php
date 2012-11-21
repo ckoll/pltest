@@ -9,7 +9,38 @@
                 </tr>
                 <tr>
                     <td bgcolor="#FFFFFF" style="padding:5px">
-                        User "<?=$data['username']?>" has sent you a gift at Perfect-Look.org.  Click the link below to accept or reject the gift and view all your gifts.
+
+                        <h2 style="color:#FF66CC;"><?=$user['username']?> has sent you a gift Perfect-look.org</h2>
+                        <table width="80%" cellspacing="5" cellpadding="0" border="0" align="center" style="font-size:12px; font-family:Arial">
+                            <tbody>
+                            <tr>
+                                <td width="60">
+                                    <a href="<?= base_url() ?><?=$user['username']?>">
+                                        <img width="60" height="60" style="border:1px solid #ddd; padding:2px; margin:5px" src="<? get_user_avatarlink($user['id']) ?>">
+                                    </a>
+                                </td>
+                                <td>
+                                    <p>
+                                        <span style="font-weight: bold">
+                                            <a style="color:#d08ab1" href="<?= base_url() ?><?=$user['username']?>"><?=$user['username']?></a> has sent you a gift Perfect-look.org!
+                                        </span>
+                                    </p>
+                                    <p>
+                                        Please
+                                        <a style="color:#d08ab1" href="<?= base_url() ?>signin">login</a>
+                                        to your account to accept the <a style="color:#d08ab1" href="<?= base_url() ?>my_gifts">gift</a>.
+
+                                    </p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p align="center">&nbsp;</p>
+                        <p align="center">
+                            <a href="http://perfect-look.org/">
+                                <img width="200" border="0" height="60" src="<?= base_url() ?>images/Back-to-Page.jpg">
+                            </a>
+                        </p>
                     </td>
                 </tr>
                 <tr>

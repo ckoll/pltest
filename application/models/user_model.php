@@ -177,7 +177,7 @@ class User_model extends CI_Model {
 
     public function email_notification_save() {
         $notif = array();
-        $fields = array('friend_request', 'received_gift', 'item_sold', '_7days');
+        $fields = array('friend_request', 'received_gift', 'received_comment','received_heart','received_wall_message', 'item_sold', '_7days');
         $new_data = $this->input->post('notif');
         foreach ($fields as $val) {
             $notif[$val] = ( $new_data[$val] == 1) ? 1 : 0;
@@ -289,13 +289,23 @@ class User_model extends CI_Model {
     }
 
     public function add_wall_message($to_uid) {
+
+        $text = strip_tags($this->input->post('wall_message'));
+
         $data_ins = array(
             'uid' => $to_uid,
-            'text' => strip_tags($this->input->post('wall_message')),
+            'text' => $text,
             'date' => date('Y-m-d H:i:s'),
             'from' => $this->user['id']
         );
         $this->db->insert('user_wall', $data_ins);
+
+        $emailData = array(
+            'user' => $this->user,
+            'text' => $text,
+        );
+        $this->home_model->send_notification($to_uid, 'notif_received_wall_message', ' You have wall message from '.$this->user['username'].' at Perfect-Look.org', 'received_wall_message', $emailData);
+
     }
 
     public function get_favorite_brands() {

@@ -58,7 +58,7 @@ class Friends_model extends CI_Model {
         if (empty($all)) {
             //Send notification
             $this->load->model('home_model');
-            $this->home_model->send_notification($id, 'notif_friend_request', 'New friends request from ' . $this->user['username'] . ' at Perfect-Look.org', 'friend_request', array('username' => $this->user['username']));
+            $this->home_model->send_notification($id, 'notif_friend_request', 'New friends request from ' . $this->user['username'] . ' at Perfect-Look.org', 'friend_request', array('user' => $this->user));
         }
     }
 

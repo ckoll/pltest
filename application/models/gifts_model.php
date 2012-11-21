@@ -56,7 +56,7 @@ class Gifts_model extends CI_Model {
                 );
 
                 //Send notification
-                $this->home_model->send_notification($to_user, 'notif_received_gifts', ' You have received a gift from '.$this->user['username'].' at Perfect-Look.org', 'received_gift', array('username' => $this->user['username']));
+                $this->home_model->send_notification($to_user, 'notif_received_gifts', ' You have received a gift from '.$this->user['username'].' at Perfect-Look.org', 'received_gift', array('user' => $this->user));
             }
 
             $this->db->insert_batch('user_gifts', $data);

@@ -9,7 +9,8 @@
                 </tr>
                 <tr>
                     <td bgcolor="#FFFFFF" style="padding:5px">
-                        <h2 style="color:#FF66CC;">New friends request  at Perfect-Look.org</h2>
+
+                        <h2 style="color:#FF66CC;">You have received a message on your wall.</h2>
                         <table width="80%" cellspacing="5" cellpadding="0" border="0" align="center" style="font-size:12px; font-family:Arial">
                             <tbody>
                             <tr>
@@ -21,14 +22,14 @@
                                 <td>
                                     <p>
                                         <span style="font-weight: bold">
-                                            <a style="color:#d08ab1" href="<?= base_url() ?><?=$user['username']?>"><?=$user['username']?></a> has added you a a friend on Perfect-look.org!
+                                            <a style="color:#d08ab1" href="<?= base_url() ?><?=$user['username']?>"><?=$user['username']?></a> said: "<?=$message?>"
                                         </span>
                                     </p>
                                     <p>
                                         Please
                                         <a style="color:#d08ab1" href="<?= base_url() ?>signin">login</a>
-                                        to your account to Manage your
-                                        <a style="color:#d08ab1" href="<?= base_url() ?>myfriends">Friend List</a>
+                                        to your account to <a style="color:#d08ab1" href="<?= base_url() ?>/wall">view the full message and reply to this message</a>.
+
                                     </p>
                                 </td>
                             </tr>
@@ -40,7 +41,6 @@
                                 <img width="200" border="0" height="60" src="<?= base_url() ?>images/Back-to-Page.jpg">
                             </a>
                         </p>
-
                     </td>
                 </tr>
                 <tr>

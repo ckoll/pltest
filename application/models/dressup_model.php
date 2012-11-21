@@ -141,6 +141,15 @@ class Dressup_model extends CI_Model {
             );
             $this->db->insert('dressup_comments', $comment_data);
             $this->db->query('UPDATE user_dressups SET last_comment = "' . date('Y-m-d H:i:s') . '", comments=comments+1 WHERE id = ' . $id);
+
+            $dressup = $this->dressup_details($id);
+            $emailData = array(
+                'user' => $this->user,
+                'photo' => $dressup,
+                'comment' => $comment
+            );
+            $this->home_model->send_notification($dressup['uid'], 'notif_received_comment_dressup', ' You have received a comment from '.$this->user['username'].' at Perfect-Look.org', 'received_comment', $emailData);
+
         }
     }
 
@@ -284,6 +293,15 @@ class Dressup_model extends CI_Model {
         if (!in_array($this->user['id'] . '_' . $this->user['username'], $liked_users)) {
             $liked_users[] = $this->user['id'] . '_' . $this->user['username'];
             $this->db->query('UPDATE user_dressups SET `like`=`like`+1, like_users="' . mysql_real_escape_string(implode(',', $liked_users)) . '", last_like="' . date('Y-m-d H:i:s') . '" WHERE id="' . $id . '"');
+
+
+            $dressup = $this->dressup_details($id);
+            $emailData = array(
+                'user' => $this->user,
+                'photo' => $dressup,
+            );
+            $this->home_model->send_notification($dressup['uid'], 'notif_received_heart_dressup', ' You have received a comment from '.$this->user['username'].' at Perfect-Look.org', 'received_heart', $emailData);
+
             return ;
         } else {
             return array('err' => 'You have already voted');
