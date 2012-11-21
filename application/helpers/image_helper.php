@@ -17,6 +17,20 @@ function getSquareUpload($upload, $side=250) {
     return _getSquareUploadUrl($upload);
 }
 
+function getSquareUploadSize($photo)
+{
+
+    $str = "width='250px' height='250px'";
+
+    if ($photo['image_type'] == 'gif') {
+        $imageSize = getimagesize(_getSquareUploadPath($photo));
+        $heigh = round((250/$imageSize[0])*$imageSize[1]);
+        $str = "width='".$imageSize[0]."px' height='".$heigh."px'";
+    }
+
+    return $str;
+}
+
 function _getUploadPath($photo) {
     return realpath(APPPATH) . _getRelativeUploadsPath($photo);
 }
@@ -52,6 +66,14 @@ function getSquareDressup($dressup, $side=250) {
     }
 
     return _getSquareDressupUrl($dressup);
+}
+
+function getSquareDressupSize($photo)
+{
+
+    $str = "width='250px' height='250px'";
+
+    return $str;
 }
 
 function _getDressupPath($photo) {

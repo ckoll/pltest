@@ -1538,4 +1538,22 @@ ul.brands3{
 .photo_cont {
     width: 600px;
     margin: 0 auto;
+    overflow: hidden;
+}
+
+
+.hearts {
+    float: left;
+    background: url("/images/like.png") no-repeat scroll 5px center #DDDDDD;
+    width: 30px;
+    margin: 3px auto;
+    padding: 0 2px 0 20px;
+    text-align: center;
+    width: 36px;
+    cursor: pointer;
+    margin-top: 0;
+}
+
+.hearts.grey {
+    background-image: url("/images/unlike.png");
 }

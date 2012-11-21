@@ -16,8 +16,8 @@
             </a>
             <br>
             <br>
-            <span class="likes dressup_details photo_details_buttons" data-id="<?= $item['id'] ?>"
-                  data-mode="dressup"><?= $item['like'] ?></span>
+            <span class="hearts <?=!$item['liked']?'grey':''?> likes dressup_details photo_details_buttons" data-id="<?= $item['id'] ?>" data-mode="dressup" data-type="<?=$item['liked']?'remove':'add'?>"><?=$item['like']?></span>
+
             <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
             <span class="photo_details_buttons">
                 <a class="twitt_button" onclick="twitterPopup()"></a>

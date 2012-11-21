@@ -16,7 +16,7 @@
         <div class="image">
             <a href="/<?=$photo['username']?>/photo/<?=$photo['id'] . $photo['rand_num']?>">
                 <img src="<?=getSquareUpload($photo)?>"
-                     alt="">
+                     alt="" <?=getSquareUploadSize($photo)?>>
             </a>
         </div>
         <div class="descr"><?=$photo['caption']?></div>
@@ -47,7 +47,7 @@
         <div class="clear"></div>
         <div class="image">
             <a href="/<?=$dressup['username']?>/dressup/<?=$dressup['id']?>">
-                <img src="<?=getSquareDressup($dressup)?>" alt="">
+                <img src="<?=getSquareDressup($dressup)?>" alt="" <?=getSquareUploadSize($photo)?>>
             </a>
         </div>
         <div class="descr"><?=$dressup['dress_comment']?></div>

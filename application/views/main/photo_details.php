@@ -22,8 +22,9 @@
                      src="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>.<?=$photo['image_type']?>">
             </center>
         </a><br>
-        <span class="likes dressup_details photo_details_buttons"
-              data-id="<?= $photo['id'] . $photo['rand_num'] ?>" data-mode="upload"><?= $photo['like'] ?></span>
+
+            <div class="hearts <?=!$photo['liked']?'grey':''?> likes" data-id="<?= $photo['id'] . $photo['rand_num'] ?>" data-mode="upload"  data-type="<?=$photo['liked']?'remove':'add'?>"><?=$photo['like']?></div>
+
         <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
 
         <span class="photo_details_buttons">

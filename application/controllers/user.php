@@ -317,7 +317,10 @@ class User extends User_controller
             $this->upload_model->remove_comment($this->input->get('rem'));
             redirect($_SERVER['HTTP_REFERER']);
         }
-        $this->data['photo'] = $this->upload_model->photo_details($id);
+        $photo = $this->upload_model->photo_details($id);
+        $photo['liked'] = $this->upload_model->isLiked($photo);
+        $this->data['photo'] = $photo;
+
         $this->data['comments'] = $this->upload_model->get_photo_comments(5, $this->input->get('page'), substr($id, 0, -5));
         $this->data['pages'] = $this->upload_model->count_pages(5);
         $this->tpl->ltpl = array('main' => 'photo_details', 'lmenu' => array('photo_details'));
