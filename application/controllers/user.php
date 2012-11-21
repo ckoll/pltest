@@ -248,7 +248,9 @@ class User extends User_controller
 
         $this->data['comments'] = $this->dressup_model->get_dressup_comments(5, $this->input->get('page'), $id);
         $this->data['pages'] = $this->dressup_model->count_pages(5);
-        $this->data['item'] = $this->dressup_model->dressup_details($id);
+        $item = $this->dressup_model->dressup_details($id);
+        $item['liked'] = $this->dressup_model->isLiked($item);
+        $this->data['item'] = $item;
         $this->data['dress_id'] = $id;
         if (empty($this->data['item'])) {
             show_404();
