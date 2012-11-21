@@ -15,7 +15,7 @@
                             <tr>
                                 <td width="60">
                                     <a href="<?= base_url() ?><?=$user['username']?>">
-                                        <img width="60" height="60" style="border:1px solid #ddd; padding:2px; margin:5px" src="<? get_user_avatarlink($user['id']) ?>">
+                                        <img width="60" height="60" style="border:1px solid #ddd; padding:2px; margin:5px" src="<?= base_url() ?><? get_user_avatarlink($user['id']) ?>">
                                     </a>
                                 </td>
                                 <td>

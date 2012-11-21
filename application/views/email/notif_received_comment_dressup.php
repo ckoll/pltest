@@ -16,7 +16,7 @@
                             <tr>
                                 <td>
                                     <a href="<?= base_url() ?><?=$dressup['username']?>/dressup/<?=$dressup['id']?>">
-                                        <img src="<?=getSquareDressup($dressup)?>" alt="" width="60">
+                                        <img src="<?= base_url() ?><?=getSquareDressup($dressup)?>" alt="" width="60">
                                     </a>
                                 </td>
                                 <td>
@@ -28,7 +28,7 @@
                             <tr>
                                 <td width="60">
                                     <a href="<?= base_url() ?><?=$user['username']?>">
-                                        <img width="60" height="60" style="border:1px solid #ddd; padding:2px; margin:5px" src="<? get_user_avatarlink($user['id']) ?>">
+                                        <img width="60" height="60" style="border:1px solid #ddd; padding:2px; margin:5px" src="<?= base_url() ?><? get_user_avatarlink($user['id']) ?>">
                                     </a>
                                 </td>
                                 <td>
