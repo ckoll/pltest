@@ -47,6 +47,17 @@
                 <input type="submit" name="submit" value="Search" />
                 </div>
             <div class="sidetitle">
+                <h1>Most Recently Online</h1>
+            </div>
+            <div class="part">
+                <?php foreach($recently_online_users as $user): ?>
+                <a href="/<?=$user['username']?>"><img src="<?=$user['avatar']?>" width="60" height="60" /></a> <a style="font-size: 16px" href="/<?=$user['username']?>"><?=$user['username']?></a>
+                <br>
+                <?php endforeach; ?>
+                <br>
+                <a href="/find_friends?username=&search_username=Search">Show All</a>
+            </div>
+            <div class="sidetitle">
                 <h1>Top Tags</h1>
             </div>
             <div class="part">
@@ -70,7 +81,8 @@
                 <h1>Featured Users</h1>
             </div>
             <div class="part">
-                <a href="/diirectioner"><img src="images/user01.jpg" width="60" height="60" /></a> <a href="/taylorswift"><img src="images/user02.jpg" width="60" height="60" /></a> <a href="/_ibiebsswag"><img src="images/user03.jpg" width="60" height="60" /></a> <a href="/bdaysuits"><img src="images/user04.jpg" width="60" height="60" /></a></a> <a href="/perfectlookadmin"><img src="images/user05.jpg" width="60" height="60" /></a>
+                <a href="/diirectioner"><img src="images/user01.jpg" width="60" height="60" /></a>
+                <a href="/taylorswift"><img src="images/user02.jpg" width="60" height="60" /></a> <a href="/_ibiebsswag"><img src="images/user03.jpg" width="60" height="60" /></a> <a href="/bdaysuits"><img src="images/user04.jpg" width="60" height="60" /></a></a> <a href="/perfectlookadmin"><img src="images/user05.jpg" width="60" height="60" /></a>
             </div>
 
             <div class="sidetitle">

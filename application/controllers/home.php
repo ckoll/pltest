@@ -20,6 +20,7 @@ class Home extends CI_Controller {
     {
         $this->load->model('upload_model');
         $this->load->model('dressup_model');
+        $this->load->model('user_model');
 
         $page = isset($_GET['page'])?(int)$_GET['page']:1;
 
@@ -113,6 +114,7 @@ class Home extends CI_Controller {
         $max = $maxPhotos>$maxDressups?$maxPhotos:$maxDressups;
         $this->data['max'] = $max;
 
+        $this->data['recently_online_users'] = $this->user_model->getRecentlyOnline();
 
         $this->tpl->gtpl = 'startpage';
         $this->tpl->ltpl = array('startpage' => 'index');

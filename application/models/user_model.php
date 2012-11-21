@@ -331,6 +331,28 @@ class User_model extends CI_Model {
         $this->db->query('UPDATE users SET last_action="'.  date('Y-m-d H:i:s').'", last_action_ip="'.$this->input->ip_address().'" WHERE id="' . $id . '"');
     }
 
+    public function getRecentlyOnline($number = 2)
+    {
+        $sql = "SELECT * FROM users ORDER BY last_action DESC LIMIT 0,100";
+
+        $users = $this->db->query($sql)->result_array();
+
+        $resentUsers = array();
+
+        foreach($users as $i=>$user) {
+            if (count($resentUsers) >= $number) {
+                break;
+            }
+            $avatar = get_user_avatarlink($user['id'],  'avatars', true);
+            if ($avatar != '/files/users/avatars100/default.png') {
+                $users[$i]['avatar'] = $avatar;
+                $resentUsers[] = $users[$i];
+            }
+        }
+
+        return $resentUsers;
+
+    }
 
 }
 
