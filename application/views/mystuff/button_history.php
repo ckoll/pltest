@@ -41,6 +41,11 @@
                                 $line .= "<tr><td>+ " . ($hist['now_buttons'] - $hist['buttons']) . " buttons</td><td>" . $hist['now_buttons'] . "</td><td>" . $hist['description'] . "</td><td>" . $hist['date'] . "</td></tr>";
                             }
                             break;
+                        case 'friend_add':
+                            if ($hist['buttons'] != $hist['now_buttons']) {
+                                $line .= "<tr><td>+ " . ($hist['now_buttons'] - $hist['buttons']) . " buttons</td><td>" . $hist['now_buttons'] . "</td><td>" . $hist['description'] . "</td><td>" . $hist['date'] . "</td></tr>";
+                            }
+                            break;
                     }
                 }
             } elseif ($this->uri->segment(2) == 'diamonds_history' || $this->uri->segment(3) == 'diamonds_history') {

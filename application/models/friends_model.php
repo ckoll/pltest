@@ -70,7 +70,17 @@ class Friends_model extends CI_Model {
     public function confirm_friend($id) {
         $this->db->query('UPDATE user_friends SET status=1 WHERE uid="' . $id . '" AND removed=0 AND friend_id="' . $this->user['id'] . '"');
         $user = $this->user_model->get_user_info('id', $id);
+
+        $this->load->library('buttons');
+
+        $this->buttons->add_money($id, 50);
+        $this->buttons->write_history($id, array('action' => 'friend_add', 'jewels' => $user['jewels'], 'now_jewels' => $user['jewels'], 'buttons' => $user['buttons'], 'now_buttons' => ($user['buttons'] + 50), 'description' => 'Add a friend'));
         $this->user_model->write_history_activity($id, 'friend', $this->user['id']);
+
+
+        $user = $this->user_model->get_user_info('id', $this->user['id']);
+        $this->buttons->add_money($this->user['id'], 50);
+        $this->buttons->write_history($this->user['id'], array('action' => 'friend_add', 'jewels' => $user['jewels'], 'now_jewels' => $user['jewels'], 'buttons' => $user['buttons'], 'now_buttons' => ($user['buttons'] + 50), 'description' => 'Add a friend'));
         $this->user_model->write_history_activity($this->user['id'], 'friend', $id);
         //Send notification
 //        $this->load->model('home_model');
