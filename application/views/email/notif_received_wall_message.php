@@ -22,7 +22,7 @@
                                 <td>
                                     <p>
                                         <span style="font-weight: bold">
-                                            <a style="color:#d08ab1" href="<?= base_url() ?><?=$user['username']?>"><?=$user['username']?></a> said: "<?=$message?>"
+                                            <a style="color:#d08ab1" href="<?= base_url() ?><?=$user['username']?>"><?=$user['username']?></a> said: "<?=$text?>"
                                         </span>
                                     </p>
                                     <p>
