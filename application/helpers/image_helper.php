@@ -25,7 +25,7 @@ function getSquareUploadSize($photo)
     if ($photo['image_type'] == 'gif') {
         $imageSize = getimagesize(_getSquareUploadPath($photo));
         $heigh = round((250/$imageSize[0])*$imageSize[1]);
-        $str = "width='".$imageSize[0]."px' height='".$heigh."px'";
+        $str = "width='250px' height='".$heigh."px'";
     }
 
     return $str;
