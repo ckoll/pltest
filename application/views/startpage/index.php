@@ -47,7 +47,7 @@
         <div class="clear"></div>
         <div class="image">
             <a href="/<?=$dressup['username']?>/dressup/<?=$dressup['id']?>">
-                <img src="<?=getSquareDressup($dressup)?>" alt="" <?=getSquareUploadSize($photo)?>>
+                <img src="<?=getSquareDressup($dressup)?>" alt="" <?=getSquareDressupSize($photo)?>>
             </a>
         </div>
         <div class="descr"><?=$dressup['dress_comment']?></div>
