@@ -277,6 +277,7 @@ class ImageMagick
     private function _convertPath()
     {
         return "/usr/local/bin/convert";
+        //return "convert";
     }
 
 

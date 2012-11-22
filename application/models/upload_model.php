@@ -168,17 +168,51 @@ class Upload_model extends CI_Model
 
     public function photo_details($id)
     {
-        return $this->db->query('SELECT upload_photo.*, users.username FROM upload_photo LEFT JOIN users ON users.id = upload_photo.uid WHERE CONCAT(upload_photo.id,rand_num) = "' . $id . '"')->row_array();
+        $photo = $this->db->query('SELECT upload_photo.*, users.username FROM upload_photo LEFT JOIN users ON users.id = upload_photo.uid WHERE CONCAT(upload_photo.id,rand_num) = "' . $id . '"')->row_array();
+
+        $last3Comments = $this->get_photo_comments(3, 0, $photo['id']);
+        foreach($last3Comments as $j=>$comment) {
+
+            if (in_array($comment['uid'], array(2))) {
+                $rand = rand(0,1);
+                $count = count($last3Comments);
+                if($rand && $count>1) {
+                    unset($last3Comments[$j]);
+                }
+            }
+        }
+
+        $photo['last3Comments'] = $last3Comments;
+
+        return $photo;
+
     }
 
     public function photo_details_by_id($id)
     {
-        return $this->db->query(
+        $photo = $this->db->query(
             'SELECT upload_photo.*, users.username
             FROM upload_photo
             LEFT JOIN users ON users.id = upload_photo.uid
             WHERE upload_photo.id = "' . $id . '"'
         )->row_array();
+
+        $last3Comments = $this->get_photo_comments(3, 0, $photo['id']);
+        foreach($last3Comments as $j=>$comment) {
+
+            if (in_array($comment['uid'], array(2))) {
+                $rand = rand(0,1);
+                $count = count($last3Comments);
+                if($rand && $count>1) {
+                    unset($last3Comments[$j]);
+                }
+            }
+        }
+
+        $photo['last3Comments'] = $last3Comments;
+
+        return $photo;
+
     }
 
     public function like_add($id)

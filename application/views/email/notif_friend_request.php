@@ -9,7 +9,7 @@
                 </tr>
                 <tr>
                     <td bgcolor="#FFFFFF" style="padding:5px">
-                        <h2 style="color:#FF66CC;">New friends request  at Perfect-Look.org</h2>
+                        <h2 style="color:#FF66CC;">New friend request  at Perfect-Look.org</h2>
                         <table width="80%" cellspacing="5" cellpadding="0" border="0" align="center" style="font-size:12px; font-family:Arial">
                             <tbody>
                             <tr>

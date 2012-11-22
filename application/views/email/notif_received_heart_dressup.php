@@ -14,15 +14,31 @@
                         <table width="80%" cellspacing="5" cellpadding="0" border="0" align="center" style="font-size:12px; font-family:Arial">
                             <tbody>
                             <tr>
-                                <td>
-                                    <a href="<?= base_url() ?><?=$dressup['username']?>/dressup/<?=$dressup['id']?>">
-                                        <img src="<?= base_url() ?><?=getSquareDressup($dressup)?>" alt="" width="60">
-                                    </a>
-                                </td>
-                                <td>
-                                    <?=(int)$dressup['like']?> hearts
-                                    <br>
-                                    <?=(int)$dressup['comments']?> comments
+                                <td colspan="2">
+                                    <div style="width: 285px">
+                                        <div style='background: url("<?= base_url() ?>/images/like.png") no-repeat scroll left center transparent; float: left; height: 14px; margin-bottom: 7px; margin-top: 10px; padding-left: 20px; width: 30px;'><?=(int)$dressup['like']?></div>
+                                        <div style='background: url("<?= base_url() ?>/images/comment.png") no-repeat scroll left center transparent;float: left;height: 14px;margin-bottom: 7px;margin-top: 10px;padding-left: 20px;text-decoration: none;width: 30px;'><?=(int)$dressup['comments']?></div>
+                                        <div style="clear: both"></div>
+                                        <div style="margin: 0 auto;width: 256px;">
+                                            <a href="<?= base_url() ?><?=$dressup['username']?>/dressup/<?=$dressup['id']?>">
+                                                <img src="<?= base_url() ?><?=getSquareDressup($dressup)?>">
+                                            </a>
+                                        </div>
+                                        <div style="margin: 5px auto; width: 234px;"><?=$dressup['dress_comment']?></div>
+                                        <?php if (isset($dressup['last3Comments'])) : ?>
+                                        <?php foreach ($dressup['last3Comments'] as $lastcomment): ?>
+                                            <div style="display: block;margin: 0 auto; width: 240px;">
+                                                <a style="display: inline-block; float: left; margin-right: 7px; padding: 2px; width: 30px;"><img style="height: 30px; width: 30px;" src="<?= base_url() ?><? get_user_avatarlink($lastcomment['uid']) ?>"></a>
+                                                <div style="border: 1px dashed #DDDDDD; float: left; margin: 2px; padding: 3px; width: 185px;">
+                                                    <a class="user-name" href="<?= base_url() ?>/<?=$lastcomment['username']?>"><?=$lastcomment['username']?></a>
+                                                    wrote on picture
+                                                    "<?=$lastcomment['comment']?>"
+                                                </div>
+                                            </div>
+                                            <div style="clear: both"></div>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>

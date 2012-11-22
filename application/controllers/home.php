@@ -333,11 +333,14 @@ class Home extends CI_Controller {
 
     public function email()
     {
+        $this->load->model('upload_model');
+        $this->load->model('dressup_model');
         $emailData = array(
             'user' => $this->user,
-            'message' => '111111',
+            'dressup' => $this->dressup_model->dressup_details(288),
+
         );
-        $this->load->view('email/notif_received_wall_message', $emailData);
+        $this->load->view('email/notif_received_heart_dressup', $emailData);
     }
 
 }

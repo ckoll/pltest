@@ -28,7 +28,7 @@
                                     <p>
                                         Please
                                         <a style="color:#d08ab1" href="<?= base_url() ?>signin">login</a>
-                                        to your account to <a style="color:#d08ab1" href="<?= base_url() ?>/wall">view the full message and reply to this message</a>.
+                                        to your account to view the full message and <a style="color:#d08ab1" href="<?= base_url() ?>/wall">reply to the wal</a>.
 
                                     </p>
                                 </td>
