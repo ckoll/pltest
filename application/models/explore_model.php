@@ -207,11 +207,7 @@ class Explore_model extends CI_Model {
                     break;
                 default:
                     //SEND TO EMAIL
-                    $this->load->library('email');
-                    $this->load->config('email');
-                    $config = $this->config->item('smtp_data');
-                    $from = $this->config->item('smtp_from');
-                    $this->email->initialize($config);
+                    $this->load->model('home_model');
 
                     $registered = array();
                     $registered_rez = $this->db->query('SELECT email FROM users WHERE email!=""')->result_array();
@@ -228,11 +224,9 @@ class Explore_model extends CI_Model {
                         } elseif (in_array($val, $registered)) {
                             $all_sended_status[$val] = -3; //already registered
                         } elseif (!in_array($val, array_keys($already_sended)) && $today_sended <= 50) {
-                            $this->email->from($from['from_mail'], $from['from_site']);
-                            $this->email->to($val);
-                            $this->email->subject($subject);
-                            $this->email->message($message);
-                            $this->email->send();
+
+                            $this->home_model->send_to_mail($val, null, $subject, 'invite_friend', $this->user['username'], null, array('message'=>$message, 'user'=>$this->user));
+
                             $ins_data = array(
                                 'uid' => $this->user['id'],
                                 'system' => $type,

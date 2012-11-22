@@ -172,8 +172,12 @@ class Home_model extends CI_Model {
         $this->db->insert('user_notifications', $notif_data);
     }
 
-    public function send_to_mail($email, $key, $subject, $file_content, $from_name = 'admin', $username = null) {
-        $message_text = $this->load->view('email/' . $file_content, array('key' => $key, 'username' => $username), true);
+    public function send_to_mail($email, $key, $subject, $file_content, $from_name = 'admin', $username = null, $data = array()) {
+
+        $data['key'] = $key;
+        $data['username'] = $username;
+
+        $message_text = $this->load->view('email/' . $file_content, $data, true);
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $headers .= 'From: Perfect-Look.Org <' . $from_name . '@perfect-look.org>' . "\r\n";
