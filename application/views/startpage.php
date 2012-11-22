@@ -46,17 +46,7 @@
                 <input name="Search the site" type="text" maxlength="22" />
                 <input type="submit" name="submit" value="Search" />
                 </div>
-            <div class="sidetitle">
-                <h1>Most Recently Online</h1>
-            </div>
-            <div class="part">
-                <?php foreach($recently_online_users as $user): ?>
-                <a href="/<?=$user['username']?>"><img src="<?=$user['avatar']?>" width="60" height="60" /></a> <a style="font-size: 16px" href="/<?=$user['username']?>"><?=$user['username']?></a>
-                <br>
-                <?php endforeach; ?>
-                <br>
-                <a href="/find_friends?username=&search_username=Search">Show All</a>
-            </div>
+
             <div class="sidetitle">
                 <h1>Top Tags</h1>
             </div>
@@ -119,6 +109,16 @@
                         <td><div align="center"><a href="/item/stockings">Stockings</a></div></td>
                     </tr>
                 </table>
+            </div>
+            <div class="sidetitle">
+                <h1>Most Recently Online</h1>
+            </div>
+            <div class="part">
+                <?php foreach($recently_online_users as $user): ?>
+                <a href="/<?=$user['username']?>"><img src="<?=$user['avatar']?>" width="60" height="60" /></a></a>
+                <?php endforeach; ?>
+                <br>
+                <a href="/find_friends?username=&search_username=Search">Show All</a>
             </div>
 
 
