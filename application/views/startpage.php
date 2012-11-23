@@ -58,7 +58,7 @@
             </div>
             <div class="part">
                 <ul>
-                    <li><a href="http://news.perfect-look.org/index.php?subaction=showcomments&amp;id=1353408261&amp;archive=&amp;start_from=&amp;ucat=&amp;">Photo Posting Contest - Win a $20 gift card</a><span style="color: red">*new*</span></li>
+                    <li><a href="http://news.perfect-look.org/index.php?subaction=showcomments&amp;id=1353408261&amp;archive=&amp;start_from=&amp;ucat=&amp;">Photo Posting Contest - Win a $20 gift card</a> <span style="color: red">*new*</span></li>
                     <li><a href="http://news.perfect-look.org/index.php?subaction=showcomments&amp;id=1351398638&amp;archive=&amp;start_from=&amp;ucat=&amp;">Perfect-Look.Org Free Hosting</a></li>
                     <li><a href="http://news.perfect-look.org/index.php?subaction=showcomments&amp;id=1351220972&amp;archive=&amp;start_from=&amp;ucat=&amp;">Looking for feedback sessions helpers</a></li>
                     <li><a href="http://news.perfect-look.org/index.php?subaction=showcomments&amp;id=1351180511&amp;archive=&amp;start_from=&amp;ucat=&amp;">Secret Items for the first 1000 users released</a></li>
