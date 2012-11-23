@@ -170,7 +170,14 @@ class Lmenu {
     public function dressup_using_items() {
         $dressup_id = intval($this->CI->uri->segment(3));
         $dressup_info = $this->CI->db->get_where('user_dressups', array('id' => $dressup_id))->row_array();
-        $items = $this->CI->db->query('SELECT * FROM dressup_items WHERE id IN (' . $dressup_info['used_items'] . ')')->result_array();
+        $itemsIds = $dressup_info['used_items'];
+        $doll = unserialize($dressup_info['doll']);
+        if (isset($doll['hair'])) {
+            $itemsIds .= ','.$doll['hair'];
+        }
+        $items = $this->CI->db->query('SELECT * FROM dressup_items WHERE id IN (' . $itemsIds . ')')->result_array();
+
+
         return array('items' => $items);
     }
 
