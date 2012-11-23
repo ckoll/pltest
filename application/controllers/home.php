@@ -29,20 +29,20 @@ class Home extends CI_Controller {
         $latestPhotos = $this->upload_model->latest_photos(4, $page-1);
 
         $photosIds = isset($_SESSION['photo_ids'])?(array)$_SESSION['photo_ids']:array();
-        $photosIds = array();
+        //$photosIds = array();
 
         $topPhotos = array();
         foreach($lastHeartedPhotos as $photo) {
             if (!in_array($photo['id'], $photosIds)) {
                 $topPhotos[$photo['id']] = $photo;
-                $photosIds = $photo['id'];
+                $photosIds[] = $photo['id'];
             }
         }
         foreach($lastCommentedPhotos as $photo) {
             if (!isset($topPhotos[$photo['id']])) {
                 if (!in_array($photo['id'], $photosIds)) {
                     $topPhotos[$photo['id']] = $photo;
-                    $photosIds = $photo['id'];
+                    $photosIds[] = $photo['id'];
                 }
             }
         }
@@ -50,7 +50,7 @@ class Home extends CI_Controller {
             if (!isset($topPhotos[$photo['id']])) {
                 if (!in_array($photo['id'], $photosIds)) {
                     $topPhotos[$photo['id']] = $photo;
-                    $photosIds = $photo['id'];
+                    $photosIds[] = $photo['id'];
                 }
             }
         }
@@ -87,12 +87,12 @@ class Home extends CI_Controller {
         $topDressup = array();
 
         $dressupIds = isset($_SESSION['dressup_ids'])?(array)$_SESSION['dressup_ids']:array();
-        $dressupIds = array();
+        //$dressupIds = array();
 
         foreach($lastHeartedDressup as $photo) {
             if (!in_array($photo['id'], $dressupIds)) {
                 $topDressup[$photo['id']] = $photo;
-                $dressupIds = $photo['id'];
+                $dressupIds[] = $photo['id'];
             }
 
         }
@@ -100,7 +100,7 @@ class Home extends CI_Controller {
             if (!isset($topDressup[$photo['id']])) {
                 if (!in_array($photo['id'], $dressupIds)) {
                     $topDressup[$photo['id']] = $photo;
-                    $dressupIds = $photo['id'];
+                    $dressupIds[] = $photo['id'];
                 }
             }
         }
@@ -108,7 +108,7 @@ class Home extends CI_Controller {
             if (!isset($topDressup[$photo['id']])) {
                 if (!in_array($photo['id'], $dressupIds)) {
                     $topDressup[$photo['id']] = $photo;
-                    $dressupIds = $photo['id'];
+                    $dressupIds[] = $photo['id'];
                 }
             }
         }
