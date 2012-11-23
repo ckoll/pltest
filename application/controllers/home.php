@@ -399,10 +399,11 @@ class Home extends CI_Controller {
         $this->load->model('dressup_model');
         $emailData = array(
             'user' => $this->user,
-            'message' => 'sdfsdfsdfs',
+            'photo' => $this->upload_model->photo_details(3952102),
+            'dressup' => $this->dressup_model->dressup_details(559),
 
         );
-        $this->load->view('email/invite_friend', $emailData);
+        $this->load->view('email/notif_received_heart_dressup', $emailData);
     }
 
 }
