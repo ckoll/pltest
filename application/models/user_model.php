@@ -304,7 +304,7 @@ class User_model extends CI_Model {
             'user' => $this->user,
             'text' => $text,
         );
-        $this->home_model->send_notification($to_uid, 'notif_received_wall_message', ' You have wall message from '.$this->user['username'].' at Perfect-Look.org', 'received_wall_message', $emailData);
+        $this->home_model->send_notification($to_uid, 'notif_received_wall_message', ' You have a new wall message from '.$this->user['username'].' at Perfect-Look.org', 'received_wall_message', $emailData);
 
     }
 
