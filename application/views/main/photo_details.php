@@ -28,7 +28,7 @@
         <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
 
         <span class="photo_details_buttons">
-            <a class="twitt_button" onclick="twitterPopup()"></a>
+            <a class="twitt_button" onclick="twitterPopup()">"twitter" or "tweet"</a>
             <script type="text/javascript">
                 function twitterPopup()
                 {
