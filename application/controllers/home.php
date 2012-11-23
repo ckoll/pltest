@@ -28,11 +28,25 @@ class Home extends CI_Controller {
         $lastHeartedPhotos = $this->upload_model->get_all_last_hearted(5, $page);
         $lastCommentedPhotos = $this->upload_model->get_all_last_commented(5, $page);
         $latestPhotos = $this->upload_model->latest_photos(4, $page-1);
-
         $photosIds = (isset($_SESSION['photo_ids']) && $page != 1 ) ?(array)$_SESSION['photo_ids']:array();
-        //$photosIds = array();
 
         $topPhotos = array();
+
+        foreach($latestPhotos as $photo) {
+            if (!isset($topPhotos[$photo['id']])) {
+                if (!in_array($photo['id'], $photosIds)) {
+                    $topPhotos[$photo['id']] = $photo;
+                    $photosIds[] = $photo['id'];
+                }
+            }
+        }
+
+        //strange req from client about order
+        $keys = array_keys($topPhotos);
+        $oneLastPhoto = $topPhotos[$keys[0]];
+        unset($topPhotos[$keys[0]]);
+        //
+
         foreach($lastHeartedPhotos as $photo) {
             if (!in_array($photo['id'], $photosIds)) {
                 $topPhotos[$photo['id']] = $photo;
@@ -47,19 +61,20 @@ class Home extends CI_Controller {
                 }
             }
         }
-        foreach($latestPhotos as $photo) {
-            if (!isset($topPhotos[$photo['id']])) {
-                if (!in_array($photo['id'], $photosIds)) {
-                    $topPhotos[$photo['id']] = $photo;
-                    $photosIds[] = $photo['id'];
-                }
-            }
-        }
+
 
 
         $_SESSION['photo_ids'] = $photosIds;
 
         shuffle($topPhotos) ;
+
+        //strange req from client about order
+        $place = rand(0,3);
+        $topPhotos[$place] = $oneLastPhoto;
+        //
+
+        //print_r($topPhotos);exit;
+
         $topPhotos = array_values($topPhotos);
 
         foreach($topPhotos as $i=>$photo) {
@@ -90,6 +105,21 @@ class Home extends CI_Controller {
         $dressupIds = (isset($_SESSION['dressup_ids']) && $page != 1)?(array)$_SESSION['dressup_ids']:array();
         //$dressupIds = array();
 
+        foreach($latestDressup as $photo) {
+            if (!isset($topDressup[$photo['id']])) {
+                if (!in_array($photo['id'], $dressupIds)) {
+                    $topDressup[$photo['id']] = $photo;
+                    $dressupIds[] = $photo['id'];
+                }
+            }
+        }
+
+        //strange req from client about order
+        $keys = array_keys($topDressup);
+        $oneLastDressup = $topDressup[$keys[0]];
+        unset($topDressup[$keys[0]]);
+        //
+
         foreach($lastHeartedDressup as $photo) {
             if (!in_array($photo['id'], $dressupIds)) {
                 $topDressup[$photo['id']] = $photo;
@@ -105,18 +135,17 @@ class Home extends CI_Controller {
                 }
             }
         }
-        foreach($latestDressup as $photo) {
-            if (!isset($topDressup[$photo['id']])) {
-                if (!in_array($photo['id'], $dressupIds)) {
-                    $topDressup[$photo['id']] = $photo;
-                    $dressupIds[] = $photo['id'];
-                }
-            }
-        }
+
 
         $_SESSION['dressup_ids'] = $dressupIds;
 
         shuffle($topDressup);
+
+        //strange req from client about order
+        $place = rand(0,3);
+        $topDressup[$place] = $oneLastDressup;
+        //
+
         $topDressup = array_values($topDressup);
 
         foreach($topDressup as $i=>$dressup) {
