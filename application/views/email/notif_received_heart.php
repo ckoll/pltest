@@ -32,7 +32,7 @@
                                             <div style="float: left; margin: 2px; padding: 3px; width: 185px;">
                                                 <a class="user-name"
                                                    href="<?= base_url() ?>/<?=$user['username']?>"><?=$user['username']?></a>
-                                                has hearted your Photo
+                                                has hearted your photo
                                             </div>
                                         </div>
                                         <div style="clear: both"></div>
