@@ -197,7 +197,16 @@
 </div>
 
 <script>
+
+    <?php
+    $index = 0;
+    if(!empty($_GET['gmail']) || !empty($_GET['yahoo']) || !empty($_GET['fb']) || !empty($_GET['tw'])) {
+        $index = 1;
+    }
+
+    ?>
+
     $(function () {
-        $("#tabs").tabs({ selected: 0 });
+        $("#tabs").tabs({ selected: <?=$index?> });
     })
 </script>
