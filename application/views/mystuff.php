@@ -41,7 +41,8 @@
         <div id="menu">
             <ul class="tabs">
                 <li class="hasmore"><a href="#"><span><img src="/images/menu/else.png"></span></a>
-                    <ul class="dropdown">
+                    <ul class="dropdown">	
+						<li><a href="/<?=$this->user['username']?>">My Dashboard</a></li>	
                         <li><a href="/mystuff/recent_photo_comments">New Comments</a></li>
                         <li><a href="/mystuff/recent_photo_likes">New Hearts</a></li>
                         <li><a href="/myfriends">New Friend Requests</a></li>
@@ -66,6 +67,7 @@
                 </li>
                 <li class="hasmore"><a href="#"><span><img src="/images/menu/edit.png"></span></a>
                     <ul class="dropdown">
+	                    <li><a href="/editprofile">Me (<?=$this->user['username']?>)</a></li>
                         <li><a href="/editprofile">Edit Profile</a></li>
                         <li><a href="/find_friends">Find Friends</a></li>
                         <li class="last"><a href="/logout">Logout</a></li>
