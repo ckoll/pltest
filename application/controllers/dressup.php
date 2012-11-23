@@ -17,6 +17,15 @@ class Dressup extends User_controller {
     }
 
     public function index($category = NULL) {
+
+
+        $last_dressup = $this->dressup_model->get_daylook($this->user['id']);
+        header("Location:/dressup/dress/".$last_dressup['id']);
+
+
+
+
+
         $this->load->model('market_model');
 
 //        if ($this->user['id'] == 1) {
