@@ -245,16 +245,17 @@ class User extends User_controller
             $this->dressup_model->remove_comment($this->input->get('rem'));
             redirect($_SERVER['HTTP_REFERER']);
         }
-
+        $item = $this->dressup_model->dressup_details($id);
+        if (empty($this->data['item'])) {
+            show_404('', TRUE ,"Sorry the dressup that you are looking for doesn't exist or has been removed.");
+        }
         $this->data['comments'] = $this->dressup_model->get_dressup_comments(5, $this->input->get('page'), $id);
         $this->data['pages'] = $this->dressup_model->count_pages(5);
-        $item = $this->dressup_model->dressup_details($id);
+
         $item['liked'] = $this->dressup_model->isLiked($item);
         $this->data['item'] = $item;
         $this->data['dress_id'] = $id;
-        if (empty($this->data['item'])) {
-            show_404();
-        }
+
         $this->tpl->ltpl = array('main' => 'dressup_details', 'lmenu' => array('dressup_using_items'));
         $this->tpl->show($this->data);
     }

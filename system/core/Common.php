@@ -325,10 +325,10 @@ if ( ! function_exists('show_error'))
 */
 if ( ! function_exists('show_404'))
 {
-	function show_404($page = '', $log_error = TRUE)
+	function show_404($page = '', $log_error = TRUE, $message = "The page you requested was not found.", $heading = "404 Page Not Found")
 	{
 		$_error =& load_class('Exceptions', 'core');
-		$_error->show_404($page, $log_error);
+		$_error->show_404($page, $log_error, $message, $heading);
 		exit;
 	}
 }

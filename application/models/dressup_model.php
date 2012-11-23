@@ -124,17 +124,19 @@ class Dressup_model extends CI_Model {
 
     public function dressup_details($id) {
         $dressup = $this->db->query('SELECT user_dressups.*,users.username FROM user_dressups LEFT JOIN users ON users.id=user_dressups.uid WHERE user_dressups.id="' . $id . '"')->row_array();
-        $last3Comments = $this->get_dressup_comments(3, 0, $dressup['id']);
-        foreach($last3Comments as $j=>$comment) {
-            if (in_array($comment['uid'], array(2))) {
-                $rand = rand(0,1);
-                $count = count($last3Comments);
-                if($rand && $count>1) {
-                    unset($last3Comments[$j]);
+        if (!empty($dressup)) {
+            $last3Comments = $this->get_dressup_comments(3, 0, $dressup['id']);
+            foreach($last3Comments as $j=>$comment) {
+                if (in_array($comment['uid'], array(2))) {
+                    $rand = rand(0,1);
+                    $count = count($last3Comments);
+                    if($rand && $count>1) {
+                        unset($last3Comments[$j]);
+                    }
                 }
             }
+            $dressup['last3Comments'] = $last3Comments;
         }
-        $dressup['last3Comments'] = $last3Comments;
         return $dressup;
     }
 
