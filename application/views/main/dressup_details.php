@@ -24,9 +24,12 @@
                 <script type="text/javascript">
                     function twitterPopup()
                     {
-                        var url = "http://twitter.com/share?text=<?=urlencode($item['name'] . ' ' . $item['dress_comment'])?>&url=<?=urlencode(current_url())?>";
-                        var mywindow = window.open (url,"share","menubar=0,resizable=1,width=550,height=450");
-                        mywindow.moveTo(0, 0);
+                        var url = "http://twitter.com/share?text=<?=urlencode("@perfectlookorg " .$item['name'] . ' ' . $item['dress_comment'])?>&url=<?=urlencode(current_url())?>";
+                        var w = 550;
+                        var h = 450;
+                        var left = (screen.width/2)-(w/2);
+                        var top = (screen.height/2)-(h/2);
+                        return window.open(url, "share", 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
                     }
                 </script>
             </span>
