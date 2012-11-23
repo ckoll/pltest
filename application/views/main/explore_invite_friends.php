@@ -23,7 +23,8 @@
         <?
         if ($this->input->post('invite')) {
             ?>
-            <b>You are inviting <?= count($this->input->post('invite')) ?> friend(s).</b>
+            <b>You are inviting <?= count($this->input->post('invite')) ?> friend(s):</b>
+            <?=implode('; ', $this->input->post('invite')) ?>
             <?
         } else {
             ?><br>

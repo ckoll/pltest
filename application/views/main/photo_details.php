@@ -28,7 +28,7 @@
         <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
 
         <span class="photo_details_buttons">
-            <a class="twitt_button" onclick="twitterPopup()">"twitter" or "tweet"</a>
+            <a class="twitt_button" onclick="twitterPopup()">twitter</a>
             <script type="text/javascript">
                 function twitterPopup()
                 {
@@ -125,6 +125,14 @@
 
 
         }
+
+        $('.twitt_button').mousedown(function(){
+            $(this).addClass('mousedown');
+        });
+
+        $('.twitt_button').mouseup(function(){
+            $(this).removeClass('mousedown');
+        });
 
 
     </script>
