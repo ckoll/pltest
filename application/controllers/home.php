@@ -24,11 +24,12 @@ class Home extends CI_Controller {
 
         $page = isset($_GET['page'])?(int)$_GET['page']:1;
 
+
         $lastHeartedPhotos = $this->upload_model->get_all_last_hearted(5, $page);
         $lastCommentedPhotos = $this->upload_model->get_all_last_commented(5, $page);
         $latestPhotos = $this->upload_model->latest_photos(4, $page-1);
 
-        $photosIds = isset($_SESSION['photo_ids'])?(array)$_SESSION['photo_ids']:array();
+        $photosIds = (isset($_SESSION['photo_ids']) && $page != 1 ) ?(array)$_SESSION['photo_ids']:array();
         //$photosIds = array();
 
         $topPhotos = array();
@@ -86,7 +87,7 @@ class Home extends CI_Controller {
         $latestDressup = $this->dressup_model->all_latest_dressups(4, $page-1);
         $topDressup = array();
 
-        $dressupIds = isset($_SESSION['dressup_ids'])?(array)$_SESSION['dressup_ids']:array();
+        $dressupIds = (isset($_SESSION['dressup_ids']) && $page != 1)?(array)$_SESSION['dressup_ids']:array();
         //$dressupIds = array();
 
         foreach($lastHeartedDressup as $photo) {
