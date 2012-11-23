@@ -28,20 +28,34 @@ class Home extends CI_Controller {
         $lastCommentedPhotos = $this->upload_model->get_all_last_commented(5, $page);
         $latestPhotos = $this->upload_model->latest_photos(4, $page-1);
 
+        $photosIds = isset($_SESSION['photo_ids'])?$_SESSION['photo_ids']:array();
+
         $topPhotos = array();
         foreach($lastHeartedPhotos as $photo) {
-            $topPhotos[$photo['id']] = $photo;
+            if (!in_array($photo['id'], $photosIds)) {
+                $topPhotos[$photo['id']] = $photo;
+                $photosIds = $photo['id'];
+            }
         }
         foreach($lastCommentedPhotos as $photo) {
             if (!isset($topPhotos[$photo['id']])) {
-                $topPhotos[$photo['id']] = $photo;
+                if (!in_array($photo['id'], $photosIds)) {
+                    $topPhotos[$photo['id']] = $photo;
+                    $photosIds = $photo['id'];
+                }
             }
         }
         foreach($latestPhotos as $photo) {
             if (!isset($topPhotos[$photo['id']])) {
-                $topPhotos[$photo['id']] = $photo;
+                if (!in_array($photo['id'], $photosIds)) {
+                    $topPhotos[$photo['id']] = $photo;
+                    $photosIds = $photo['id'];
+                }
             }
         }
+
+
+        $_SESSION['photo_ids'] = $photosIds;
 
         shuffle($topPhotos) ;
         $topPhotos = array_values($topPhotos);
@@ -70,19 +84,35 @@ class Home extends CI_Controller {
         $lastCommentedDressup = $this->dressup_model->get_all_last_commented(5, $page);
         $latestDressup = $this->dressup_model->all_latest_dressups(4, $page-1);
         $topDressup = array();
+
+        $dressupIds = isset($_SESSION['dressup_ids'])?$_SESSION['dressup_ids']:array();
+
         foreach($lastHeartedDressup as $photo) {
-            $topDressup[$photo['id']] = $photo;
+            if (!in_array($photo['id'], $dressupIds)) {
+                $topDressup[$photo['id']] = $photo;
+                $dressupIds = $photo['id'];
+            }
+
         }
         foreach($lastCommentedDressup as $photo) {
             if (!isset($topDressup[$photo['id']])) {
-                $topDressup[$photo['id']] = $photo;
+                if (!in_array($photo['id'], $dressupIds)) {
+                    $topDressup[$photo['id']] = $photo;
+                    $dressupIds = $photo['id'];
+                }
             }
         }
         foreach($latestDressup as $photo) {
             if (!isset($topDressup[$photo['id']])) {
-                $topDressup[$photo['id']] = $photo;
+                if (!in_array($photo['id'], $dressupIds)) {
+                    $topDressup[$photo['id']] = $photo;
+                    $dressupIds = $photo['id'];
+                }
             }
         }
+
+        $_SESSION['dressup_ids'] = $dressupIds;
+
         shuffle($topDressup);
         $topDressup = array_values($topDressup);
 
