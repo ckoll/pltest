@@ -29,6 +29,7 @@ class Home extends CI_Controller {
         $latestPhotos = $this->upload_model->latest_photos(4, $page-1);
 
         $photosIds = isset($_SESSION['photo_ids'])?(array)$_SESSION['photo_ids']:array();
+        $photosIds = array();
 
         $topPhotos = array();
         foreach($lastHeartedPhotos as $photo) {
@@ -86,6 +87,7 @@ class Home extends CI_Controller {
         $topDressup = array();
 
         $dressupIds = isset($_SESSION['dressup_ids'])?(array)$_SESSION['dressup_ids']:array();
+        $dressupIds = array();
 
         foreach($lastHeartedDressup as $photo) {
             if (!in_array($photo['id'], $dressupIds)) {
