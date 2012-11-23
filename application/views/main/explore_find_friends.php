@@ -56,7 +56,7 @@
                 <div class="left">
                     <a href="https://accounts.google.com/o/oauth2/auth?client_id=<?= $this->config->item('gmail_client_id') ?>&redirect_uri=<?= $this->config->item('gmail_redirect_uri') ?>&scope=https://www.google.com/m8/feeds/&response_type=code"
                        class="button contacts_small <? if ($system == 'gmail') echo'checked' ?>" data-system="gmail">Gmail</a>
-                    <!--                    <a href="/find_friends/?hotmail=1" class="button contacts_small <? if ($system == 'hotmail') echo'checked' ?>" data-system="hotmail">Hotmail</a>-->
+                    <!--<a href="/find_friends/?hotmail=1" class="button contacts_small <? if ($system == 'hotmail') echo'checked' ?>" data-system="hotmail">Hotmail</a>-->
                     <a href="/find_friends/?yahoo=1"
                        class="button contacts_small <? if ($system == 'yahoo') echo'checked' ?>" data-system="yahoo">Yahoo!</a>
                     <br clear="all">

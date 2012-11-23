@@ -1057,7 +1057,7 @@ class WindowsLiveLogin
         $url .= ($market ? '?mkt=' . urlencode($market) : '');
         return $url;
     }
- 
+
     /*
      * Processes the POST response from the Delegated Authentication 
      * service after a user has granted consent. The processConsent

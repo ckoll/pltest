@@ -1,10 +1,8 @@
 <windowslivelogin>
-  <appid>000000004C0BD920</appid>
-  <secret>hgQWm6FA65-YGGyHqDXddnk0OTD8ezLV</secret>
+  <appid>000000004C0D93BA</appid>
+  <secret>XuyDZ4QazyoYT5P-XaICaSr2YhbH1WBh</secret>
   <securityalgorithm>wsignin1.0</securityalgorithm>
 
-<!--  <returnurl>http://test3.ukiepro.com/explore/find_friends/?hotmail=1</returnurl>
-  <policyurl>http://test3.ukiepro.com/privaci</policyurl>-->
-  <returnurl>http://test3.ukiepro.com/hotmail/delauth-handler.php</returnurl>
-  <policyurl>http://test3.ukiepro.com/</policyurl>
+  <returnurl>http://dev.perfect-look.org/explore/delauth_handler</returnurl>
+  <policyurl>http://dev.perfect-look.org</policyurl>
 </windowslivelogin>

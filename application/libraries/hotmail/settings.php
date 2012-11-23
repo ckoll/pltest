@@ -8,17 +8,17 @@ $OFFERS = "Contacts.View";
 
 // Application key file: store in an area that cannot be
 // accessed from the Web.
-$KEYFILE = $_SERVER['DOCUMENT_ROOT'].'/hotmail/config.xml';
+$KEYFILE = 'application/libraries/hotmail/config.xml';
 
 // Name of cookie to use to cache the consent token. 
 $COOKIE = 'delauthtoken';
 $COOKIETTL = time() + (10 * 365 * 24 * 60 * 60);
 
 // URL of Delegated Authentication index page.
-$INDEX = '/hotmail/index.php';
+$INDEX = '/find_friends/?hotmail=1';
 
 // Default handler for Delegated Authentication.
-$HANDLER = $_SERVER['DOCUMENT_ROOT'].'/hotmail/delauth-handler.php';
+$HANDLER = 'delauth-handler.php';
 
 //A Proxy Server for PHP CURL to handle Go Daddy server access.  You may not need this or 
 //need to use a different address depending on your ISP

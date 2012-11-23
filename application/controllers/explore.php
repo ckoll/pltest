@@ -121,9 +121,10 @@ class Explore extends User_controller {
             $this->data['finded_users'] = $this->user_model->search_username($this->input->get('username'));
         } elseif (!empty($_GET['hotmail'])) {
             
-//            echo 'Work in progress...';
-//            require APPPATH . '/libraries/hotmail/index.php';
-//            exit;
+            echo 'Work in progress...';
+            //print_r($_REQUEST);exit;
+            require APPPATH . '/libraries/hotmail/index.php';
+            $this->data['mail_contacts'] = get_people_array();
         } elseif (!empty($_GET['gmail'])) {
             $this->data['system'] = 'gmail';
             $this->data['mail_contacts'] = $this->explore_model->gmail_contacts();
@@ -405,6 +406,36 @@ class Explore extends User_controller {
         if (!empty($rez)) {
             echo json_encode($rez);
         }
+    }
+
+    public function delauth_handler()
+    {
+        include APPPATH .'/libraries/hotmail/settings.php';
+
+        include APPPATH .'/libraries/hotmail/windowslivelogin.php';
+
+// Initialize the WindowsLiveLogin module.
+        $wll = WindowsLiveLogin::initFromXml($KEYFILE);
+        $wll->setDebug($DEBUG);
+
+// Extract the 'action' parameter, if any, from the request.
+        $action = @$_REQUEST['action'];
+
+        if ($action == 'delauth') {
+            $consent = $wll->processConsent($_REQUEST);
+
+// If a consent token is found, store it in the cookie that is
+// configured in the settings.php file and then redirect to
+// the main page.
+            if ($consent) {
+                setcookie($COOKIE, $consent->getToken(), $COOKIETTL, '/');
+            }
+            else {
+                setcookie($COOKIE);
+            }
+        }
+
+        header("Location: $INDEX");
     }
 
 } 

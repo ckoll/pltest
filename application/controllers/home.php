@@ -114,7 +114,7 @@ class Home extends CI_Controller {
         $max = $maxPhotos>$maxDressups?$maxPhotos:$maxDressups;
         $this->data['max'] = $max;
 
-        $this->data['recently_online_users'] = $this->user_model->getRecentlyOnline();
+        $this->data['recently_online_users'] = $this->user_model->getRecentlyOnline(6);
 
         $this->tpl->gtpl = 'startpage';
         $this->tpl->ltpl = array('startpage' => 'index');

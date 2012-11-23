@@ -30,19 +30,24 @@
 		// process it and extract the consent token.
 		$token = null;
 		$cookie = @$_COOKIE[$COOKIE];
-                
-		if ($cookie) {
-			$token = $wll->processConsentToken($cookie);
+        //print_r($cookie);exit;
+        if ($cookie) {
+            $token = $wll->processConsentToken($cookie);
 		}
+
+        //print_r($token);exit;
+		
 		//Check if there's consent and, if not, redirect to the login page
 		if ($token && !$token->isValid()) {
 			$token = null;
 		}
 		if ($token==null)
 		{
-			header( 'Location:'.$consenturl) ;
+			//print_r($_REQUEST); exit;
+            header( 'Location:'.$consenturl) ;
 		}
 		if ($token) {
+
 			// Convert Unix epoch time stamp to user-friendly format.
 				$expiry = $token->getExpiry();
 				$expiry = date(DATE_RFC2822, $expiry);
@@ -69,9 +74,6 @@
 				curl_setopt ($session, CURLOPT_TIMEOUT, 120);
 				$response_h = curl_exec($session);
 				curl_close($session);	
-                                
-                                
-                                echo '<pre>'; var_dump($response_h); echo'</pre>';
 				
 		//*******************PARSING THE RESPONSE ****************************************************
 				$response=strstr($response_h,"<?xml version");
