@@ -73,7 +73,7 @@
 
 
 </div>
-<div id='home-pagination' style="display: none; position: absolute;top: 0;">
+<div id='home-pagination' style="display: none; position: absolute;bottom: 0;">
     <a href="/index.php?page=2">Last ›</a>
 </div>
 
