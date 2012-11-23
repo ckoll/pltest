@@ -7,7 +7,7 @@ $curr_dresup = $this->uri->segment(3);
     <div class="bg">
 
         <div style="margin-bottom: 6px;">
-            <a href="/dressup/dress/">New dressup</a>
+            <input type="button" onclick="location.href='/dressup/dress/'" value="New dressup" />
             <br>
             Your doll: <span><?= (!empty($this->user['doll_name'])) ? $this->user['doll_name'] : 'Not set yet ' ?></span> <a id="new_doll_name">edit dollname</a>
             <span class="hide dollname_form">
