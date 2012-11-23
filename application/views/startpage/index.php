@@ -73,7 +73,7 @@
 
 
 </div>
-<div id='home-pagination' style="display: none">
+<div id='home-pagination' style="display: none; position: absolute;top: 0;">
     <a href="/index.php?page=2">Last ›</a>
 </div>
 
@@ -91,8 +91,7 @@
                 navSelector  : "#home-pagination",
                 nextSelector : "#home-pagination a:last",
                 itemSelector : "#columns-cont div.image-cont",
-                bufferPx     : 0,
-                extraScrollPx: 50,
+                bufferPx     : 40,
                 loading: {
                     img: "/images/loading.gif",
                     msgText: "Loading more images",
