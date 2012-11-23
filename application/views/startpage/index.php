@@ -91,7 +91,7 @@
                 navSelector  : "#home-pagination",
                 nextSelector : "#home-pagination a:last",
                 itemSelector : "#columns-cont div.image-cont",
-                bufferPx     : 20,
+                bufferPx     : 0,
                 loading: {
                     img: "/images/loading.gif",
                     msgText: "Loading more images",
