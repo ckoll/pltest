@@ -246,7 +246,7 @@ class User extends User_controller
             redirect($_SERVER['HTTP_REFERER']);
         }
         $item = $this->dressup_model->dressup_details($id);
-        if (empty($this->data['item'])) {
+        if (empty($item)) {
             show_404('', TRUE ,"Sorry the dressup that you are looking for doesn't exist or has been removed.");
         }
         $this->data['comments'] = $this->dressup_model->get_dressup_comments(5, $this->input->get('page'), $id);
