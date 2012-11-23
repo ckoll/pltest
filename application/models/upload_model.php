@@ -406,6 +406,9 @@ class Upload_model extends CI_Model
 
     public function get_photo_comments($per_page, $page, $id)
     {
+        if (!$id) {
+            return array();
+        }
         $begin = $per_page * $page;
         $query = 'SELECT SQL_CALC_FOUND_ROWS *, users.username, photo_comments.id comment_id FROM photo_comments LEFT JOIN users ON photo_comments.uid = users.id WHERE photo_id=' . $id . ' ORDER BY photo_comments.id DESC LIMIT ' . $begin . ',' . $per_page;
         return $this->db->query($query)->result_array();
