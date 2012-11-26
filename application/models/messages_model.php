@@ -39,7 +39,7 @@ class Messages_model extends CI_Model {
                 'text' => $text,
                 'id' => $id
             );
-            $this->home_model->send_notification($user, 'notif_received_poms_message', ' You have a new private message from '.$this->user['username'].' at Perfect-Look.org', 'received_pms_message', $emailData);
+            $this->home_model->send_notification($user, 'notif_received_pms_message', ' You have a new private message from '.$this->user['username'].' at Perfect-Look.org', 'received_pms_message', $emailData);
 
         }
 
