@@ -94,40 +94,6 @@
 }
         ?>
 
-        <script type="text/javascript">
-            <?php $this->load->config('social'); ?>
-            window.fbAsyncInit = function () {
-                FB.init({
-                    appId:'<?=$this->config->item('fbAppId')?>', //enter your app id here
-                    status:true, // check login status
-                    cookie:true, // enable cookies to allow the server to access the session
-                    xfbml:false, // parse XFBML
-                    oauth:true
-                });
 
-                // Additional initialization code here
-                FB.UIServer.setLoadedNode = function (a, b) {
-                    FB.UIServer._loadedNodes[a.id] = b;
-                };
-
-                FB.Canvas.setAutoGrow();
-                FB.Canvas.setSize();
-                FB.Canvas.scrollTo(0, 0);
-            };
-
-            // Load the SDK Asynchronously
-            (function (d) {
-                var js, id = 'facebook-jssdk';
-                if (d.getElementById(id)) {
-                    return;
-                }
-                js = d.createElement('script');
-                js.id = id;
-                js.async = true;
-                js.src = "//connect.facebook.net/en_US/all.js";
-                d.getElementsByTagName('head')[0].appendChild(js);
-            }(document));
-
-        </script>
     </body>
 </html>

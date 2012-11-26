@@ -403,7 +403,7 @@ class Home extends CI_Controller {
             'dressup' => $this->dressup_model->dressup_details(559),
 
         );
-        $this->load->view('email/notif_received_heart_dressup', $emailData);
+        $this->load->view('email/invite_friend', $emailData);
     }
 
 }

@@ -10,6 +10,17 @@
     </div>
     <div class="bg">
         <div class="photo_cont">
+            <div class="details-top-buttons">
+            <span class="photo_details_buttons">
+            <a class="twitt_button cool-button"
+               onclick="twitterPopup('<?=urlencode("@perfectlookorg " .$item['name'] . ' ' . $item['dress_comment'])?>', '<?=urlencode(current_url())?>')">twitter</a>
+            </span>
+
+            <span class="photo_details_buttons">
+               <a class="cool-button fb-button" onclick="facebookPopup('<?=urlencode(current_url())?>')">facebook</a>
+            </span>
+            </div>
+            <div class="clear"></div>
             <strong>More details about this dressup</strong><br>
             <a href="/files/users/dressup-HD/<?= $item['id'] ?>.jpg" target="_blank">
                 <img src="/files/users/dressup/<?= $item['id'] ?>.jpg">
@@ -19,23 +30,7 @@
             <span class="hearts <?=!$item['liked']?'grey':''?> likes dressup_details photo_details_buttons" data-id="<?= $item['id'] ?>" data-mode="dressup" data-type="<?=$item['liked']?'remove':'add'?>"><?=$item['like']?></span>
 
             <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
-            <span class="photo_details_buttons">
-                <a class="twitt_button" onclick="twitterPopup()"></a>
-                <script type="text/javascript">
-                    function twitterPopup()
-                    {
-                        var url = "http://twitter.com/share?text=<?=urlencode("@perfectlookorg " .$item['name'] . ' ' . $item['dress_comment'])?>&url=<?=urlencode(current_url())?>";
-                        var w = 550;
-                        var h = 450;
-                        var left = (screen.width/2)-(w/2);
-                        var top = (screen.height/2)-(h/2);
-                        return window.open(url, "share", 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
-                    }
-                </script>
-            </span>
-            <span class="photo_details_buttons">
-               <img src="/images/facebook.png" alt="" onclick="ShareClicked()">
-            </span>
+
         </div>
         <br class="clear">
         <br>
@@ -96,23 +91,3 @@
     <div class="footer"></div>
 </div>
 
-<script type="text/javascript">
-
-    function ShareClicked() {
-        var requestObj = {
-            method: 'feed',
-            link: '<?=current_url()?>',
-            picture: "<?=base_url('/files/users/dressup/'.$item['id'].'.jpg')?>",
-            name: "Perfect-Look",
-            caption: "Perfect-Look",
-            description: '<?=$item['name'] . ' ' . $item['dress_comment']?>',
-            ref: "Public"
-        };
-
-        FB.ui(requestObj, function(response) {});
-
-
-    }
-
-
-</script>

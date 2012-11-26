@@ -1528,7 +1528,7 @@ ul.brands3{
 
 }
 
-.twitt_button {
+.cool-button {
     color: #fff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
     border-color: #74bb5a;
@@ -1559,7 +1559,7 @@ ul.brands3{
     user-select: none
 }
 
-.twitt_button:hover {
+.cool-button:hover {
     background-color: #4c8b36;
     background-image: -moz-linear-gradient(#2DADDC, #0271BF);
     background-image: -webkit-linear-gradient(#2DADDC, #0271BF);
@@ -1568,14 +1568,56 @@ ul.brands3{
     color: #fff;
 }
 
+.cool-button.mousedown {
+    background-color: #4c8b36;
+    background-image: -moz-linear-gradient(#019AD2,#33BCEF);
+    background-image: -webkit-linear-gradient(#019AD2,#33BCEF);
+    background-image: linear-gradient(#019AD2,#33BCEF);
+    border-color: #4a993e;
+    color: #fff;
+}
+
+.twitt_button {
+    background-color: #019AD2;
+    background-image: -moz-linear-gradient(#33BCEF, #019AD2);
+    background-image: -webkit-linear-gradient(#33BCEF, #019AD2);
+    background-image: linear-gradient(#33BCEF, #019AD2);
+}
+
+.twitt_button:hover {
+    background-color: #4c8b36;
+    background-image: -moz-linear-gradient(#2DADDC, #0271BF);
+    background-image: -webkit-linear-gradient(#2DADDC, #0271BF);
+    background-image: linear-gradient(#2DADDC, #0271BF);
+}
+
 .twitt_button.mousedown {
       background-color: #4c8b36;
       background-image: -moz-linear-gradient(#019AD2,#33BCEF);
       background-image: -webkit-linear-gradient(#019AD2,#33BCEF);
       background-image: linear-gradient(#019AD2,#33BCEF);
-      border-color: #4a993e;
-       color: #fff;
-  }
+}
+
+.fb-button {
+    background-color: #3B5998;
+    background-image: -moz-linear-gradient(#D8DFEA, #3B5998);
+    background-image: -webkit-linear-gradient(#D8DFEA, #3B5998);
+    background-image: linear-gradient(#D8DFEA, #3B5998);
+}
+
+.fb-button:hover {
+    background-color: #3B5998;
+    background-image: -moz-linear-gradient(#2DADDC, #0271BF);
+    background-image: -webkit-linear-gradient(#2DADDC, #0271BF);
+    background-image: linear-gradient(#2DADDC, #0271BF);
+}
+
+.fb-button.mousedown {
+    background-color: #3B5998;
+    background-image: -moz-linear-gradient(#3B5998,#D8DFEA);
+    background-image: -webkit-linear-gradient(#3B5998,#D8DFEA);
+    background-image: linear-gradient(#3B5998,#D8DFEA);
+}
 
 
 
@@ -1601,3 +1643,13 @@ ul.brands3{
 .hearts.grey {
     background-image: url("/images/unlike.png");
 }
+
+.details-top-buttons {
+    width: 500px;
+    text-align: right;
+}
+
+.details-top-buttons .photo_details_buttons {
+    float: right;
+}
+

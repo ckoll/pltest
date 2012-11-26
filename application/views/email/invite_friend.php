@@ -9,14 +9,21 @@
                 </tr>
                 <tr>
                     <td bgcolor="#FFFFFF" style="padding:5px">
-                        <?=$message?>
-                        <p>Perfect-look.org is a fun fashion site where you can share and tag fashion photos and create perfect look dressup dolls. Collect buttons by sharing photos and dressing up, join and start now!</p>
+
+                        <table width="80%" border="0" align="center" cellpadding="0" cellspacing="5" style="font-size:12px; font-family:Arial">
+                            <tr>
+                                <td width="60"><a href="<?= base_url() ?><?=$user['username']?>"><img src="<?= base_url() ?><? get_user_avatarlink($user['id']) ?>" width="60" height="60" style="border:1px solid #ddd; padding:2px; margin:5px" /></a></td>
+                                <td><p><span style="font-weight: bold"><a href="<?= base_url() ?><?=$user['username']?>"style="color:#d08ab1"><?=$user['username']?></a> has invited you to Join Perfect-Look.org </span></p>
+                                    <p><a href="#" style="color:#d08ab1">Perfect-look.org</a> is
+                                        a fun fashion site where you can share and tag fashion photos and
+                                        create perfect look dressup dolls. Collect buttons by sharing photos
+                                        and dressing up, <a href="<?= base_url() ?>register/?invite=<?=$user['id']?>" style="color:#d08ab1">join and start now!</a></p></td>
+                            </tr>
+                        </table>
                         <p align="center">&nbsp;</p>
-                        <p align="center">
-                            <a href="<?= base_url() ?>register/?invite=<?=$user['id']?>">
-                                <img width="200" border="0" height="60" src="<?= base_url() ?>images/Back-to-Page.jpg">
-                            </a>
-                        </p>
+                        <p align="center"><a href="http://perfect-look.org/"><img src="<?= base_url() ?>images/Back-to-Page.jpg" width="200" height="60" border="0" /></a></p>
+
+
                     </td>
                 </tr>
                 <tr>

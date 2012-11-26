@@ -15,41 +15,36 @@
 
     <div class="bg">
         <div class="photo_cont">
-        <a href="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>_original.<?=$photo['image_type']?>"
-           target="_blank">
-            <center>
-                <img style="max-height: 500px; max-width: 500px;"
-                     src="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>.<?=$photo['image_type']?>">
-            </center>
-        </a><br>
+            <div class="details-top-buttons">
+            <span class="photo_details_buttons">
+            <a class="twitt_button cool-button"
+               onclick="twitterPopup('<?=urlencode("@perfectlookorg " . $photo['caption'])?>', '<?=urlencode(current_url())?>')">twitter</a>
+            </span>
 
-            <div class="hearts <?=!$photo['liked']?'grey':''?> likes" data-id="<?= $photo['id'] . $photo['rand_num'] ?>" data-mode="upload"  data-type="<?=$photo['liked']?'remove':'add'?>"><?=$photo['like']?></div>
+            <span class="photo_details_buttons">
+               <a class="cool-button fb-button" onclick="facebookPopup('<?=urlencode(current_url())?>')">facebook</a>
+            </span>
+            </div>
+            <div class="clear"></div>
+            <a href="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>_original.<?=$photo['image_type']?>"
+               target="_blank">
+                <center>
+                    <img style="max-height: 500px; max-width: 500px;"
+                         src="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>.<?=$photo['image_type']?>">
+                </center>
+            </a><br>
 
-        <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
+            <div class="hearts <?=!$photo['liked'] ? 'grey' : ''?> likes"
+                 data-id="<?= $photo['id'] . $photo['rand_num'] ?>" data-mode="upload"
+                 data-type="<?=$photo['liked'] ? 'remove' : 'add'?>"><?=$photo['like']?></div>
 
-        <span class="photo_details_buttons">
-            <a class="twitt_button" onclick="twitterPopup()">twitter</a>
-            <script type="text/javascript">
-                function twitterPopup()
-                {
-                    var url = "http://twitter.com/share?text=<?=urlencode("@perfectlookorg ".$photo['caption'])?>&url=<?=urlencode(current_url())?>";
-                    var w = 550;
-                    var h = 450;
-                    var left = (screen.width/2)-(w/2);
-                    var top = (screen.height/2)-(h/2);
-                    return window.open(url, "share", 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
-                }
-            </script>
-        </span>
+            <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
 
-        <span class="photo_details_buttons">
-           <img src="/images/facebook.png" alt="" onclick="ShareClicked()">
-        </span>
-
-        <?php if (!empty($admin) || $photo['uid'] == $this->user['id']): ?>
-        <a href="/upload/photo_upload/<?= $photo['id'] . $photo['rand_num'] ?>/edit" class="photo_details_buttons"><img
-                src="/images/edit.png"></a>
-        <?php endif; ?>
+            <?php if (!empty($admin) || $photo['uid'] == $this->user['id']): ?>
+            <a href="/upload/photo_upload/<?= $photo['id'] . $photo['rand_num'] ?>/edit"
+               class="photo_details_buttons"><img
+                    src="/images/edit.png"></a>
+            <?php endif; ?>
         </div>
         <br class="clear">
         <?
@@ -108,31 +103,7 @@
 </div>
 
 
-    <script type="text/javascript">
-
-        function ShareClicked() {
-            var requestObj = {
-                method: 'feed',
-                link: '<?=current_url()?>',
-                picture: "<?=base_url('/files/users/uploads/'.$photo['uid'].'/'.$photo['id'] . $photo['rand_num'].'.'.$photo['image_type'])?>",
-                name: "Perfect-Look",
-                caption: "Perfect-Look",
-                description: '<?=$photo['caption']?>',
-                ref: "Public"
-            };
-
-            FB.ui(requestObj, function(response) {});
+<script type="text/javascript">
 
 
-        }
-
-        $('.twitt_button').mousedown(function(){
-            $(this).addClass('mousedown');
-        });
-
-        $('.twitt_button').mouseup(function(){
-            $(this).removeClass('mousedown');
-        });
-
-
-    </script>
+</script>
