@@ -10,7 +10,8 @@ class Home_model extends CI_Model {
     //Login
     public function signin() {
         $this->session->set_userdata(array('user' => $this->usr));
-        header('Location: /' . $this->usr['username']);
+        $url = isset($_GET['back_url'])?$_GET['back_url']:'/' . $this->usr['username'];
+        header('Location: ' . $url);
         exit;
     }
 
@@ -322,8 +323,8 @@ class Home_model extends CI_Model {
         $user = $this->session->userdata('user');
         if (!empty($user)) {
             $usr_ident = (empty($user['username'])) ? 'id' . $user['id'] : $user['username'];
-            header('Location: /' . $usr_ident);
-            exit;
+            $url = isset($_GET['back_url'])?$_GET['back_url']:'/' . $usr_ident;
+            redirect($url);
         }
     }
 

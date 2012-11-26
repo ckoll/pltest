@@ -27,7 +27,7 @@ class User_controller extends CI_Controller {
             //Not found
             $this->session->unset_userdata('user');
             $this->session->unset_userdata('tw_session');
-            redirect('/signin');
+            redirect('/signin?back_url='.current_url());
             exit;
         } else {
             //Update session
