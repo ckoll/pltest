@@ -10,7 +10,7 @@
     </div>
     <div class="bg">
         <div class="photo_cont">
-            <div class="details-top-buttons">
+            <div class="details-top-buttons" style="display: none">
             <span class="photo_details_buttons">
             <a class="twitt_button cool-button"
                onclick="twitterPopup('<?=urlencode("@perfectlookorg " .$item['name'] . ' ' . $item['dress_comment'])?>', '<?=urlencode(current_url())?>')">twitter</a>
