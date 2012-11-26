@@ -175,7 +175,12 @@ class Lmenu {
         if (isset($doll['hair'])) {
             $itemsIds .= ','.$doll['hair'];
         }
-        $items = $this->CI->db->query('SELECT * FROM dressup_items WHERE id IN (' . $itemsIds . ')')->result_array();
+
+        $items = array();
+
+        if ($itemsIds) {
+            $items = $this->CI->db->query('SELECT * FROM dressup_items WHERE id IN (' . $itemsIds . ')')->result_array();
+        }
 
 
         return array('items' => $items);
