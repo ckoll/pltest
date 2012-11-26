@@ -177,7 +177,7 @@ class User_model extends CI_Model {
 
     public function email_notification_save() {
         $notif = array();
-        $fields = array('friend_request', 'received_gift', 'received_comment','received_heart','received_wall_message', 'item_sold', '_7days');
+        $fields = array('friend_request', 'received_gift', 'received_comment','received_heart','received_wall_message','received_pms_message', 'item_sold', '_7days');
         $new_data = $this->input->post('notif');
         foreach ($fields as $val) {
             $notif[$val] = ( $new_data[$val] == 1) ? 1 : 0;

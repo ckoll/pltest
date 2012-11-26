@@ -22,17 +22,27 @@ class Messages_model extends CI_Model {
         $icon = ($this->input->post('icon')) ? $this->input->post('icon') : 'mess';
         if ($this->input->post('members')) {
             foreach ($this->input->post('members') as $user) {
+                $text = strip_tags($this->input->post('text'), '<img><strong><em><span><br>');
                 $data = array(
                     'from' => $this->user['id'],
                     'to' => $user,
                     'subject' => $subject,
-                    'text' => strip_tags($this->input->post('text'), '<img><strong><em><span><br>'),
+                    'text' => $text,
                     'date' => $curdatetime->format('Y-m-d H:i:s'),
                     'img' => $icon
                 );
                 $this->db->insert('messages', $data);
             }
+
+            $emailData = array(
+                'user' => $this->user,
+                'text' => $text,
+            );
+            $this->home_model->send_notification($user, 'notif_received_poms_message', ' You have a new private message from '.$this->user['username'].' at Perfect-Look.org', 'received_pms_message', $emailData);
+
         }
+
+
     }
 
     public function get_messages($folder, $page = 1) {

@@ -10,7 +10,7 @@
                 <tr>
                     <td bgcolor="#FFFFFF" style="padding:5px">
 
-                        <h2 style="color:#FF66CC;">You have received a new message on your wall.</h2>
+                        <h2 style="color:#FF66CC;">You have received a new private message.</h2>
                         <table width="80%" cellspacing="5" cellpadding="0" border="0" align="center" style="font-size:12px; font-family:Arial">
                             <tbody>
                             <tr>
@@ -26,10 +26,7 @@
                                         </span>
                                     </p>
                                     <p>
-                                        Please
-                                        <a style="color:#d08ab1" href="<?= base_url() ?>signin">login</a>
-                                        to your account to view the full message and <a style="color:#d08ab1" href="<?= base_url() ?>wall"> reply to this message</a>.
-
+                                        You can view the message and reply in your account.
                                     </p>
                                 </td>
                             </tr>
