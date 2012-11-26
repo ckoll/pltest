@@ -1291,11 +1291,12 @@ form input[type="submit"].jevels_payment{
 }
 .photo_tumb a{
     width: 130px;
-    height: 130px;
+    height: 90px;
     display: block;
     background-size: auto 130px;
     background-position: center;
     background-repeat: no-repeat;
+    overflow: hidden;
 }
 .photo_tumb .likes, .photo_tumb .comments{
     margin-top: 4px;
