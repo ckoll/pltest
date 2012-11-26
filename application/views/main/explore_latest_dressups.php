@@ -16,7 +16,7 @@
                 ?>
                 <div class="photo_tumb">
                     <a href="/<?=$val['username']?>/dressup/<?=$val['id']?>" style="background-image: url('/files/users/dressup/<?=$val['id']?>.jpg'); background-position: left center"></a><br>
-                    <span class="likes" data-id="<?=$val['id']?>" data-mode="dressup"><?= $val['like'] ?></span>
+                    <span class="hearts <?=!$val['liked']?'grey':''?> likes" data-id="<?= $val['id'] . $val['rand_num'] ?>" data-mode="dressup"  data-type="<?=$val['liked']?'remove':'add'?>"><?=$val['like']?></span>
                     <span class="comments"><?= $val['comment'] ?></span>
                 </div>
                 <?

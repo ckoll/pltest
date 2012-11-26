@@ -284,7 +284,11 @@ class Explore extends User_controller {
     public function latest_dressups(){
         $this->data['active_tab'] = 3;
         $this->load->model('dressup_model');
-        $this->data['dressups'] = $this->dressup_model->all_latest_dressups(20, $this->input->get('page'));
+        $dressups = $this->dressup_model->all_latest_dressups(20, $this->input->get('page'));
+        foreach($dressups as $i=>$photo) {
+            $dressups[$i]['liked'] = $this->dressup_model->isLiked($photo);
+        }
+        $this->data['dressups'] = $dressups;
         $this->data['pages'] = $this->dressup_model->count_pages(20);
         $this->tpl->ltpl = array('main' => 'explore_latest_dressups', 'lmenu' => array('my_info', 'explore_map'));
         $this->tpl->show($this->data);
@@ -296,7 +300,11 @@ class Explore extends User_controller {
     public function latest_photos(){
         $this->data['active_tab'] = 3;
         $this->load->model('upload_model');
-        $this->data['photos'] = $this->upload_model->latest_photos(20, $this->input->get('page'));
+        $photos = $this->upload_model->latest_photos(20, $this->input->get('page'));
+        foreach($photos as $i=>$photo) {
+            $photos[$i]['liked'] = $this->upload_model->isLiked($photo);
+        }
+        $this->data['photos'] = $photos;
         $this->data['pages'] = $this->upload_model->count_pages(20);
         $this->tpl->ltpl = array('main' => 'explore_latest_photos', 'lmenu' => array('my_info', 'explore_map'));
         $this->tpl->show($this->data);
@@ -309,7 +317,11 @@ class Explore extends User_controller {
     public function top_dressups(){
         $this->data['active_tab'] = 4;
         $this->load->model('dressup_model');
-        $this->data['dressup'] = $this->dressup_model->top_10_dressups();
+        $dressups = $this->dressup_model->top_10_dressups();
+        foreach($dressups as $i=>$photo) {
+            $dressups[$i]['liked'] = $this->dressup_model->isLiked($photo);
+        }
+        $this->data['dressup'] = $dressups;
         $this->tpl->ltpl = array('main' => 'explore_top_dressups', 'lmenu' => array('my_info', 'explore_map'));
         $this->tpl->show($this->data);
     }
@@ -317,7 +329,11 @@ class Explore extends User_controller {
     public function top_photos(){
         $this->data['active_tab'] = 4;
         $this->load->model('upload_model');
-        $this->data['photo'] = $this->upload_model->top_10_photos();
+        $photos = $this->upload_model->top_10_photos();
+        foreach($photos as $i=>$photo) {
+            $photos[$i]['liked'] = $this->upload_model->isLiked($photo);
+        }
+        $this->data['photos'] = $photos;
         $this->tpl->ltpl = array('main' => 'explore_top_photo', 'lmenu' => array('my_info', 'explore_map'));
         $this->tpl->show($this->data);
     }

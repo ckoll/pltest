@@ -17,7 +17,8 @@
                     <a href="/<?= $val['username'] ?>/dressup/<?= $val['id'] ?>"><img src="/files/users/dressup/<?= $val['id'] ?>.jpg" style="width: 350px; margin-right: 20px" class="left"></a>
                     <div class="left">
                         <a href="/<?= $val['username'] ?>"><?= $val['username'] ?></a><br>
-                        <span class="likes" style="margin: 4px" data-id="<?=$val['id']?>" data-mode="dressup"><?= $val['like'] ?></span>
+                        <span style="margin: 4px" class="hearts <?=!$val['liked']?'grey':''?> likes" data-id="<?= $val['id'] . $val['rand_num'] ?>" data-mode="dressup"  data-type="<?=$val['liked']?'remove':'add'?>"><?=$val['like']?></span>
+                        <br>
                         <span class="comments" style="margin: 4px"><?= intval($val['comments']) ?></span>
                     </div>
                     <br class="clear">
