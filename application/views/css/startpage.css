@@ -113,7 +113,7 @@ body {
 
 #center-cont {
     float: left;
-    width: 600px;
+    width: 550px;
     height: 100%;
     min-height: 500px;
     padding: 5px;
@@ -121,7 +121,7 @@ body {
 
 #left-cont {
     float: left;
-    width: 250px;
+    width: 300px;
 }
 
 .socbutton {
