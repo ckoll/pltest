@@ -46,10 +46,15 @@ class User extends User_controller
             }
 
             $rez = $this->upload_model->user_photos($this->data['user_info']['id'], 4);
+            foreach($rez as $i=>$photo) {
+                $rez[$i]['liked'] = $this->upload_model->isLiked($photo);
+            }
             $rez_count = $this->upload_model->count_pages(1);
+            $day_look = $this->dressup_model->get_daylook($this->data['user_info']['id']);
+            $day_look['liked'] = $this->dressup_model->isLiked($day_look);
             $this->data['content'] = array(
                 'wall' => $this->user_model->wall_messages($this->data['user_info']['id'], 0),
-                'day_look' => $this->dressup_model->get_daylook($this->data['user_info']['id']),
+                'day_look' => $day_look,
                 'latest_photos' => $rez,
                 'latest_photos_count' => $rez_count,
                 'recently_activity' => $this->user_model->get_history_activity($this->data['user_info']['id'], 10)
