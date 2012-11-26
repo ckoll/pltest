@@ -1291,14 +1291,13 @@ form input[type="submit"].jevels_payment{
 }
 .photo_tumb a{
     width: 130px;
-    height: 90px;
+    height: 130px;
     display: block;
     background-size: auto 130px;
     background-position: center;
     background-repeat: no-repeat;
-    overflow: hidden;
 }
-.photo_tumb .likes, .photo_tumb .comments{
+.photo_tumb .likes, .photo_tumb .comments, .photo_tumb .delete {
     margin-top: 4px;
     line-height: 20px;
     float: left;
@@ -1314,6 +1313,12 @@ form input[type="submit"].jevels_payment{
     right: 0;
     left: auto;
 }
+
+.photo_tumb .delete {
+    top: 2px;
+    right: 2px;
+}
+
 .photo_tumb .del_photo{
     position: absolute;
     top: 2px;

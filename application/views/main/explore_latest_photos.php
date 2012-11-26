@@ -14,18 +14,24 @@
             if (!empty($photos)) {
                 foreach ($photos as $val) {
                     ?>
+
                     <div class="photo_tumb">
                         <?php  if (!empty($admin)): ?>
-                        <a style="height: auto; width: auto"
-                           href="/user/delete_photo/?id=<?= $val['id'] . $val['rand_num'] ?>"><img
-                                src="/images/del.png"></a>
+
                         <?php endif; ?>
                         <a href="/<?= $this->user['username'] ?>/photo/<?= $val['id'] . $val['rand_num'] ?>">
-                        <img src="/files/users/uploads/<?= $val['uid'] ?>/<?= $val['id'] . $val['rand_num'] ?>.<?=$val['image_type']?>" alt="" width="130">
-                        </a><br>
+                            <img src="/files/users/uploads/<?= $val['uid'] ?>/<?= $val['id'] . $val['rand_num'] ?>.<?=$val['image_type']?>" alt="" width="130">
+                        </a>
+                        <br>
+
                         <span class="hearts <?=!$val['liked']?'grey':''?> likes" data-id="<?= $val['id'] . $val['rand_num'] ?>" data-mode="upload"  data-type="<?=$val['liked']?'remove':'add'?>"><?=$val['like']?></span>
                         <span class="comments"><?= $val['comments'] ?></span>
-                        <!--<img src="/images/del.png" data-id="<?= $val['id'] . $val['rand_num'] ?>" class="right del_photo">-->
+                        <span class="delete">
+                        <a style="height: auto; width: auto"
+                           href="/user/delete_photo/?id=<?= $val['id'] . $val['rand_num'] ?>">
+                            <img src="/images/del.png">
+                        </a>
+                            </span>
 
                     </div>
                     <?
