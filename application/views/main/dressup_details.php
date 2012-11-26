@@ -11,14 +11,15 @@
     <div class="bg">
         <div class="photo_cont">
             <div class="details-top-buttons" style="display: none">
-            <span class="photo_details_buttons">
-            <a class="twitt_button cool-button"
-               onclick="twitterPopup('<?=urlencode("@perfectlookorg " .$item['name'] . ' ' . $item['dress_comment'])?>', '<?=urlencode(current_url())?>')">twitter</a>
-            </span>
+                <span class="photo_details_buttons">
+                    <a class="twitt_button cool-button"
+                       onclick="twitterPopup('<?=urlencode("@perfectlookorg " . $item['name'] . ' ' . $item['dress_comment'])?>', '<?=urlencode(current_url())?>')">twitter</a>
+                </span>
 
-            <span class="photo_details_buttons">
-               <a class="cool-button fb-button" onclick="facebookPopup('<?=urlencode(current_url())?>')">facebook</a>
-            </span>
+                <span class="photo_details_buttons">
+                   <a class="cool-button fb-button"
+                      onclick="facebookPopup('<?=urlencode(current_url())?>')">facebook</a>
+                </span>
             </div>
             <div class="clear"></div>
             <strong>More details about this dressup</strong><br>
@@ -27,7 +28,9 @@
             </a>
             <br>
             <br>
-            <span class="hearts <?=!$item['liked']?'grey':''?> likes dressup_details photo_details_buttons" data-id="<?= $item['id'] ?>" data-mode="dressup" data-type="<?=$item['liked']?'remove':'add'?>"><?=$item['like']?></span>
+            <span class="hearts <?=!$item['liked'] ? 'grey' : ''?> likes dressup_details photo_details_buttons"
+                  data-id="<?= $item['id'] ?>" data-mode="dressup"
+                  data-type="<?=$item['liked'] ? 'remove' : 'add'?>"><?=$item['like']?></span>
 
             <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
 

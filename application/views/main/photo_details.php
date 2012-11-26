@@ -28,13 +28,13 @@
             <div class="clear"></div>
             <a href="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>_original.<?=$photo['image_type']?>"
                target="_blank">
-                <center>
                     <img style="max-height: 500px; max-width: 500px;"
                          src="/files/users/uploads/<?= $photo['uid'] ?>/<?= $photo['id'] . $photo['rand_num'] ?>.<?=$photo['image_type']?>">
-                </center>
-            </a><br>
 
-            <div class="hearts <?=!$photo['liked'] ? 'grey' : ''?> likes"
+            </a><br>
+            <br>
+
+            <div class=" photo_details_buttons hearts <?=!$photo['liked'] ? 'grey' : ''?> likes"
                  data-id="<?= $photo['id'] . $photo['rand_num'] ?>" data-mode="upload"
                  data-type="<?=$photo['liked'] ? 'remove' : 'add'?>"><?=$photo['like']?></div>
 
