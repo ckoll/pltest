@@ -26,7 +26,8 @@
                                         </span>
                                     </p>
                                     <p>
-                                        You can view the message and reply in your account.
+                                        You can view the message and reply by clicking the following link:
+                                        <?= base_url() ?>pms/<?=$id?>
                                     </p>
                                 </td>
                             </tr>

@@ -31,12 +31,13 @@ class Messages_model extends CI_Model {
                     'date' => $curdatetime->format('Y-m-d H:i:s'),
                     'img' => $icon
                 );
-                $this->db->insert('messages', $data);
+                $id = $this->db->insert('messages', $data);
             }
 
             $emailData = array(
                 'user' => $this->user,
                 'text' => $text,
+                'id' => $id
             );
             $this->home_model->send_notification($user, 'notif_received_poms_message', ' You have a new private message from '.$this->user['username'].' at Perfect-Look.org', 'received_pms_message', $emailData);
 
