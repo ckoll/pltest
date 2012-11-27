@@ -10,7 +10,7 @@ function getSquareUpload($upload, $side=250) {
         $squareUploadPath = _getSquareUploadPath($upload);
         if (!file_exists($squareUploadPath)) {
             $imageMagic = new ImageMagick();
-            $imageMagic->resizeAndCrop($uploadPath, $squareUploadPath, array('width'=>$side, 'height'=>$side));
+            $imageMagic->resizeNoPropotions($uploadPath, $squareUploadPath, array('width'=>$side, 'height'=>$side));
         }
     }
 
