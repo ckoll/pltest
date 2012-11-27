@@ -120,32 +120,35 @@
             <?
             if (!empty($content['recently_activity'])) {
                 foreach ($content['recently_activity'] as $last_activity) {
-                    echo $user_info['username'] . ' ';
+                    $str = '';
                     switch ($last_activity['type']) {
                         case 'dressup':
                             $dressup = $this->dressup_model->dressup_details($last_activity['type_id']);
                             if ($dressup) {
-                                echo 'made a new dressup at ' . $last_activity['date'] . ' (<a href="/' . $user_info['username'] . '/dressup/' . $last_activity['type_id'] . '" target="_blank">view</a>)';
+                                $str = 'made a new dressup at ' . $last_activity['date'] . ' (<a href="/' . $user_info['username'] . '/dressup/' . $last_activity['type_id'] . '" target="_blank">view</a>)';
                             }
                             break;
                         case 'brand':
                             $brand = $this->brands_model->get_one(intval($last_activity['type_id']));
                             if ($brand) {
-                                echo 'added a new favorite brand at ' . $last_activity['date'] . ' (<a href="/brands/' . str_replace(' ', '-', strtolower($brand['title'])) . '" target="_blank">' . $brand['title'] . '</a>)';
+                                $str = 'added a new favorite brand at ' . $last_activity['date'] . ' (<a href="/brands/' . str_replace(' ', '-', strtolower($brand['title'])) . '" target="_blank">' . $brand['title'] . '</a>)';
                             }
                             break;
                         case 'friend':
                             $friend = $this->user_model->get_user_info('id', $last_activity['type_id']);
                             if ($friend) {
-                                echo 'added a new friend at ' . $last_activity['date'] . ' (<a href="/' . $friend['username'] . '" target="_blank">' . $friend['username'] . '</a>)';
+                                $str = 'added a new friend at ' . $last_activity['date'] . ' (<a href="/' . $friend['username'] . '" target="_blank">' . $friend['username'] . '</a>)';
                             }
                             break;
                         case 'upload':
                             $upload = $this->upload_model->photo_details($last_activity['type_id']);
                             if ($upload) {
-                                echo 'upload a new photo at ' . $last_activity['date'] . ' (<a href="/' . $upload['username'] . '/photo/' . $last_activity['type_id'] . '" target="_blank">view</a>)';
+                                $str = 'upload a new photo at ' . $last_activity['date'] . ' (<a href="/' . $upload['username'] . '/photo/' . $last_activity['type_id'] . '" target="_blank">view</a>)';
                             }
                             break;
+                    }
+                    if ($str) {
+                        echo $user_info['username'] . ' ' . $str;
                     }
                     echo '<br>';
                 }
