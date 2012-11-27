@@ -7,6 +7,11 @@ class User_controller extends CI_Controller {
 
     public $user;
 
+    public $publicActions = array(
+        //'dressup',
+        //'photo'
+    );
+
     public function __construct() {
         parent::__construct();
 //        date_default_timezone_set('Europe/Kyiv');
@@ -23,12 +28,13 @@ class User_controller extends CI_Controller {
 
         //Check User, Update last login
         $user_check = $this->db->get_where('users', array('id' => $this->user['id']))->row_array();
-        if (empty($user_check)) {
+        if (empty($user_check) && !in_array($this->router->method, $this->publicActions)) {
             //Not found
             $this->session->unset_userdata('user');
             $this->session->unset_userdata('tw_session');
             redirect('/signin?back_url='.current_url());
             exit;
+
         } else {
             //Update session
             $this->user = $user_check;

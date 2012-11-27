@@ -261,7 +261,12 @@ class User extends User_controller
         $this->data['item'] = $item;
         $this->data['dress_id'] = $id;
 
-        $this->tpl->ltpl = array('main' => 'dressup_details', 'lmenu' => array('dressup_using_items'));
+        if(!isset($this->user['id'])) {
+            $this->tpl->gtpl = 'startpage';
+            $this->tpl->ltpl = array('main' => 'dressup_details');
+        } else {
+            $this->tpl->ltpl = array('main' => 'dressup_details', 'lmenu' => array('dressup_using_items'));
+        }
         $this->tpl->show($this->data);
     }
 
@@ -331,6 +336,11 @@ class User extends User_controller
 
         $this->data['comments'] = $this->upload_model->get_photo_comments(5, $this->input->get('page'), substr($id, 0, -5));
         $this->data['pages'] = $this->upload_model->count_pages(5);
+
+        if(!isset($this->user['id'])) {
+            $this->tpl->gtpl = 'startpage';
+        }
+
         $this->tpl->ltpl = array('main' => 'photo_details', 'lmenu' => array('photo_details'));
         $this->tpl->show($this->data);
     }

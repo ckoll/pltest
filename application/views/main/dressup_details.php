@@ -1,7 +1,9 @@
+<?php if (isset($this->user['id'])): ?>
 <div class="sidebar">
     <? $this->tpl->render_blocks('lmenu'); ?>
     <div class="footer"></div>
 </div>
+<?php endif; ?>
 
 <div id="content">
 

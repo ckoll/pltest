@@ -25,11 +25,15 @@ class Tpl {
                     $this->CI->load->view($block . '/' . $val . '.php', $this->data);
                 }
             }
-        } else {
+        }elseif(isset($this->ltpl[$block])) {
             if (is_file(APPPATH . 'views/' . $block . '/' . @$this->ltpl[$block] . '.php')) {
                 $this->CI->load->view($block . '/' . $this->ltpl[$block] . '.php', $this->data);
             } else {
                 echo 'File "' . $block . '/' . $this->ltpl[$block] . '.php" NOT FOUND';
+            }
+        } else {
+            foreach($this->ltpl as $dir => $file) {
+                $this->CI->load->view($dir . '/' . $file . '.php', $this->data);
             }
         }
     }
