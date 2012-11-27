@@ -199,6 +199,9 @@ class Dressup_model extends CI_Model {
 
     public function get_dressup_comments($for_page, $page, $id) {
         $begin = $for_page * $page;
+        if (!$id) {
+            return array();
+        }
         return $this->db->query('SELECT SQL_CALC_FOUND_ROWS *, users.username, dressup_comments.id comment_id FROM dressup_comments LEFT JOIN users ON dressup_comments.uid = users.id WHERE dressup_id=' . $id . ' ORDER BY dressup_comments.id DESC LIMIT ' . $begin . ',' . $for_page)->result_array();
     }
 
