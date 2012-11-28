@@ -11,7 +11,13 @@
                 if($val['profileimage_dir']=='[default]'){
                     $val['profileimage_dir'] = 'profilepics';
                 }
+
+                if ($val['type'] == 'haircolors') {
+                    $val['profileimage_dir'] = '';
+                }
+
                 ?>
+                <?php //print_r($val); ?>
                 <img src="/files/items/<?= $val['directory'] ?>/<?= $val['profileimage_dir'] ?>/<?= $val['profileimage'] ?>"><br>
                 <a href="/item/<?=$val['shortname']?>"><?= $val['item_name'] ?></a>
             </div>
