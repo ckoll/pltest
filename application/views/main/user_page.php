@@ -70,20 +70,21 @@
             if (!empty($content['latest_photos'])) {
                 foreach ($content['latest_photos'] as $val) {
                     ?>
-                    <li>
-                        <div class="img_bg" style="height: 150px; margin-right: 6px;">
+                    <li style="width: 170px">
+                        <div class="img_bg" style="height: 150px; width: 160px; margin: 0 auto;">
                             <a href="/<?= $user_info['username'] ?>/photo/<?= $val['id'] . $val['rand_num'] ?>">
                                 <img src="/files/users/uploads/<?= $val['uid'] ?>/<?= $val['id'] . $val['rand_num'] ?>.<?=$val['image_type']?>">
                             </a>
+
                         </div>
                         <p style="margin: 0 6px 0 auto; width: 160px;">
                             <?= time_from($val['date']) ?>
-                            <br>
-                            <div style="width: 130px; margin: 0 auto">
-                            <span style="display: inline-block; margin: 3px auto;" class="hearts <?=!$val['liked']?'grey':''?> likes" data-id="<?= $val['id'] . $val['rand_num'] ?>" data-mode="upload"  data-type="<?=$val['liked']?'remove':'add'?>"><?=$val['like']?></span>
-                            <a href="/<?= $user_info['username'] ?>/photo/<?= $val['id'] . $val['rand_num'] ?>" style="display: inline-block" class="comments"><?=intval($val['comments'])?></a>
-                            </div>
                         </p>
+                        <div style="width: 135px; margin: 0 auto">
+                            <span style="display: inline-block; margin: 3px auto; float: left" class="hearts <?=!$val['liked']?'grey':''?> likes" data-id="<?= $val['id'] . $val['rand_num'] ?>" data-mode="upload"  data-type="<?=$val['liked']?'remove':'add'?>"><?=$val['like']?></span>
+                            <a href="/<?= $user_info['username'] ?>/photo/<?= $val['id'] . $val['rand_num'] ?>" style="display: inline-block; color: #47433F; float: right" class="comments"><?=intval($val['comments'])?></a>
+                        </div>
+
                     </li>
                     <?
                 }
