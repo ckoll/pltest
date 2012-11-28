@@ -16,9 +16,9 @@
                     ?>
 
                     <div class="photo_tumb">
-                        <?php  if (!empty($admin)): ?>
 
-                        <?php endif; ?>
+
+
                         <a href="/<?= $this->user['username'] ?>/photo/<?= $val['id'] . $val['rand_num'] ?>">
                             <img src="/files/users/uploads/<?= $val['uid'] ?>/<?= $val['id'] . $val['rand_num'] ?>.<?=$val['image_type']?>" alt="" width="130">
                         </a>
@@ -26,12 +26,21 @@
 
                         <span class="hearts <?=!$val['liked']?'grey':''?> likes" data-id="<?= $val['id'] . $val['rand_num'] ?>" data-mode="upload"  data-type="<?=$val['liked']?'remove':'add'?>"><?=$val['like']?></span>
                         <span class="comments"><?= $val['comments'] ?></span>
+                    <?php  if (!empty($admin)): ?>
                         <span class="delete">
                         <a style="height: auto; width: auto"
-                           href="/user/delete_photo/?id=<?= $val['id'] . $val['rand_num'] ?>" onclick="return confirm('are you shure?')">
+                           href="/user/delete_photo/?id=<?= $val['id'] . $val['rand_num'] ?>" onclick="return confirm('Are you sure you want to delete this photo?')">
                             <img src="/images/del.png">
                         </a>
                             </span>
+                        <span class="edit">
+                        <a style="height: auto; width: auto"
+                           href="/upload/photo_upload/<?= $val['id'] . $val['rand_num'] ?>/edit">
+                            <img src="/images/edit.png">
+                        </a>
+                            </span>
+
+                        <?php endif; ?>
 
                     </div>
                     <?

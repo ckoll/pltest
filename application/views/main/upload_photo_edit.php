@@ -1,5 +1,5 @@
 <?php
-list($crop_img_width, $crop_img_height) = getimagesize(base_url() . '/files/users/uploads/' . $this->user['id'] . '/' . $this->uri->segment(3) . '_tmp.' . $photo['image_type']);
+list($crop_img_width, $crop_img_height) = getimagesize(base_url() . 'files/users/uploads/' . $this->user['id'] . '/' . $this->uri->segment(3) . '_tmp.' . $photo['image_type']);
 $thumb_xy = unserialize($photo['thumb_xy']);
 ?>
 <div class="sidebar">

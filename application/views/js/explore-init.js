@@ -431,9 +431,9 @@ $(function(){
     });
     
     $('.photo_tumb').hover(function(){
-        $(this).children('.likes, .comments, .delete').fadeIn()
+        $(this).children('.likes, .comments, .delete, .edit').fadeIn()
     },function(){
-        $(this).children('.likes, .comments, .delete').fadeOut()
+        $(this).children('.likes, .comments, .delete, .edit').fadeOut()
     })
     
     $('.del_photo').click(function(){

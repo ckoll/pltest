@@ -1298,7 +1298,7 @@ form input[type="submit"].jevels_payment{
     background-repeat: no-repeat;
     overflow: hidden;
 }
-.photo_tumb .likes, .photo_tumb .comments, .photo_tumb .delete {
+.photo_tumb .likes, .photo_tumb .comments, .photo_tumb .delete, .photo_tumb .edit {
     margin-top: 4px;
     line-height: 20px;
     float: left;
@@ -1317,7 +1317,14 @@ form input[type="submit"].jevels_payment{
 
 .photo_tumb .delete {
     height: 12px;
-    left: 62px;
+    left: 52px;
+    top: 2px;
+    width: 12px;
+}
+
+.photo_tumb .edit {
+    height: 12px;
+    left: 72px;
     top: 2px;
     width: 12px;
 }
