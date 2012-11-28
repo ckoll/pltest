@@ -31,7 +31,8 @@ class Messages_model extends CI_Model {
                     'date' => $curdatetime->format('Y-m-d H:i:s'),
                     'img' => $icon
                 );
-                $id = $this->db->insert('messages', $data);
+                $this->db->insert('messages', $data);
+                $id = $this->db->insert_id();
             }
 
             $emailData = array(
