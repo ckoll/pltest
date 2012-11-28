@@ -30,11 +30,16 @@
             </a>
             <br>
             <br>
-            <span style="margin-left: 10px" class="hearts <?=!$item['liked'] ? 'grey' : ''?> likes dressup_details photo_details_buttons"
+            <span style="margin-left: 10px"
+                  class="hearts <?=!$item['liked'] ? 'grey' : ''?> likes dressup_details photo_details_buttons"
                   data-id="<?= $item['id'] ?>" data-mode="dressup"
                   data-type="<?=$item['liked'] ? 'remove' : 'add'?>"><?=$item['like']?></span>
-
             <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
+            <?php if (!empty($admin) || $item['uid'] == $this->user['id']): ?>
+            <a style="float: right" href="/dressup/dress/<?= $item['id'] ?>"
+               class="photo_details_buttons"><img
+                    src="/images/edit.png"></a>
+            <?php endif; ?>
 
         </div>
         <br class="clear">
