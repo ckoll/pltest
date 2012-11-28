@@ -28,7 +28,7 @@
                         <span class="comments"><?= $val['comments'] ?></span>
                         <span class="delete">
                         <a style="height: auto; width: auto"
-                           href="/user/delete_photo/?id=<?= $val['id'] . $val['rand_num'] ?>">
+                           href="/user/delete_photo/?id=<?= $val['id'] . $val['rand_num'] ?>" onclick="return confirm('are you shure?')">
                             <img src="/images/del.png">
                         </a>
                             </span>
