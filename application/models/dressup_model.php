@@ -317,7 +317,7 @@ class Dressup_model extends CI_Model {
                 'user' => $this->user,
                 'dressup' => $dressup,
             );
-            $this->home_model->send_notification($dressup['uid'], 'notif_received_heart_dressup', ' You have received a comment from '.$this->user['username'].' at Perfect-Look.org', 'received_heart', $emailData);
+            $this->home_model->send_notification($dressup['uid'], 'notif_received_heart_dressup', ' You have received a heart from '.$this->user['username'].' at Perfect-Look.org', 'received_heart', $emailData);
 
             return ;
         } else {
