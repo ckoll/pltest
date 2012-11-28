@@ -76,11 +76,13 @@
                                 <img src="/files/users/uploads/<?= $val['uid'] ?>/<?= $val['id'] . $val['rand_num'] ?>.<?=$val['image_type']?>">
                             </a>
                         </div>
-                        <p style="margin: 0 auto; width: 150px;">
+                        <p style="margin: 0 6px 0 auto; width: 160px;">
                             <?= time_from($val['date']) ?>
                             <br>
+                            <div style="width: 130px; margin: 0 auto">
                             <span style="display: inline-block; margin: 3px auto;" class="hearts <?=!$val['liked']?'grey':''?> likes" data-id="<?= $val['id'] . $val['rand_num'] ?>" data-mode="upload"  data-type="<?=$val['liked']?'remove':'add'?>"><?=$val['like']?></span>
                             <span style="display: inline-block" class="comments"><?=intval($val['comments'])?></span>
+                            </div>
                         </p>
                     </li>
                     <?
