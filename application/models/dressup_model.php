@@ -412,6 +412,7 @@ class Dressup_model extends CI_Model {
             $this->_change_item_status($rez['used_items'], 'dress');
             $this->db->query('DELETE FROM user_dressups WHERE id="' . $id . '"');
             unlink(APPPATH . 'files/users/dressup/' . $id . '.jpg');
+            $this->db->query('DELETE FROM dressup_comments WHERE dressup_id="' . $id . '"');
         }
     }
 
