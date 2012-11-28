@@ -30,7 +30,7 @@
                         <span class="delete">
                         <a style="height: auto; width: auto"
                            href="/user/delete_photo/?id=<?= $val['id'] . $val['rand_num'] ?>" onclick="return confirm('Are you sure you want to delete this photo?')">
-                            <img src="/images/del.png">
+                            <img src="/images/del.gif">
                         </a>
                         <a style="height: auto; width: auto"
                            href="/upload/photo_upload/<?= $val['id'] . $val['rand_num'] ?>/edit">
