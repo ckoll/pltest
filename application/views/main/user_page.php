@@ -149,8 +149,8 @@
                     }
                     if ($str) {
                         echo $user_info['username'] . ' ' . $str;
+                        echo '<br>';
                     }
-                    echo '<br>';
                 }
             }
             ?>

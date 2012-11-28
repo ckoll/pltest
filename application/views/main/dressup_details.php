@@ -30,7 +30,7 @@
             </a>
             <br>
             <br>
-            <span class="hearts <?=!$item['liked'] ? 'grey' : ''?> likes dressup_details photo_details_buttons"
+            <span style="margin-left: 10px" class="hearts <?=!$item['liked'] ? 'grey' : ''?> likes dressup_details photo_details_buttons"
                   data-id="<?= $item['id'] ?>" data-mode="dressup"
                   data-type="<?=$item['liked'] ? 'remove' : 'add'?>"><?=$item['like']?></span>
 

@@ -34,7 +34,7 @@
             </a><br>
             <br>
 
-            <div class=" photo_details_buttons hearts <?=!$photo['liked'] ? 'grey' : ''?> likes"
+            <div style="margin-left: 10px" class=" photo_details_buttons hearts <?=!$photo['liked'] ? 'grey' : ''?> likes"
                  data-id="<?= $photo['id'] . $photo['rand_num'] ?>" data-mode="upload"
                  data-type="<?=$photo['liked'] ? 'remove' : 'add'?>"><?=$photo['like']?></div>
 
