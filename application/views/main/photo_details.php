@@ -41,7 +41,7 @@
             <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
 
             <?php if (!empty($admin) || $photo['uid'] == $this->user['id']): ?>
-            <a style="float: right" href="/upload/photo_upload/<?= $photo['id'] . $photo['rand_num'] ?>/edit"
+            <a style="float: right; margin-right: 20px" href="/upload/photo_upload/<?= $photo['id'] . $photo['rand_num'] ?>/edit"
                class="photo_details_buttons"><img
                     src="/images/edit.png"></a>
             <?php endif; ?>
