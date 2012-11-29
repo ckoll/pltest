@@ -42,12 +42,12 @@ class Dressup_model extends CI_Model {
                     //skin elements
                     $dressup = $this->session->userdata('dressup');
                     $skin = $dressup['doll']['skincolor'];
-                    $items_body = $this->db->query('SELECT * FROM dressup_body_parts WHERE `type` ="' . mysql_real_escape_string($this->input->post('category')) . '" AND skincolor="' . $skin . '"')->result_array();
+                    $items_body = $this->db->query('SELECT * FROM dressup_body_parts WHERE `type` ="' . mysql_real_escape_string($this->input->post('category')) . '" AND skincolor="' . $skin . '" ORDER BY name ASC')->result_array();
                 }
                 if (!empty($items_body)) {
                     foreach ($items_body as $val) {
                         $type = str_replace('files/', '', $val['directory']);
-                        $items[] = array('id' => $val['name'], 'item_name' => $val['name'], 'profileimage_dir' => 'profilepics', 'profileimage' => $val['profileimage'], 'directory' => '../' . $type, 'type' => $type);
+                        $items[] = array('id' => $val['name'], 'item_name' => $val['name'], 'profileimage_dir' => 'profilepics', 'profileimage' => $val['profileimage'], 'directory' => '../' . $type, 'type' => $type!='eyes'?$type:'face');
                     }
                 }
             }
