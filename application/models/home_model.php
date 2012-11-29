@@ -132,7 +132,9 @@ class Home_model extends CI_Model {
             'reg_date' => date('Y-m-d H:i:s'),
             'reg_ip' => $this->input->ip_address(),
             'invite' => $invite,
-            'buttons' => 200
+            'buttons' => 200,
+            //will be removed
+            'active' => 1,
         );
         
         $this->db->insert('users', $data);
