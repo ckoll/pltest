@@ -46,6 +46,9 @@ class Dressup_model extends CI_Model {
                 }
                 if (!empty($items_body)) {
                     foreach ($items_body as $val) {
+                        if (in_array($val['name'], array('normal skin eyes', 'olive skin eyes', 'dark skin eyes'))) {
+                            continue;
+                        }
                         $type = str_replace('files/', '', $val['directory']);
                         $items[] = array('id' => $val['name'], 'item_name' => $val['name'], 'profileimage_dir' => 'profilepics', 'profileimage' => $val['profileimage'], 'directory' => '../' . $type, 'type' => $type!='eyes'?$type:'face');
                     }
