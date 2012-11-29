@@ -198,12 +198,47 @@ class Home_model extends CI_Model {
     public function send_notification($uid, $template, $subject, $notif_type, $data = NULL) {
         $user = $this->db->query('SELECT * FROM users LEFT JOIN user_notifications ON users.id=user_notifications.uid WHERE id="' . $uid . '"')->row_array();
         if (!empty($user['email']) && $user['notif'] == 1 && $user[$notif_type] == 1) {
-            $message_text = $this->load->view('email/' . $template, $data, true);
-            $headers = "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-            $headers .= 'From: Perfect-Look.Org <notifications@perfect-look.org>' . "\r\n";
-            mail($user['email'], $subject, $message_text, $headers);
+            if ($this->_isTimeToSent($uid, $notif_type)) {
+                $message_text = $this->load->view('email/' . $template, $data, true);
+                $headers = "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                $headers .= 'From: Perfect-Look.Org <notifications@perfect-look.org>' . "\r\n";
+                mail($user['email'], $subject, $message_text, $headers);
+            }
         }
+    }
+
+    protected function _isTimeToSent($uid, $notif_type, $max = 2)
+    {
+        $sent = $this->db->query('SELECT * FROM sent_emails WHERE user_id="' . $uid . '" AND type="'.$notif_type.'"')->row_array();
+
+        if (!$sent) {
+            $data = array(
+                'user_id' => $uid,
+                'type' => $notif_type,
+                'number' => 1,
+                'last_sent' => date('Y-m-d H:i:s')
+            );
+
+            $this->db->insert('sent_emails', $data);
+
+            return true;
+        }
+
+        if ($sent['number'] < $max) {
+            $number = $sent['number']+1;
+            $this->db->query('UPDATE sent_emails SET number='.$number.', last_sent="'.date('Y-m-d H:i:s').'"  WHERE user_id="' . $uid . '" AND type="'.$notif_type.'"');
+            return true;
+        }
+
+        $minus1hour = mktime(date("H")-1, date('i'), date('s'), date("m"),date("d"), date("Y"));
+        if ($minus1hour >= strtotime($sent['last_sent'])) {
+            $this->db->query('UPDATE sent_emails SET number=1, last_sent="'.date('Y-m-d H:i:s').'"  WHERE user_id="' . $uid . '" AND type="'.$notif_type.'"');
+            return true;
+        }
+
+        return false;
+
     }
 
     public function check_activate($key) {
