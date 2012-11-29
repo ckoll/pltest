@@ -65,6 +65,14 @@ class Dressup extends User_controller {
         $this->tpl->show($this->data);
     }
 
+    public function regenerate_images($id)
+    {
+        $dressupItem = $this->dressup_model->dressup_details($id);
+        $data = $this->dressup_model->show_items($id, 1);
+        $this->dressup_model->generateImages($id, $data['full_view']);
+        redirect('/'.$dressupItem['username'].'/dressup/'.$id);
+    }
+
     public function dress($id = NULL) {
         $this->data['scripts'] = array_merge($this->data['scripts'], array('jquery.horizontal.scroll.js'));
         $this->load->model('dressup_model');

@@ -76,9 +76,11 @@ $route['pms/([0-9]+)'] = 'user/pms/reply/$1';
 $route['dressup'] = 'dressup/index';
 $route['inventory'] = 'dressup/inventory';
 $route['dressup/dress/(:any)'] = 'dressup/dress/$1';
+$route['dressup/regenerate_images/([0-9]+)'] = 'dressup/regenerate_images/$1';
 $route['dressup/(dress|ajax|edit_dressup|outfits)'] = 'dressup/$1';
 $route['dressup/(:any)'] = 'dressup/index/$1';
 $route['dressup/dress/([0-9]+)'] = 'dressup/dress/$1';
+
 
 //UPLOAD PHOTO
 $route['upload'] = 'upload/index';

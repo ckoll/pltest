@@ -503,13 +503,13 @@ class Dressup_model extends CI_Model {
 //        }
     }
 
-    public function show_items($id = NULL) {
+    public function show_items($id = NULL, $force = 0) {
         $this->session->set_userdata(array('last_page' => $_SERVER['REQUEST_URI'])); // Last page for back redirect
 
         require_once APPPATH . 'libraries/Dressup.php';
         $dressup = new Dressup_lib();
 
-        if (!empty($id) && !(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == "XMLHttpRequest")) {
+        if (!empty($id) && (!(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == "XMLHttpRequest") || $force ) ) {
             $dress = $this->db->query('SELECT * FROM user_dressups WHERE id="' . $id . '"')->row_array();
             $dressup->clear_doll();
             if (!empty($dress['doll'])) {
@@ -521,7 +521,7 @@ class Dressup_model extends CI_Model {
             $dressup->create_default();
         }
         $view = $dressup->result_view();
-        return array('items' => $view['items'], 'code' => $view['code'], 'doll' => $view['doll']);
+        return array('items' => $view['items'], 'code' => $view['code'], 'doll' => $view['doll'], 'full_view' => $view);
     }
 
     public function add_item($item_id) {
@@ -589,6 +589,25 @@ class Dressup_model extends CI_Model {
         }
 
 
+        $this->generateImages($id, $view);
+
+        //add buttons
+        if (empty($edit)) {
+            $this->load->library('buttons');
+            $this->buttons->add_money($this->user['id'], 10);
+            $this->buttons->write_history($this->user['id'], array('action' => 'new_dressup', 'buttons' => $this->user['buttons'], 'now_buttons' => $this->user['buttons'] + 10, 'description' => 'Added new dressup'));
+
+            if (!empty($uid)) {
+                $this->load->model('user_model');
+            }
+            $this->user_model->write_history_activity(((!empty($uid)) ? $uid : $this->user['id']), 'dressup', $id);
+        }
+
+        return array('id' => $id);
+    }
+
+    public function generateImages($id, $view)
+    {
         //get background
         $bg = $this->db->get_where('dressup_items', array('id' => $view['doll']['background_id']))->row_array();
 
@@ -612,22 +631,11 @@ class Dressup_model extends CI_Model {
             //create small image
             require_once APPPATH . 'libraries/ImageHandler.php';
             $ImageHandler = new ImageHandler();
-            $ImageHandler->load(FILES . 'users/dressup-HD/' . $id . '.jpg')->resize(500, 350)->save(FILES . 'users/dressup/' . $id . '.jpg',2,100);
+            $ImageHandler
+                ->load(FILES . 'users/dressup-HD/' . $id . '.jpg')
+                ->resize(500, 350)
+                ->save(FILES . 'users/dressup/' . $id . '.jpg',2,100);
         }
-
-        //add buttons
-        if (empty($edit)) {
-            $this->load->library('buttons');
-            $this->buttons->add_money($this->user['id'], 10);
-            $this->buttons->write_history($this->user['id'], array('action' => 'new_dressup', 'buttons' => $this->user['buttons'], 'now_buttons' => $this->user['buttons'] + 10, 'description' => 'Added new dressup'));
-
-            if (!empty($uid)) {
-                $this->load->model('user_model');
-            }
-            $this->user_model->write_history_activity(((!empty($uid)) ? $uid : $this->user['id']), 'dressup', $id);
-        }
-
-        return array('id' => $id);
     }
 
     public function featured_dressups($for_page, $page) {

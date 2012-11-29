@@ -40,6 +40,11 @@
                class="photo_details_buttons"><img
                     src="/images/edit.png"></a>
             <?php endif; ?>
+            <?php if (!empty($admin)):?>
+            <a style="float: right; margin-right: 20px" href="/dressup/regenerate_images/<?= $item['id'] ?>"
+               class="photo_details_buttons"><img
+                    src="/images/error.png"></a>
+            <?php endif; ?>
 
         </div>
         <br class="clear">
