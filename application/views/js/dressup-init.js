@@ -588,12 +588,13 @@ $(function(){
             $('.step2').hide()
             $('textarea[name=comment]').val('')
             $('select[name=saving] :first').attr('selected','selected').change()
-            if($('input[name=look_url_redirect]')!=""){
+            if($('input[name=look_url_redirect]')!="" && $('input[name=look_url_redirect]').val() != location.href && $('input[name=look_url_redirect]').val() != ''){
                 document.location = $('input[name=look_url_redirect]').val()
             }
         }
     })
     $('input[name=close_save_modal]').live('click',function(){
+
         $('#save_look_modal').dialog('close')
     })
     $('input[name=save_look]').click(function(){
