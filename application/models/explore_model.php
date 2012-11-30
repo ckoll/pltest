@@ -225,7 +225,7 @@ class Explore_model extends CI_Model {
                             $all_sended_status[$val] = -3; //already registered
                         } elseif (!in_array($val, array_keys($already_sended)) && $today_sended <= 50) {
 
-                            $this->home_model->send_to_mail($val, null, $subject, 'invite_friend', $this->user['username'], null, array('message'=>$message, 'user'=>$this->user));
+                            $this->home_model->send_to_mail($val, null, $subject, 'invite_friend', $this->user['username'], null, array('message'=>$message, 'user'=>$this->user, 'add_message'=>$message_append));
 
                             $ins_data = array(
                                 'uid' => $this->user['id'],
@@ -276,7 +276,7 @@ class Explore_model extends CI_Model {
                     $this->buttons->add_money($this->user['id'], 50);
                      $this->buttons->write_history($this->user['id'], array('action' => 'invite_friends', 'jewels' => $this->user['jewels'], 'now_jewels' => $this->user['jewels'],'buttons' => $this->user['buttons'], 'now_buttons' => ($this->user['buttons']+50), 'description' => 'Sent invite to friend'));
                 } else {
-                    $err = 'Invite already sended';
+                    $err = 'Invite already sent';
                 }
             }
             echo json_encode(array('err' => $err));

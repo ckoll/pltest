@@ -77,7 +77,7 @@
                     if ($system == 'facebook') {
                                 ?><input type="button" class="button fbbutton_send" onclick="facebook_send_message(this,<?= $sended['fb_more_data'][$key] ?>); return false;" value="Send"/><?
                     } else {
-                        echo '<span class="green">Invite Sended</span>';
+                        echo '<span class="green">Invite Sent</span>';
                     }
                     break;
                 case '0':

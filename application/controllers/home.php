@@ -450,7 +450,7 @@ class Home extends CI_Controller
             'user' => $this->user,
             'photo' => $this->upload_model->photo_details(3952102),
             'dressup' => $this->dressup_model->dressup_details(559),
-
+            'message' => 'sdfdfghnbjn.m,.'
         );
         $this->load->view('email/invite_friend', $emailData);
     }
