@@ -56,7 +56,7 @@ $curr_dresup = $this->uri->segment(3);
         <div id="item_more"></div>
         
         <br style="clear: left"><br>
-        <h2>Item you are using now &nbsp;&nbsp;<a href="/dressup" target="_blank">Item Inventory</a></h2>
+        <h2>Item you are using now &nbsp;&nbsp;<a href="/inventory" target="_blank">Item Inventory</a></h2>
 
         <div id="scrollbar" class="used_items">
             <div class="viewport">
