@@ -21,7 +21,7 @@
                             </tr>
 
                             <tr>
-                                <td>
+                                <td colspan="2">
                                     <?=isset($add_message)?$add_message:''?>
                                 </td>
                             </tr>
