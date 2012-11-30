@@ -252,6 +252,13 @@ class Home extends CI_Controller
                 $this->home_model->signup();
                 $this->data['sending'] = 1;
             }
+            /////////
+            if ($this->home_model->check_signin_form($this->data['err'])) {
+                $this->home_model->signin();
+            }
+            ////////
+
+
         } elseif ($this->input->get('key')) {
             //Activation
             if ($this->home_model->check_activate($this->input->get('key'))) {
