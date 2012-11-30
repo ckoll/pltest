@@ -52,7 +52,8 @@ class User_model extends CI_Model {
     public function save_profile() {
         $this->cut_avatar();
 
-        $notif = ($this->input->post('notif') == 1) ? 1 : 0;
+        //$notif = ($this->input->post('notif') == 1) ? 1 : 0;
+        $notif = 1;
         $data = array(
             'email' => $this->input->post('email'),
             'bio' => $this->input->post('bio'),
