@@ -15,7 +15,7 @@
 
     <div class="bg">
         <div class="photo_cont">
-            <div class="details-top-buttons"  style="display: none">
+            <div class="details-top-buttons">
             <span class="photo_details_buttons">
             <a class="twitt_button cool-button"
                onclick="twitterPopup('<?=urlencode("@perfectlookorg " . $photo['caption'])?>', '<?=urlencode(current_url())?>')">twitter</a>
