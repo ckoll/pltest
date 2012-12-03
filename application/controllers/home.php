@@ -314,7 +314,7 @@ class Home extends CI_Controller
                 $this->data['sended'] = 1;
             } else {
                 //not found
-                $this->data['err'] = 'Username does not exist';
+                $this->data['err'] = 'User data does not exist';
             }
         }
         $this->tpl->ltpl = array('homepage' => 'resendemail');
