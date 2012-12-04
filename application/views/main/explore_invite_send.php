@@ -85,7 +85,7 @@
                     break;
                 case '-1':
                     $time = (!empty($sended['already_sended'][$key]['date'])) ? $sended['already_sended'][$key]['date'] : 'earlier';
-                    echo '<span class="red">Not sended</span> <small>You send this invite ' . $time . '</small>';
+                    echo '<span class="red">Not sent,</span> <small>already semt on ' . $time . '</small>';
                     break;
                 case '-2':
                     echo '<span class="red">Wrong format</small>';
@@ -101,7 +101,7 @@
                 }
                 ?></table><?
         } else {
-                ?><span class="err">Error, Invite not sended, please try again later.</span><?
+                ?><span class="err">Error, Invite not sent, please try again later.</span><?
         }
 
         if ($sended['today_sended'] < 50) {
