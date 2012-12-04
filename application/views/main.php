@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="<?= base_url() ?>css/main.css">
         <link rel="stylesheet" href="<?= base_url() ?>css/dropdown.css">
         <link rel="stylesheet" href="<?= base_url() ?>css/jquery-ui-1.8.20.custom.css">
+
         <?
         if (!empty($styles)) {
             foreach ($styles as $val) {

@@ -16,13 +16,17 @@
     <div class="bg">
         <div class="photo_cont">
             <div class="details-top-buttons">
-            <span class="photo_details_buttons">
+            <?php
+            $shareText = urlencode("@perfectlookorg " . $photo['caption'] . ' '.base_url().'files/users/uploads/'.$photo['uid'].'/'.$photo['id'] . $photo['rand_num'].'.'.$photo['image_type']);
+
+                ?>
+            <span class="photo_details_buttons"  style="margin-right: 20px">
             <a class="twitt_button cool-button"
-               onclick="twitterPopup('<?=urlencode("@perfectlookorg " . $photo['caption'])?>', '<?=urlencode(current_url())?>')">twitter</a>
+               onclick="twitterPopup('<?=$shareText?>', '<?=urlencode(current_url())?>')">twitter</a>
             </span>
 
             <span class="photo_details_buttons">
-               <a class="cool-button fb-button" onclick="facebookPopup('<?=urlencode(current_url())?>')">facebook</a>
+               <a class="cool-button fb-button" onclick="facebookPopup('<?=urlencode(current_url())?>', '<?=$shareText?>')">facebook</a>
             </span>
             </div>
             <div class="clear"></div>

@@ -137,15 +137,15 @@ $(document).ready(function(){
         $(this).addClass('mousedown');
     });
 
-    $('.cool-button').mouseup(function(){
-        $(this).removeClass('mousedown');
+    $(document).mouseup(function(){
+        $('.cool-button').removeClass('mousedown');
     });
 });
 
 
-function facebookPopup(url) {
+function facebookPopup(url, text) {
 
-    var url = "http://www.facebook.com/sharer/sharer.php?u="+url;
+    var url = "http://www.facebook.com/sharer/sharer.php?u="+url+'&t='+text;
     var w = 550;
     var h = 450;
     var left = (screen.width / 2) - (w / 2);

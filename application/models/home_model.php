@@ -135,6 +135,7 @@ class Home_model extends CI_Model {
             'buttons' => 200,
             //will be removed
             'active' => 1,
+            'ref_url' => $this->input->post('ref_url'),
         );
         
         $this->db->insert('users', $data);

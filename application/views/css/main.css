@@ -1539,7 +1539,7 @@ ul.brands3{
 }
 
 .photo_details_buttons {
-    margin-left: 50px;
+    margin-left: 10px;
     float: left;
     display: inline-block;
     margin-top: 0;
@@ -1625,9 +1625,9 @@ ul.brands3{
 
 .fb-button:hover {
     background-color: #3B5998;
-    background-image: -moz-linear-gradient(#2DADDC, #0271BF);
-    background-image: -webkit-linear-gradient(#2DADDC, #0271BF);
-    background-image: linear-gradient(#2DADDC, #0271BF);
+    background-image: -moz-linear-gradient(#a0a6b1, #35457e);
+    background-image: -webkit-linear-gradient(#a0a6b1, #35457e);
+    background-image: linear-gradient(#a0a6b1, #35457e);
 }
 
 .fb-button.mousedown {

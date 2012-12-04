@@ -12,6 +12,7 @@
                 <div><label <? if (!empty($_POST['email'])) echo'style="display:none"' ?>>Email</label><input type="text" autocomplete="off" name="email" value="<? if (!empty($_POST['email'])) echo $_POST['email']; ?>"></div>
                 <div><label>Password</label><input type="password" autocomplete="off" name="password"></div>
                 <div><label>Password Repeat</label><input type="password" autocomplete="off" name="password2"></div>
+                <input type="hidden" name="ref_url" value="<?=isset($_SERVER['HTTP-REFERRER'])?$_SERVER['HTTP-REFERRER']:''?>">
                 <input type="submit" name="signup" value=" " id="signup">
                 <?
             }
