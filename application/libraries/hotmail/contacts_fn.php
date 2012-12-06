@@ -48,6 +48,10 @@
 		}
 		if ($token) {
 
+            //$url = 'https://apis.live.net/v5.0/me/contacts?access_token='.$token->getDelegationToken().'';
+            //$xmlresponse =  curl_file_get_contents($url);
+            //echo $xmlresponse; exit;
+
 			// Convert Unix epoch time stamp to user-friendly format.
 				$expiry = $token->getExpiry();
 				$expiry = date(DATE_RFC2822, $expiry);
@@ -73,6 +77,7 @@
 				curl_setopt ($session, CURLOPT_SSL_VERIFYPEER, FALSE);
 				curl_setopt ($session, CURLOPT_TIMEOUT, 120);
 				$response_h = curl_exec($session);
+            print_r(curl_error($session));
 				curl_close($session);	
 				
 		//*******************PARSING THE RESPONSE ****************************************************

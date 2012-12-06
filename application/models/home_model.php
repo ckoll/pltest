@@ -34,9 +34,11 @@ class Home_model extends CI_Model {
         if (empty($this->usr)) {
             $err = 'Login/Password is incorrect';
             return false;
+        /*
         } elseif ($this->usr['active'] == 0) {
             $err = '<span>Account is unconfirmed [ <a href="/resendemail" id="resendemail">resend activation link</a> ]</span>';
             return false;
+        */
         } elseif($this->input->post('remember_me')) {
             $this->load->helper('cookie');
             $week = 3600 * 24 * 7;
@@ -133,8 +135,6 @@ class Home_model extends CI_Model {
             'reg_ip' => $this->input->ip_address(),
             'invite' => $invite,
             'buttons' => 200,
-            //will be removed
-            'active' => 1,
             'ref_url' => $this->input->post('ref_url'),
         );
         

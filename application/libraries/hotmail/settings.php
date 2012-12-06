@@ -1,7 +1,7 @@
 <?php
 
 // Specify true to log messages to Web server logs.
-$DEBUG = false;
+$DEBUG = true;
 
 // Comma-delimited list of offers to be used.
 $OFFERS = "Contacts.View";

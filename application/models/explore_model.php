@@ -3,20 +3,22 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Explore_model extends CI_Model {
+class Explore_model extends CI_Model
+{
 
     //FIND FRIENDS
 
-    public function fb_friends($fb_id = NULL) {
+    public function fb_friends($fb_id = NULL)
+    {
         $this->session->set_userdata(array('last_page' => $_SERVER['REQUEST_URI'])); // Last page for back redirect
         if (!empty($fb_id)) {
             require(APPPATH . 'libraries/facebook/facebook.php');
             $this->load->config('social');
             $facebook = new Facebook(array(
-                        'appId' => $this->config->item('fbAppId'),
-                        'secret' => $this->config->item('fbSecret'),
-                        'cookie' => true
-                    ));
+                'appId' => $this->config->item('fbAppId'),
+                'secret' => $this->config->item('fbSecret'),
+                'cookie' => true
+            ));
             $user = $facebook->getUser();
             if (!empty($user)) {
                 try {
@@ -38,7 +40,8 @@ class Explore_model extends CI_Model {
         }
     }
 
-    public function tw_friends($tw_id = NULL) {
+    public function tw_friends($tw_id = NULL)
+    {
         $this->session->set_userdata(array('last_page' => $_SERVER['REQUEST_URI'])); // Last page for back redirect
         require_once APPPATH . 'libraries/twitter/twitteroauth.php';
         $this->load->config('social');
@@ -62,7 +65,8 @@ class Explore_model extends CI_Model {
         }
     }
 
-    public function search_user_contacts($type, $friends) {
+    public function search_user_contacts($type, $friends)
+    {
         $finded = array();
         switch ($type) {
             case 'email':
@@ -112,7 +116,8 @@ class Explore_model extends CI_Model {
         return $finded;
     }
 
-    public function short_url($url) {
+    public function short_url($url)
+    {
         $login = 'vlodkow';
         $appkey = 'R_4563fe15ede57a2c05fc1437b9300405';
         $format = 'json';
@@ -124,7 +129,8 @@ class Explore_model extends CI_Model {
     }
 
     //INVITE FRIENDS
-    public function send_invites($type, $friends, $message = '', &$err = NULL) {
+    public function send_invites($type, $friends, $message = '', &$err = NULL)
+    {
         $add_buttons = 0;
         $this->session->set_userdata(array('last_page' => $_SERVER['REQUEST_URI'])); // Last page for back redirect
 
@@ -225,7 +231,7 @@ class Explore_model extends CI_Model {
                             $all_sended_status[$val] = -3; //already registered
                         } elseif (!in_array($val, array_keys($already_sended)) && $today_sended <= 50) {
 
-                            $this->home_model->send_to_mail($val, null, $subject, 'invite_friend', $this->user['username'], null, array('message'=>$message, 'user'=>$this->user, 'add_message'=>$message_append));
+                            $this->home_model->send_to_mail($val, null, $subject, 'invite_friend', $this->user['username'], null, array('message' => $message, 'user' => $this->user, 'add_message' => $message_append));
 
                             $ins_data = array(
                                 'uid' => $this->user['id'],
@@ -247,13 +253,14 @@ class Explore_model extends CI_Model {
             if (!empty($add_buttons)) {
                 $this->load->library('buttons');
                 $this->buttons->add_money($this->user['id'], $add_buttons * 50);
-                $this->buttons->write_history($this->user['id'], array('action' => 'invite_friends', 'jewels' => $this->user['jewels'], 'now_jewels' => $this->user['jewels'],'buttons' => $this->user['buttons'], 'now_buttons' => ($this->user['buttons']+($add_buttons * 50)), 'description' => 'Sent invites to '.$add_buttons.' friends'));
+                $this->buttons->write_history($this->user['id'], array('action' => 'invite_friends', 'jewels' => $this->user['jewels'], 'now_jewels' => $this->user['jewels'], 'buttons' => $this->user['buttons'], 'now_buttons' => ($this->user['buttons'] + ($add_buttons * 50)), 'description' => 'Sent invites to ' . $add_buttons . ' friends'));
             }
             return array('already_sended' => $already_sended, 'fb_more_data' => $fb_more_data, 'all_sended_status' => $all_sended_status, 'today_sended' => $today_sended);
         }
     }
 
-    public function check_fb_invites($user) {
+    public function check_fb_invites($user)
+    {
         if (!empty($user)) {
             //GET SENDED INVITES TODAY
             $today_sended = $this->db->get_where('sended_invite', array('uid' => $this->user['id'], 'date' => date('Y-m-d')))->num_rows();
@@ -274,7 +281,7 @@ class Explore_model extends CI_Model {
                     //add buttons
                     $this->load->library('buttons');
                     $this->buttons->add_money($this->user['id'], 50);
-                     $this->buttons->write_history($this->user['id'], array('action' => 'invite_friends', 'jewels' => $this->user['jewels'], 'now_jewels' => $this->user['jewels'],'buttons' => $this->user['buttons'], 'now_buttons' => ($this->user['buttons']+50), 'description' => 'Sent invite to friend'));
+                    $this->buttons->write_history($this->user['id'], array('action' => 'invite_friends', 'jewels' => $this->user['jewels'], 'now_jewels' => $this->user['jewels'], 'buttons' => $this->user['buttons'], 'now_buttons' => ($this->user['buttons'] + 50), 'description' => 'Sent invite to friend'));
                 } else {
                     $err = 'Invite already sent';
                 }
@@ -283,7 +290,8 @@ class Explore_model extends CI_Model {
         }
     }
 
-    public function yahoo_contacts() {
+    public function yahoo_contacts()
+    {
         $all = array();
         require_once APPPATH . 'libraries/yahoo/Yahoo.inc';
         define('CONSUMER_KEY', "dj0yJmk9SU1ucEprQzN4RlpIJmQ9WVdrOWF6ZDBNR0ppTXpJbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1jZg--");
@@ -300,7 +308,8 @@ class Explore_model extends CI_Model {
         return $all;
     }
 
-    public function gmail_contacts() {
+    public function gmail_contacts()
+    {
         $all = array();
         $client_id = $this->config->item('gmail_client_id');
         $client_secret = $this->config->item('gmail_client_secret');
@@ -308,7 +317,8 @@ class Explore_model extends CI_Model {
         $max_results = $this->config->item('gmail_max_results');
         $auth_code = $_GET["code"];
 
-        function curl_file_get_contents($url) {
+        function curl_file_get_contents($url)
+        {
             $curl = curl_init();
             $userAgent = 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)';
             curl_setopt($curl, CURLOPT_URL, $url); //The URL to fetch. This can also be set when initializing a session with curl_init().
@@ -358,60 +368,67 @@ class Explore_model extends CI_Model {
         $result = $xml->xpath('//gd:email');
 
         foreach ($result as $title) {
-            $addr = (string) $title->attributes()->address;
+            $addr = (string)$title->attributes()->address;
             $all[$addr] = '';
         }
         return $all;
     }
-    
-    public function get_bugs($limit, $page){
+
+    public function get_bugs($limit, $page)
+    {
         $begin = $limit * $page;
-        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS bugs.*, users.username FROM bugs LEFT JOIN users ON users.id = bugs.uid ORDER BY id DESC LIMIT '.$begin.','.$limit)->result_array();
+        return $this->db->query('SELECT SQL_CALC_FOUND_ROWS bugs.*, users.username FROM bugs LEFT JOIN users ON users.id = bugs.uid ORDER BY id DESC LIMIT ' . $begin . ',' . $limit)->result_array();
     }
-    public function add_bug(){
+
+    public function add_bug()
+    {
         $bug_text = $this->input->post('text');
         $user = $this->user['id'];
-        $this->db->query('INSERT INTO bugs(uid,text,date) VALUES("'.$user.'","'.$bug_text.'", "'.  date('Y-m-d H:i:s').'")');
+        $this->db->query('INSERT INTO bugs(uid,text,date) VALUES("' . $user . '","' . $bug_text . '", "' . date('Y-m-d H:i:s') . '")');
         $this->load->library('buttons');
         $this->buttons->add_money($user, 5);
-        $this->buttons->write_history($this->user['id'], array('action' => 'add_bug', 'jewels' => $this->user['jewels'], 'now_jewels' => $this->user['jewels'],'buttons' => $this->user['buttons'], 'now_buttons' => ($this->user['buttons']+5), 'description' => 'For posted information about a bug'));
-        if(is_file($_FILES['attach']['tmp_name'])){
+        $this->buttons->write_history($this->user['id'], array('action' => 'add_bug', 'jewels' => $this->user['jewels'], 'now_jewels' => $this->user['jewels'], 'buttons' => $this->user['buttons'], 'now_buttons' => ($this->user['buttons'] + 5), 'description' => 'For posted information about a bug'));
+        if (is_file($_FILES['attach']['tmp_name'])) {
             $name = $_FILES['attach']['name'];
             $id = $this->db->insert_id();
-            copy($_FILES['attach']['tmp_name'], FILES.'bugs/'.$id.'-'.$name);
-            $this->db->query('UPDATE bugs SET attach="'.mysql_real_escape_string($name).'" WHERE id="'.$id.'"');
+            copy($_FILES['attach']['tmp_name'], FILES . 'bugs/' . $id . '-' . $name);
+            $this->db->query('UPDATE bugs SET attach="' . mysql_real_escape_string($name) . '" WHERE id="' . $id . '"');
         }
     }
 
-    public function count_pages($for_page) {
+    public function count_pages($for_page)
+    {
         $count = $this->db->query('SELECT FOUND_ROWS() as result')->row()->result;
         return ceil($count / $for_page);
     }
-    
-    public function remove_message($id){
+
+    public function remove_message($id)
+    {
         $acc_check = '';
-        $admin = $this->db->get_where('users_admin',array('uid'=>$this->user['id']))->result();
-        if(empty($admin)){
-            $acc_check = ' AND uid="'.$this->user['id'].'"';
+        $admin = $this->db->get_where('users_admin', array('uid' => $this->user['id']))->result();
+        if (empty($admin)) {
+            $acc_check = ' AND uid="' . $this->user['id'] . '"';
         }
-        $attach = $this->db->query('SELECT attach FROM bugs WHERE id="'.$id.'" '.$acc_check)->row()->attach;
-        @unlink(FILES.'bugs/'.$id.'-'.$attach);
-        $this->db->query('DELETE FROM bugs WHERE id="'.$id.'" '.$acc_check);
+        $attach = $this->db->query('SELECT attach FROM bugs WHERE id="' . $id . '" ' . $acc_check)->row()->attach;
+        @unlink(FILES . 'bugs/' . $id . '-' . $attach);
+        $this->db->query('DELETE FROM bugs WHERE id="' . $id . '" ' . $acc_check);
     }
-    
-    public function bug_status_change(){
+
+    public function bug_status_change()
+    {
         $val = $this->input->post('val');
         $id = $this->input->post('id');
-        $admin = $this->db->get_where('users_admin',array('uid'=>$this->user['id']))->result();
-        if($admin){
-            $this->db->query('UPDATE bugs SET status="'.$val.'" WHERE id="'.$id.'"');
+        $admin = $this->db->get_where('users_admin', array('uid' => $this->user['id']))->result();
+        if ($admin) {
+            $this->db->query('UPDATE bugs SET status="' . $val . '" WHERE id="' . $id . '"');
         }
     }
-    
-    public function bug_text_save(){
+
+    public function bug_text_save()
+    {
         $val = $this->input->post('val');
         $id = $this->input->post('id');
-        $this->db->query('UPDATE bugs SET `text`="'.$val.'" WHERE id="'.$id.'"');
+        $this->db->query('UPDATE bugs SET `text`="' . $val . '" WHERE id="' . $id . '"');
     }
-    
+
 }

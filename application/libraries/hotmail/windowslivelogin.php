@@ -455,6 +455,7 @@ class WindowsLiveLogin
     {
         if ($this->_debug) {
             error_log($string);
+            print_r($string);
         }
     }
     
