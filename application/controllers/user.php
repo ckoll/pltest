@@ -260,6 +260,9 @@ class User extends User_controller
         $item['liked'] = $this->dressup_model->isLiked($item);
         $this->data['item'] = $item;
         $this->data['dress_id'] = $id;
+        $this->data['og-title'] = $item['name'] . ' ' . $item['dress_comment'];
+        $this->data['og-image'] = getSquareDressup($item);
+
 
         if(!isset($this->user['id'])) {
             $this->tpl->gtpl = 'startpage';
@@ -336,6 +339,8 @@ class User extends User_controller
 
         $this->data['comments'] = $this->upload_model->get_photo_comments(5, $this->input->get('page'), substr($id, 0, -5));
         $this->data['pages'] = $this->upload_model->count_pages(5);
+        $this->data['og-title'] = $photo['caption'];
+        $this->data['og-image'] = getSquareUpload($photo);
 
         if(!isset($this->user['id'])) {
             $this->tpl->gtpl = 'startpage';

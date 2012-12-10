@@ -1,3 +1,4 @@
+<?php ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -21,6 +22,13 @@
             }
         }
         ?>
+
+        <meta property="og:site_name" content="perfect-look.org"/>
+        <meta property="og:title" content="<?=isset($this->data['og-title'])?$this->data['og-title']:''?>"/>
+        <meta property="og:url" content="<?=current_url()?>"/>
+        <meta property="og:image" content="<?=base_url()?><?=isset($this->data['og-image'])?$this->data['og-image']:''?>"/>
+        <meta property="og:description" content="<?=isset($this->data['og-title'])?$this->data['og-title']:''?>">
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     </head>
     <body>

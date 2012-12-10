@@ -23,7 +23,7 @@
 
                 <span class="photo_details_buttons">
                    <a class="cool-button fb-button"
-                      onclick="facebookPopup('<?=urlencode(current_url())?>', '<?=$shareText?>')">facebook</a>
+                      onclick="facebookPopup('<?=urlencode(current_url())?>')">facebook</a>
                 </span>
             </div>
             <div class="clear"></div>
