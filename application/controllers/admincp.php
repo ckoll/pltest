@@ -260,12 +260,13 @@ class Admincp extends User_controller
                     if (!empty($val[1])) {
                         $ins = array(
                             'name' => $val[1],
-                            'type' => $val[2],
-                            'default' => $val[3],
-                            'skincolor' => $val[4],
-                            'directory' => $val[5],
-                            'files' => $val[6],
-                            'profileimage' => $val[7]
+                            'display_name' => $val[2],
+                            'type' => $val[3],
+                            'default' => $val[4],
+                            'skincolor' => $val[5],
+                            'directory' => $val[6],
+                            'files' => $val[7],
+                            'profileimage' => $val[8]
                         );
                         if (in_array($val[1], $exists_bodypart)) {
                             $this->db->where('name', $val[1]);

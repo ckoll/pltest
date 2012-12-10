@@ -47,7 +47,7 @@ class Dressup_model extends CI_Model {
                 if (!empty($items_body)) {
                     foreach ($items_body as $val) {
                         $type = str_replace('files/', '', $val['directory']);
-                        $items[] = array('id' => $val['name'], 'item_name' => $val['name'], 'profileimage_dir' => 'profilepics', 'profileimage' => $val['profileimage'], 'directory' => '../' . $type, 'type' => $type);
+                        $items[] = array('id' => $val['name'], 'item_name' => isset($val['display_name'])&&$val['display_name']?$val['display_name']:$val['name'], 'profileimage_dir' => 'profilepics', 'profileimage' => $val['profileimage'], 'directory' => '../' . $type, 'type' => $type);
                     }
                 }
             }
