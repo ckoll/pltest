@@ -562,11 +562,48 @@ class Dressup_model extends CI_Model {
         }
         $view = $dressup->result_view();
 
+        $coverTop = 0;
+        $coverBottom = 0;
+        if (!empty($view['items'])) {
+            foreach ($view['items'] as $val) {
+
+                if ($val['cover'] == 'n/a') {
+                    continue;
+                }
+
+                $coverParts = explode(',', $val['cover']);
+                foreach($coverParts as $part) {
+                    if (trim($part) == 'top') {
+                        $coverTop = 1;
+                    }
+                    if (trim($part) == 'bottom') {
+                        $coverBottom = 1;
+                    }
+                    if ($coverTop && $coverBottom) {
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (!$coverTop) {
+            $dressup->add_default_top();
+        }
+        if (!$coverBottom) {
+            $dressup->add_default_bottom();
+        }
+
+        //reload view
+        if (!$coverBottom || !$coverTop) {
+            $view = $dressup->result_view();
+        }
+
         if (!empty($view['items'])) {
             foreach ($view['items'] as $val) {
                 $items[] = $val['id'];
             }
         }
+
 
         $day_look = ($this->input->post('day_look') == 1) ? 1 : 0;
         if ($day_look == 1) {

@@ -79,6 +79,14 @@ class Dressup_lib {
         $this->add_items(array(53, 67));
     }
 
+    public function add_default_top() {
+        $this->add_items(array(53));
+    }
+
+    public function add_default_bottom() {
+        $this->add_items(array(67));
+    }
+
     public function get_body_layers() {
         $skin_parts = $this->CI->db->query('SELECT * FROM dressup_body_parts WHERE skincolor = "' . $this->doll['skincolor'] . '"')->result_array();
         if (!empty($skin_parts)) {
