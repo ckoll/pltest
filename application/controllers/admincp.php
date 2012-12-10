@@ -190,7 +190,7 @@ class Admincp extends User_controller
     public function items($new = NULL)
     {
 
-        $tabsToUpdate = array(0);
+        $tabsToUpdate = array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14);
 
         if (is_file($_FILES['file']['tmp_name'])) {
 
