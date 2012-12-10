@@ -12,7 +12,11 @@
     <script src="<?= base_url() ?>js/jquery.infinitescroll.js"></script>
     <script src="<?= base_url() ?>js/jquery.masonry.js"></script>
     <link rel="stylesheet" href="<?= base_url() ?>css/jquery-ui-1.8.20.custom.css">
-
+    <meta property="og:site_name" content="perfect-look.org"/>
+    <meta property="og:title" content="<?=isset($this->data['og-title'])?$this->data['og-title']:''?>"/>
+    <meta property="og:url" content="<?=current_url()?>"/>
+    <meta property="og:image" content="<?=base_url()?><?=isset($this->data['og-image'])?$this->data['og-image']:''?>"/>
+    <meta property="og:description" content="<?=isset($this->data['og-title'])?$this->data['og-title']:''?>">
 </head>
 
 <body>
@@ -72,8 +76,11 @@
                 <h1>Featured Users</h1>
             </div>
             <div class="part">
-                <a href="/diirectioner"><img src="images/user01.jpg" width="60" height="60" /></a>
-                <a href="/taylorswift"><img src="images/user02.jpg" width="60" height="60" /></a> <a href="/_ibiebsswag"><img src="images/user03.jpg" width="60" height="60" /></a> <a href="/bdaysuits"><img src="images/user04.jpg" width="60" height="60" /></a></a> <a href="/perfectlookadmin"><img src="images/user05.jpg" width="60" height="60" /></a>
+                <a href="/diirectioner"><img src="/images/user01.jpg" width="60" height="60" /></a>
+                <a href="/taylorswift"><img src="/images/user02.jpg" width="60" height="60" /></a>
+                <a href="/_ibiebsswag"><img src="/images/user03.jpg" width="60" height="60" /></a>
+                <a href="/bdaysuits"><img src="/images/user04.jpg" width="60" height="60" /></a>
+                <a href="/perfectlookadmin"><img src="/images/user05.jpg" width="60" height="60" /></a>
             </div>
 
             <div class="sidetitle">
@@ -111,6 +118,7 @@
                     </tr>
                 </table>
             </div>
+            <?php if (isset($recently_online_users)): ?>
             <div class="sidetitle">
                 <h1>Most Recently Online</h1>
             </div>
@@ -121,7 +129,7 @@
                 <br>
                 <a href="/find_friends?username=&search_username=Search">Show All</a>
             </div>
-
+            <?php endif; ?>
 
         </div>
     </div>

@@ -266,7 +266,7 @@ class User extends User_controller
 
         if(!isset($this->user['id'])) {
             $this->tpl->gtpl = 'startpage';
-            $this->tpl->ltpl = array('main' => 'dressup_details');
+            $this->tpl->ltpl = array('startpage' => 'dressup_details');
         } else {
             $this->tpl->ltpl = array('main' => 'dressup_details', 'lmenu' => array('dressup_using_items'));
         }
@@ -344,9 +344,10 @@ class User extends User_controller
 
         if(!isset($this->user['id'])) {
             $this->tpl->gtpl = 'startpage';
+            $this->tpl->ltpl = array('startpage' => 'photo_details');
+        }else {
+            $this->tpl->ltpl = array('main' => 'photo_details', 'lmenu' => array('photo_details'));
         }
-
-        $this->tpl->ltpl = array('main' => 'photo_details', 'lmenu' => array('photo_details'));
         $this->tpl->show($this->data);
     }
 

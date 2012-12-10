@@ -8,8 +8,8 @@ class User_controller extends CI_Controller {
     public $user;
 
     public $publicActions = array(
-        //'dressup',
-        //'photo'
+       'dressup',
+       'photo'
     );
 
     public function __construct() {
