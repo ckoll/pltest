@@ -394,7 +394,7 @@ class Admincp extends User_controller
         $this->load->model('upload_model');
         $perPage = 100;
         $page = $this->input->get('page');
-        $page = $page?$this->input->get('del'):1;
+        $page = $page>0?$page:1;
 
         $photos = $this->upload_model->latest_photos($perPage, $page-1);
 
@@ -405,6 +405,18 @@ class Admincp extends User_controller
 
         $this->tpl->show($this->data);
 
+    }
+
+    public function refresh_square_crop_image()
+    {
+        $this->load->model('upload_model');
+        $upload = $this->upload_model->photo_details_by_id($this->input->get('id'));
+        if (isset($upload['id'])) {
+            $squareUploadPath = _getSquareUploadPath($upload);
+            unlink($squareUploadPath);
+
+        }
+        redirect('/admincp/photos?page='.$this->input->get('page'));
     }
 
 }
