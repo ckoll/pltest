@@ -30,7 +30,7 @@ Page <?= $page ?>
         <?
     }
     ?></table>
-<?php if ($page - 1): ?>
+<?php if ($page > 1): ?>
     <a href="/admincp/photos?page=<?=$page - 1?>">&lsaquo;&lsaquo;Prev</a>
     <?php endif; ?>
 
