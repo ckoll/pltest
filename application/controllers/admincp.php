@@ -389,4 +389,21 @@ class Admincp extends User_controller
         }
     }
 
+    public function photos()
+    {
+        $this->load->model('upload_model');
+        $perPage = 100;
+        $page = $this->input->get('page');
+        $page = $page?$this->input->get('del'):1;
+
+        $photos = $this->upload_model->latest_photos($perPage, $page-1);
+
+        $this->data['photos'] = $photos;
+
+        $this->tpl->ltpl = array('admin' => 'photos');
+
+        $this->tpl->show($this->data);
+
+    }
+
 }

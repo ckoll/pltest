@@ -40,6 +40,7 @@
                         <li <? if ($active == 'help') echo 'class="selected"' ?>><a href="/admincp/help">Help</a></li>
                         <li <? if ($active == 'items') echo 'class="selected"' ?>><a href="/admincp/items">Items</a></li>
                         <li <? if ($active == 'links') echo 'class="selected"' ?>><a href="/admincp/links">Referrals</a></li>
+                        <li <? if ($active == 'photos') echo 'class="selected"' ?>><a href="/admincp/photos">Photos</a></li>
                     </ul>
                 </div>
                 <br class="clear">
