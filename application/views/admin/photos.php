@@ -13,7 +13,7 @@ if (!empty($photos)) {
             ?>
             <tr>
                 <td><?=$val['id']?></td>
-                <td><img src="<?=getSquareUpload($photo)?>" width="50px"></td>
+                <td><img src="<?=getSquareUpload($val)?>" width="50px"></td>
                 <td width="16">
                     <a href="/admincp/refresh_square_crop_image/?id=<?=$val['id']?>"><img src="/images/refresh.png"></a>
                 </td>
