@@ -22,7 +22,7 @@ Page <?= $page ?>
         ?>
         <tr>
             <td><?=$val['id']?></td>
-            <td><img src="<?=getSquareUpload($val)?>" width="100px"></td>
+            <td><img src="<?=getSquareUpload($val)?>?<?=time()?>" width="100px"></td>
             <td width="16">
                 <a href="/admincp/refresh_square_crop_image/?id=<?=$val['id']?>&page=<?= $page ?>"><img src="/images/refresh.png"></a>
             </td>
