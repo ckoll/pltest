@@ -419,4 +419,19 @@ class Admincp extends User_controller
         redirect('/admincp/photos?page='.$this->input->get('page'));
     }
 
+    public function mass_refresh_square_crop_image()
+    {
+        $this->load->model('upload_model');
+        foreach($_POST['photo'] as $id=>$val) {
+            $upload = $this->upload_model->photo_details_by_id($id);
+            if (isset($upload['id'])) {
+                $squareUploadPath = _getSquareUploadPath($upload);
+                unlink($squareUploadPath);
+            }
+        }
+
+
+        redirect('/admincp/photos?page='.$this->input->get('page'));
+    }
+
 }
