@@ -413,7 +413,7 @@ class Admincp extends User_controller
         $upload = $this->upload_model->photo_details_by_id($this->input->get('id'));
         if (isset($upload['id'])) {
             $squareUploadPath = _getSquareUploadPath($upload);
-            unlink($squareUploadPath);
+            @unlink($squareUploadPath);
 
         }
         redirect('/admincp/photos?page='.$this->input->get('page'));
@@ -426,7 +426,7 @@ class Admincp extends User_controller
             $upload = $this->upload_model->photo_details_by_id($id);
             if (isset($upload['id'])) {
                 $squareUploadPath = _getSquareUploadPath($upload);
-                unlink($squareUploadPath);
+                @unlink($squareUploadPath);
             }
         }
 
