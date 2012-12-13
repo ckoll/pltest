@@ -418,7 +418,7 @@ class Market_model extends CI_Model
             if ($this->user['jewels'] < $item['price_j']) {
                 $rez['err'] = 'Sorry, but you don\'t have enough jewels :(';
                 $rez['errtype'] = 'jewels';
-            } else {
+        } else {
                 $rez['data'] = array('price' => $item['price_j'] . ' jewels', 'title' => $item['item_name'], 'category' => $item['category'], 'id' => $item['id'], 'item_id' => $item['item_id'], 'preview' => 'items/' . $item['directory'] . '/' . $preview);
             }
         } else {
