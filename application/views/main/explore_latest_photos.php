@@ -19,7 +19,7 @@
 
 
 
-                        <a href="/<?= $this->user['username'] ?>/photo/<?= $val['id'] . $val['rand_num'] ?>">
+                        <a href="/<?= $val['username'] ?>/photo/<?= $val['id'] . $val['rand_num'] ?>">
                             <img src="/files/users/uploads/<?= $val['uid'] ?>/<?= $val['id'] . $val['rand_num'] ?>.<?=$val['image_type']?>" alt="" width="130">
                         </a>
                         <br>
