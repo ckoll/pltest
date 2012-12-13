@@ -12,6 +12,8 @@ function getSquareUpload($upload, $side=250) {
             $imageMagic = new ImageMagick();
             $imageMagic->resizeNoPropotions($uploadPath, $squareUploadPath, array('width'=>$side, 'height'=>$side));
         }
+    } else {
+        copy(_getUploadPath($upload), _getSquareUploadPath($upload));
     }
 
     return _getSquareUploadUrl($upload);
