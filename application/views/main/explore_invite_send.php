@@ -85,7 +85,7 @@
                     break;
                 case '-1':
                     $time = (!empty($sended['already_sended'][$key]['date'])) ? $sended['already_sended'][$key]['date'] : 'earlier';
-                    echo '<span class="red">Not sent,</span> <small>already semt on ' . $time . '</small>';
+                    echo '<span class="red">Not sent,</span> <small>already sent on ' . $time . '</small>';
                     break;
                 case '-2':
                     echo '<span class="red">Wrong format</small>';

@@ -246,7 +246,10 @@ class Explore_model extends CI_Model
                         } elseif (!in_array($val, array_keys($already_sended))) {
                             $all_sended_status[$val] = 0;
                         } else {
-                            $all_sended_status[$val] = -1;
+                            //already sent
+                            //$all_sended_status[$val] = -1;
+                            $this->home_model->send_to_mail($val, null, $subject, 'invite_friend', $this->user['username'], null, array('message' => $message, 'user' => $this->user, 'add_message' => $message_append));
+                            $all_sended_status[$val] = 1;
                         }
                     }
             }
