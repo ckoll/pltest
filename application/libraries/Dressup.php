@@ -322,9 +322,30 @@ class Dressup_lib {
 //                }
 
                 if ($this->doll['arms'] == 'back') {
-                    $groups = array('fingers' => '', 'in_hands' => '', 'in_head' => '', 'hair' => '', 'body' => array('top', 'bottom'), 'under_hands' => '', 'slawes' => array('top', 'bottom'), 'hands' => '', 'doll_body' => array('mouth', 'eye', 'face', 'body'), 'back' => '');
+                    $groups = array(
+                        'fingers' => '',
+                        'in_hands' => '',
+                        'in_head' => '',
+                        'hair' => '',
+                        'body' => array('top', 'bottom'),
+                        'under_hands' => '',
+                        'slawes' => array('top', 'bottom'),
+                        'hands' => '',
+                        'doll_body' => array('mouth', 'eye', 'face', 'body'),
+                        'back' => ''
+                    );
                 } else {
-                    $groups = array('fingers' => '', 'in_hands' => '', 'in_head' => '', 'hair' => '', 'under_hands' => '', 'slawes' => array('top', 'bottom'), 'body' => array('top', 'bottom'), 'hands' => '', 'doll_body' => array('mouth', 'eye', 'face', 'body'), 'back' => '');
+                    $groups = array(
+                        'fingers' => '',
+                        'in_hands' => '',
+                        'in_head' => '',
+                        'hair' => '',
+                        'under_hands' => '',
+                        'body' => array('top', 'bottom'),
+                        'slawes' => array('top', 'bottom'),
+                        'hands' => '',
+                        'doll_body' => array('mouth', 'eye', 'face', 'body'),
+                        'back' => '');
                 }
                 $sorted_items = $code = array();
 
