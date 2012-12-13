@@ -457,21 +457,25 @@ class Admincp extends User_controller
     {
         $this->load->model('dressup_model');
         $id = $this->input->get('id');
+        $dressupItem = $this->dressup_model->dressup_details($id);
         $data = $this->dressup_model->show_items($id, 1);
         $this->dressup_model->generateImages($id, $data['full_view']);
+        @unlink(_getSquareDressupPath($dressupItem));
 
-        redirect('/admincp/photos?page='.$this->input->get('page'));
+        redirect('/admincp/dressups?page='.$this->input->get('page'));
     }
 
     public function mass_refresh_square_crop_dressup()
     {
-        $this->load->model('upload_model');
+        $this->load->model('dressup_model');
         foreach($_POST['dressups'] as $id=>$val) {
+            $dressupItem = $this->dressup_model->dressup_details($id);
             $data = $this->dressup_model->show_items($id, 1);
             $this->dressup_model->generateImages($id, $data['full_view']);
+            @unlink(_getSquareDressupPath($dressupItem));
         }
 
-        redirect('/admincp/photos?page='.$this->input->get('page'));
+        redirect('/admincp/dressups?page='.$this->input->get('page'));
     }
 
 
