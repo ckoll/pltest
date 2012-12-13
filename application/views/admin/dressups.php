@@ -28,7 +28,7 @@ Page <?= $page ?>
             <td><img src="<?=getSquareDressup($val)?>?<?=time()?>" width="100px"></td>
             <td width="16">
                 <a href="/admincp/refresh_square_crop_dressup/?id=<?=$val['id']?>&page=<?= $page ?>"><img src="/images/refresh.png"></a>
-                <a href="/<?=$dressup['username']?>/dressup/<?=$dressup['id']?>"><img src="/images/goto.png"></a>
+                <a href="/<?=$val['username']?>/dressup/<?=$val['id']?>"><img src="/images/goto.png"></a>
             </td>
         </tr>
         <?
