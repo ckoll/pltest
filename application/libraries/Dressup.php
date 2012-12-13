@@ -341,8 +341,8 @@ class Dressup_lib {
                         'in_head' => '',
                         'hair' => '',
                         'under_hands' => '',
-                        'body' => array('top', 'bottom'),
                         'slawes' => array('top', 'bottom'),
+                        'body' => array('top', 'bottom'),
                         'hands' => '',
                         'doll_body' => array('mouth', 'eye', 'face', 'body'),
                         'back' => '');
