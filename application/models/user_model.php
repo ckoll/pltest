@@ -377,6 +377,17 @@ class User_model extends CI_Model {
         return false;
     }
 
+    public function checkUserSetByName($userId, $name)
+    {
+        $sql = "SELECT * FROM user_sets WHERE user_id=".$userId." AND name='".$name."'";
+        $row = $this->db->query($sql)->result_array();
+        if ($row) {
+            return true;
+        }
+
+        return false;
+    }
+
     public function addToUserSet($userId, $set_id, $photo_id)
     {
         $this->db->query('INSERT INTO images_in_sets(`user_id`, `photo_id`, `set_id`) VALUES("'.$userId.'","'.$photo_id.'", "'.$set_id.'")');

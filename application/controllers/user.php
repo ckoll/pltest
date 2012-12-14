@@ -425,7 +425,11 @@ class User extends User_controller
     public function add_set()
     {
         $userId = $this->user['id'];
-        $this->user_model->addUserSet($userId, $this->input->get('name'));
+        $name = $this->input->get('name');
+        if (!$this->user_model->checkUserSetByName($userId, $name)) {
+            $this->user_model->addUserSet($userId, $name);
+        }
+
     }
 
     public function add_to_set()
@@ -435,7 +439,7 @@ class User extends User_controller
         $photo_id = $this->input->get('photo_id');
         $this->load->model('upload_model');
         $photo = $this->upload_model->photo_details_by_id($photo_id);
-        if ($this->user_model->checkSet($userId, $set_id) && $photo) {
+        if (!$this->user_model->checkSet($userId, $set_id) && $photo) {
             $this->user_model->addToUserSet($userId, $set_id, $photo_id);
         }
     }
