@@ -140,8 +140,77 @@ $(document).ready(function(){
     $(document).mouseup(function(){
         $('.cool-button').removeClass('mousedown');
     });
+
+    initAddToSet();
+
+
+
+
 });
 
+
+function initAddToSet() {
+    $('.add-to-set button').unbind('click').click(function(){
+        var cont = $(this).closest('.add-to-set');
+        var photoId = cont.data('id');
+        var setCont = cont.find('.set-dropdown-cont');
+        if (setCont.is(':visible')) {
+            setCont.hide()
+        } else {
+            loadsetCont(setCont);
+            setCont.top(cont.top());
+            setCont.left(cont.left());
+        }
+    });
+}
+
+function loadsetCont(setCont)
+{
+    setCont.load('/user/get_sets', function(){
+        initSetCont(setCont);
+        setCont.show();
+    })
+}
+
+
+function initSetCont(cont)
+{
+    cont.find('.new-set-button').unbind('click').click(function(){
+        var input = cont.find('.new-set-name');
+        input.show();
+        var button = cont.find('.save-new-set');
+        button.show();
+
+        button.unbind('click').click(function(){
+            var name = input.val();
+            if (name.replace(' ', '') == '') {
+                alert('Set name can not be empty')
+            } else {
+                $.ajax({
+                    url: '/user/add_set',
+                    data: {name: name},
+                    success: function(message){
+                        loadsetCont(cont.closest('.set-dropdown-cont'));
+                    }
+                });
+            }
+        });
+
+    });
+
+    cont.find('.add-to-selected-set').unbind('click').click(function(){
+        var setId = cont.find('.user-sets').val();
+        $.ajax({
+            url: '/user/add_to_set',
+            data: {set_id: setId, photo_id: cont.closest('.add-to-set').data('id')},
+            success: function(message){
+                alert('Successfully added');
+                cont.closest('.set-dropdown-cont').hide();
+            }
+        });
+    });
+
+}
 
 function facebookPopup(url) {
 

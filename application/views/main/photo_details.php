@@ -44,6 +44,12 @@
 
             <span class="comments dressup_details photo_details_buttons"><?= count($comments) ?></span>
 
+            <div class="photo_details_buttons add-to-set" data-id="<?= $photo['id']?>">
+                <button class="add-to-set-button"></button>
+                <div class="set-dropdown-cont"></div>
+            </div>
+
+
             <?php if (!empty($admin) || $photo['uid'] == $this->user['id']): ?>
             <a style="float: right; margin-right: 20px" href="/upload/photo_upload/<?= $photo['id'] . $photo['rand_num'] ?>/edit"
                class="photo_details_buttons"><img

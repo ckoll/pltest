@@ -1,0 +1,36 @@
+.add-to-set-button{
+    background: transparent url("../images/picture--plus.png");
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: medium none;
+}
+
+.set-dropdown-cont {
+    border: 2px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    display: none;
+    padding: 5px;
+    background-color: #DDDDDD;
+    position: absolute;
+}
+
+.new-set-button {
+    border: 1px solid;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 14px;
+    margin: 5px 0;
+    padding: 4px;
+    width: 50px;
+}
+
+.save-new-set {
+    display: none;
+    background: none;
+}
+
+.new-set-name  {
+    display: none;
+}

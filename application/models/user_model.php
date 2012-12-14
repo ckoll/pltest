@@ -355,6 +355,33 @@ class User_model extends CI_Model {
 
     }
 
+    public function getUserSets($userId)
+    {
+        $sql = "SELECT * FROM user_sets WHERE user_id=".$userId;
+        return $this->db->query($sql)->result_array();
+    }
+
+    public function addUserSet($userId, $name)
+    {
+        $this->db->query('INSERT INTO user_sets(`user_id`, `name`) VALUES("'.$userId.'","'.$name.'")');
+    }
+
+    public function checkSet($userId, $set_id)
+    {
+        $sql = "SELECT * FROM user_sets WHERE user_id=".$userId." AND id=".$set_id;
+        $row = $this->db->query($sql)->result_array();
+        if ($row) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function addToUserSet($userId, $set_id, $photo_id)
+    {
+        $this->db->query('INSERT INTO images_in_sets(`user_id`, `photo_id`, `set_id`) VALUES("'.$userId.'","'.$photo_id.'", "'.$set_id.'")');
+    }
+
 }
 
 ?>

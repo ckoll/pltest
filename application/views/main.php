@@ -12,6 +12,7 @@
         <meta name="description" content="">
         <link rel="stylesheet" href="<?= base_url() ?>css/normalize.css">
         <link rel="stylesheet" href="<?= base_url() ?>css/main.css">
+        <link rel="stylesheet" href="<?= base_url() ?>css/common.css">
         <link rel="stylesheet" href="<?= base_url() ?>css/dropdown.css">
         <link rel="stylesheet" href="<?= base_url() ?>css/jquery-ui-1.8.20.custom.css">
 

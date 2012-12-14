@@ -401,4 +401,43 @@ class User extends User_controller
         exit;
     }
 
+    public function get_sets()
+    {
+        $userId = $this->user['id'];
+        $sets = $this->user_model->getUserSets($userId);
+
+        $select = "";
+        if (count($sets)) {
+            $select .= "<select class='user-sets'>";
+            foreach($sets as $set) {
+                $select .= "<option value='".$set['id']."'>".$set['name']."</option>";
+            }
+            $select .= "</select>";
+            $select .= "<button class='add-to-selected-set'>Add</button>";
+        }
+
+        $select .= "<div class='new-set-button'>New set</div> <input type='text' class='new-set-name'> <button class='save-new-set'>Save</button>";
+
+        print_r($select);
+        exit;
+    }
+
+    public function add_set()
+    {
+        $userId = $this->user['id'];
+        $this->user_model->addUserSet($userId, $this->input->get('name'));
+    }
+
+    public function add_to_set()
+    {
+        $userId = $this->user['id'];
+        $set_id = $this->input->get('set_id');
+        $photo_id = $this->input->get('photo_id');
+        $this->load->model('upload_model');
+        $photo = $this->upload_model->photo_details_by_id($photo_id);
+        if ($this->user_model->checkSet($userId, $set_id) && $photo) {
+            $this->user_model->addToUserSet($userId, $set_id, $photo_id);
+        }
+    }
+
 }
